@@ -1,0 +1,151 @@
+.user-controls-container {
+  background-color: #292b2f;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+.user-controls-container:hover .status-t,
+.user-controls-container:hover .tag {
+  transform: translateY(-128%);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.tag,
+.status-t {
+  transition: transform 320ms;
+}
+
+.username {
+  font-size: 1.4rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.roller {
+  padding: 0.2rem;
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 320ms;
+}
+
+.tag {
+  position: absolute;
+}
+
+.avatar-wrapper {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  margin-right: 1.2rem;
+  position: relative;
+}
+
+.avatar {
+  width: inherit;
+  border-radius: inherit;
+}
+
+.status-icon {
+  width: 0.84rem;
+  height: 0.84rem;
+  border-radius: 5rem;
+  background-color: #398a55;
+  bottom: 0.4rem;
+  right: 0;
+}
+
+.status-holder {
+  padding: 0.3rem;
+  background-color: #292b2f;
+  position: absolute;
+  border-radius: 50%;
+  bottom: -1px;
+  right: -1px;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.switcher {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.4rem;
+  background: transparent;
+  color: #b9bbbe;
+  cursor: pointer;
+  outline: none;
+}
+
+.switcher:hover {
+  background-color: rgba(79, 84, 92, 0.32);
+}
+
+.tipper {
+  position: relative;
+}
+
+.tipper::after,
+.tipper::before {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 64ms transform 128ms cubic-bezier(0.43, 0.09, 0.38, 2.56);
+}
+
+.tipper:hover::after,
+.tipper:hover::before {
+  opacity: 1;
+}
+
+.tipper-boi:hover::before {
+  transform: translate(-50%, -132%) scale(1);
+}
+
+.tipper-boi:hover::after {
+  transform: translate(-50%, -172%) rotate(45deg) scale(1);
+}
+
+.tipper::before {
+  content: attr(data-tip);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -132%) scale(0.98);
+  width: max-content;
+  font-size: 1.4rem;
+  letter-spacing: 0.2px;
+  font-weight: 700;
+  color: #dbdadc;
+  background-color: #1a191d;
+
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.4rem;
+}
+
+.tipper::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background-color: #1a191d;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -172%) rotate(45deg) scale(0.98);
+  z-index: 1;
+}

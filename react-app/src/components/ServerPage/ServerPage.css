@@ -1,0 +1,8 @@
+.server-page {
+  height: 100%;
+  width: calc(100% - 150px);
+}
+
+.server-page-content {
+  display: flex;
+}

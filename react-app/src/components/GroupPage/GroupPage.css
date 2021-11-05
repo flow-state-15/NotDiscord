@@ -1,0 +1,8 @@
+.group-page {
+    height: 100%;
+    width: calc(100% - 150px);
+}
+
+.group-page-content {
+    display: flex
+}

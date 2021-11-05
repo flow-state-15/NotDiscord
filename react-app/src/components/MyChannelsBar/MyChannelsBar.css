@@ -1,0 +1,68 @@
+.my-channels-bar {
+  background-color: #2f3136;
+  color: #fff;
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+}
+.channels-bar-friends-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 0 1rem;
+  height: 4.2rem;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(79, 84, 92, 0.32);
+  outline: none;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.44rem;
+  font-weight: 600;
+}
+.channels-bar-inner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+
+.channels-bar-inner-content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.username-color {
+  color: rgb(142, 146, 151);
+}
+.status-holder-bg-color {
+  background-color: #2f3136;
+}
+.channel-bar-message-title {
+  color: rgb(142, 146, 151);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.DM-icon {
+  padding: 0.6rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+.DM-icon:hover {
+  background-color: rgb(51, 54, 60);
+}
+.group-icon {
+  padding: 0.6rem;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+.group-icon:hover {
+  background-color: rgb(51, 54, 60);
+}
+.username-alias-to-group {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,82 @@
+.server-icon {
+  margin: 0 auto;
+  position: relative;
+}
+.server-icon::before {
+  content: "";
+  opacity: 0;
+  width: 0.5rem;
+  height: 40%;
+  top: 27%;
+  left: -25%;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 1rem;
+  transition: all 250;
+  transform: translateY(-100%, -50%) scale(0.5);
+}
+.server-icon:hover::before {
+  opacity: 1;
+}
+
+.server-icon .server-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 300ms;
+  background-image: url("https://st3.depositphotos.com/25868248/35496/v/950/depositphotos_354960310-stock-illustration-smile-icon-yellow-background-tasty.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.server-icon .server-img:hover {
+  border-radius: 36%;
+}
+
+.server-icon:hover .name-popout {
+  display: block;
+}
+
+.name-popout {
+  position: absolute;
+  z-index: 100;
+  background-color: #1a191d;
+  /* background-color: #000; */
+  top: 20%;
+  left: 150%;
+  color: #dbdadc;
+  display: none;
+  transition: all 400ms;
+  animation: 200ms namepopout;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  width: max-content;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.14);
+}
+
+.name-popout p {
+  font-size: 1.44rem;
+  font-weight: 700;
+}
+
+@keyframes namepopout {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.name-popout-square {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  background-color: #1a191d;
+  /* background-color: #000; */
+  z-index: -100;
+  transform: rotate(45deg);
+  top: 38%;
+  left: -3%;
+}
