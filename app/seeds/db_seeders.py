@@ -15,7 +15,7 @@ def seed_user():
     demo_user = User(
         email='DougD@demo.dome',
         hashed_password=generate_password_hash('DemoDome'),
-        avatar='https://static.wikia.nocookie.net/nickelodeon/images/2/2c/Stock_Image_of_Doug_Dimmadome.png/revision/latest/top-crop/width/360/height/360?cb=20200323044439',
+        avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
         tagged_name=f'Doug_DemoDome#1234',
         created_at=dt.datetime.now(),
     )
@@ -39,7 +39,7 @@ def seed_server():
     demo_server = Server(
         name='The DemoDome',
         owner_id=1,
-        icon='https://static.wikia.nocookie.net/nickelodeon/images/2/2c/Stock_Image_of_Doug_Dimmadome.png/revision/latest/top-crop/width/360/height/360?cb=20200323044439',
+        icon='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
         invite_link=generate_password_hash('The DemoDome')[-8:]
     )
     db.session.add(demo_server)

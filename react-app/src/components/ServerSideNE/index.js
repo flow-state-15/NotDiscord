@@ -1,8 +1,20 @@
 import ServerIcon from "./ServerIcon";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { loadUserServers } from "../../store/servers";
+import { useSelector, useDispatch } from "react-redux";
 import "./ServerSideBarNE.css";
 
 export default function ServerSideBarNE() {
+  const dispatch = useDispatch();
+  const currentUserSession = useSelector((state) => state.session.user);
+  const currentUserSessionServers = useSelector((state) => state.servers);
+  console.log(currentUserSessionServers);
+
+  useEffect(() => {
+    dispatch(loadUserServers(currentUserSession.id));
+  }, [dispatch]);
+
   return (
     <nav className="main-server-side-bar-container">
       <ul className="main-server-side-bar">

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Server
+from app.models import Server, User_Server
 
 
 server_routes = Blueprint("servers", __name__)
@@ -18,8 +18,8 @@ def get_one_server(server_id):
 @server_routes.route('/byUser/<int:user_id>')
 @login_required
 def logged_in_start(user_id):
-    return "<h1>User logged in</h1>"
-
+    servers = User_Server.query.filter(User_Server.user_id == user_id).all()
+    return {'servers': [server.to_dict() for server in servers]}
 
 # POST create server
 @server_routes.route('/', methods=['POST'])
