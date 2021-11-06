@@ -15,6 +15,8 @@ export default function ServerSideBar() {
       <ServerIcon />
       <ServerIcon />
       <ServerIcon />
+      <ServerIcon />
+      <ServerIcon />
       <div className="side-bar-add">
         <svg
           class="circleIcon-2_77lA"

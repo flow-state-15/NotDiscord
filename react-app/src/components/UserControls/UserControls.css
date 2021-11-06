@@ -25,7 +25,6 @@
 
 .username {
   font-size: 1.4rem;
-  font-family: inherit;
   font-weight: 600;
   cursor: pointer;
 }
@@ -41,6 +40,11 @@
 
 .tag {
   position: absolute;
+  font-size: 1.3rem;
+}
+
+.status-t {
+  font-size: 1.3rem;
 }
 
 .avatar-wrapper {

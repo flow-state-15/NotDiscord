@@ -1,10 +1,11 @@
 .my-channels-bar {
   background-color: #2f3136;
   color: #fff;
-  width: 24rem;
+  width: 24.4rem;
   display: flex;
   flex-direction: column;
 }
+
 .channels-bar-friends-btn {
   display: flex;
   align-items: center;
@@ -20,7 +21,12 @@
   color: #fff;
   font-family: inherit;
   font-size: 1.44rem;
+}
+.channels-bar-friends-btn p {
+  font-size: 1.5rem;
   font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.8px;
 }
 .channels-bar-inner-content {
   display: flex;
@@ -35,17 +41,26 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  margin-top: 2rem;
 }
 .username-color {
   color: rgb(142, 146, 151);
+  font-size: 1.6rem;
+  letter-spacing: 0.25px;
 }
 .status-holder-bg-color {
   background-color: #2f3136;
 }
 .channel-bar-message-title {
   color: rgb(142, 146, 151);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   text-transform: uppercase;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 0.5px;
 }
 .DM-icon {
   padding: 0.6rem;
@@ -60,9 +75,25 @@
   cursor: pointer;
   border-radius: 0.4rem;
 }
+.group-icon:hover .name-tag-close {
+  display: block;
+}
+.DM-icon:hover .name-tag-close {
+  display: block;
+}
 .group-icon:hover {
   background-color: rgb(51, 54, 60);
 }
 .username-alias-to-group {
   font-size: 1.2rem;
+  font-weight: 500;
+}
+.name-tag-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.name-tag-close {
+  display: none;
 }

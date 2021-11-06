@@ -29,16 +29,28 @@ export default function MyChannelsBar() {
           <p>Friends</p>
         </button>
         <div className="channels-bar-inner-content-inner">
-          <h2 className="channel-bar-message-title">Direct Messages</h2>
-          <DMIcon />
-          <GroupIcon />
-          <DMIcon />
-          <DMIcon />
-          <DMIcon />
-          <DMIcon />
-          <DMIcon />
-          <DMIcon />
-          <GroupIcon />
+          <h2 className="channel-bar-message-title">
+            Direct Messages
+            <svg
+              x="0"
+              y="0"
+              class="privateChannelRecipientsInviteButtonIcon-3A3uTc icon-22AiRD"
+              aria-hidden="false"
+              width="16"
+              height="16"
+              viewBox="0 0 18 18"
+            >
+              <polygon
+                fill-rule="nonzero"
+                fill="#B9BBBE"
+                points="15 10 10 10 10 15 8 15 8 10 3 10 3 8 8 8 8 3 10 3 10 8 15 8"
+              ></polygon>
+            </svg>
+          </h2>
+          <div className="scrollable-my-channels">
+            <DMIcon />
+            <GroupIcon />
+          </div>
         </div>
       </div>
 
