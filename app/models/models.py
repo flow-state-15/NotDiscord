@@ -56,8 +56,11 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'hashed_password': self.hashed_password,
+            'avatar': self.avatar,
+            'tagged_name': self.tagged_name,
+            'created_at': self.created_at
         }
 
 
@@ -71,8 +74,8 @@ class User_Server(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'server_id': self.server_id,
+            'user_id': self.user_id
         }
 
 
@@ -87,8 +90,10 @@ class Server(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'name': self.name,
+            'owner_id': self.owner_id,
+            'icon': self.icon,
+            'invite_link': self.invite_link,
         }
 
 
@@ -104,8 +109,9 @@ class Friend(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'accepted': self.accepted,
+            'sender_user_id': self.sender_user_id,
+            'rec_user_id': self.rec_user_id,
         }
 
 
@@ -119,8 +125,8 @@ class User_Channel(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'channel_id': self.channel_id,
+            'user_id': self.user_id,
         }
 
 
@@ -133,8 +139,8 @@ class Channel(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'name': self.name,
+            'server_id': self.server_id,
         }
 
 
@@ -150,6 +156,8 @@ class Message(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'user_id': self.user_id,
+            'channel_id': self.channel_id,
+            'content': self.content,
+            'sent_date': self.sent_date,
         }
