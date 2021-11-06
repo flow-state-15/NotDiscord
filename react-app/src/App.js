@@ -72,7 +72,7 @@ function App() {
             <ServerPage />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginForm />
           </Route>
           <Route path="/test">
             <ServerSideBarNE />

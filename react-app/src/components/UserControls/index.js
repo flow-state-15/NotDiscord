@@ -1,12 +1,17 @@
+import { useSelector, useDispatch } from "react-redux";
 import "./UserControls.css";
 
 export default function UserControls() {
+  const currentSessionUser = useSelector((state) => state.session.user);
+  const copySessionUsername = () =>
+    navigator.clipboard.writeText(currentSessionUser.tagged_name);
+
   return (
     <div className="user-controls-container">
       <div className="user-info">
         <div className="avatar-wrapper">
           <img
-            src="https://st3.depositphotos.com/25868248/35496/v/950/depositphotos_354960310-stock-illustration-smile-icon-yellow-background-tasty.jpg"
+            src={currentSessionUser.avatar}
             alt="Avatar"
             className="avatar"
           />
@@ -15,12 +20,18 @@ export default function UserControls() {
           </div>
         </div>
         <div className="name-tag">
-          <h1 className="username tipper" data-tip="Click to copy username">
-            Concrete
+          <h1
+            className="username tipper"
+            data-tip="Click to copy username"
+            onClick={copySessionUsername}
+          >
+            {currentSessionUser.tagged_name.split("#")[0]}
           </h1>
           <div className="roller">
             <p className="status-t">🔵</p>
-            <p className="tag">#6400</p>
+            <p className="tag">
+              {`#${currentSessionUser.tagged_name.split("#")[1]}`}
+            </p>
           </div>
         </div>
       </div>
