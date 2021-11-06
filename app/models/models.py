@@ -82,6 +82,7 @@ class Server(db.Model):
     name = db.Column(db.String(50), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     icon = db.Column(db.String(255))
+    invite_link = db.Column(db.String)
 
     def to_dict(self):
         return {
