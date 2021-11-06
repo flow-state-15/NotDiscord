@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+// import { csrfFetch } from "./csrf";
 
 const LOAD = 'servers/LOAD';
 const ADD = 'servers/ADD';
@@ -20,7 +20,7 @@ const remove = (serverId) => ({
 });
 
 export const loadUserServers = (userId) => async dispatch => {
-    const response = await csrfFetch(`/api/servers/byUser/${userId}`);
+    const response = await fetch(`/api/servers/byUser/${userId}`);
 
     if (response.ok) {
         const servers = await response.json();
@@ -29,7 +29,7 @@ export const loadUserServers = (userId) => async dispatch => {
 };
 
 export const addServer = (formData) => async dispatch => {
-    const response  = await csrfFetch("/api/servers", {
+    const response  = await fetch("/api/servers", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export const addServer = (formData) => async dispatch => {
 };
 
 export const updateServer = (formData) => async dispatch => {
-    const response = await csrfFetch("/api/servers", {
+    const response = await fetch("/api/servers", {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export const updateServer = (formData) => async dispatch => {
 }
 
 export const removeServer = (serverId) => async dispatch => {
-    const response = await csrfFetch(`/api/servers/${serverId}`, {
+    const response = await fetch(`/api/servers/${serverId}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json'

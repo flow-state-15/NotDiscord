@@ -26,10 +26,10 @@ function User() {
         <strong>User Id</strong> {userId}
       </li>
       <li>
-        <strong>Username</strong> {user.username}
+        <strong>Email</strong> {user.email}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Tag</strong> {user.tagged_name}
       </li>
     </ul>
   );

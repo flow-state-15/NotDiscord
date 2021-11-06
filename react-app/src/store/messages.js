@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+// import { csrfFetch } from "./csrf";
 
 const LOAD = 'messages/LOAD';
 const ADD = 'messages/ADD';
@@ -20,7 +20,7 @@ const remove = (messageId) => ({
 });
 
 export const loadChannelMessages = (channelId) => async dispatch => {
-    const response = await csrfFetch(`/api/messages/byChannel/${channelId}`);
+    const response = await fetch(`/api/messages/byChannel/${channelId}`);
 
     if (response.ok) {
         const messages = await response.json();
@@ -29,7 +29,7 @@ export const loadChannelMessages = (channelId) => async dispatch => {
 };
 
 export const addMessage = (formData) => async dispatch => {
-    const response  = await csrfFetch("/api/messages", {
+    const response  = await fetch("/api/messages", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export const addMessage = (formData) => async dispatch => {
 };
 
 export const updateMessage = (formData) => async dispatch => {
-    const response = await csrfFetch("/api/messages", {
+    const response = await fetch("/api/messages", {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export const updateMessage = (formData) => async dispatch => {
 }
 
 export const removeMessage = (messageId) => async dispatch => {
-    const response = await csrfFetch(`/api/messages/${messageId}`, {
+    const response = await fetch(`/api/messages/${messageId}`, {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json'
