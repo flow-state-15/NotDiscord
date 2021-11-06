@@ -1,2 +1,2 @@
 from .db import db
-from .user import User
+from .models import User, Server, User_Server, Channel, User_Channel, Message, Friend

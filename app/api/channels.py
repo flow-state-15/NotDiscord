@@ -1,42 +1,49 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, jsonify
 from flask_login import login_required
+from app.models import Channel, User_Channel
 
 
-bp = Blueprint("channels", __name__, url_prefix="/channels")
+channel_routes = Blueprint("channels", __name__)
 
 
 #CHANNEL routes
 #get one channel
-@bp.route('/<int:channel_id>')
+@channel_routes.route('/<int:channel_id>')
+@login_required
 def get_channel(channel_id):
     return "get one channel"
 
 
 #get all channels by user
-@bp.route('/byUser/<int:channel_id>')
+@channel_routes.route('/byUser/<int:channel_id>')
+@login_required
 def get_channels_byuser(channel_id):
     return "get user channels"
 
 
 #get all channels by server
-@bp.route('/byServer/<int:server_id>')
+@channel_routes.route('/byServer/<int:server_id>')
+@login_required
 def get_channels_byserver(server_id):
     return "get server channels"
 
 
 #POST create channel
-@bp.route('/', methods=['POST'])
+@channel_routes.route('/', methods=['POST'])
+@login_required
 def create_channel():
     return "create channel"
 
 
 #PUT update channel
-@bp.route('/<int:channel_id>', methods=['PUT'])
+@channel_routes.route('/<int:channel_id>', methods=['PUT'])
+@login_required
 def update_channel(channel_id):
     return "update channel"
 
 
 #DELETE delete channel
-@bp.route('/<int:channel_id>', methods=['DELETE'])
+@channel_routes.route('/<int:channel_id>', methods=['DELETE'])
+@login_required
 def delete_channel(channel_id):
     return "delete channel"

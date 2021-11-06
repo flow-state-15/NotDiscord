@@ -2,9 +2,9 @@ from werkzeug.security import generate_password_hash
 from app.models import db, User, Server, User_Server, Channel, Message, Friend
 import datetime as dt
 import random
-import faker
+from faker import Faker
 
-fake = faker()
+fake = Faker()
 
 total_users = 30
 total_servers = 20
@@ -23,10 +23,11 @@ def seed_user():
     # rest of the users
     for _ in range(0, total_users+1):
         user = User(
-            email=fake.internet.email(),
+            email=fake.email(),
             hashed_password=generate_password_hash('password'),
-            avatar=fake.internet.avatar(),
-            tagged_name=f'{faker.internet.userName()}#{random.randint(1000, 10000)}',
+            # avatar=fake.avatar(),
+            avatar="",
+            tagged_name=f'{fake.user_name()}#{random.randint(1000, 10000)}',
             created_at=dt.datetime.now(),
         )
         db.session.add(user)
@@ -39,7 +40,7 @@ def seed_server():
         name='The DemoDome',
         owner_id=1,
         icon='https://static.wikia.nocookie.net/nickelodeon/images/2/2c/Stock_Image_of_Doug_Dimmadome.png/revision/latest/top-crop/width/360/height/360?cb=20200323044439',
-        invite_link=generate_password_hash('The DemoDome')[0:9]
+        invite_link=generate_password_hash('The DemoDome')[-8:]
     )
     db.session.add(demo_server)
     server_adjectives = [
@@ -48,20 +49,21 @@ def seed_server():
         'Awesome Server',
     ]
     for _ in range(0, 30):
-        user = fake.internet.username()
-        server_name = f'{user}\'s {server_adjectives[random.randint(1, len(server_adjectives)+1)]}'
+        user = fake.user_name()
+        server_name = f'{user}\'s {server_adjectives[random.randint(0, len(server_adjectives)-1)]}'
         new_server = Server(
             name=server_name,
             owner_id=random.randint(1, total_users+1),
-            icon=fake.internet.avatar(),
-            invite_link=generate_password_hash(server_name)[0:9]
+            # icon=fake.avatar(),
+            icon="",
+            invite_link=generate_password_hash(server_name)[-8:]
         )
         db.session.add(new_server)
     db.session.commit()
 
 
 def seed_user_server():
-    for i in range(0, total_servers+1):
+    for i in range(1, total_servers+1):
         new_user_server = User_Server(
             server_id=i,
             user_id=1
@@ -71,10 +73,10 @@ def seed_user_server():
 
 
 def seed_friends():
-    for i in range(0, total_servers+1):
+    for i in range(1, total_users-1):
         new_user_server = Friend(
-            server_id=i,
-            user_id=1
+            sender_user_id=i,
+            rec_user_id=i+1
         )
         db.session.add(new_user_server)
     db.session.commit()
@@ -127,7 +129,7 @@ def seed_channel():
         db.session.add(new_channel)
         for _ in range(1, 7):
             while True:
-                channel_name = random_channel_names[random.randint(1, len(random_channel_names)+1)]
+                channel_name = random_channel_names[random.randint(1, len(random_channel_names)-1)]
                 if channel_name not in current_channels:
                     current_channels.append(channel_name)
                     new_channel = Channel(
