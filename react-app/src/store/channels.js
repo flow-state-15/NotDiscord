@@ -33,6 +33,7 @@ export const loadServerChannels = (serverId) => async dispatch => {
 
     if (response.ok) {
         const channels = await response.json();
+        console.log(channels)
         dispatch(load(channels["channels"]));
     };
 };
@@ -92,9 +93,9 @@ const channelReducer = (state = {}, action) => {
             case ADD:
                 return {...state, [action.channel.id]: action.channel}
             case REMOVE:
-                const newchannels = {...state};
-                delete newchannels[action.channelId];
-                return newchannels;
+                const newChannels = {...state};
+                delete newChannels[action.channelId];
+                return newChannels;
         default:
             return state;
     }

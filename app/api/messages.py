@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Message
+from app.models import db, Message
 
 
 message_routes = Blueprint("messages", __name__)
@@ -11,13 +11,16 @@ message_routes = Blueprint("messages", __name__)
 @message_routes.route('/byChannel/<int:channel_id>')
 @login_required
 def get_channel_messages(channel_id):
-    return "get all messages in a channel"
+    messages = Message.query.filter(Message.channel_id == channel_id).all()
+    return {"messages": [message.to_dict() for message in messages]}
 
 
 #POST create message
 @message_routes.route('/', methods=['POST'])
 @login_required
 def create_message():
+    # db.session.add(data)
+    # db.session.commit()
     return "create message"
 
 

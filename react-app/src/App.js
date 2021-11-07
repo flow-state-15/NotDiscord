@@ -17,6 +17,7 @@ import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
+
 import "./reset.css";
 import "./App.css";
 
