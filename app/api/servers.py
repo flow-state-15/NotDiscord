@@ -20,7 +20,7 @@ def get_all_servers():
 @server_routes.route('/<int:server_id>')
 @login_required
 def get_one_server(server_id):
-    server = Server.query.filter(Server.id == server_id)
+    server = Server.query.filter(Server.id == server_id).one()
     print(server)
     return {"server": server.to_dict()}
 

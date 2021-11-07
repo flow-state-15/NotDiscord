@@ -17,6 +17,8 @@ import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
+import RouteTesting from "./components/RouteTesting";
+
 import "./reset.css";
 import "./App.css";
 
@@ -83,6 +85,7 @@ function App() {
             <ServerSideBarNE />
             <MyChannelsBar />
             <FriendsSection />
+            <RouteTesting />
           </Route>
         </Switch>
       </BrowserRouter>
