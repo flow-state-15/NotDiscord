@@ -1,8 +1,39 @@
-import ServerIcon from "./ServerIcon";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { loadUserServers } from '../../store/servers'
 import "./ServerSideBarNE.css";
 
 export default function ServerSideBarNE() {
+  const dispatch = useDispatch()
+  const servers = useSelector(state => state.servers)
+  const user = useSelector(state => state.session.user)
+
+  useEffect(()=> {
+    dispatch(loadUserServers(user?.id))
+  }, [])
+
+  const allServers = Object.values(servers)
+
+  console.log("IN ServerSideBar NE, allServers: ", allServers)
+
+  const serversComponents = allServers.map((server) => {
+    return (
+      <li className="main-server-servers purple-hover" key={server?.id}>
+          <Link to={`/channels/${server?.id}`}>
+            <img
+              className="main-server-servers-icon"
+              alt="Server Icon"
+              src="https://cdn.discordapp.com/icons/729943368364326952/52aa622504f824963bb07c5318da22dd.png?size=96"
+            />
+            <div className="main-server-servers-name">
+              <h4 className="main-server-servers-name-text">{server?.name}</h4>
+            </div>
+          </Link>
+        </li>
+    );
+  });
+
   return (
     <nav className="main-server-side-bar-container">
       <ul className="main-server-side-bar">
@@ -24,6 +55,7 @@ export default function ServerSideBarNE() {
           </div>
         </li>
         <li className="main-server-divider"></li>
+        {serversComponents}
         <li className="main-server-servers purple-hover">
           <img
             className="main-server-servers-icon"

@@ -56,7 +56,12 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button
+          type='submit'
+          onClick={() => console.log("LOGIN CLICKED")}
+        >
+          Login
+        </button>
       </div>
     </form>
   );

@@ -76,7 +76,8 @@ function App() {
             <ServerPage />
           </Route>
           <Route path="/login">
-            <LoginPage />
+            <LoginForm />
+            {/* <LoginPage /> */}
           </Route>
           <Route path="/test">
             <ServerSideBarNE />

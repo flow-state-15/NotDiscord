@@ -25,7 +25,8 @@ def get_channels_byuser(channel_id):
 @channel_routes.route('/byServer/<int:server_id>')
 @login_required
 def get_channels_byserver(server_id):
-    return "get server channels"
+    channels = Channel.query.filter(Channel.id == server_id).all()
+    return {"channels": [channel.to_dict() for channel in channels]}
 
 
 #POST create channel
