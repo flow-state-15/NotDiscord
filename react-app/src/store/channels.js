@@ -33,7 +33,7 @@ export const loadServerChannels = (serverId) => async dispatch => {
 
     if (response.ok) {
         const channels = await response.json();
-        console.log(channels)
+        // console.log("***** in server channels thunk, response: ", channels)
         dispatch(load(channels["channels"]));
     };
 };
