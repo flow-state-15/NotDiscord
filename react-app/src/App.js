@@ -72,7 +72,7 @@ function App() {
           <Route path="/channels/group">
             <GroupPage />
           </Route>
-          <Route path="/channels/server">
+          <Route path="/channels/:serverId/:channelId">
             <ServerPage />
           </Route>
           <Route path="/login">
