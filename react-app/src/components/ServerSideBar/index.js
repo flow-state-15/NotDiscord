@@ -1,12 +1,37 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { loadUserServers } from '../../store/servers'
 import ServerIcon from "./ServerIcon";
-import { Link } from "react-router-dom";
 import "./ServerSideBar.css";
 
 export default function ServerSideBar() {
+  const dispatch = useDispatch()
+  const servers = useSelector(state => state.servers)
+  const user = useSelector(state => state.session.user)
+
+  useEffect(()=> {
+    dispatch(loadUserServers(user.id))
+  }, [])
+
+  const allServers = Object.values(servers)
+
+  const serversComponents = allServers.map((server) => {
+    return (
+      <li key={server.id}>
+        <Link to={`/channels/${server.id}`}>
+          <ServerIcon />
+          {server.name}
+        </Link>
+      </li>
+    );
+  });
+
   return (
     <div className="server-side-bar">
       <div className="side-bar-home"></div>
       <div className="side-bar-seperator"></div>
+      {serversComponents}
       <ServerIcon />
       <ServerIcon />
       <ServerIcon />

@@ -10,7 +10,7 @@ export default function ServerPage() {
             <h1>Server Page</h1>
             <NavBar/>
             <div className="server-page-content">
-                <ServerChannelsBar/>
+                <ServerChannelsBar />
                 <MessagesSection />
                 <MembersSection />
             </div>

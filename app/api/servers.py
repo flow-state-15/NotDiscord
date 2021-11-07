@@ -20,15 +20,19 @@ def get_all_servers():
 @server_routes.route('/<int:server_id>')
 @login_required
 def get_one_server(server_id):
-    return "<h1>Testing backend</h1>"
+    server = Server.query.filter(Server.id == server_id)
+    print(server)
+    return {"server": server.to_dict()}
 
 
 # get all user servers
 @server_routes.route('/byUser/<int:user_id>')
 @login_required
 def logged_in_start(user_id):
-    servers = User_Server.query.filter(User_Server.user_id == user_id).all()
-    return {'servers': [server.to_dict() for server in servers]}
+    server_list = Server.query.join(User_Server).filter(User_Server.user_id == user_id).all()
+    # print('******** TESTING PRINT ******** ::', {"servers": [server.to_dict() for server in server_list]})
+    return {"servers": [server.to_dict() for server in server_list]}
+
 
 # POST create server
 @server_routes.route('/', methods=['POST'])
