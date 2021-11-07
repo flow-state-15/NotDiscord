@@ -74,6 +74,11 @@ function App() {
             <GroupPage />
           </Route>
           <Route path="/channels/:serverId/:channelId">
+            <ServerSideBarNE />
+            <ServerPage />
+          </Route>
+          <Route exact path="/channels/:serverId">
+            <ServerSideBarNE />
             <ServerPage />
           </Route>
           <Route path="/login">
