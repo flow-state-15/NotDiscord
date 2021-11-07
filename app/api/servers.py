@@ -30,9 +30,7 @@ def get_one_server(server_id):
 @login_required
 def logged_in_start(user_id):
     server_list = Server.query.join(User_Server).filter(User_Server.user_id == user_id).all()
-
     # print('******** TESTING PRINT ******** ::', {"servers": [server.to_dict() for server in server_list]})
-
     return {"servers": [server.to_dict() for server in server_list]}
 
 

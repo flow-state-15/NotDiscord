@@ -33,7 +33,7 @@ export default function ServerSideBarNE() {
         </li>
     );
   });
-
+  
   return (
     <nav className="main-server-side-bar-container">
       <ul className="main-server-side-bar">

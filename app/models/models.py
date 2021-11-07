@@ -41,6 +41,7 @@ class User(db.Model, UserMixin):
     avatar = db.Column(db.String(255))
     tagged_name = db.Column(db.String(255), nullable=False)
     created_at= db.Column(db.Date, nullable=False)
+    
 
     @property
     def password(self):
@@ -70,6 +71,7 @@ class User_Server(db.Model):
     server_id = db.Column(db.Integer, db.ForeignKey(
         "servers.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    users = db.relationship('User', backref='server')
 
     def to_dict(self):
         return {
