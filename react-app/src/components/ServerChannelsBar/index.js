@@ -1,15 +1,12 @@
 import ServerChannelListing from "./ServerChannelListing"
 
-export default function ServerChannelsBar() {
+export default function ServerChannelsBar({ channels }) {
     return (
         <div className="server-channels-bar">
             <h2>Channels</h2>
-            <ServerChannelListing />
-            {/* <ServerChannelListing />
-            <ServerChannelListing />
-            <ServerChannelListing />
-            <ServerChannelListing />
-            <ServerChannelListing /> */}
+            {channels.map((channel) => {
+                return <ServerChannelListing key={channel.id} channel={channel}></ServerChannelListing>
+            })}
         </div>
     )
 }
