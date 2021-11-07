@@ -19,6 +19,16 @@ const remove = (serverId) => ({
     serverId
 });
 
+export const loadAllServers = () => async dispatch => {
+    const response = await fetch(`/api/servers/`);
+    // console.log("TESTING THUNK")
+    if (response.ok) {
+        const servers = await response.json();
+        // console.log("load all thunk: ", servers)
+        dispatch(load(servers.servers));
+    };
+};
+
 export const loadUserServers = (userId) => async dispatch => {
     const response = await fetch(`/api/servers/byUser/${userId}`);
 
@@ -76,16 +86,16 @@ const serverReducer = (state = {}, action) => {
     switch (action.type) {
         case LOAD:
             const newState = {};
-            for (let server of action.list) {
-                newState[server.id] = server;
+            for (let item of action.list) {
+                newState[item.id] = item;
             };
             return newState;
-            case ADD:
-                return {...state, [action.server.id]: action.server}
-            case REMOVE:
-                const newServers = {...state};
-                delete newServers[action.serverId];
-                return newServers;
+        case ADD:
+            return {...state, [action.server.id]: action.server}
+        case REMOVE:
+            const newServers = {...state};
+            delete newServers[action.serverId];
+            return newServers;
         default:
             return state;
     }
