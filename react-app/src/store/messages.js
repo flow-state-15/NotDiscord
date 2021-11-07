@@ -24,6 +24,7 @@ export const loadChannelMessages = (channelId) => async dispatch => {
 
     if (response.ok) {
         const messages = await response.json();
+        console.log(messages)
         dispatch(load(messages["messages"]));
     };
 };

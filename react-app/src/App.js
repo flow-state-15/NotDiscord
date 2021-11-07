@@ -17,7 +17,6 @@ import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
-import RouteTesting from "./components/RouteTesting";
 
 import "./reset.css";
 import "./App.css";
@@ -74,7 +73,7 @@ function App() {
           <Route path="/channels/group">
             <GroupPage />
           </Route>
-          <Route path="/channels/server">
+          <Route path="/channels/:serverId/:channelId">
             <ServerPage />
           </Route>
           <Route path="/login">
@@ -85,7 +84,6 @@ function App() {
             <ServerSideBarNE />
             <MyChannelsBar />
             <FriendsSection />
-            <RouteTesting />
           </Route>
         </Switch>
       </BrowserRouter>

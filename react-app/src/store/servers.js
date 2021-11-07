@@ -24,7 +24,7 @@ export const loadAllServers = () => async dispatch => {
     // console.log("TESTING THUNK")
     if (response.ok) {
         const servers = await response.json();
-        // console.log("load all thunk: ", servers)
+        console.log("load all thunk: ", servers)
         dispatch(load(servers.servers));
     };
 };
