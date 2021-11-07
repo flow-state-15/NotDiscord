@@ -7,6 +7,15 @@ server_routes = Blueprint("servers", __name__)
 
 
 # SERVER ROUTES
+#get all servers
+@server_routes.route('/')
+@login_required
+def get_all_servers():
+    servers = Server.query.all()
+    print(servers)
+    return {"servers": [server.to_dict() for server in servers]}
+
+
 #get one specific server
 @server_routes.route('/<int:server_id>')
 @login_required
@@ -24,7 +33,7 @@ def logged_in_start(user_id):
 # POST create server
 @server_routes.route('/', methods=['POST'])
 @login_required
-def get_all_servers():
+def post_all_servers():
     return "<h1>create server</h1>"
 
 

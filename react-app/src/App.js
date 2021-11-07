@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import ServerSideBar from "./components/ServerSideBar";
+import ServerList from "./components/ServerList"
 import DMPage from "./components/DMPage";
 import GroupPage from "./components/GroupPage";
 import ServerPage from "./components/ServerPage";
@@ -61,6 +62,9 @@ function App() {
         <Switch>
           <Route path="/channels/@me">
             <MyChannelsBar />
+          </Route>
+          <Route path="/servers/">
+            <ServerList />
           </Route>
           <Route path="/channels/DM">
             <DMPage />
