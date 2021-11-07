@@ -19,10 +19,20 @@
   justify-content: center;
   align-items: center;
 }
+.link-alias-to-li {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 50%;
+}
 
 .main-server-servers-icon {
   width: inherit;
   border-radius: inherit;
+  transition: border-radius 128ms;
+}
+
+.main-server-servers-icon:hover {
+  border-radius: 36%;
 }
 
 .main-server-servers:hover::before {
