@@ -153,7 +153,7 @@ class Message(db.Model):
     channel_id = db.Column(db.Integer, db.ForeignKey(
         "channels.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    sent_date = db.Column(db.Date, nullable=False)
+    sent_date = db.Column(db.DateTime, nullable=False)
 
     def to_dict(self):
         return {
