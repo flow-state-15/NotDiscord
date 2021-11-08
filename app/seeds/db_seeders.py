@@ -51,14 +51,19 @@ def seed_server():
         'Awesome Server',
         'Part House',
     ]
+    server_icons = [
+        
+    ]
     for _ in range(0, 30):
         user = fake.user_name()
         server_name = f'{user}\'s {server_adjectives[random.randint(0, len(server_adjectives)-1)]}'
+        new_icon = ''
+        if len(server_icons) > 0:
+            new_icon = server_icons.pop()
         new_server = Server(
             name=server_name,
             owner_id=random.randint(1, total_users+1),
-            # icon=fake.avatar(),
-            icon="",
+            icon=new_icon,
             invite_link=generate_password_hash(server_name)[-8:]
         )
         db.session.add(new_server)
@@ -181,15 +186,10 @@ def undo_all():
     Undos all seeded models.
     '''
     db.session.execute(f'TRUNCATE messages RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE friends RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE user_servers RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE channels RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE servers RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
 
