@@ -176,14 +176,19 @@ def undo_all():
     '''
     Undos all seeded models.
     '''
-    models = [
-        Message, Friend, User_Server, Channel, Server, User
-    ]
-    for model in models:
-        db.session.execute(f'TRUNCATE {model} RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE Message RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE Friend RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE User_Server RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE Channel RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE Server RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE User RESTART IDENTITY CASCADE;')
     db.session.commit()
 
 
 if __name__ == '__main__':
     seed_all()
-    # undo_all()
