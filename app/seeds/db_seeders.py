@@ -83,7 +83,8 @@ def seed_friends():
     for i in range(1, total_users-1):
         new_user_server = Friend(
             sender_user_id=i,
-            rec_user_id=i+1
+            rec_user_id=i+1,
+            accepted=True
         )
         db.session.add(new_user_server)
     db.session.commit()
@@ -114,7 +115,7 @@ def seed_channel():
         'music',
         'spoilers',
         'tv-shows',
-        'politics'
+        'politics',
         'pc-gaming',
         'exercise',
         'programming',
