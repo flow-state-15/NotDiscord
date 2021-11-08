@@ -33,7 +33,6 @@ export default function ServerPage() {
 
     return (
         <div className="server-page">
-            <h1>Server Page</h1>
             <NavBar/>
             <div className="server-page-content">
                 <ServerChannelsBar channels={serverChannels} />
