@@ -17,6 +17,7 @@ export default function FriendSection() {
             <div>
               <h1 className="username username-color username-color-alias-members">
                 Concrete
+                <span className="username-tag-member">#1000</span>
               </h1>
               <h3 className="member-online-status">Online</h3>
             </div>
@@ -55,7 +56,7 @@ export default function FriendSection() {
                     ></path>
                   </g>
                 </svg>
-                <div className="member-section-popout">
+                <div className="member-section-popout member-section-popout-less">
                   <p className="member-section-popout-text">More</p>
                 </div>
               </div>
