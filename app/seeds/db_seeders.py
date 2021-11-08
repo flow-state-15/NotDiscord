@@ -46,7 +46,10 @@ def seed_server():
     server_adjectives = [
         'Awesome Server',
         'Hangout',
+        'Chill Zone',
+        'Server',
         'Awesome Server',
+        'Part House',
     ]
     for _ in range(0, 30):
         user = fake.user_name()
@@ -63,12 +66,19 @@ def seed_server():
 
 
 def seed_user_server():
-    for i in range(1, total_servers+1):
-        new_user_server = User_Server(
-            server_id=i,
-            user_id=1
-        )
-        db.session.add(new_user_server)
+    for server in range(1, total_servers+1):
+        users = []
+        for _ in range(1, 11):
+            while True:
+                user = random.randint(1, total_users)
+                if user not in users:
+                    new_user_server = User_Server(
+                        server_id=server,
+                        user_id=user
+                    )
+                    db.session.add(new_user_server)
+                    users.append(user)
+                    break
     db.session.commit()
 
 
@@ -76,7 +86,8 @@ def seed_friends():
     for i in range(1, total_users-1):
         new_user_server = Friend(
             sender_user_id=i,
-            rec_user_id=i+1
+            rec_user_id=i+1,
+            accepted=True
         )
         db.session.add(new_user_server)
     db.session.commit()
@@ -107,7 +118,7 @@ def seed_channel():
         'music',
         'spoilers',
         'tv-shows',
-        'politics'
+        'politics',
         'pc-gaming',
         'exercise',
         'programming',
@@ -169,14 +180,19 @@ def undo_all():
     '''
     Undos all seeded models.
     '''
-    models = [
-        User, Server, User_Server, Channel, Message
-    ]
-    for model in models:
-        db.session.execute(f'TRUNCATE {model} RESTART IDENTITY CASCADE;')
-        db.session.commit()
+    db.session.execute(f'TRUNCATE messages RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE friends RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE user_servers RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE channels RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE servers RESTART IDENTITY CASCADE;')
+    db.session.commit()
+    db.session.execute(f'TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.commit()
 
 
 if __name__ == '__main__':
     seed_all()
-    # undo_all()

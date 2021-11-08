@@ -23,12 +23,18 @@
   width: 4.8rem;
   height: 4.8rem;
   border-radius: 50%;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .main-server-servers-icon {
   width: inherit;
   border-radius: inherit;
   transition: border-radius 128ms;
+  cursor: pointer;
 }
 
 .main-server-servers-icon:hover {
@@ -57,9 +63,9 @@
 .main-server-side-bar-container {
   /* position: fixed;
   top: 0;
-  bottom: 0;
-  width: 100%; */
-  /* overflow-y: scroll; */
+  bottom: 0; */
+  /* width: 100%; */
+  overflow-y: scroll;
 }
 .main-server-side-bar-container::-webkit-scrollbar {
   display: none;
@@ -127,4 +133,47 @@
 .test-div {
   height: 400vh;
   background-color: aqua;
+}
+
+.server-servers-name-initial {
+  color: #fff;
+  font-size: 1.63rem;
+  font-weight: 600;
+}
+
+.quicklildiv {
+  display: none;
+  z-index: 1000;
+  pointer-events: none;
+  background-color: #1a191d;
+  padding: 0.68rem 1rem;
+  width: max-content;
+  border-radius: 4px;
+  top: 50%;
+  left: 140%;
+  transform-origin: left;
+  transform: translateY(-45%) scale(0.98);
+  transition: opacity 64ms transform 128ms cubic-bezier(0.43, 0.09, 0.38, 2.56);
+  pointer-events: none;
+  color: #fff;
+  z-index: 1000;
+}
+.quicklildiv::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background: #1a191d;
+  width: 1rem;
+  height: 1rem;
+  z-index: -1;
+}
+
+.quicklildiv p {
+  color: #fff;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
 }

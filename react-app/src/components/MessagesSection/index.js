@@ -1,21 +1,20 @@
-import MessageSection from "./MessageSection"
-import ChatBar from "./ChatBar"
 
-export default function MessagesSection() {
+import MessageSection from "./MessageSection";
+import ChatBar from "./ChatBar";
+
+export default function MessagesSection({ messages }) {
+
+  const messageComponents = messages?.map((message) => {
     return (
-        <div className="messages-section">
-            <h2>Messages</h2>
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <MessageSection />
-            <ChatBar />
-        </div>
-    )
+      <MessageSection message={message} />
+    );
+  });
+
+  return (
+    <div className="messages-section">
+      <h2>Messages</h2>
+      {messageComponents}
+      <ChatBar />
+    </div>
+  );
 }
