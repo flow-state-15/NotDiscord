@@ -93,3 +93,25 @@
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
+.friends-section {
+  background: #36393f;
+  width: 103rem;
+  padding: 3rem;
+}
+.friends-section-online {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #64666b;
+}
+.friend-section {
+  border-top: solid 1px rgba(255, 255, 255, 0.06);
+}
+.friend-section:last-child {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.06);
+}
+.friends-section-friends-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}

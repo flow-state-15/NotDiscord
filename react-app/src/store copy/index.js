@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
 import servers from "./servers";
-import channels from "./channels";
+import channels from "../store/channels";
 import messages from "./messages";
 import members from "./members";
 

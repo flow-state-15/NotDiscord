@@ -18,8 +18,10 @@ import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
 import ServerNameModal from "./components/ServerNameModal";
+
 import "./reset.css";
 import "./App.css";
+import DiscordHome from "./components/DiscordHome";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +63,9 @@ function App() {
       <BrowserRouter>
         {/* <ServerSideBar /> */}
         <Switch>
+          <Route exact path="/">
+            <DiscordHome />
+          </Route>
           <Route path="/channels/@me">
             <MyChannelsBar />
           </Route>
@@ -73,7 +78,12 @@ function App() {
           <Route path="/channels/group">
             <GroupPage />
           </Route>
-          <Route path="/channels/server">
+          <Route path="/channels/:serverId/:channelId">
+            <ServerSideBarNE />
+            <ServerPage />
+          </Route>
+          <Route exact path="/channels/:serverId">
+            <ServerSideBarNE />
             <ServerPage />
           </Route>
           <Route path="/login">
