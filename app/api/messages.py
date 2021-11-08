@@ -1,9 +1,21 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import db, Message
+from app.forms import MessageForm
 
 
 message_routes = Blueprint("messages", __name__)
+
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 
 #MESSAGES routes
@@ -19,9 +31,20 @@ def get_channel_messages(channel_id):
 @message_routes.route('/', methods=['POST'])
 @login_required
 def create_message():
-    # db.session.add(data)
-    # db.session.commit()
-    return "create message"
+    form = MessageForm()
+    if form.validate_on_submit():
+        data = form.data
+        print('\n\n\nMessage Data', data, '\n\n\n')
+        message = Message(
+            user_id=data.user_id,
+            channel_id=data.channel_id,
+            conent=data.content,
+            sent_date=data.sent_date
+        )
+        db.session.add(message)
+        db.session.commit()
+        return message.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 #PUT update message
