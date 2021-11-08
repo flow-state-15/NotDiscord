@@ -46,7 +46,10 @@ def seed_server():
     server_adjectives = [
         'Awesome Server',
         'Hangout',
+        'Chill Zone',
+        'Server',
         'Awesome Server',
+        'Part House',
     ]
     for _ in range(0, 30):
         user = fake.user_name()
@@ -177,17 +180,17 @@ def undo_all():
     '''
     Undos all seeded models.
     '''
-    db.session.execute(f'TRUNCATE Message RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE messages RESTART IDENTITY CASCADE;')
     db.session.commit()
-    db.session.execute(f'TRUNCATE Friend RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE friends RESTART IDENTITY CASCADE;')
     db.session.commit()
-    db.session.execute(f'TRUNCATE User_Server RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE user_servers RESTART IDENTITY CASCADE;')
     db.session.commit()
-    db.session.execute(f'TRUNCATE Channel RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE channels RESTART IDENTITY CASCADE;')
     db.session.commit()
-    db.session.execute(f'TRUNCATE Server RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE servers RESTART IDENTITY CASCADE;')
     db.session.commit()
-    db.session.execute(f'TRUNCATE User RESTART IDENTITY CASCADE;')
+    db.session.execute(f'TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
 
 
