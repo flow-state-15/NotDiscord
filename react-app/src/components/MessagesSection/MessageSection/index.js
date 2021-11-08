@@ -1,8 +1,9 @@
 
-export default function MessageSection() {
+export default function MessageSection({ message }) {
     return (
         <div className="message-section">
-            <h3>Message</h3>
+            <p>{ message.content }</p>
+            <p>{ message.sent_date }</p>
         </div>
     )
 }

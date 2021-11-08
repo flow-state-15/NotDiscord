@@ -41,7 +41,7 @@ class User(db.Model, UserMixin):
     avatar = db.Column(db.String(255))
     tagged_name = db.Column(db.String(255), nullable=False)
     created_at= db.Column(db.Date, nullable=False)
-    
+
 
     @property
     def password(self):
@@ -163,3 +163,14 @@ class Message(db.Model):
             'content': self.content,
             'sent_date': self.sent_date,
         }
+
+
+class Last_Visited(db.Model):
+    __tablename__ = 'last_visited'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'))
+    server_id = db.Column(db.Integer, db.ForeignKey("channels.id", ondelete='CASCADE'))
+    channel_id = db.Column(db.Integer, db.ForeignKey("servers.id", ondelete='CASCADE'))
+    users = db.relationship('User', backref='last_visited', passive_deletes=True)
+    channel = db.relationship('Channel', backref='last_visited', passive_deletes=True)
+    server = db.relationship('Server', backref='last_visited', passive_deletes=True)
