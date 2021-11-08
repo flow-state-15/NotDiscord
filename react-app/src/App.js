@@ -20,6 +20,7 @@ import FriendsSection from "./components/FriendsSection";
 
 import "./reset.css";
 import "./App.css";
+import DiscordHome from "./components/DiscordHome";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +62,9 @@ function App() {
       <BrowserRouter>
         {/* <ServerSideBar /> */}
         <Switch>
+          <Route exact path="/">
+            <DiscordHome />
+          </Route>
           <Route path="/channels/@me">
             <MyChannelsBar />
           </Route>
