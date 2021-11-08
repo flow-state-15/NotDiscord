@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Channel, User_Channel
+from app.models import Channel, User, User_Channel
 
 
 channel_routes = Blueprint("channels", __name__)
@@ -12,6 +12,15 @@ channel_routes = Blueprint("channels", __name__)
 @login_required
 def get_channel(channel_id):
     return "get one channel"
+
+
+#get channel members
+@channel_routes.route('/members/<int:channel_id>')
+@login_required
+def get_server_members(channel_id):
+    members = User.query.join(User_Channel).filter(User_Channel.channel_id == channel_id).all()
+    print("\n\n\n ***** get CHANNEL members route", members, "\n\n\n")
+    return {"members": [member.to_dict() for member in members]}
 
 
 #get all channels by user
