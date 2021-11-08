@@ -181,15 +181,10 @@ def undo_all():
     Undos all seeded models.
     '''
     db.session.execute(f'TRUNCATE messages RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE friends RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE user_servers RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE channels RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE servers RESTART IDENTITY CASCADE;')
-    db.session.commit()
     db.session.execute(f'TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
 
