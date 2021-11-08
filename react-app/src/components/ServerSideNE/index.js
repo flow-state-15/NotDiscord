@@ -19,13 +19,39 @@ export default function ServerSideBarNE() {
 
   const serversComponents = allServers.map((server) => {
     return (
-      <li className="main-server-servers purple-hover" key={server?.id}>
+      <li
+        className={
+          server?.icon?.length
+            ? "main-server-servers"
+            : "main-server-servers purple-hover"
+        }
+        key={server?.id}
+      >
         <Link className="link-alias-to-li" to={`/channels/${server?.id}`}>
-          <img
-            className="main-server-servers-icon"
-            alt="Server Icon"
-            src="https://cdn.discordapp.com/icons/729943368364326952/52aa622504f824963bb07c5318da22dd.png?size=96"
-          />
+          {server?.icon?.length ? (
+            <img
+              className="main-server-servers-icon"
+              alt="Server Icon"
+              src={server?.icon}
+            />
+          ) : server?.name.includes(" ") ? (
+            server?.name.split(" ").length >= 3 ? (
+              <p className="server-servers-name-initial">
+                {server?.name.split(" ")[0][0].toUpperCase()}
+                {server?.name.split(" ")[1][0].toUpperCase()}
+                {server?.name.split(" ")[2][0].toUpperCase()}
+              </p>
+            ) : (
+              <p className="server-servers-name-initial">
+                {server?.name.split(" ")[0][0].toUpperCase()}
+                {server?.name.split(" ")[1][0].toUpperCase()}
+              </p>
+            )
+          ) : (
+            <p className="server-servers-name-initial">
+              {server?.name.slice(0, 2).toUpperCase()}
+            </p>
+          )}
           <div className="main-server-servers-name">
             <h4 className="main-server-servers-name-text">{server?.name}</h4>
           </div>
@@ -56,46 +82,6 @@ export default function ServerSideBarNE() {
         </li>
         <li className="main-server-divider"></li>
         {serversComponents}
-        <li className="main-server-servers purple-hover">
-          <img
-            className="main-server-servers-icon"
-            alt="Server Icon"
-            src="https://cdn.discordapp.com/icons/729943368364326952/52aa622504f824963bb07c5318da22dd.png?size=96"
-          />
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
-        <li className="main-server-servers purple-hover">
-          <div className="main-server-servers-name">
-            <h4 className="main-server-servers-name-text">Server</h4>
-          </div>
-        </li>
         <li className="main-server-servers green-hover">
           <svg
             class="circleIcon-2_77lA"
