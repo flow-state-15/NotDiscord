@@ -1,4 +1,4 @@
-import React, { createElement, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { loadUserServers } from "../../store/servers";
@@ -32,8 +32,6 @@ export default function ServerSideBarNE() {
   };
 
   const allServers = Object.values(servers);
-
-  console.log("IN ServerSideBar NE, allServers: ", allServers);
 
   const serversComponents = allServers.map((server) => {
     return (
@@ -94,7 +92,11 @@ export default function ServerSideBarNE() {
           <p className="quicklildivtext">Server name</p>
         </div>
         <ul className="main-server-side-bar">
-          <li className="main-server-servers purple-hover">
+          <li
+            className="main-server-servers Home purple-hover"
+            onMouseEnter={(e) => testFunc123(e)}
+            onMouseLeave={(e) => testFunc1234(e)}
+          >
             <svg
               class="homeIcon-AaowEC"
               aria-hidden="false"
