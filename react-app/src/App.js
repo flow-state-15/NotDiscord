@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import ServerSideBar from "./components/ServerSideBar";
-import ServerList from "./components/ServerList"
+import ServerList from "./components/ServerList";
 import DMPage from "./components/DMPage";
 import GroupPage from "./components/GroupPage";
 import ServerPage from "./components/ServerPage";
@@ -17,6 +17,7 @@ import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
+import ServerNameModal from "./components/ServerNameModal";
 import "./reset.css";
 import "./App.css";
 
