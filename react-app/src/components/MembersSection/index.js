@@ -5,16 +5,7 @@ import { useEffect } from "react";
 import { loadServerMembers } from "../../store/members";
 import MemberSection from "./MemberSection"
 
-<<<<<<< HEAD
 export default function MembersSection({ members }) {
-    return (
-        <div className="members-section">
-            <h2>Members</h2>
-            {members.map((member) => {
-                return <MemberSection member={member} />
-            })}
-=======
-export default function MembersSection() {
     const dispatch = useDispatch();
     const { serverId } = useParams();
 
@@ -39,7 +30,6 @@ export default function MembersSection() {
         <div className="members-section">
             <h2>Members</h2>
             {memberComponents}
->>>>>>> master
         </div>
     )
 }
