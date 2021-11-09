@@ -7,7 +7,14 @@ export default function MessageSection({ message }) {
     const [isEditing, setIsEditing] = useState(false);
 
     const event = new Date(message.sent_date);
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+    };
     const converted = event.toLocaleDateString(undefined, options)
 
     function editMessage(e) {
@@ -23,6 +30,7 @@ export default function MessageSection({ message }) {
     function deleteMessage() {
         dispatch(removeMessage(editedMessage));
     }
+
 
     return (
         <div className="message-section">
@@ -53,6 +61,5 @@ export default function MessageSection({ message }) {
                 <button className="message-delete" onClick={deleteMessage}>Delete</button>
             </div>
         </div>
-
     )
 }

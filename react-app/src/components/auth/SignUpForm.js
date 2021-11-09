@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
@@ -87,6 +87,7 @@ const SignUpForm = () => {
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
+      <Link to="/">Return to Discord</Link>
     </form>
   );
 };
