@@ -1,13 +1,14 @@
 
 export default function MessageSection({ message }) {
-    // console.log("***** testing date, message.sent_date: ", message.sent_date)
-    // const event = new Date(Date.UTC(message.sent_date));
-    // const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    // const converted = event.toLocaleDateString(undefined, options)
+    const event = new Date(message.sent_date);
+    console.log('non converted date', event)
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const converted = event.toLocaleDateString(undefined, options)
+    console.log('converted date', converted)
     return (
         <div className="message-section">
             <p>{ message.content }</p>
-            <p>{ message.sent_date }</p>
+            <p>{ converted }</p>
         </div>
     )
 }
