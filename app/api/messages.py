@@ -36,7 +36,7 @@ def create_message():
         user_id=data["user_id"],
         channel_id=data["channel_id"],
         content=data["content"],
-        sent_date=dt.datetime.now().strftime('%x %X')
+        sent_date=dt.datetime.now()
     )
     db.session.add(message)
     db.session.commit()
