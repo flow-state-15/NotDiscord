@@ -11,6 +11,7 @@ channel_routes = Blueprint("channels", __name__)
 @channel_routes.route('/<int:channel_id>')
 @login_required
 def get_channel(channel_id):
+    # TODO finish get one channel route
     return "get one channel"
 
 
@@ -27,6 +28,7 @@ def get_channel_members(channel_id):
 @channel_routes.route('/byUser/<int:user_id>')
 @login_required
 def get_channels_byuser(user_id):
+    # TODO finish get all channels by user route
     channels = Channel.query.filter(Channel.user_id == user_id).all()
     users = User.query.all()
 
