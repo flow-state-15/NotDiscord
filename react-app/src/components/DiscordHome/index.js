@@ -1,15 +1,24 @@
 import LogoutButton from "../auth/LogoutButton";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import { login } from "../../store/session";
 
 export default function DiscordHome() {
+  const [demo, setDemo] = useState(false);
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
 
-    
+  const dispatchDemoLogin = () => {
+    dispatch(login("DougD@demo.dome", "DemoDome"));
+    setDemo(true);
+  };
 
   return (
-    <main>
+    <div>
       <h1>Discord Splash Page</h1>
+      <button onClick={dispatchDemoLogin}>Demo User</button>
+      {demo && user ? <Redirect to="/channels/@me" /> : null}
       {user ? (
         <LogoutButton />
       ) : (
@@ -26,6 +35,6 @@ export default function DiscordHome() {
           </div>
         </div>
       )}
-    </main>
+    </div>
   );
 }
