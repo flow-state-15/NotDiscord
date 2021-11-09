@@ -20,7 +20,7 @@ const remove = (memberId) => ({
 });
 
 export const loadChannelMembers = (channelId) => async dispatch => {
-    const response = await fetch(`/api/members/byChannel/${channelId}`);
+    const response = await fetch(`/api/channels/members/${channelId}`);
 
     if (response.ok) {
         const members = await response.json();
@@ -29,7 +29,7 @@ export const loadChannelMembers = (channelId) => async dispatch => {
 };
 
 export const loadServerMembers = (serverId) => async dispatch => {
-  const response = await fetch(`/api/members/byServer/${serverId}`);
+  const response = await fetch(`/api/servers/members/${serverId}`);
 
   if (response.ok) {
       const members = await response.json();
