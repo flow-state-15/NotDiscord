@@ -19,11 +19,11 @@ export default function ServerPage() {
   useEffect(() => {
     dispatch(loadServerChannels(serverId));
     dispatch(loadServerMembers(serverId));
-  }, [serverId]);
+  }, [serverId, dispatch]);
 
   useEffect(() => {
     dispatch(loadChannelMessages(channelId));
-  }, [channelId]);
+  }, [channelId, dispatch]);
 
   const serverChannels = useSelector((state) => Object.values(state.channels));
   const channelMessages = useSelector((state) => Object.values(state.messages));
