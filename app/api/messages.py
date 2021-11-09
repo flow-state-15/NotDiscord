@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Message
+from app.models import db, Message, User, User_Channel
 import datetime as dt
+
 
 
 message_routes = Blueprint("messages", __name__)
@@ -24,7 +25,16 @@ def validation_errors_to_error_messages(validation_errors):
 @login_required
 def get_channel_messages(channel_id):
     messages = Message.query.filter(Message.channel_id == channel_id).all()
-    return {"messages": [message.to_dict() for message in messages]}
+    users = User.query.all()
+
+    messagedict = [message.to_dict() for message in messages]
+    userdict = [user.to_dict() for user in users]
+
+    for obj in messagedict:
+        current_obj_user = next((user for user in userdict if user["id"] == obj["user_id"]), False)
+        obj['user'] = current_obj_user
+
+    return {"messages": messagedict}
 
 
 #POST create message

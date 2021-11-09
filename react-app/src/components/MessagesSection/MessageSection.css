@@ -1,0 +1,15 @@
+.messages-section {
+  flex: 1;
+  background-color: #36393f;
+  position: relative;
+}
+.chat-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+.chat-bar input {
+  width: 100%;
+}
