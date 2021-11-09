@@ -17,7 +17,7 @@ def get_channel(channel_id):
 #get channel members
 @channel_routes.route('/members/<int:channel_id>')
 @login_required
-def get_server_members(channel_id):
+def get_channel_members(channel_id):
     members = User.query.join(User_Channel).filter(User_Channel.channel_id == channel_id).all()
     print("\n\n\n ***** get CHANNEL members route", members, "\n\n\n")
     return {"members": [member.to_dict() for member in members]}
