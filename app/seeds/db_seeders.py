@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, User, Server, User_Server, Channel, Message, Friend
 import datetime as dt
-import random
+from random import randint
 from faker import Faker
 
 fake = Faker()
@@ -37,7 +37,7 @@ def seed_user():
             hashed_password=generate_password_hash('password'),
             # avatar=fake.avatar(),
             avatar="",
-            tagged_name=f'{fake.user_name()}#{random.randint(1000, 10000)}',
+            tagged_name=f'{fake.user_name()}#{randint(1000, 10000)}',
             created_at=dt.datetime.now(),
         )
         db.session.add(user)
@@ -50,7 +50,7 @@ def seed_server():
         name='The DemoDome',
         owner_id=1,
         icon='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
-        invite_link=generate_password_hash('The DemoDome')[-8:]
+        invite_link=generate_password_hash(f'The DemoDome{randint(1, 21)}')[-8:]
     )
     db.session.add(demo_server)
     server_adjectives = [
@@ -84,16 +84,16 @@ def seed_server():
     ]
     for _ in range(0, 30):
         user = fake.user_name()
-        server_name = f'{user}\'s {server_adjectives[random.randint(0, len(server_adjectives)-1)]}'
+        server_name = f'{user}\'s {server_adjectives[randint(0, len(server_adjectives)-1)]}'
         new_icon = ''
-        icon_chance = random.randint(1, 101)
+        icon_chance = randint(1, 101)
         if len(server_icons) > 0 and icon_chance > 30:
             new_icon = server_icons.pop()
         new_server = Server(
             name=server_name,
-            owner_id=random.randint(1, total_users+1),
+            owner_id=randint(1, total_users+1),
             icon=new_icon,
-            invite_link=generate_password_hash(server_name)[-8:]
+            invite_link=generate_password_hash(f'{server_name}{randint(1, 21)}')[-8:]
         )
         db.session.add(new_server)
     db.session.commit()
@@ -109,7 +109,7 @@ def seed_user_server():
         users = []
         for _ in range(1, 11):
             while True:
-                user = random.randint(1, total_users)
+                user = randint(1, total_users)
                 if user not in users:
                     new_user_server = User_Server(
                         server_id=server,
@@ -179,7 +179,7 @@ def seed_channel():
         db.session.add(new_channel)
         for _ in range(1, channels_per_server+1):
             while True:
-                channel_name = random_channel_names[random.randint(1, len(random_channel_names)-1)]
+                channel_name = random_channel_names[randint(1, len(random_channel_names)-1)]
                 if channel_name not in current_channels:
                     current_channels.append(channel_name)
                     new_channel = Channel(
@@ -192,13 +192,13 @@ def seed_channel():
 
 
 def seed_message():
-    for i in range(0, 1200):
+    for i in range(1, 1201):
         message_content = f'This is a test message {i}.'
         if i == 69:
-            message_content = f'This is a test message {i}, nNICE!.'
+            message_content = f'This is a test message {i}, NICE!.'
         new_message = Message(
-            user_id=random.randint(1, total_users+1),
-            channel_id=random.randint(1, total_servers*channels_per_server+1),
+            user_id=randint(1, total_users+1),
+            channel_id=randint(1, total_servers*channels_per_server+1),
             content=message_content,
             sent_date=dt.datetime.now()
         )
