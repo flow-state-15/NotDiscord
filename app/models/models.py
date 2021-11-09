@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -41,7 +42,7 @@ class User(db.Model, UserMixin):
     avatar = db.Column(db.String(255))
     tagged_name = db.Column(db.String(255), nullable=False)
     created_at= db.Column(db.Date, nullable=False)
-
+    messages = db.relationship('Message', back_populates='users')
 
     @property
     def password(self):
@@ -154,6 +155,7 @@ class Message(db.Model):
         "channels.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
     sent_date = db.Column(db.DateTime, nullable=False)
+    users = db.relationship('User', back_populates='messages')
 
     def to_dict(self):
         return {
