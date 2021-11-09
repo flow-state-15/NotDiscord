@@ -54,11 +54,11 @@ def create_channel():
 
 #PUT update channel
 @channel_routes.route('update/<int:channel_id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_channel(channel_id):
     channel = Channel.query.get(channel_id)
     data = request.json
-    channel.icon = data["icon"]
+    channel.name = data["name"]
     db.session.commit()
     return channel.to_dict()
 
