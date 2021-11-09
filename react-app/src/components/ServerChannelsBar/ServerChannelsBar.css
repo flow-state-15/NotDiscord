@@ -19,6 +19,7 @@
 .server-channel:hover .server-channel-link-p {
   color: #d3d3d3;
 }
+
 .server-channel:hover .current-active-channel {
   color: #fff !important;
 }
@@ -92,5 +93,8 @@
   color: #fff;
 }
 .current-active-channel-bg {
+  background-color: #393c42;
+}
+.current-active-channel-bg:hover {
   background-color: #393c42;
 }
