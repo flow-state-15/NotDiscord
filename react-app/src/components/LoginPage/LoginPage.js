@@ -1,5 +1,6 @@
 import "./LoginPage.css";
 import { Link } from "react-router-dom";
+import LoginForm from "../auth/LoginForm";
 
 export default function LoginPage() {
   return (
@@ -11,14 +12,7 @@ export default function LoginPage() {
             <p>We're so excited to see you again!</p>
           </div>
           <div>
-            <label>
-              Email or phone number
-              <input />
-            </label>
-            <label>
-              Password
-              <input />
-            </label>
+            <LoginForm/>
             <Link>Forgot your password?</Link>
           </div>
           <div>
