@@ -84,9 +84,9 @@ const messageReducer = (state = {}, action) => {
     case ADD:
       return { ...state, [action.message.id]: action.message };
     case REMOVE:
-      const newmessages = { ...state };
-      delete newmessages[action.messageId];
-      return newmessages;
+      const newMessages = { ...state };
+      delete newMessages[action.messageId];
+      return newMessages;
     default:
       return state;
   }
