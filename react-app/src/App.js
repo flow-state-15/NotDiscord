@@ -72,50 +72,36 @@ function App() {
             <SignUpForm />
           </Route>
           <ProtectedRoute path="/channels/@me">
-            <Route path="/channels/@me">
+              <ServerSideBarNE />
               <MyChannelsBar />
-            </Route>
+              <FriendsSection />
           </ProtectedRoute>
           <ProtectedRoute path="/servers/">
-            <Route path="/servers/">
               <ServerList />
-            </Route>
           </ProtectedRoute>
           <ProtectedRoute path="/channels/DM">
-            <Route path="/channels/DM">
               <DMPage />
-            </Route>
           </ProtectedRoute>
-          <ProtectedRoute>
-            <Route path="/channels/group">
+          <ProtectedRoute path="/channels/group">
               <GroupPage />
-            </Route>
           </ProtectedRoute>
-          <ProtectedRoute>
-            <Route path="/channels/:serverId/:channelId">
+          <ProtectedRoute path="/channels/:serverId/:channelId">
               <ServerSideBarNE />
               <ServerPage />
-            </Route>
           </ProtectedRoute>
-          <ProtectedRoute>
-            <Route exact path="/channels/:serverId">
+          <ProtectedRoute exact path="/channels/:serverId">
               <ServerSideBarNE />
               <ServerPage />
-            </Route>
           </ProtectedRoute>
-          <ProtectedRoute>
-            <Route path="/test">
+          <ProtectedRoute path="/test">
               <ServerSideBarNE />
               <MyChannelsBar />
               <FriendsSection />
-            </Route>
           </ProtectedRoute>
-          <ProtectedRoute>
-            <Route path="/invite/:inviteId">
+          <ProtectedRoute path="/invite/:inviteId">
               <ServerSideBarNE />
               <MyChannelsBar />
               <FriendsSection />
-            </Route>
           </ProtectedRoute>
         </Switch>
       </BrowserRouter>
