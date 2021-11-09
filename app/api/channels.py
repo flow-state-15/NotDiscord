@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Channel, User, User_Channel
+from app.models import db, Channel, User, User_Channel
 
 
 channel_routes = Blueprint("channels", __name__)
@@ -42,18 +42,31 @@ def get_channels_byserver(server_id):
 @channel_routes.route('/', methods=['POST'])
 @login_required
 def create_channel():
-    return "create channel"
+    data = request.json
+    channel = Channel(
+        name=data["name"],
+        server_id=data["server_id"]
+    )
+    db.session.add(channel)
+    db.session.commit()
+    return channel.to_dict()
 
 
 #PUT update channel
-@channel_routes.route('/<int:channel_id>', methods=['PUT'])
-@login_required
+@channel_routes.route('update/<int:channel_id>', methods=['PUT'])
+# @login_required
 def update_channel(channel_id):
-    return "update channel"
+    channel = Channel.query.get(channel_id)
+    data = request.json
+    channel.icon = data["icon"]
+    db.session.commit()
+    return channel.to_dict()
 
 
 #DELETE delete channel
-@channel_routes.route('/<int:channel_id>', methods=['DELETE'])
+@channel_routes.route('delete/<int:channel_id>', methods=['DELETE'])
 @login_required
 def delete_channel(channel_id):
-    return "delete channel"
+    db.session.query(Channel).filter(Channel.id==channel_id).delete()
+    db.session.commit()
+    return {'server_id': channel_id}
