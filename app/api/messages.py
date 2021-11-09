@@ -58,6 +58,6 @@ def update_user(message_id):
 @message_routes.route('delete/<int:message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
-    db.session.query(Message).filter(Message.id==7).delete()
+    db.session.query(Message).filter(Message.id==message_id).delete()
     db.session.commit()
     return {'message_id': message_id}
