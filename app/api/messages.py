@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import db, Message
-from app.forms import MessageForm
+import datetime as dt
 
 
 message_routes = Blueprint("messages", __name__)
@@ -28,23 +28,19 @@ def get_channel_messages(channel_id):
 
 
 #POST create message
-@message_routes.route('/', methods=['POST'])
+@message_routes.route('/test', methods=['POST'])
 @login_required
 def create_message():
-    form = MessageForm()
-    if form.validate_on_submit():
-        data = form.data
-        print('\n\n\nMessage Data', data, '\n\n\n')
-        message = Message(
-            user_id=data.user_id,
-            channel_id=data.channel_id,
-            conent=data.content,
-            sent_date=data.sent_date
-        )
-        db.session.add(message)
-        db.session.commit()
-        return message.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    data = request.json
+    message = Message(
+        user_id=data["user_id"],
+        channel_id=data["channel_id"],
+        content=data["content"],
+        sent_date=dt.datetime.now().strftime('%x %X')
+    )
+    db.session.add(message)
+    db.session.commit()
+    return message.to_dict()
 
 
 #PUT update message

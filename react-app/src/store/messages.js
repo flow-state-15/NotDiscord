@@ -1,4 +1,4 @@
-// import { csrfFetch } from "./csrf";
+import { csrfFetch } from "./csrf";
 
 const LOAD = "messages/LOAD";
 const ADD = "messages/ADD";
@@ -29,7 +29,7 @@ export const loadChannelMessages = (channelId) => async (dispatch) => {
 };
 
 export const addMessage = (formData) => async (dispatch) => {
-  const response = await fetch("/api/messages", {
+  const response = await csrfFetch("/api/messages/test", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +39,8 @@ export const addMessage = (formData) => async (dispatch) => {
 
   if (response.ok) {
     const message = await response.json();
-    dispatch(add(message["message"]));
+    // console.log("**** IN ADD MSG THUNK, response: ", message)
+    dispatch(add(message));
   }
 };
 

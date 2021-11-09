@@ -2,11 +2,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import './nav.css'
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className='nav_bar'>
       <ul>
+      <li>
+          <div className='nav_channel_name'>
+            Channel Name
+          </div>
+        </li>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home

@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import Server, User_Server
+from app.models import Server, User_Server, User
 
 
 server_routes = Blueprint("servers", __name__)
@@ -23,6 +23,15 @@ def get_one_server(server_id):
     server = Server.query.filter(Server.id == server_id).one()
     print(server)
     return {"server": server.to_dict()}
+
+
+#get server members
+@server_routes.route('/members/<int:server_id>')
+@login_required
+def get_server_members(server_id):
+    members = User.query.join(User_Server).filter(User_Server.server_id == server_id).all()
+    # print("\n\n\n ***** get server members route", members, "\n\n\n")
+    return {"members": [member.to_dict() for member in members]}
 
 
 # get all user servers
