@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import db, Message
+from app.models import db, Message, User, Channel
 import datetime as dt
+from sqlalchemy import select
 
 
 message_routes = Blueprint("messages", __name__)
@@ -23,8 +24,23 @@ def validation_errors_to_error_messages(validation_errors):
 @message_routes.route('/byChannel/<int:channel_id>')
 @login_required
 def get_channel_messages(channel_id):
-    messages = Message.query.filter(Message.channel_id == channel_id).all()
-    return {"messages": [message.to_dict() for message in messages]}
+    # messages = Message.query.filter(Message.channel_id == channel_id).all()
+    # messages = Message.query.outerjoin(User.avatar).filter(Message.channel_id == channel_id).all()
+
+    messages = db.session.query(Message, User).where(Message.user_id == User.id).filter(Message.channel_id == channel_id).all()
+
+    # test = [message, user for message in messages]
+
+    test = []
+    for message, user in messages:
+        obj = message.to_dict()
+        obj["user"] = user.to_dict()
+        test.append(obj)
+
+    print(f"\n\n\n{test}\n\n\n")
+
+
+    return {"messages": [message for message in test]}
 
 
 #POST create message
