@@ -65,40 +65,44 @@ function App() {
           <Route exact path="/">
             <DiscordHome />
           </Route>
-          <Route path="/channels/@me">
-            <MyChannelsBar />
-          </Route>
-          <Route path="/servers/">
-            <ServerList />
-          </Route>
-          <Route path="/channels/DM">
-            <DMPage />
-          </Route>
-          <Route path="/channels/group">
-            <GroupPage />
-          </Route>
-          <Route path="/channels/:serverId/:channelId">
-            <ServerSideBarNE />
-            <ServerPage />
-          </Route>
-          <Route exact path="/channels/:serverId">
-            <ServerSideBarNE />
-            <ServerPage />
-          </Route>
-          <Route path="/login">
+          <Route path="/login" exact={true}>
             <LoginForm />
-            {/* <LoginPage /> */}
           </Route>
-          <Route path="/test">
-            <ServerSideBarNE />
-            <MyChannelsBar />
-            <FriendsSection />
+          <Route path="/sign-up" exact={true}>
+            <SignUpForm />
           </Route>
-          <Route path="/invite/:inviteId">
-            <ServerSideBarNE />
-            <MyChannelsBar />
-            <FriendsSection />
-          </Route>
+          <ProtectedRoute path="/channels/@me">
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
+          </ProtectedRoute>
+          <ProtectedRoute path="/servers/">
+              <ServerList />
+          </ProtectedRoute>
+          <ProtectedRoute path="/channels/DM">
+              <DMPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/channels/group">
+              <GroupPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/channels/:serverId/:channelId">
+              <ServerSideBarNE />
+              <ServerPage />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/channels/:serverId">
+              <ServerSideBarNE />
+              <ServerPage />
+          </ProtectedRoute>
+          <ProtectedRoute path="/test">
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
+          </ProtectedRoute>
+          <ProtectedRoute path="/invite/:inviteId">
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
+          </ProtectedRoute>
         </Switch>
       </BrowserRouter>
     </div>

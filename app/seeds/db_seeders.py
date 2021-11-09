@@ -8,6 +8,7 @@ fake = Faker()
 
 total_users = 30
 total_servers = 20
+channels_per_server = 6
 
 
 def seed_user():
@@ -17,6 +18,15 @@ def seed_user():
         hashed_password=generate_password_hash('DemoDome'),
         avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
         tagged_name=f'Doug_DemoDome#1234',
+        created_at=dt.datetime.now(),
+    )
+    db.session.add(demo_user)
+    # admin
+    demo_user = User(
+        email='admin@admin.com',
+        hashed_password=generate_password_hash('tasty'),
+        avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
+        tagged_name=f'Admin#4321',
         created_at=dt.datetime.now(),
     )
     db.session.add(demo_user)
@@ -48,17 +58,36 @@ def seed_server():
         'Hangout',
         'Chill Zone',
         'Server',
-        'Awesome Server',
-        'Part House',
+        'Party House',
+        'Respite'
     ]
     server_icons = [
-        
+        'https://cdn.discordapp.com/icons/172069829690261504/31089b57cbcdc00edb0798e31fc60bb2.png?size=96',
+        'https://cdn.discordapp.com/icons/755931313256792156/a_19c9e024fa406601d2c44a028c6fc343.png?size=96',
+        'https://cdn.discordapp.com/icons/729943368364326952/52aa622504f824963bb07c5318da22dd.png?size=96',
+        'https://cdn.discordapp.com/icons/210521487378087947/a_77ab3bf5031c3b245233893c4260aac2.png?size=96',
+        'https://cdn.discordapp.com/icons/640318729174908931/f06f8be1c0f1a6e5386e0bb3155efc27.png?size=96',
+        'https://cdn.discordapp.com/icons/857387890316542014/e7d12477031549c309e46162e919d6ab.png?size=96',
+        'https://cdn.discordapp.com/icons/861593221385945098/033e02bac10d3308b9fbd37bbe35fdd8.png?size=96',
+        'https://cdn.discordapp.com/icons/851233159312048178/500c3086fb4827a3c2057f65c544627c.png?size=96',
+        'https://cdn.discordapp.com/icons/850448061951901696/064262859e69d1142b650bbf6a52c8a9.png?size=96',
+        'https://cdn.discordapp.com/icons/816356438032908328/a0b0fa82d9658c6fbc1274e85bff420d.png?size=96',
+        'https://cdn.discordapp.com/icons/698301276164718762/f80e5c3787bdb7fd9abf43149e3f7fb0.png?size=96',
+        'https://cdn.discordapp.com/icons/844479840015089714/48a717534ee5362ce7c820eaf7431a6e.png?size=96',
+        'https://cdn.discordapp.com/icons/781310352037642280/ee55be0f0c763a2ec391ab7d1c0906aa.png?size=96',
+        'https://cdn.discordapp.com/icons/804452491147870248/f70787aef85321bff562d1e297076a8f.png?size=96',
+        'https://cdn.discordapp.com/icons/870927080613904416/34dcd9cdfdb8d4db695e533fb8480faa.png?size=96',
+        'https://cdn.discordapp.com/icons/434487340535382016/cc6d45988d6b5fb039fdb34bb1e844ca.png?size=96',
+        'https://cdn.discordapp.com/icons/720365448809545742/bc84ee31daddd111d4c2cfe205e992a7.png?size=96',
+        'https://cdn.discordapp.com/icons/855633663425118228/257f109083f788f13d4eac4731dc804d.png?size=96',
+        'https://cdn.discordapp.com/icons/846787546116653067/33391751cec8c9c34c7b478cd24e43e3.png?size=96'
     ]
     for _ in range(0, 30):
         user = fake.user_name()
         server_name = f'{user}\'s {server_adjectives[random.randint(0, len(server_adjectives)-1)]}'
         new_icon = ''
-        if len(server_icons) > 0:
+        icon_chance = random.randint(1, 101)
+        if len(server_icons) > 0 and icon_chance > 30:
             new_icon = server_icons.pop()
         new_server = Server(
             name=server_name,
@@ -71,6 +100,11 @@ def seed_server():
 
 
 def seed_user_server():
+    new_user_server = User_Server(
+        server_id=1,
+        user_id=1
+    )
+    db.session.add(new_user_server)
     for server in range(1, total_servers+1):
         users = []
         for _ in range(1, 11):
@@ -101,7 +135,7 @@ def seed_friends():
 def seed_channel():
     # demo channels
     demo_channels = [
-        'General Chat',
+        'general-chat',
         'business',
         'movies',
         'music',
@@ -135,15 +169,15 @@ def seed_channel():
     for i in range(1, total_servers+1):
         current_channels = []
         if i%2==0:
-            main_channel = 'General Chat'
+            main_channel = 'general-chat'
         else:
-            main_channel = 'Lounge'
+            main_channel = 'lounge'
         new_channel = Channel(
             name=main_channel,
             server_id=i
         )
         db.session.add(new_channel)
-        for _ in range(1, 7):
+        for _ in range(1, channels_per_server+1):
             while True:
                 channel_name = random_channel_names[random.randint(1, len(random_channel_names)-1)]
                 if channel_name not in current_channels:
@@ -158,11 +192,14 @@ def seed_channel():
 
 
 def seed_message():
-    for i in range(0, 120):
+    for i in range(0, 1200):
+        message_content = f'This is a test message {i}.'
+        if i == 69:
+            message_content = f'This is a test message {i}, nNICE!.'
         new_message = Message(
             user_id=random.randint(1, total_users+1),
-            channel_id=random.randint(1, total_users+1),
-            content=f'This is a test message {i}.',
+            channel_id=random.randint(1, total_servers*channels_per_server+1),
+            content=message_content,
             sent_date=dt.datetime.now()
         )
         db.session.add(new_message)
