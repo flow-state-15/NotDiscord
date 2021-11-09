@@ -50,7 +50,15 @@ def create_message():
     )
     db.session.add(message)
     db.session.commit()
-    return message.to_dict()
+
+    the_message = message.to_dict()
+    the_users = User.query.all()
+    userdict = [user.to_dict() for user in the_users]
+    current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
+
+    the_message["user"] = current_obj_user
+
+    return the_message
 
 
 #PUT update message
