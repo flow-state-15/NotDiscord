@@ -24,10 +24,20 @@ def get_channel_members(channel_id):
 
 
 #get all channels by user
-@channel_routes.route('/byUser/<int:channel_id>')
+@channel_routes.route('/byUser/<int:user_id>')
 @login_required
-def get_channels_byuser(channel_id):
-    return "get user channels"
+def get_channels_byuser(user_id):
+    channels = Channel.query.filter(Channel.user_id == user_id).all()
+    users = User.query.all()
+
+    messagedict = [message.to_dict() for message in channels]
+    userdict = [user.to_dict() for user in users]
+
+    for obj in messagedict:
+        current_obj_user = next((user for user in userdict if user["id"] == obj["user_id"]), False)
+        obj['user'] = current_obj_user
+
+    return {"messages": messagedict}
 
 
 #get all channels by server
