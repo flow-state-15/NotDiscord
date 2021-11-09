@@ -61,7 +61,6 @@ function App() {
     // </BrowserRouter>
     <div id="app_container">
       <BrowserRouter>
-        {/* <ServerSideBar /> */}
         <Switch>
           <Route exact path="/">
             <DiscordHome />
@@ -91,6 +90,11 @@ function App() {
             {/* <LoginPage /> */}
           </Route>
           <Route path="/test">
+            <ServerSideBarNE />
+            <MyChannelsBar />
+            <FriendsSection />
+          </Route>
+          <Route path="/invite/:inviteId">
             <ServerSideBarNE />
             <MyChannelsBar />
             <FriendsSection />
