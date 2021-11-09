@@ -4,7 +4,7 @@ import UserControls from "../UserControls";
 
 import "./MyChannelsBar.css";
 
-export default function MyChannelsBar() {
+export default function MyChannelsBar({ channels }) {
   return (
     <div className="my-channels-bar">
       <div className="channels-bar-inner-content">
