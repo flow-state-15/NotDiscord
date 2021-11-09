@@ -1,0 +1,9 @@
+.server-channels-bar-inner-content {
+  background-color: #2f3136;
+  color: #fff;
+  display: flex;
+  width: 24.4rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

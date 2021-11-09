@@ -1,15 +1,20 @@
-import ServerChannelListing from "./ServerChannelListing"
+import ServerChannelListing from "./ServerChannelListing";
+import UserControls from "../UserControls";
+import "./ServerChannelsBar.css";
 
 export default function ServerChannelsBar({ channels }) {
-
-    // console.log("in server channels bar, channels prop: ", channels)
-
-    return (
-        <div className="channels-bar-inner-content">
-            <h3>TEXT CHANNELS</h3>
-            {channels.map((channel) => {
-                return <ServerChannelListing key={channel.id} channel={channel}></ServerChannelListing>
-            })}
-        </div>
-    )
+  return (
+    <div className="server-channels-bar-inner-content">
+      <h3>TEXT CHANNELS</h3>
+      {channels.map((channel) => {
+        return (
+          <ServerChannelListing
+            key={channel.id}
+            channel={channel}
+          ></ServerChannelListing>
+        );
+      })}
+      <UserControls />
+    </div>
+  );
 }
