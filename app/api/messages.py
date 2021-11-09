@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from flask_login import login_required
 from app.models import db, Message
 import datetime as dt
@@ -44,14 +44,20 @@ def create_message():
 
 
 #PUT update message
-@message_routes.route('/<int:message_id>', methods=['PUT'])
+@message_routes.route('update/<int:message_id>', methods=['PUT'])
 @login_required
 def update_user(message_id):
-    return "update user"
+    message = Message.query.get(message_id)
+    data = request.json
+    message.content = data["content"]
+    db.session.commit()
+    return message.to_dict()
 
 
 #DELETE message
-@message_routes.route('/<int:message_id>', methods=['DELETE'])
+@message_routes.route('delete/<int:message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
-    return "delete message"
+    db.session.query(Message).filter(Message.id==7).delete()
+    db.session.commit()
+    return {'message_id': message_id}
