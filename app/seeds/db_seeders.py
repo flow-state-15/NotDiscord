@@ -8,6 +8,7 @@ fake = Faker()
 
 total_users = 30
 total_servers = 20
+channels_per_server = 6
 
 
 def seed_user():
@@ -85,7 +86,8 @@ def seed_server():
         user = fake.user_name()
         server_name = f'{user}\'s {server_adjectives[random.randint(0, len(server_adjectives)-1)]}'
         new_icon = ''
-        if len(server_icons) > 0:
+        icon_chance = random.randint(1, 101)
+        if len(server_icons) > 0 and icon_chance > 30:
             new_icon = server_icons.pop()
         new_server = Server(
             name=server_name,
@@ -175,7 +177,7 @@ def seed_channel():
             server_id=i
         )
         db.session.add(new_channel)
-        for _ in range(1, 7):
+        for _ in range(1, channels_per_server+1):
             while True:
                 channel_name = random_channel_names[random.randint(1, len(random_channel_names)-1)]
                 if channel_name not in current_channels:
@@ -191,10 +193,13 @@ def seed_channel():
 
 def seed_message():
     for i in range(0, 1200):
+        message_content = f'This is a test message {i}.'
+        if i == 69:
+            message_content = f'This is a test message {i}, nNICE!.'
         new_message = Message(
             user_id=random.randint(1, total_users+1),
-            channel_id=random.randint(1, total_servers*6+1),
-            content=f'This is a test message {i}.',
+            channel_id=random.randint(1, total_servers*channels_per_server+1),
+            content=message_content,
             sent_date=dt.datetime.now()
         )
         db.session.add(new_message)
