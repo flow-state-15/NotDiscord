@@ -135,7 +135,7 @@ def seed_friends():
 def seed_channel():
     # demo channels
     demo_channels = [
-        'General Chat',
+        'general-chat',
         'business',
         'movies',
         'music',
@@ -169,9 +169,9 @@ def seed_channel():
     for i in range(1, total_servers+1):
         current_channels = []
         if i%2==0:
-            main_channel = 'General Chat'
+            main_channel = 'general-chat'
         else:
-            main_channel = 'Lounge'
+            main_channel = 'lounge'
         new_channel = Channel(
             name=main_channel,
             server_id=i
