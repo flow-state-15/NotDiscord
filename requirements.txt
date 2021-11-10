@@ -7,8 +7,8 @@
 
 -i https://pypi.org/simple
 alembic==1.7.4
-bidict==0.21.4; python_version >= '3.6'
-cachelib==0.4.1; python_version >= '3.6'
+bidict==0.21.4
+cachelib==0.4.1
 click==8.0.3
 faker==9.8.0
 flask-cors==3.0.10
@@ -28,8 +28,8 @@ markupsafe==2.0.1
 python-dateutil==2.8.2
 python-dotenv==0.19.1
 python-editor==1.0.4
-python-engineio==4.3.0; python_version >= '3.6'
-python-socketio==5.4.1; python_version >= '3.6'
+python-engineio==4.3.0
+python-socketio==5.4.1
 six==1.16.0
 sqlalchemy==1.4.26
 text-unidecode==1.3
