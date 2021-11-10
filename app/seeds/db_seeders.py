@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, User, Server, User_Server, Channel, Message, Friend
 import datetime as dt
-from random import randint, choice
+from random import randint, choice, sample
 from faker import Faker
 import json
 
@@ -18,21 +18,21 @@ total_channels = total_servers*channels_per_server
 
 
 def seed_user():
-    # demo user
-    demo_user = User(
-        email='DougD@demo.dome',
-        hashed_password=generate_password_hash('DemoDome'),
-        avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
-        tagged_name=f'Doug_DemoDome#1234',
-        created_at=dt.datetime.now(),
-    )
-    db.session.add(demo_user)
     # admin
     demo_user = User(
         email='admin@admin.com',
         hashed_password=generate_password_hash('tasty'),
         avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
         tagged_name=f'Admin#4321',
+        created_at=dt.datetime.now(),
+    )
+    db.session.add(demo_user)
+    # demo user
+    demo_user = User(
+        email='DougD@demo.dome',
+        hashed_password=generate_password_hash('DemoDome'),
+        avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
+        tagged_name=f'Doug_DemoDome#1234',
         created_at=dt.datetime.now(),
     )
     db.session.add(demo_user)
@@ -135,11 +135,32 @@ def seed_user_server():
     db.session.commit()
 
 
+def pair_generator(numbers): 
+  '''
+  Return an iterator of random pairs from a list of numbers.
+  '''
+  # Keep track of already generated pairs 
+  used_pairs = set() 
+  while True: 
+    pair = sample(numbers, 2) 
+    # Avoid generating both (1, 2) and (2, 1) 
+    pair = tuple(sorted(pair)) 
+    if pair not in used_pairs: 
+      used_pairs.add(pair) 
+      yield pair 
+
+
 def seed_friends():
-    for i in range(1, total_users-1):
+    # A relatively long list 
+    numbers = list(range(2, total_users-1))
+    gen = pair_generator(numbers)
+
+    # TODO give each user 10 friends
+    for _ in range(2, total_users-1):
+        pair = next(gen) 
         new_user_server = Friend(
-            sender_user_id=i,
-            rec_user_id=i+1,
+            sender_user_id=pair[0],
+            rec_user_id=pair[1],
             accepted=True
         )
         db.session.add(new_user_server)
@@ -167,8 +188,8 @@ def seed_channel():
         'art',
         'memes',
         'anime',
-        'movies',
         'music',
+        'movies',
         'spoilers',
         'tv-shows',
         'politics',
