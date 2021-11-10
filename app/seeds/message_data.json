@@ -171,6 +171,12 @@
 				"Can I talk about anything here?",
 				"Near anything, as long as it is appropriate.",
 				"Of course! Thanks."
+			],
+			[
+				"I found a lost cat in Jersey. Has anyone here lost one?",
+				"Does anyone here live in Jersey besides you?",
+				"Hmmm, I am not sure. I am gonna post on some local groups as well.",
+				"Good idea!"
 			]
 		],
        "demo-dome-praise-room":[
@@ -181,14 +187,21 @@
 			],
 			[
 				"Praise Doug! The owner of the DemoDome!",
-				"Is it Dimmadome or Demodome?"
+				"Is it Dimmadome or Demodome?",
+				"I have never heard of Dimmadome."
 			]
 		],
        "business":[
 			[
-				"I almost finished my most recent painting! Do you want to see?",
-				"Awesome can I see it?",
+				"I just finished my new resume! Can you help me set it up?",
+				"Sure? When doy ou need it done by?",
 				"Sure, give me 1 more day to finish it and I will post it."
+			],
+			[
+				"How do I do my taxes?",
+				"I have been wanting to know for years.",
+				"Why are we never taught this anyway?",
+				"Somehow teaching us taxes is not as useful as art history."
 			]
 		],
 		"art":[
@@ -203,8 +216,12 @@
 				"Thanks I appreciate it!"
 			],
 			[
-				"I just finished my most recent painting! Do you want to see?",
-				"Awesome can I see it?"
+				"Is Paint R Us a good online store?",
+				[
+					"I have not heard of it.",
+					"It is great! I go there most weekends."
+				],
+				"Oh, I will have to go check it out."
 			],
 			[
 				"I just finished my most recent painting! Do you want to see?",
@@ -242,6 +259,12 @@
 				"Have you seen {anime}?",
 				"I was thinking about starting that but I don't know where I can watch it?",
 				"I wish I knew that."
+			],
+			[
+				"Has anyone seen {anime}?",
+				"I loved it!",
+				"Really? I will start watching it tonight.",
+				"Let me know what you think once you finish it?"
 			]
 		],
        "movies":[
@@ -249,19 +272,44 @@
 				"Anyone see the new Marvel movie?",
 				"I have not so no spoilers here please!",
 				"Fine, I will wait a few weeks."
+			],
+			[
+				"Are they really making multiple sequels for Avatar all at once?",
+				"From what I heard they are.",
+				"I doubt it will even be relevant when it releases but we will see."
+			],
+			[
+				"Have you seen Megamind?",
+				"I have not.",
+				"You have to see it! It stars Will Ferrell!",
+				"I must see it now! What is it about?",
+				"Will Ferrell's character is a super villain that never expects to win.",
+				"Awesome, I will watch it tomorrow!"
 			]
 		],
        "music":[
 			[
-				"Anyone know how to get scratches out of cd's?",
-				"You still have cd's?",
+				"Anyone know how to get scratches out of CD's?",
+				"You still have CD's?",
 				"You don't?"
+			],
+			[
+				"I found a new vinyl seller online. They are great.",
+				"Ooh, Do they cell CD's?",
+				"They sell vinyl....",
+				"Oh, I am not interested anymore."
 			]
 		],
        "spoilers":[
 			[
 				"Can I talk about spoilers in here?",
 				"Sure, just don't expect to be unspoiled if you read anything here."
+			],
+			[
+				"I can't believe he was a ghost the whole time!",
+				"Wait... who is a ghost?",
+				"Bruce Willis duh!!",
+				"That movie is so old!"
 			]
 		],
        "tv-shows":[
@@ -270,6 +318,14 @@
 				"Have you seen {tv_show}?",
 				"I was thinking about starting that but I don't know where I can watch it?",
 				"I wish I knew that."
+			],
+			[
+				"I am looking for a family show to watch with me kids.",
+				"Have you seen Avatar?",
+				"I said a show not a movie. We already saw the one with the blue cat people.",
+				"No, I am talking about Avatar: The Last Airbender.",
+				"Oh I heard about that.",
+				"It is way better then you think."
 			]
 		],
        "politics":[
@@ -294,6 +350,13 @@
 				"I was hoping it was going to be longer then that just one sitting.",
 				"To be honest I think I was awake playing it for 23 hours. What day is it?",
 				"I don't think you should ever do that again. It is not healthy."
+			],
+			[
+				"I can't beat the end of {game}.",
+				"Did you look up some guides?",
+				"I don't like using guides?",
+				"Do you want help from someone here?",
+				"No, I am just really annoyed with this part of the game."
 			]
 		],
 		"exercise":[
@@ -302,6 +365,19 @@
 				"Have you tried cross fit?",
 				"I can't do that, I feel like I need to start smaller.",
 				"Push ups might be the easy start you need."
+			],
+			[
+				"Is Gold's Gym good anymore?",
+				"I quit going there 2 years ago.",
+				"Was it because of the smell in the locker room?",
+				"How did you know? It was always so bad!"
+			],
+			[
+				"I can't find my gym shorts. Anyone know a good brand to get?",
+				"I workout in the nude so I have no idea.",
+				"Lets never work out together.",
+				"Why?",
+				"........"
 			]
 		],
        "programming":[
@@ -311,16 +387,25 @@
 				"I have no clue! I am just stuck in it!"
 			],
 			[
-				"How do I exit VIM?",
-				"Whats WIM?",
-				"I have no clue! I am just stuck in it!"
+				"Why does everyone ask how to invert a binary tree? Is that even useful?",
+				"Invert?",
+				"Yeah, they are asking about inverting one. This is so confusing!"
+			],
+			[
+				"Can anyone help me with my coding resume?",
+				"How many projects do you have?",
+				"3",
+				"You are going to need way more then that.",
+				"Ugh, well is HTML coding enough coding experience?",
+				"HTML is not even a coding language. You should learn JavaScript or something."
 			]
 		],
        "pet-photos":[
 			[
 				"https://preview.redd.it/sg3q5cuedod31.jpg?width=576&auto=webp&s=06132e314b6a1bc31d3687931efa9ca71f55bed9",
 				"so cute! How old are they?",
-				"They are 31! I am not kidding."
+				"They are 31! I am not kidding.",
+				"That is so old! Hug them for me."
 			],
 			[
 				"https://preview.redd.it/un44882dvyj21.jpg?width=576&auto=webp&s=d222c1a62c90af8990c4fa645a672bba573d5281",
