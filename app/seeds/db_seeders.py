@@ -120,10 +120,10 @@ def seed_user_server():
     )
     db.session.add(new_user_server)
     for server in range(1, total_servers+1):
-        users = ['PH']
+        users = []
         for _ in range(1, 11):
-            user = 'PH'
-            while user in users:
+            user = randint(1, total_users)
+            while user not in users:
                 user = randint(1, total_users)
                 new_user_server = User_Server(
                     server_id=server,
