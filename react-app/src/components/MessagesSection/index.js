@@ -24,8 +24,10 @@ export default function MessagesSection({ messages, channel }) {
     <div className="messages-section">
       <div className="message-container-inner-hooblah">
         <div className="welcome-to-server">
-          <div>#</div>
-          <h3>Welcome to {`#${channel}`}</h3>
+          <div className="welcome-hash-tag">
+            <span>#</span>
+          </div>
+          <h3 className="welcome-to-text">Welcome to {`#${channel}`}</h3>
         </div>
         {messageComponents}
       </div>
