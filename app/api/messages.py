@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, Message, User, User_Channel
+from app.models import db, Message, User, Channel
 import datetime as dt
+from sqlalchemy import select
 
 
 
@@ -24,17 +25,23 @@ def validation_errors_to_error_messages(validation_errors):
 @message_routes.route('/byChannel/<int:channel_id>')
 @login_required
 def get_channel_messages(channel_id):
-    messages = Message.query.filter(Message.channel_id == channel_id).all()
-    users = User.query.all()
+    # messages = Message.query.filter(Message.channel_id == channel_id).all()
+    # messages = Message.query.outerjoin(User.avatar).filter(Message.channel_id == channel_id).all()
 
-    messagedict = [message.to_dict() for message in messages]
-    userdict = [user.to_dict() for user in users]
+    messages = db.session.query(Message, User).where(Message.user_id == User.id).filter(Message.channel_id == channel_id).all()
 
-    for obj in messagedict:
-        current_obj_user = next((user for user in userdict if user["id"] == obj["user_id"]), False)
-        obj['user'] = current_obj_user
+    # test = [message, user for message in messages]
 
-    return {"messages": messagedict}
+    test = []
+    for message, user in messages:
+        obj = message.to_dict()
+        obj["user"] = user.to_dict()
+        test.append(obj)
+
+    print(f"\n\n\n{test}\n\n\n")
+
+
+    return {"messages": [message for message in test]}
 
 
 #POST create message
@@ -52,13 +59,23 @@ def create_message():
     db.session.commit()
 
     the_message = message.to_dict()
-    the_users = User.query.all()
-    userdict = [user.to_dict() for user in the_users]
-    current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
+    the_users = User.query.get(data["user_id"])
+    # userdict = [user.to_dict() for user in the_users]
+    # current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
 
-    the_message["user"] = current_obj_user
+    # the_message["user"] = current_obj_user
+    the_message["user"] = the_users.to_dict()
+    # normalized = db.session.query(Message, User).where(Message.user_id == data["user_id"])
+    # test = None
+    # for message, user in normalized:
+    #     obj = message.to_dict()
+    #     obj["user"] = user.to_dict()
+    #     test = {**obj}
 
-    return the_message
+    print(f"\n\n\n{the_message}\n\n\n")
+
+
+    return {the_message}
 
 
 #PUT update message
