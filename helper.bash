@@ -10,17 +10,23 @@ elif [ $1 == 'reset' ]; then
     flask db upgrade
     flask seed all
 elif [ $1 == 'pullmaster' ]; then
+    echo -Switchin to master branch
     env -i git checkout master
+    echo -Pulling changes from master branch
     env -i git pull
-    if [ $1 == 'm' ]; then
+    echo -Switching back to user branch
+    if [ $2 == 'm' ]; then
         env -i git checkout michael
-    elif [ $1 == 'd' ]; then
+    elif [ $2 == 'd' ]; then
         env -i git checkout dan
-    elif [ $1 == 'n' ]; then
+    elif [ $2 == 'n' ]; then
         env -i git checkout neb
-    elif [ $1 == 'j' ]; then
+    elif [ $2 == 'j' ]; then
         env -i git checkout jason
+    fi
+    echo -Getting status info
     env -i git status
+    echo -Command Complete
 else
     echo "Unknown arg given. $1 is invalid."
 fi
