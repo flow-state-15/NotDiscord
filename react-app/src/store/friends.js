@@ -22,9 +22,9 @@ const remove = (userId) => ({
 export const loadUserFriends = (userId) => async dispatch => {
     const response = await fetch(`/api/friends/${userId}`);
 
+    console.log("**** IN LOAD FRIENDS THUNK ****, userId: ", userId)
     if (response.ok) {
         const friends = await response.json();
-        console.log("**** IN LOAD FRIENDS THUNK ****, friends: ", friends)
         dispatch(load(friends["friends"]));
     };
 };

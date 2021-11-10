@@ -8,11 +8,12 @@ friend_routes = Blueprint("friends", __name__)
 
 #CHANNEL routes
 #get one channel
-@friend_routes.route('/<int:channel_id>')
-@login_required
-def get_channel(channel_id):
-    # TODO finish get one channel route
-    return "get one channel"
+# @friend_routes.route('/<int:id>')
+# @login_required
+# def get_channel(id):
+#     print("\n\n\n ***** get user FRIENDS route\n\n\n")
+#     # TODO finish get one channel route
+#     return "get one channel"
 
 
 #get user friends
@@ -20,11 +21,22 @@ def get_channel(channel_id):
 @login_required
 def get_friends(user_id):
     # friends = User.query.join(Friend).filter(Friend.sender_user_id == user_id and Friend.accepted == True).all()
-    print("\n\n\n ***** get user FRIENDS route\n\n\n")
 
-    friends = db.session.query(User).join(Friend).where(Friend.sender_user_id == user_id and Friend.accepted == True).all()
+    # friends = db.session.select(User).join_from(Friend, Friend.rec_user_id).filter(Friend.sender_user_id == user_id and Friend.accepted == True).all()
 
-    return {"friends": [friend.to_dict() for friend in friends]}
+    id_list = Friend.query.filter(Friend.sender_user_id == user_id).all()
+    # test = id_list.to_dict()
+
+    loop = []
+
+    for row in id_list:
+        user = User.query.get(row.rec_user_id)
+        loop.append(user.to_dict())
+
+    # print(f"\n\n\n ***** get user FRIENDS route: id_list: {loop}\n\n\n")
+
+    return { "friends": loop}
+    # return {"friends": [friend.to_dict() for friend in friends]}
 
 
 # #get all channels by user
