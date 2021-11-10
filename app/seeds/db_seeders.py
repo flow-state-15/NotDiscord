@@ -123,7 +123,7 @@ def seed_user_server():
         users = ['PH']
         for _ in range(1, 11):
             user = 'PH'
-            while user not in users:
+            while user in users:
                 user = randint(1, total_users)
                 new_user_server = User_Server(
                     server_id=server,
