@@ -1,0 +1,176 @@
+{
+    "replacements":{
+       "anime":[
+          "Attack on Titan",
+          "Full Metal Alchemist"
+       ],
+       "movie":[
+          "Avengers"
+       ],
+       "tv_show":[
+          "Squid Game",
+          "It's always Sunny in Philadelphia"
+       ],
+       "game":[
+          "Outer Wilds",
+          "Soma"
+       ]
+    },
+    "messages":{
+       "general-chat":[
+          [
+             "I almost finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?",
+             "Sure, give me 1 more day to finish it and I will post it."
+          ]
+       ],
+       "demo-dome-praise-room":[
+          [
+             "I almost finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?",
+             "Sure, give me 1 more day to finish it and I will post it."
+          ]
+       ],
+       "business":[
+          [
+             "I almost finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?",
+             "Sure, give me 1 more day to finish it and I will post it."
+          ]
+       ],
+       "art":[
+          [
+             "I almost finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?",
+             "Sure, give me 1 more day to finish it and I will post it."
+          ],
+          [
+             "Anyone know of any good books on drawing caricatures?",
+             "I think I saw something recently. I am going to see if I can find it again.",
+             "Thanks I appreciate it!"
+          ],
+          [
+             "I just finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?"
+          ],
+          [
+             "I just finished my most recent painting! Do you want to see?",
+             "Awesome can I see it?"
+          ]
+       ],
+       "memes":[
+          [
+             "https://i.imgur.com/KpwIuSO.png",
+             "LOL, I did not see where that was headed.",
+             "You had to ruin the joke didn't you?"
+          ],
+          [
+             "https://old.reddit.com/r/memes/comments/khiyao/uncanny_resemblance/",
+             "Ad makers will soon invent a bigger monitor just so they can have smaller and harder to click close ad buttons.",
+             "Please do not give them ideas!"
+          ],
+          [
+             "https://old.reddit.com/r/memes/comments/ik0qu9/confusing/",
+             "I don't get it, it is 16.",
+             "Ever heard of PEMDAS?",
+             "PEMDAS? Is that some sort of a drink?",
+             "Forget it, it does not matter."
+          ]
+       ],
+       "anime":[
+          [
+             "Is the new season of {anime} out yet?",
+             "Not yet, we don't even have a release date yet.",
+             "Why did you have to tell me that! Now I know it will be an even longer wait!",
+             "You basically asked."
+          ],
+          [
+             "What should I start watching next?",
+             "Have you seen {anime}?",
+             "I was thinking about starting that but I don't know where I can watch it?",
+             "I wish I knew that."
+          ]
+       ],
+       "movies":[
+          [
+             "Anyone see the new Marvel movie?",
+             "I have not so no spoilers here please!",
+             "Fine, I will wait a few weeks."
+          ]
+       ],
+       "music":[
+          [
+             "Anyone know how to get scratches out of cd's?",
+             "You still have cd's?",
+             "You don't?"
+          ]
+       ],
+       "spoilers":[
+          [
+             "Can I talk about spoilers in here?",
+             "Sure, just don't expect to be unspoiled if you read anything here."
+          ]
+       ],
+       "tv-shows":[
+          [
+             "What should I start watching next?",
+             "Have you seen {tv_show}?",
+             "I was thinking about starting that but I don't know where I can watch it?",
+             "I wish I knew that."
+          ]
+       ],
+       "politics":[
+          [
+             "Anyone have a clue how I can call my representative?",
+             "Try here. https://www.house.gov/representatives/find-your-representative",
+             "Thanks I had no idea it was that easy!"
+          ],
+          [
+             "When does the next election start?",
+             "Which one?",
+             "Wait... How many are there?"
+          ]
+       ],
+       "video-games":[
+          [
+             "Anyone play {game} yet?",
+             "I beat it in one sitting! It is so fun.",
+             "I was hoping it was going to be longer then that just one sitting.",
+             "To be honest I think I was awake playing it for 23 hours. What day is it?",
+             "I don't think you should ever do that again. It is not healthy."
+          ]
+       ],
+       "exercise":[
+          [
+             "I need a new workout, any ideas?",
+             "Have you tried cross fit?",
+             "I can't do that, I feel like I need to start smaller.",
+             "Push ups might be the easy start you need."
+          ]
+       ],
+       "programming":[
+          [
+             "How do I exit VIM?",
+             "Whats WIM?",
+             "I have no clue! I am just stuck in it!"
+          ],
+          [
+             "How do I exit VIM?",
+             "Whats WIM?",
+             "I have no clue! I am just stuck in it!"
+          ]
+       ],
+       "pet-photos":[
+          [
+             "https://preview.redd.it/sg3q5cuedod31.jpg?width=576&auto=webp&s=06132e314b6a1bc31d3687931efa9ca71f55bed9",
+             "so cute! How old are they?",
+             "They are 31! I am not kidding."
+          ],
+          [
+             "https://preview.redd.it/un44882dvyj21.jpg?width=576&auto=webp&s=d222c1a62c90af8990c4fa645a672bba573d5281",
+             "Where did you get the tiny bed?",
+             "I made it!"
+          ]
+       ]
+    }
+ }
