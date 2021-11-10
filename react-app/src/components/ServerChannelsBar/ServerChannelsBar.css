@@ -65,6 +65,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  overflow-y: scroll;
 }
 .server-channels-bar-header-title {
   font-size: 1.5rem;
@@ -104,4 +105,16 @@
 }
 .server-channel-link:hover .server-channel-link-icons {
   opacity: 1;
+}
+.server-channels-listings:hover::-webkit-scrollbar-thumb {
+  background-color: #202225;
+}
+
+.server-channels-listings::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.server-channels-listings::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: transparent;
 }

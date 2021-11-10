@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { MemberPopout } from "../../context/MemberPopout";
 import ChatBar from "../MessagesSection/ChatBar";
 
-function MemberIconPopout({ member, position }) {
+function MemberIconPopout({ member, position, sidebar }) {
   const dispatch = useDispatch();
   const [showPopout, setShowPopout] = useState(false);
   const [popoutStyle, setPopoutStyle] = useState({});
@@ -49,7 +49,10 @@ function MemberIconPopout({ member, position }) {
 
   return (
     <>
-      <div className="user-avatar" onClick={openMenu}>
+      <div
+        className={sidebar ? `user-avatar user-avatar-side` : `user-avatar`}
+        onClick={openMenu}
+      >
         <img
           className="user-avatar-single"
           src={member.avatar}

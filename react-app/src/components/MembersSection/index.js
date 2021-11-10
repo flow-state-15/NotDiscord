@@ -26,7 +26,7 @@ export default function MembersSection() {
 
   return (
     <div className="members-section">
-      <h2>Members</h2>
+      <h2 className="members-title">Members</h2>
       {memberComponents}
     </div>
   );
