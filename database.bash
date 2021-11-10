@@ -9,11 +9,10 @@ elif [ $1 == 'reset' ]; then
     flask db migrate
     flask db upgrade
     flask seed all
-elif [ $1 == 'mpull' ]; then
+elif [ $1 == 'pullmaster' ]; then
     env -i git checkout master
     env -i git pull
-    env -i git checkout michael
-    env -i git merge master
+    env -i git checkout $2
 else
     echo "Unknown arg given. $1 is invalid."
 fi
