@@ -2,11 +2,26 @@
   flex: 1;
   background-color: #36393f;
   position: relative;
-  padding: 0.4rem;
+  padding-right: 0.4rem;
+}
+.message-section {
+  margin-right: 0.6rem;
+  display: flex;
+  padding-left: 1.5rem;
+  gap: 1rem;
+  align-items: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+.message-section:hover {
+  background-color: rgb(50, 53, 59);
 }
 .message-container-inner-hooblah {
   overflow-y: scroll;
   height: 95vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 }
 
 .message-container-inner-hooblah {
@@ -40,4 +55,58 @@
   background-color: #40444b;
   border: none;
   outline: none;
+}
+.user-avatar {
+  width: 4rem;
+  user-select: none;
+  height: 4rem;
+  cursor: pointer;
+}
+.user-avatar-single {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border-radius: 50%;
+}
+.message-section-user-time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.message-section-user {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+}
+.message-section-user:hover {
+  text-decoration: underline;
+}
+.message-section-time {
+  color: rgb(114, 118, 125);
+  font-size: 1.2rem;
+  user-select: none;
+}
+.message-content {
+  color: rgb(220, 221, 222);
+  font-size: 1.6rem;
+}
+.message-edit-delete {
+  background-color: rgb(54, 57, 63);
+  border: 1px solid black;
+}
+.message-edit-delete button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+.message-edit svg {
+  fill: rgb(220, 221, 222) !important;
+}
+.message-section-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
