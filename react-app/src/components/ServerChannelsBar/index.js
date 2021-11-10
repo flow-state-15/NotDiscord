@@ -7,16 +7,9 @@ import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 
 export default function ServerChannelsBar({ channels }) {
-  const history = useHistory();
   const { serverId, channelId } = useParams();
-  // const [currentChannel, setCurrentChannel] = useState(channels[0].id);
   const allServers = useSelector((state) => Object.values(state.servers));
   const currentServer = allServers.find((obj) => obj.id == serverId);
-
-  // useEffect(() => {
-  //   setCurrentChannel(channels[0].id);
-  //   history.push(`/channels/${serverId}/${currentChannel}`);
-  // }, [serverId]);
 
   return (
     <div className="server-channels-bar-inner-content">
