@@ -25,6 +25,7 @@ def validation_errors_to_error_messages(validation_errors):
 @message_routes.route('/byChannel/<int:channel_id>')
 @login_required
 def get_channel_messages(channel_id):
+    # TODO remove tests
     # messages = Message.query.filter(Message.channel_id == channel_id).all()
     # messages = Message.query.outerjoin(User.avatar).filter(Message.channel_id == channel_id).all()
 

@@ -15,6 +15,19 @@ def get_channel(channel_id):
     return "get one channel"
 
 
+#get dm channel by 2 users 
+@channel_routes.route('/dm/<int:user_id_1>-<int:user_id_2>')
+# @login_required
+def get_channel_by_users(user_id_1, user_id_2):
+    # TODO finish get dm channel by 2 users
+    print(user_id_1, user_id_2)
+    if 'exists':
+        pass
+    else:
+        pass
+    return "get one channel"
+
+
 #get channel members
 @channel_routes.route('/members/<int:channel_id>')
 @login_required

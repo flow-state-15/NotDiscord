@@ -1,11 +1,11 @@
-export default function FriendSection() {
+export default function FriendSection({ friend }) {
   return (
     <div className="friend-section">
       <div className="DM-icon DM-icon-alias-to-members">
         <div className="user-info">
           <div className="avatar-wrapper">
             <img
-              src="https://st3.depositphotos.com/25868248/35496/v/950/depositphotos_354960310-stock-illustration-smile-icon-yellow-background-tasty.jpg"
+              src={friend.avatar}
               alt="Avatar"
               className="avatar"
             />
@@ -16,8 +16,8 @@ export default function FriendSection() {
           <div className="name-tag name-tag-custom">
             <div>
               <h1 className="username username-color username-color-alias-members">
-                Concrete
-                <span className="username-tag-member">#1000</span>
+                {friend.tagged_name.split('#')[0]}
+                <span className="username-tag-member">#{friend.tagged_name.split('#')[1]}</span>
               </h1>
               <h3 className="member-online-status">Online</h3>
             </div>
