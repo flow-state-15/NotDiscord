@@ -120,18 +120,18 @@ def seed_user_server():
     )
     db.session.add(new_user_server)
     for server in range(1, total_servers+1):
-        users = []
+        users = ['PH']
         for _ in range(1, 11):
-            while True:
+            user = 'PH'
+            while user not in users:
                 user = randint(1, total_users)
-                if user not in users:
-                    new_user_server = User_Server(
-                        server_id=server,
-                        user_id=user
-                    )
-                    db.session.add(new_user_server)
-                    users.append(user)
-                    break
+                new_user_server = User_Server(
+                    server_id=server,
+                    user_id=user
+                )
+                db.session.add(new_user_server)
+                users.append(user)
+                break
     db.session.commit()
 
 
@@ -203,7 +203,8 @@ def seed_channel():
 
 
 def seed_message():
-    for _ in range(1, 5*total_channels+1):
+    # TODO use dict or to be sure repeated messages are not in the same channel
+    for _ in range(1, (5*total_channels+1)//2):
         channel_id = randint(1, total_channels+1)
         channel_name = Channel.query.get(channel_id).name
         channel_key = channel_name
@@ -216,6 +217,8 @@ def seed_message():
         current_user = randint(1, total_users+1)
         num = 2
         for message in choice(messages[channel_key]):
+            if isinstance(message, list):
+                message = choice(message)
             if '{' in message:
                 for key, value in replacements.items():
                     key = '{' + key + '}'
@@ -225,8 +228,6 @@ def seed_message():
                 current_user = user_1
             else:
                 current_user = user_2
-            if isinstance(message, list):
-                message = choice(message)
             new_message = Message(
                 user_id=current_user,
                 channel_id=channel_id,
