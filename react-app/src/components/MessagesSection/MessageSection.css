@@ -2,14 +2,42 @@
   flex: 1;
   background-color: #36393f;
   position: relative;
+  padding: 0.4rem;
+}
+.message-container-inner-hooblah {
+  overflow-y: scroll;
+  height: 95vh;
+}
+
+.message-container-inner-hooblah {
+  scrollbar-width: thin;
+  scrollbar-color: #202225 #2e3338;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.message-container-inner-hooblah::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.message-container-inner-hooblah::-webkit-scrollbar-track {
+  background: #2e3338;
+  border-radius: 10rem;
+}
+
+.message-container-inner-hooblah::-webkit-scrollbar-thumb {
+  background-color: #202225;
+  border-radius: 20px;
 }
 .chat-bar {
   position: absolute;
   bottom: 0;
-  left: 0;
   width: 100%;
+  height: 5vh;
   padding: 1rem 2rem;
 }
 .chat-bar input {
   width: 100%;
+  background-color: #40444b;
+  border: none;
+  outline: none;
 }

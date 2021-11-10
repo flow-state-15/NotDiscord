@@ -56,7 +56,11 @@ export default function ServerChannelListing({ channel }) {
             className={`server-channel-link-p ${
               isCurrentChannel ? " current-active-channel" : ""
             }`}
-          >{`${channel.name}`}</p>
+          >{`${
+            channel.name.length > 14
+              ? channel.name.slice(0, 14) + "..."
+              : channel.name
+          }`}</p>
         </div>
         <div
           className={`server-channel-link-icons ${
