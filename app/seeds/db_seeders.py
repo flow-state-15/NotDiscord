@@ -3,12 +3,18 @@ from app.models import db, User, Server, User_Server, Channel, Message, Friend
 import datetime as dt
 from random import randint, choice
 from faker import Faker
+import json
 
 fake = Faker()
 
+with open('app/seeds/message_data.json') as json_file:
+    data = json.load(json_file)
+    messages = data['messages']
+    replacements = data['replacements']
 total_users = 30
 total_servers = 20
 channels_per_server = 6
+total_channels = total_servers*channels_per_server
 
 
 def seed_user():
@@ -41,8 +47,6 @@ def seed_user():
     ]
     for _ in range(0, total_users+1):
         avatar = choice(avatars)
-        print(avatar)
-        print(len(avatar))
         user = User(
             email=fake.email(),
             hashed_password=generate_password_hash('password'),
@@ -116,18 +120,18 @@ def seed_user_server():
     )
     db.session.add(new_user_server)
     for server in range(1, total_servers+1):
-        users = []
+        users = ['PH']
         for _ in range(1, 11):
-            while True:
+            user = 'PH'
+            while user not in users:
                 user = randint(1, total_users)
-                if user not in users:
-                    new_user_server = User_Server(
-                        server_id=server,
-                        user_id=user
-                    )
-                    db.session.add(new_user_server)
-                    users.append(user)
-                    break
+                new_user_server = User_Server(
+                    server_id=server,
+                    user_id=user
+                )
+                db.session.add(new_user_server)
+                users.append(user)
+                break
     db.session.commit()
 
 
@@ -168,13 +172,10 @@ def seed_channel():
         'spoilers',
         'tv-shows',
         'politics',
-        'pc-gaming',
         'exercise',
         'programming',
         'pet-photos',
-        'cute-animals',
         'video-games',
-        'console-gaming',
     ]
     for i in range(1, total_servers+1):
         current_channels = []
@@ -202,18 +203,55 @@ def seed_channel():
 
 
 def seed_message():
-    for i in range(1, 1201):
-        message_content = f'This is a test message {i}.'
-        if i == 69:
-            message_content = f'This is a test message {i}, NICE!.'
-        new_message = Message(
-            user_id=randint(1, total_users+1),
-            channel_id=randint(1, total_servers*channels_per_server+1),
-            content=message_content,
-            sent_date=dt.datetime.now()
-        )
-        db.session.add(new_message)
+    # TODO use dict or to be sure repeated messages are not in the same channel
+    for _ in range(1, (5*total_channels+1)//2):
+        channel_id = randint(1, total_channels+1)
+        channel_name = Channel.query.get(channel_id).name
+        channel_key = channel_name
+        user_1 = randint(1, total_users+1)
+        user_2 = user_1
+        while user_1 == user_2:
+            user_2 = randint(1, total_users+1)
+        if channel_name == 'lounge':
+            channel_key = 'general-chat'
+        current_user = randint(1, total_users+1)
+        num = 2
+        for message in choice(messages[channel_key]):
+            if isinstance(message, list):
+                message = choice(message)
+            if '{' in message:
+                for key, value in replacements.items():
+                    key = '{' + key + '}'
+                    if key in message:
+                        message = message.replace(key, choice(value))
+            if num%2 == 0:
+                current_user = user_1
+            else:
+                current_user = user_2
+            new_message = Message(
+                user_id=current_user,
+                channel_id=channel_id,
+                content=message,
+                sent_date=dt.datetime.now()
+            )
+            num += 1
+            db.session.add(new_message)
     db.session.commit()
+
+
+# def seed_message():
+#     for i in range(1, 1201):
+#         message_content = f'This is a test message {i}.'
+#         if i == 69:
+#             message_content = f'This is a test message {i}, NICE!.'
+#         new_message = Message(
+#             user_id=randint(1, total_users+1),
+#             channel_id=randint(1, total_channels+1),
+#             content=message_content,
+#             sent_date=dt.datetime.now()
+#         )
+#         db.session.add(new_message)
+#     db.session.commit()
 
 
 def seed_all():
@@ -242,4 +280,4 @@ def undo_all():
 
 
 if __name__ == '__main__':
-    seed_all()
+    seed_message()
