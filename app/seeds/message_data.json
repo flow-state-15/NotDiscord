@@ -1,176 +1,332 @@
 {
     "replacements":{
-       "anime":[
-          "Attack on Titan",
-          "Full Metal Alchemist"
-       ],
-       "movie":[
-          "Avengers"
-       ],
-       "tv_show":[
-          "Squid Game",
-          "It's always Sunny in Philadelphia"
-       ],
-       "game":[
-          "Outer Wilds",
-          "Soma"
-       ]
+		"anime":[
+			"Attack on Titan",
+			"Full Metal Alchemist",
+			"Hunter X Hunter",
+			"The Disastrous Life of Saiki K.",
+			"Erased",
+			"Re:ZERO -Starting Life in Another World-",
+			"Steins;Gate",
+			"Spirited Away",
+			"Vinland Saga",
+			"Made In Abyss",
+			"Death Note",
+			"JoJo's Bizzare Adventure",
+			"The Promised Neverland",
+			"Demon Slayer",
+			"A Place Further Than The Universe",
+			"Mob Psycho 100",
+			"KonoSuba: God's Blessing on This Wonderful World!",
+			"My Hero Academia",
+			"Violet Evergarden",
+			"One Punch Man",
+			"Samurai Champloo",
+			"Mushoku Tensei: Jobless Reincarnation",
+			"Naruto",
+			"Deca-Dence",
+			"Jujutsu Kaisen",
+			"Haikyu",
+			"Ranking of Kings"
+		],
+		"movie":[
+			"Avengers",
+			"Interstellar",
+			"Mr. Nobody",
+			"Into the Wild",
+			"28 Days Later",
+			"The Eternal Sunshine of The Spotless Mind",
+			"Let the Right One In",
+			"The Iron Giant",
+			"Scott pilgrim Vs. the world",
+			"Old Boy"
+		],
+		"tv_show":[
+			"Squid Game",
+			"It's always Sunny in Philadelphia",
+			"24",
+			"30 Rock",
+			"Agents of Shield",
+			"Angel",
+			"Archer",
+			"Arrested Development",
+			"Breaking Bad",
+			"Buffy the Vampire Slayer",
+			"Chuck",
+			"Community",
+			"Dexter",
+			"Doctor who",
+			"Farscape",
+			"Idiot Abroad",
+			"Impractical Jokers",
+			"Jessica Jones",
+			"Justified",
+			"Lillehammer ",
+			"Mad Men",
+			"Master of None",
+			"Ozark",
+			"Parks and Recreation",
+			"Prison Break",
+			"Sherlock"
+
+		],
+		"game":[
+			"Outer Wilds",
+			"Bloodborne",
+			"Monster Hunter: World",
+			"Hollow Knight",
+			"Minecraft",
+			"Persona 5",
+			"Uncharted 4: A Thief’s End™",
+			"The Witcher 3: Wild Hunt",
+			"The Last of Us™ Remastered",
+			"The Last of Us™ Part II",
+			"The Forgotten City",
+			"Subnautica",
+			"SOMA",
+			"Resident Evil 2",
+			"Ratchet & Clank Rift Apart",
+			"Portal 2",
+			"Portal",
+			"Outer Wilds",
+			"Monster Hunter Rise",
+			"Marvel's Spider-Man: Miles Morales",
+			"Journey",
+			"Half-Life: Alyx",
+			"Hades",
+			"God of War",
+			"Factorio",
+			"Dishonored",
+			"Desperados III",
+			"Demon's Souls",
+			"Deep Rock Galactic",
+			"Death Stranding",
+			"BioShock",
+			"Wolfenstein: The New Order",
+			"Untitled Goose Game",
+			"Transistor",
+			"TowerFall Ascension",
+			"The Stanley Parable",
+			"Teardown",
+			"Superliminal",
+			"SUPERHOT",
+			"Super Smash Bros. Ultimate",
+			"Subnautica: Below Zero",
+			"Stardew Valley",
+			"Shadow Warrior",
+			"Shadow Tactics: Blades of the Shogun",
+			"Sekiro™: Shadows Die Twice",
+			"Returnal",
+			"Ori and the Blind Forest",
+			"METAL GEAR SOLID V: THE PHANTOM PAIN",
+			"METAL GEAR SOLID V: GROUND ZEROES",
+			"METAL GEAR RISING: REVENGEANCE",
+			"Marvel's Spider-Man",
+			"Mark of the Ninja",
+			"LIMBO",
+			"Life is Strange™",
+			"Inside",
+			"Infinifactory",
+			"inFAMOUS Second Son™",
+			"inFAMOUS 2",
+			"Horizon Zero Dawn",
+			"HITMAN™ 2",
+			"HITMAN™",
+			"Hitman: Blood Money",
+			"Hellblade: Senua's Sacrifice",
+			"Half-Life 2",
+			"Hacknet",
+			"GRAVITY RUSH 2",
+			"Google Earth VR",
+			"Ghost of Tsushima",
+			"DOOM",
+			"Deus Ex: Human Revolution",
+			"DETROIT: BECOME HUMAN",
+			"DEATHLOOP",
+			"DEATH STRANDING",
+			"Counter-Strike: Global Offensive",
+			"Control",
+			"Chroma Lab",
+			"Borderlands 2",
+			"BioShock Infinite",
+			"Apex Legends",
+			"What Remains of Edith Finch",
+			"Watch_Dogs",
+			"Watch Dogs: Legion",
+			"Warframe",
+			"Viscera Cleanup Detail",
+			"Ultimate Chicken Horse",
+			"Tony Hawk's Pro Skater 1 + 2",
+			"Tomb Raider",
+			"Tom Clancy's Splinter Cell Blacklist",
+			"Tom Clancy's Rainbow Six Siege",
+			"Tilt Brush",
+			"theBlu",
+			"The Witcher 2: Assassins of Kings Enhanced Edition"
+		]
     },
     "messages":{
        "general-chat":[
-          [
-             "I almost finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?",
-             "Sure, give me 1 more day to finish it and I will post it."
-          ]
-       ],
+			[
+				"Can I talk about anything here?",
+				"Near anything, as long as it is appropriate.",
+				"Of course! Thanks."
+			]
+		],
        "demo-dome-praise-room":[
-          [
-             "I almost finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?",
-             "Sure, give me 1 more day to finish it and I will post it."
-          ]
-       ],
+			[
+				"Does Doug allow us to send him money?",
+				"Of course he does! Bill posted a link last week.",
+				"I must have missed it..."
+			],
+			[
+				"Praise Doug! The owner of the DemoDome!",
+				"Is it Dimmadome or Demodome?"
+			]
+		],
        "business":[
-          [
-             "I almost finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?",
-             "Sure, give me 1 more day to finish it and I will post it."
-          ]
-       ],
-       "art":[
-          [
-             "I almost finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?",
-             "Sure, give me 1 more day to finish it and I will post it."
-          ],
-          [
-             "Anyone know of any good books on drawing caricatures?",
-             "I think I saw something recently. I am going to see if I can find it again.",
-             "Thanks I appreciate it!"
-          ],
-          [
-             "I just finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?"
-          ],
-          [
-             "I just finished my most recent painting! Do you want to see?",
-             "Awesome can I see it?"
-          ]
-       ],
+			[
+				"I almost finished my most recent painting! Do you want to see?",
+				"Awesome can I see it?",
+				"Sure, give me 1 more day to finish it and I will post it."
+			]
+		],
+		"art":[
+			[
+				"I almost finished my most recent painting! Do you want to see?",
+				"Awesome can I see it?",
+				"Sure, give me 1 more day to finish it and I will post it."
+			],
+			[
+				"Anyone know of any good books on drawing caricatures?",
+				"I think I saw something recently. I am going to see if I can find it again.",
+				"Thanks I appreciate it!"
+			],
+			[
+				"I just finished my most recent painting! Do you want to see?",
+				"Awesome can I see it?"
+			],
+			[
+				"I just finished my most recent painting! Do you want to see?",
+				"Awesome can I see it?"
+			]
+		],
        "memes":[
-          [
-             "https://i.imgur.com/KpwIuSO.png",
-             "LOL, I did not see where that was headed.",
-             "You had to ruin the joke didn't you?"
-          ],
-          [
-             "https://old.reddit.com/r/memes/comments/khiyao/uncanny_resemblance/",
-             "Ad makers will soon invent a bigger monitor just so they can have smaller and harder to click close ad buttons.",
-             "Please do not give them ideas!"
-          ],
-          [
-             "https://old.reddit.com/r/memes/comments/ik0qu9/confusing/",
-             "I don't get it, it is 16.",
-             "Ever heard of PEMDAS?",
-             "PEMDAS? Is that some sort of a drink?",
-             "Forget it, it does not matter."
-          ]
-       ],
+			[
+				"https://i.imgur.com/KpwIuSO.png",
+				"LOL, I did not see where that was headed.",
+				"You had to ruin the joke didn't you?"
+			],
+			[
+				"https://old.reddit.com/r/memes/comments/khiyao/uncanny_resemblance/",
+				"Ad makers will soon invent a bigger monitor just so they can have smaller and harder to click close ad buttons.",
+				"Please do not give them ideas!"
+			],
+			[
+				"https://old.reddit.com/r/memes/comments/ik0qu9/confusing/",
+				"I don't get it, it is 16.",
+				"Ever heard of PEMDAS?",
+				"PEMDAS? Is that some sort of a drink?",
+				"Forget it, it does not matter."
+			]
+		],
        "anime":[
-          [
-             "Is the new season of {anime} out yet?",
-             "Not yet, we don't even have a release date yet.",
-             "Why did you have to tell me that! Now I know it will be an even longer wait!",
-             "You basically asked."
-          ],
-          [
-             "What should I start watching next?",
-             "Have you seen {anime}?",
-             "I was thinking about starting that but I don't know where I can watch it?",
-             "I wish I knew that."
-          ]
-       ],
+			[
+				"Is the new season of {anime} out yet?",
+				"Not yet, we don't even have a release date yet.",
+				"Why did you have to tell me that! Now I know it will be an even longer wait!",
+				"You basically asked."
+			],
+			[
+				"What should I start watching next?",
+				"Have you seen {anime}?",
+				"I was thinking about starting that but I don't know where I can watch it?",
+				"I wish I knew that."
+			]
+		],
        "movies":[
-          [
-             "Anyone see the new Marvel movie?",
-             "I have not so no spoilers here please!",
-             "Fine, I will wait a few weeks."
-          ]
-       ],
+			[
+				"Anyone see the new Marvel movie?",
+				"I have not so no spoilers here please!",
+				"Fine, I will wait a few weeks."
+			]
+		],
        "music":[
-          [
-             "Anyone know how to get scratches out of cd's?",
-             "You still have cd's?",
-             "You don't?"
-          ]
-       ],
+			[
+				"Anyone know how to get scratches out of cd's?",
+				"You still have cd's?",
+				"You don't?"
+			]
+		],
        "spoilers":[
-          [
-             "Can I talk about spoilers in here?",
-             "Sure, just don't expect to be unspoiled if you read anything here."
-          ]
-       ],
+			[
+				"Can I talk about spoilers in here?",
+				"Sure, just don't expect to be unspoiled if you read anything here."
+			]
+		],
        "tv-shows":[
-          [
-             "What should I start watching next?",
-             "Have you seen {tv_show}?",
-             "I was thinking about starting that but I don't know where I can watch it?",
-             "I wish I knew that."
-          ]
-       ],
+			[
+				"What should I start watching next?",
+				"Have you seen {tv_show}?",
+				"I was thinking about starting that but I don't know where I can watch it?",
+				"I wish I knew that."
+			]
+		],
        "politics":[
-          [
-             "Anyone have a clue how I can call my representative?",
-             "Try here. https://www.house.gov/representatives/find-your-representative",
-             "Thanks I had no idea it was that easy!"
-          ],
-          [
-             "When does the next election start?",
-             "Which one?",
-             "Wait... How many are there?"
-          ]
-       ],
+			[
+				"Anyone have a clue how I can call my representative?",
+				"Try here. https://www.house.gov/representatives/find-your-representative",
+				"Thanks I had no idea it was that easy!"
+			],
+			[
+				"When does the next election start?",
+				"Which one?",
+				"Wait... How many are there?"
+			]
+		],
        "video-games":[
-          [
-             "Anyone play {game} yet?",
-             "I beat it in one sitting! It is so fun.",
-             "I was hoping it was going to be longer then that just one sitting.",
-             "To be honest I think I was awake playing it for 23 hours. What day is it?",
-             "I don't think you should ever do that again. It is not healthy."
-          ]
-       ],
-       "exercise":[
-          [
-             "I need a new workout, any ideas?",
-             "Have you tried cross fit?",
-             "I can't do that, I feel like I need to start smaller.",
-             "Push ups might be the easy start you need."
-          ]
-       ],
+			[
+				[
+					"Anyone play {game} yet?",
+					"Has anyone gotten {game} yet?"
+				],
+				"I beat it in one sitting! It is so fun.",
+				"I was hoping it was going to be longer then that just one sitting.",
+				"To be honest I think I was awake playing it for 23 hours. What day is it?",
+				"I don't think you should ever do that again. It is not healthy."
+			]
+		],
+		"exercise":[
+			[
+				"I need a new workout, any ideas?",
+				"Have you tried cross fit?",
+				"I can't do that, I feel like I need to start smaller.",
+				"Push ups might be the easy start you need."
+			]
+		],
        "programming":[
-          [
-             "How do I exit VIM?",
-             "Whats WIM?",
-             "I have no clue! I am just stuck in it!"
-          ],
-          [
-             "How do I exit VIM?",
-             "Whats WIM?",
-             "I have no clue! I am just stuck in it!"
-          ]
-       ],
+			[
+				"How do I exit VIM?",
+				"Whats WIM?",
+				"I have no clue! I am just stuck in it!"
+			],
+			[
+				"How do I exit VIM?",
+				"Whats WIM?",
+				"I have no clue! I am just stuck in it!"
+			]
+		],
        "pet-photos":[
-          [
-             "https://preview.redd.it/sg3q5cuedod31.jpg?width=576&auto=webp&s=06132e314b6a1bc31d3687931efa9ca71f55bed9",
-             "so cute! How old are they?",
-             "They are 31! I am not kidding."
-          ],
-          [
-             "https://preview.redd.it/un44882dvyj21.jpg?width=576&auto=webp&s=d222c1a62c90af8990c4fa645a672bba573d5281",
-             "Where did you get the tiny bed?",
-             "I made it!"
-          ]
-       ]
+			[
+				"https://preview.redd.it/sg3q5cuedod31.jpg?width=576&auto=webp&s=06132e314b6a1bc31d3687931efa9ca71f55bed9",
+				"so cute! How old are they?",
+				"They are 31! I am not kidding."
+			],
+			[
+				"https://preview.redd.it/un44882dvyj21.jpg?width=576&auto=webp&s=d222c1a62c90af8990c4fa645a672bba573d5281",
+				"Where did you get the tiny bed?",
+				"I made it!"
+			]
+		]	
     }
  }

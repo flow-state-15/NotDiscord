@@ -225,6 +225,8 @@ def seed_message():
                 current_user = user_1
             else:
                 current_user = user_2
+            if isinstance(message, list):
+                message = choice(message)
             new_message = Message(
                 user_id=current_user,
                 channel_id=channel_id,
