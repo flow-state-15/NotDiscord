@@ -3,6 +3,7 @@
   background-color: #36393f;
   position: relative;
   padding-right: 0.4rem;
+  padding-top: 1rem;
 }
 .message-section {
   margin-right: 0.6rem;
@@ -118,4 +119,25 @@
 .welcome-to-server {
   display: flex;
   flex-direction: column;
+  gap: 0.9rem;
+  margin-left: 1.5rem;
+  user-select: none;
+}
+.welcome-hash-tag {
+  width: 6.8rem;
+  height: 6.8rem;
+  background-color: #4f545c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.welcome-hash-tag span {
+  font-size: 4rem;
+}
+.welcome-to-text {
+  font-size: 3.2rem;
+  font-size: 600;
+  color: #fff;
 }

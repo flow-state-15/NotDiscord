@@ -26,9 +26,7 @@
 .server-channel-link div:nth-child(2) {
   opacity: 0;
 }
-.server-channel:hover .server-channel-link div:nth-child(2) {
-  opacity: 1;
-}
+
 .server-channel-link {
   text-decoration: none;
   color: #8e9297;
@@ -97,4 +95,13 @@
 }
 .current-active-channel-bg:hover {
   background-color: #393c42;
+}
+.server-channel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.server-channel-link:hover .server-channel-link-icons {
+  opacity: 1;
 }
