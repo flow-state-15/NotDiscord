@@ -109,6 +109,7 @@ class Friend(db.Model):
         db.Integer, db.ForeignKey("users.id"), nullable=False)
     rec_user_id = db.Column(
         db.Integer, db.ForeignKey("users.id"), nullable=False)
+    # friend = db.relationship()
 
     def to_dict(self):
         return {
