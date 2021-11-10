@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
-import { loadUserServers } from '../../store/servers'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { loadUserServers } from "../../store/servers";
 import ServerIcon from "./ServerIcon";
 import "./ServerSideBar.css";
 
 export default function ServerSideBar() {
-  const dispatch = useDispatch()
-  const servers = useSelector(state => state.servers)
-  const user = useSelector(state => state.session.user)
+  const dispatch = useDispatch();
+  const servers = useSelector((state) => state.servers);
+  const user = useSelector((state) => state.session.user);
 
-  useEffect(()=> {
-    dispatch(loadUserServers(user.id))
-  }, [])
+  useEffect(() => {
+    dispatch(loadUserServers(user.id));
+  }, []);
 
-  const allServers = Object.values(servers)
+  const allServers = Object.values(servers);
 
   const serversComponents = allServers.map((server) => {
     return (

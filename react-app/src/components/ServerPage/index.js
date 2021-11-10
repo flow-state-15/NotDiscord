@@ -14,18 +14,24 @@ import "./ServerPage.css";
 export default function ServerPage() {
   const dispatch = useDispatch();
   const { serverId, channelId } = useParams();
-  const [ serverChannelsFound, setServerChannelsFound ] = useState(false);
-  const [ serverMembersFound, setServerMembersFound ] = useState(false);
-  const [ channelMessagesFound, setChannelMessagesFound ] = useState(false);
-  const [ isLoaded, setIsLoaded ] = useState(false);
+  const [serverChannelsFound, setServerChannelsFound] = useState(false);
+  const [serverMembersFound, setServerMembersFound] = useState(false);
+  const [channelMessagesFound, setChannelMessagesFound] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(loadServerChannels(serverId)).then(() => setServerChannelsFound(true));
-    dispatch(loadServerMembers(serverId)).then(() => setServerMembersFound(true));
+    dispatch(loadServerChannels(serverId)).then(() =>
+      setServerChannelsFound(true)
+    );
+    dispatch(loadServerMembers(serverId)).then(() =>
+      setServerMembersFound(true)
+    );
   }, [serverId, dispatch]);
 
   useEffect(() => {
-    dispatch(loadChannelMessages(channelId)).then(() => setChannelMessagesFound(true));
+    dispatch(loadChannelMessages(channelId)).then(() =>
+      setChannelMessagesFound(true)
+    );
   }, [channelId, dispatch]);
 
   const serverChannels = useSelector((state) => Object.values(state.channels));
@@ -36,7 +42,7 @@ export default function ServerPage() {
     if (serverChannelsFound && serverMembersFound && channelMessagesFound) {
       setIsLoaded(true);
     }
-  }, [serverChannelsFound, serverMembersFound, channelMessagesFound])
+  }, [serverChannelsFound, serverMembersFound, channelMessagesFound]);
 
   return (
     <div className="server-page">
@@ -44,9 +50,7 @@ export default function ServerPage() {
       {isLoaded && (
         <div className="server-page-content">
           <ServerChannelsBar channels={serverChannels} />
-          <MessagesSection
-            messages={channelMessages}
-          />
+          <MessagesSection messages={channelMessages} />
           <MembersSection members={serverMembers} />
         </div>
       )}
