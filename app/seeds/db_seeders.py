@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, User, Server, User_Server, Channel, Message, Friend
 import datetime as dt
-from random import randint
+from random import randint, choice
 from faker import Faker
 
 fake = Faker()
@@ -31,12 +31,22 @@ def seed_user():
     )
     db.session.add(demo_user)
     # rest of the users
+    avatars = [
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/blue-discord-icon.png',
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/gray-discord-icon.png',
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/green-discord-icon.png',
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/orange-discord-icon.png',
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/red-discord-icon.png',
+        'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/yellow-discord-icon.png'
+    ]
     for _ in range(0, total_users+1):
+        avatar = choice(avatars)
+        print(avatar)
+        print(len(avatar))
         user = User(
             email=fake.email(),
             hashed_password=generate_password_hash('password'),
-            # avatar=fake.avatar(),
-            avatar="",
+            avatar=avatar,
             tagged_name=f'{fake.user_name()}#{randint(1000, 10000)}',
             created_at=dt.datetime.now(),
         )
