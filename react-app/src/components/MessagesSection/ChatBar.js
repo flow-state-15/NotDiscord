@@ -8,6 +8,8 @@ export default function ChatBar() {
   const [content, setContent] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
   const { channelId } = useParams();
+  const allChannels = useSelector((state) => Object.values(state.channels));
+  const currentChannel = allChannels.find((obj) => obj.id == channelId);
 
   function onSendMessage(e) {
     e.preventDefault();
@@ -29,6 +31,7 @@ export default function ChatBar() {
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          placeholder={`Message #${currentChannel?.name}`}
         ></input>
       </form>
     </div>
