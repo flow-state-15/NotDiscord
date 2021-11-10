@@ -3,9 +3,11 @@ import UserControls from "../UserControls";
 import "./ServerChannelsBar.css";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { useEffect, useState } from "react";
 
 export default function ServerChannelsBar({ channels }) {
-  const { serverId } = useParams();
+  const { serverId, channelId } = useParams();
   const allServers = useSelector((state) => Object.values(state.servers));
   const currentServer = allServers.find((obj) => obj.id == serverId);
 

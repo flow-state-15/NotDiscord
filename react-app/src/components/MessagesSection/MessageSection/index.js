@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
+import MemberIconPopout from "../../MemberIconPopout";
 
 export default function MessageSection({ message }) {
   const dispatch = useDispatch();
@@ -32,13 +33,14 @@ export default function MessageSection({ message }) {
 
   return (
     <div className="message-section">
-      <div className="user-avatar">
+      {/* <div className="user-avatar">
         <img
           className="user-avatar-single"
           src={message.user.avatar}
           alt="user avatar"
         ></img>
-      </div>
+      </div> */}
+      <MemberIconPopout member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">
           <p className="message-section-user">

@@ -34,14 +34,14 @@ export default function ServerChannelListing({ channel }) {
   //   });
 
   return (
-    <div
-      className={`server-channel ${
-        isCurrentChannel ? " current-active-channel-bg" : ""
-      }`}
+    <Link
+      className={`server-channel-link`}
+      to={`/channels/${serverId}/${channel.id}`}
     >
-      <Link
-        className={`server-channel-link`}
-        to={`/channels/${serverId}/${channel.id}`}
+      <div
+        className={`server-channel ${
+          isCurrentChannel ? " current-active-channel-bg" : ""
+        }`}
       >
         <div>
           <svg width="15" height="15" viewBox="0 0 24 24" class="icon-1DeIlz">
@@ -91,7 +91,9 @@ export default function ServerChannelListing({ channel }) {
           </div>
           {currentServer?.owner_id == currentUserId && (
             <div
-              className={`${isCurrentChannel ? " current-active-channel" : ""}`}
+              className={`server-channel-link-icons ${
+                isCurrentChannel ? " current-active-channel" : ""
+              }`}
             >
               <svg
                 class="actionIcon-PgcMM2"
@@ -110,7 +112,7 @@ export default function ServerChannelListing({ channel }) {
             </div>
           )}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
