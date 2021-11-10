@@ -75,7 +75,7 @@ def create_message():
     print(f"\n\n\n{the_message}\n\n\n")
 
 
-    return {the_message}
+    return the_message
 
 
 #PUT update message
