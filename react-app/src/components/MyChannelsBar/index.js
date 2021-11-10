@@ -1,6 +1,8 @@
 import DMIcon from "./DMIcon";
 import GroupIcon from "./GroupIcon";
 import UserControls from "../UserControls";
+import { useSelector, useDispatch } from 'react-redux'
+import { loadUserChannels } from "../../store/channels";
 
 import "./MyChannelsBar.css";
 

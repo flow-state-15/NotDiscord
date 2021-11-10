@@ -42,7 +42,8 @@ class User(db.Model, UserMixin):
     avatar = db.Column(db.String(255))
     tagged_name = db.Column(db.String(255), nullable=False)
     created_at= db.Column(db.Date, nullable=False)
-    messages = db.relationship('Message', back_populates='users')
+    # messages = db.relationship('Message', backref='user')
+
 
     @property
     def password(self):
@@ -155,7 +156,7 @@ class Message(db.Model):
         "channels.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
     sent_date = db.Column(db.DateTime, nullable=False)
-    users = db.relationship('User', back_populates='messages')
+    # user = db.relationship('User', backref='messages')
 
     def to_dict(self):
         return {
