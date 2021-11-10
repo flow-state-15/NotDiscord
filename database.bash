@@ -12,7 +12,14 @@ elif [ $1 == 'reset' ]; then
 elif [ $1 == 'pullmaster' ]; then
     env -i git checkout master
     env -i git pull
-    env -i git checkout $2
+    if [ $1 == 'm' ]; then
+        env -i git checkout michael
+    elif [ $1 == 'd' ]; then
+        env -i git checkout dan
+    elif [ $1 == 'n' ]; then
+        env -i git checkout neb
+    elif [ $1 == 'j' ]; then
+        env -i git checkout jason
 else
     echo "Unknown arg given. $1 is invalid."
 fi
