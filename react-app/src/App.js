@@ -62,53 +62,6 @@ function App() {
     // </BrowserRouter>
     <div id="app_container">
       <BrowserRouter>
-<<<<<<< HEAD
-        <MemberPopoutProvider>
-          <Switch>
-            <Route exact path="/">
-              <DiscordHome />
-            </Route>
-            <Route path="/login" exact={true}>
-              <LoginForm />
-            </Route>
-            <Route path="/sign-up" exact={true}>
-              <SignUpForm />
-            </Route>
-            <ProtectedRoute path="/channels/@me">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
-            </ProtectedRoute>
-            <ProtectedRoute path="/servers/">
-                <ServerList />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/DM">
-                <DMPage />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/group">
-                <GroupPage />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/:serverId/:channelId">
-                <ServerSideBarNE />
-                <ServerPage />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/channels/:serverId">
-                <ServerSideBarNE />
-                <ServerPage />
-            </ProtectedRoute>
-            <ProtectedRoute path="/test">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
-            </ProtectedRoute>
-            <ProtectedRoute path="/invite/:inviteId">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
-            </ProtectedRoute>
-          </Switch>
-        </MemberPopoutProvider>
-=======
         <Switch>
           <Route exact path="/">
             <DiscordHome />
@@ -152,7 +105,6 @@ function App() {
             <FriendsSection />
           </ProtectedRoute>
         </Switch>
->>>>>>> master
       </BrowserRouter>
     </div>
   );
