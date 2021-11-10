@@ -6,12 +6,22 @@ import "./ServerSideBarNE.css";
 
 export default function ServerSideBarNE() {
   const dispatch = useDispatch();
-  const servers = useSelector((state) => state.servers);
+  const getFirstChannelFromServer = async (serverId) => {
+    const allChannnels = await fetch(`/api/channels/byServer/${serverId}`);
+    const data = await allChannnels.json();
+    const firstChannel = data.channels[0];
+    console.log(firstChannel);
+
+    return firstChannel.id;
+  };
+
   const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(loadUserServers(user?.id));
   }, []);
+
+  const servers = useSelector((state) => state.servers);
 
   const testFunc123 = (e) => {
     const rectangle = e.target.getBoundingClientRect();

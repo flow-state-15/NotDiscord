@@ -1,8 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import NavBar from "../NavBar";
 import ServerChannelsBar from "../ServerChannelsBar";
 import MessagesSection from "../MessagesSection";
 import MembersSection from "../MembersSection";
@@ -28,13 +27,23 @@ export default function ServerPage() {
   const serverChannels = useSelector((state) => Object.values(state.channels));
   const channelMessages = useSelector((state) => Object.values(state.messages));
   const serverMembers = useSelector((state) => Object.values(state.members));
+  const [currentChannel, setCurrentChannel] = useState("serverChannels[0]");
+
+  useEffect(() => {
+    setCurrentChannel(
+      serverChannels?.find((channel) => channel.id == channelId)
+    );
+  }, [channelId, serverChannels]);
 
   return (
     <div className="server-page">
       {/* <NavBar /> */}
       <div className="server-page-content">
         <ServerChannelsBar channels={serverChannels} />
-        <MessagesSection messages={channelMessages} />
+        <MessagesSection
+          messages={channelMessages}
+          channel={currentChannel?.name}
+        />
         <MembersSection members={serverMembers} />
       </div>
     </div>
