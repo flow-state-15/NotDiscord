@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { loadServerMembers } from "../../store/members";
 import MemberSection from "./MemberSection";
+import "./MemberSection.css";
 
 export default function MembersSection() {
   const dispatch = useDispatch();

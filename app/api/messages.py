@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from flask_login import login_required
 from app.models import db, Message, User, Channel
 import datetime as dt
 from sqlalchemy import select
+
 
 
 message_routes = Blueprint("messages", __name__)
@@ -56,18 +57,42 @@ def create_message():
     )
     db.session.add(message)
     db.session.commit()
-    return message.to_dict()
+
+    the_message = message.to_dict()
+    the_users = User.query.get(data["user_id"])
+    # userdict = [user.to_dict() for user in the_users]
+    # current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
+
+    # the_message["user"] = current_obj_user
+    the_message["user"] = the_users.to_dict()
+    # normalized = db.session.query(Message, User).where(Message.user_id == data["user_id"])
+    # test = None
+    # for message, user in normalized:
+    #     obj = message.to_dict()
+    #     obj["user"] = user.to_dict()
+    #     test = {**obj}
+
+    print(f"\n\n\n{the_message}\n\n\n")
+
+
+    return {the_message}
 
 
 #PUT update message
-@message_routes.route('/<int:message_id>', methods=['PUT'])
+@message_routes.route('update/<int:message_id>', methods=['PUT'])
 @login_required
 def update_user(message_id):
-    return "update user"
+    message = Message.query.get(message_id)
+    data = request.json
+    message.content = data["content"]
+    db.session.commit()
+    return message.to_dict()
 
 
 #DELETE message
-@message_routes.route('/<int:message_id>', methods=['DELETE'])
+@message_routes.route('delete/<int:message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
-    return "delete message"
+    db.session.query(Message).filter(Message.id==message_id).delete()
+    db.session.commit()
+    return {'message_id': message_id}
