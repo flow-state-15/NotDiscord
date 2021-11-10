@@ -12,6 +12,7 @@ import ServerList from "./components/ServerList";
 import DMPage from "./components/DMPage";
 import GroupPage from "./components/GroupPage";
 import ServerPage from "./components/ServerPage";
+import DMGroupPage from "./components/DMGroupPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
@@ -86,6 +87,9 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute path="/channels/group">
                 <GroupPage />
+            </ProtectedRoute>
+            <ProtectedRoute path="/channels/@me/:channelId">
+                <DMGroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/:serverId/:channelId">
                 <ServerSideBarNE />
