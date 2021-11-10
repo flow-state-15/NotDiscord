@@ -1,4 +1,19 @@
+import { loadUserFriends } from "../../store/friends";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+
 export default function DMIcon() {
+  const dispatch = useDispatch();
+  const friends = useSelector(state => state.friends)
+  const user = useSelector(state => state.session.user)
+
+  useEffect(() => {
+    dispatch(loadUserFriends(user.id))
+  }, [])
+
+  console.log("**** FRIENDSLIST ****", friends)
+
   return (
     <div className="DM-icon">
       <div className="user-info">

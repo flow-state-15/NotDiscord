@@ -3,10 +3,14 @@ import GroupIcon from "./GroupIcon";
 import UserControls from "../UserControls";
 import { useSelector, useDispatch } from 'react-redux'
 import { loadUserChannels } from "../../store/channels";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 import "./MyChannelsBar.css";
 
 export default function MyChannelsBar({ channels }) {
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
   return (
     <div className="my-channels-bar">
       <div className="channels-bar-inner-content">
