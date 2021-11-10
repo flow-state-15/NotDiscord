@@ -1,9 +1,10 @@
 import MessageSection from "./MessageSection";
 import ChatBar from "./ChatBar";
 import "./MessageSection.css";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-export default function MessagesSection({ messages }) {
+export default function MessagesSection({ messages, channel }) {
   const messageComponents = messages?.map((message) => {
     return <MessageSection message={message} />;
   });
@@ -21,7 +22,13 @@ export default function MessagesSection({ messages }) {
 
   return (
     <div className="messages-section">
-      <div className="message-container-inner-hooblah">{messageComponents}</div>
+      <div className="message-container-inner-hooblah">
+        <div className="welcome-to-server">
+          <div>#</div>
+          <h3>Welcome to {`#${channel}`}</h3>
+        </div>
+        {messageComponents}
+      </div>
       <ChatBar />
     </div>
   );

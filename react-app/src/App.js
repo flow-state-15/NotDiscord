@@ -75,39 +75,39 @@ function App() {
               <SignUpForm />
             </Route>
             <ProtectedRoute path="/channels/@me">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
             </ProtectedRoute>
             <ProtectedRoute path="/servers/">
-                <ServerList />
+              <ServerList />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/DM">
-                <DMPage />
+              <DMPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/group">
-                <GroupPage />
+              <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
                 <DMGroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/:serverId/:channelId">
-                <ServerSideBarNE />
-                <ServerPage />
+              <ServerSideBarNE />
+              <ServerPage />
             </ProtectedRoute>
             <ProtectedRoute exact path="/channels/:serverId">
-                <ServerSideBarNE />
-                <ServerPage />
+              <ServerSideBarNE />
+              <ServerPage />
             </ProtectedRoute>
             <ProtectedRoute path="/test">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
             </ProtectedRoute>
             <ProtectedRoute path="/invite/:inviteId">
-                <ServerSideBarNE />
-                <MyChannelsBar />
-                <FriendsSection />
+              <ServerSideBarNE />
+              <MyChannelsBar />
+              <FriendsSection />
             </ProtectedRoute>
           </Switch>
         </MemberPopoutProvider>
