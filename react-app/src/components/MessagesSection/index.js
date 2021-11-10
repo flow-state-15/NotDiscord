@@ -14,10 +14,6 @@ export default function MessagesSection({ messages, channel }) {
       0,
       document.querySelector(".message-container-inner-hooblah").scrollHeight
     );
-    console.log(
-      "hi",
-      document.querySelector(".message-container-inner-hooblah")
-    );
   }, []);
 
   return (
