@@ -6,22 +6,13 @@ import "./ServerSideBarNE.css";
 
 export default function ServerSideBarNE() {
   const dispatch = useDispatch();
-  const getFirstChannelFromServer = async (serverId) => {
-    const allChannnels = await fetch(`/api/channels/byServer/${serverId}`);
-    const data = await allChannnels.json();
-    const firstChannel = data.channels[0];
-    console.log(firstChannel);
-
-    return firstChannel.id;
-  };
-
   const user = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(loadUserServers(user?.id));
   }, []);
 
-  const servers = useSelector((state) => state.servers);
+  const userServers = useSelector((state) => Object.values(state.servers));
 
   const testFunc123 = (e) => {
     const rectangle = e.target.getBoundingClientRect();
@@ -44,9 +35,7 @@ export default function ServerSideBarNE() {
     testDiv.style.display = "none";
   };
 
-  const allServers = Object.values(servers);
-
-  const serversComponents = allServers.map((server) => {
+  const serversComponents = userServers.map((server) => {
     return (
       <li
         onMouseEnter={(e) => testFunc123(e)}
@@ -64,7 +53,7 @@ export default function ServerSideBarNE() {
         <Link
           daAttribute={server?.name}
           className={`link-alias-to-li ${server?.name.split(" ").join("-")}`}
-          to={`/channels/${server?.id}`}
+          to={`/channels/${server?.id}/${server?.firstChannelId}`}
         >
           {server?.icon?.length ? (
             <img
