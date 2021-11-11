@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addMessage } from "../../store/messages";
 
-export default function ChatBar() {
+export default function ChatBar({ sendChat, value, change }) {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
@@ -11,15 +11,16 @@ export default function ChatBar() {
   const allChannels = useSelector((state) => Object.values(state.channels));
   const currentChannel = allChannels.find((obj) => obj.id == channelId);
 
-  function onSendMessage(e) {
+  async function onSendMessage(e) {
     e.preventDefault();
-    if (content) {
+    if (value) {
       const message = {
         user_id: sessionUser?.id,
         channel_id: channelId,
-        content,
+        content: value,
       };
-      dispatch(addMessage(message));
+      const theMessage = await dispatch(addMessage(message));
+      sendChat(theMessage.id);
       setContent("");
     }
   }
@@ -29,8 +30,8 @@ export default function ChatBar() {
         <input
           className="chat-bar-text-field"
           type="text"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={value}
+          onChange={change}
           placeholder={`Message #${currentChannel?.name}`}
         ></input>
       </form>
