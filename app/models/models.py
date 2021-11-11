@@ -71,8 +71,8 @@ class User_Server(db.Model):
     __tablename__ = 'user_servers'
     id = db.Column(db.Integer, primary_key=True)
     server_id = db.Column(db.Integer, db.ForeignKey(
-        "servers.id"), nullable=False, ondelete='CASCADE')
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+        "servers.id", ondelete='CASCADE'), nullable=False, )
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
     users = db.relationship('User', backref='server')
 
     def to_dict(self):
@@ -87,7 +87,7 @@ class Server(db.Model):
     __tablename__ = 'servers'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+    owner_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
     icon = db.Column(db.String(255))
     invite_link = db.Column(db.String)
 
@@ -106,9 +106,9 @@ class Friend(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     accepted = db.Column(db.Boolean, default=False, nullable=False)
     sender_user_id = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+        db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
     rec_user_id = db.Column(
-        db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+        db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
     # friend = db.relationship()
 
     def to_dict(self):
@@ -124,8 +124,8 @@ class User_Channel(db.Model):
     __tablename__ = 'user_channels'
     id = db.Column(db.Integer, primary_key=True)
     channel_id = db.Column(db.Integer, db.ForeignKey(
-        "channels.id"), nullable=False, ondelete='CASCADE')
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+        "channels.id", ondelete='CASCADE'), nullable=False, )
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
 
     def to_dict(self):
         return {
@@ -139,7 +139,7 @@ class Channel(db.Model):
     __tablename__ = 'channels'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    server_id = db.Column(db.Integer, db.ForeignKey("servers.id"), ondelete='CASCADE')
+    server_id = db.Column(db.Integer, db.ForeignKey("servers.id", ondelete='CASCADE'), )
 
     def to_dict(self):
         return {
@@ -152,9 +152,9 @@ class Channel(db.Model):
 class Message(db.Model):
     __tablename__ = 'messages'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, ondelete='CASCADE')
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete='CASCADE'), nullable=False, )
     channel_id = db.Column(db.Integer, db.ForeignKey(
-        "channels.id"), nullable=False, ondelete='CASCADE')
+        "channels.id", ondelete='CASCADE'), nullable=False, )
     content = db.Column(db.Text, nullable=False)
     sent_date = db.Column(db.DateTime(timezone=False), nullable=False)
     # user = db.relationship('User', backref='messages')

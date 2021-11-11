@@ -50,7 +50,7 @@ export default function ServerPage() {
       {isLoaded && (
         <div className="server-page-content">
           <ServerChannelsBar channels={serverChannels} />
-          <MessagesSection messages={channelMessages} />
+          <MessagesSection messages={channelMessages} channel={channelId} />
           <MembersSection members={serverMembers} />
         </div>
       )}
