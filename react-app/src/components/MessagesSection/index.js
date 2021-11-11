@@ -14,6 +14,7 @@ export default function MessagesSection({ messages, channel }) {
   const [liveMessages, setLiveMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
   const [prevRoom, setPrevRoom] = useState(channelId);
+  const element = useRef(null)
 
   useEffect(() => {
     socket = io();
@@ -59,11 +60,14 @@ export default function MessagesSection({ messages, channel }) {
     return <MessageSection message={message} />;
   });
 
-  console.log(liveMessages);
+  // console.log(liveMessages);
+
+
+
 
   return (
-    <div className="messages-section">
-      <div className="message-container-inner-hooblah">
+    <div className="messages-section" >
+      <div id='message-container-inner-hooblah' className="message-container-inner-hooblah" ref={element}>
         <div className="welcome-to-server">
           <div className="welcome-hash-tag">
             <span>#</span>
@@ -75,7 +79,7 @@ export default function MessagesSection({ messages, channel }) {
           <MessageSection key={ind} message={message} />
         ))}
       </div>
-      <ChatBar sendChat={sendChat} value={chatInput} change={updateChatInput} />
+      <ChatBar sendChat={sendChat} value={chatInput} change={updateChatInput} element={element}/>
     </div>
   );
 }

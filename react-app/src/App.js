@@ -88,7 +88,7 @@ function App() {
               <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
-                <DMGroupPage />
+              <DMGroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/:serverId/:channelId">
               <ServerSideBarNE />
