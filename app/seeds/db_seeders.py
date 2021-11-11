@@ -21,7 +21,7 @@ total_channels = total_servers*channels_per_server
 
 def seed_user():
     '''
-    ph
+    Seeds the user table.
     '''
     # admin setup
     admin_user = User(
@@ -66,7 +66,7 @@ def seed_user():
 
 def seed_server():
     '''
-    ph
+    Seeds the server table.
     '''
     # demo server
     demo_server = Server(
@@ -167,7 +167,7 @@ def pair_generator(numbers):
 
 def seed_friends():
     '''
-    ph
+    Seeds the friends table.
     '''
     # A relatively long list 
     numbers = list(range(2, total_users-1))
@@ -187,7 +187,7 @@ def seed_friends():
 
 def seed_channel():
     '''
-    ph
+    Seeds the channel table.
     '''
     # demo channels
     demo_channels = [

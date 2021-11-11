@@ -314,7 +314,10 @@
 		],
        "tv-shows":[
 			[
-				"What should I start watching next?",
+				[
+					"What should I start watching next?",
+					"Any good shows that I should start watching?"
+				],
 				"Have you seen {tv_show}?",
 				"I was thinking about starting that but I don't know where I can watch it?",
 				"I wish I knew that."
@@ -361,7 +364,10 @@
 		],
 		"exercise":[
 			[
-				"I need a new workout, any ideas?",
+				[
+					"I need a new workout, any ideas?",
+					"I have no muscles! What do I do?"
+				],
 				"Have you tried cross fit?",
 				"I can't do that, I feel like I need to start smaller.",
 				"Pushups might be the easy start you need."
@@ -382,7 +388,10 @@
 		],
        "programming":[
 			[
-				"How do I exit VIM?",
+				[
+					"How do I exit VIM?",
+					"Help I am stuck in VIM!"
+				],
 				"What's VIM?",
 				"I have no clue! I am just stuck in it!"
 			],
