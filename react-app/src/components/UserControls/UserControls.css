@@ -58,7 +58,7 @@
   position: relative;
 }
 
-.avatar-wrapper-popout {
+.avatar-wrapper-PopOut {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
@@ -80,7 +80,7 @@
   right: 0;
 }
 
-.status-icon-popout {
+.status-icon-PopOut {
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 5rem;
@@ -97,7 +97,7 @@
   bottom: -1px;
   right: -1px;
 }
-.status-holder-popout {
+.status-holder-PopOut {
   padding: 0.46rem;
   background-color: #18191c;
   position: absolute;

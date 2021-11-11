@@ -18,7 +18,7 @@ export default function GroupIcon() {
           </div>
           <div className="name-tag-close">
             <svg
-              class="closeIcon-rycxaQ"
+              className="closeIcon-rycxaQ"
               aria-hidden="false"
               width="15"
               height="15"

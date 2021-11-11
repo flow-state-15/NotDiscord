@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { MemberPopout } from "../../context/MemberPopout";
+import { MemberPopOut } from "../../context/MemberPopOut";
 import ChatBar from "../MessagesSection/ChatBar";
 
-function MemberIconPopout({ member, position }) {
+function MemberIconPopOut({ member, position }) {
   const dispatch = useDispatch();
-  const [showPopout, setShowPopout] = useState(false);
-  const [popoutStyle, setPopoutStyle] = useState({});
+  const [showPopOut, setShowPopOut] = useState(false);
+  const [PopOutStyle, setPopOutStyle] = useState({});
   const sessionUser = useSelector((state) => state.session.user);
 
   //   const topScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -14,13 +14,13 @@ function MemberIconPopout({ member, position }) {
 
   // if scroll happens, set it to the previous value
   //   window.onscroll = () => {
-  //     if (showPopout) {
+  //     if (showPopOut) {
   //       window.scrollTo(leftScroll, topScroll);
   //     }
   //   };
 
   function openMenu(e) {
-    setShowPopout(true);
+    setShowPopOut(true);
     const buttonRect = e.target.getBoundingClientRect();
     const fixedStyle = {
       minHeight: "25.4rem",
@@ -33,13 +33,13 @@ function MemberIconPopout({ member, position }) {
       overflowY: "hidden",
     };
     if (buttonRect.top > 500) {
-      setPopoutStyle({
+      setPopOutStyle({
         ...fixedStyle,
         left: buttonRect.left - position || buttonRect.left + 50,
         bottom: window.innerHeight - buttonRect.bottom,
       });
     } else {
-      setPopoutStyle({
+      setPopOutStyle({
         ...fixedStyle,
         left: buttonRect.left - position || buttonRect.left + 50,
         top: buttonRect.top,
@@ -57,16 +57,16 @@ function MemberIconPopout({ member, position }) {
         ></img>
       </div>
 
-      {showPopout && (
-        <MemberPopout onClose={() => setShowPopout(false)}>
-          <div className="member-popout" style={popoutStyle}>
-            <div className="member-popout-content">
-              <div className="member-popout-content-top"></div>
-              <div className="member-popout-content-bottom">
-                <div className="avatar-wrapper avatar-wrapper-popout">
+      {showPopOut && (
+        <MemberPopOut onClose={() => setShowPopOut(false)}>
+          <div className="member-PopOut" style={PopOutStyle}>
+            <div className="member-PopOut-content">
+              <div className="member-PopOut-content-top"></div>
+              <div className="member-PopOut-content-bottom">
+                <div className="avatar-wrapper avatar-wrapper-PopOut">
                   <img src={member.avatar} alt="Avatar" className="avatar" />
-                  <div className="status-holder status-holder-popout">
-                    <div className="status-icon status-icon-popout"></div>
+                  <div className="status-holder status-holder-PopOut">
+                    <div className="status-icon status-icon-PopOut"></div>
                   </div>
                 </div>
                 <div>
@@ -82,10 +82,10 @@ function MemberIconPopout({ member, position }) {
               </div>
             </div>
           </div>
-        </MemberPopout>
+        </MemberPopOut>
       )}
     </>
   );
 }
 
-export default MemberIconPopout;
+export default MemberIconPopOut;

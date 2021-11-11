@@ -52,7 +52,7 @@ export default function UserControls() {
             ></path>
             <path
               d="M21 4.27L19.73 3L3 19.73L4.27 21L8.46 16.82L9.69 15.58L11.35 13.92L14.99 10.28L21 4.27Z"
-              class="strikethrough-1n4ekb"
+              className="strikethrough-1n4ekb"
               fill="#ED4245"
             ></path>
           </svg>

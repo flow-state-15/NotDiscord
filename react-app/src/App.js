@@ -19,7 +19,7 @@ import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
 import ServerNameModal from "./components/ServerNameModal";
-import MemberPopoutProvider from "./context/MemberPopout";
+import MemberPopOutProvider from "./context/MemberPopOut";
 
 import "./reset.css";
 import "./App.css";
@@ -63,7 +63,7 @@ function App() {
     // </BrowserRouter>
     <div id="app_container">
       <BrowserRouter>
-        <MemberPopoutProvider>
+        <MemberPopOutProvider>
           <Switch>
             <Route exact path="/">
               <DiscordHome />
@@ -110,7 +110,7 @@ function App() {
               <FriendsSection />
             </ProtectedRoute>
           </Switch>
-        </MemberPopoutProvider>
+        </MemberPopOutProvider>
       </BrowserRouter>
     </div>
   );

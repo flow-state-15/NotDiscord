@@ -62,7 +62,7 @@
   position: relative;
 }
 
-.member-section-popout {
+.member-section-PopOut {
   background-color: #1a191d;
   padding: 0.68rem 1rem;
   position: absolute;
@@ -77,7 +77,7 @@
   bottom: 90%;
   opacity: 0;
 }
-.member-section-popout::before {
+.member-section-PopOut::before {
   content: "";
   position: absolute;
   left: -2px;
@@ -88,10 +88,10 @@
   height: 1rem;
   z-index: -1;
 }
-.member-section-popout-less::before {
+.member-section-PopOut-less::before {
   transform: translateY(60%) translateX(240%) rotate(45deg);
 }
-.member-section-popout-text {
+.member-section-PopOut-text {
   color: #fff;
   font-family: inherit;
   font-weight: 600;
@@ -104,7 +104,7 @@
 .friend-section:hover .username-tag-member {
   opacity: 1;
 }
-.message-box-member:hover .member-section-popout {
+.message-box-member:hover .member-section-PopOut {
   opacity: 1;
 }
 .username-tag-member {
