@@ -14,12 +14,12 @@ html {
 }
 
 @font-face {
-  font-family: "Whitney Medium";
-  src: local("Whitney Medium"), url("./Whitney\ Medium.ttf") format("woff2");
+  font-family: "whitneybook";
+  src: local("whitneybook"), url("./whitneybook.woff") format("woff");
 }
 
 body {
-  font-family: "Whitney Medium", "Open sans", sans-serif;
+  font-family: "whitneybook", "Open sans", sans-serif;
 }
 /* UTILITY CLASS */
 /* MARGIN */
