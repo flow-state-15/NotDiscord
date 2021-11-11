@@ -9,8 +9,11 @@ export default function MessageEdit({ message }) {
     function editMessage(e) {
         e.preventDefault();
         const editedMessage = {
-
+            ...message,
+            content: messageContent
         };
+        console.log(editedMessage)
+        console.log(message)
 
         dispatch(updateMessage(editedMessage));
     }
