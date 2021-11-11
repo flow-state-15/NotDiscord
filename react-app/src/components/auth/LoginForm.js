@@ -38,18 +38,18 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
+    <div className='login-form-wrapper'>
       {demo && user ? <Redirect to="/channels/@me" /> : null}
-      <div className='login-form-wrapper'>
-        <h2>Welcome back!</h2>
-        <span>We're so excited to see you again!</span>
-        <form onSubmit={onLogin}>
+      <div>
+        <h3 style={{color: "white"}}>Welcome back!</h3>
+        <form className='login-form-form' onSubmit={onLogin}>
+          <span>We're so excited to see you again!</span>
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
+          <div className='login-form-components'>
             <label htmlFor="email">EMAIL</label>
             <input
               name="email"
@@ -59,7 +59,7 @@ const LoginForm = () => {
               onChange={updateEmail}
             />
           </div>
-          <div>
+          <div className='login-form-components'>
             <label htmlFor="password">PASSWORD</label>
             <input
               name="password"
@@ -71,16 +71,16 @@ const LoginForm = () => {
             <button type="submit" onClick={() => console.log("LOGIN CLICKED")}>
               Login
             </button>
+            <button onClick={() => dispatchDemoLogin()}>Demo User</button>
           </div>
         </form>
-        <button onClick={() => dispatchDemoLogin()}>Demo User</button>
-        <div>
+        <div style={{color: "#5E6168"}}>
           Need an account?
-          <Link to="/sign-up">
+          <Link className='login-links' to="/sign-up">
               Register
           </Link>
         </div>
-        <Link to="/">Return to Discord</Link>
+        <Link className='login-links' to="/">Return to Discord</Link>
       </div>
     </div>
   );
