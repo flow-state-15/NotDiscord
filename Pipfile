@@ -33,6 +33,7 @@ SQLAlchemy = "==1.4.26"
 Werkzeug = "==2.0.2"
 WTForms = "==2.3.3"
 MarkupSafe = "==2.0.1"
+eventlet = "==0.30.2"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
