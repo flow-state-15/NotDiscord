@@ -39,13 +39,6 @@ export default function MessageSection({ message }) {
 
   return (
     <div className="message-section">
-      {/* <div className="user-avatar">
-        <img
-          className="user-avatar-single"
-          src={message.user.avatar}
-          alt="user avatar"
-        ></img>
-      </div> */}
       <MemberIconPopout member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">

@@ -1,4 +1,37 @@
 .members-section {
   width: 24rem;
   background-color: #2f3136;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.2rem;
+}
+.members-title {
+  padding: 0.6rem;
+  color: rgb(142, 146, 151);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+.member-section {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.member-section:hover {
+  background-color: rgb(51, 54, 60);
+}
+.member-section:hover h2 {
+  color: #ececec;
+}
+.member-section h2 {
+  color: rgb(142, 146, 151);
+  font-size: 1.6rem;
+}
+.user-avatar-side {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
 }

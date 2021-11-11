@@ -4,20 +4,18 @@ export default function FriendSection({ friend }) {
       <div className="DM-icon DM-icon-alias-to-members">
         <div className="user-info">
           <div className="avatar-wrapper">
-            <img
-              src={friend.avatar}
-              alt="Avatar"
-              className="avatar"
-            />
-            <div className="status-holder status-holder-bg-color">
+            <img src={friend.avatar} alt="Avatar" className="avatar" />
+            <div className="status-holder status-holder-bg-color status-holder-bg-color-2">
               <div className="status-icon"></div>
             </div>
           </div>
           <div className="name-tag name-tag-custom">
             <div>
               <h1 className="username username-color username-color-alias-members">
-                {friend.tagged_name.split('#')[0]}
-                <span className="username-tag-member">#{friend.tagged_name.split('#')[1]}</span>
+                {friend.tagged_name.split("#")[0]}
+                <span className="username-tag-member">
+                  #{friend.tagged_name.split("#")[1]}
+                </span>
               </h1>
               <h3 className="member-online-status">Online</h3>
             </div>
