@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
-import MemberIconPopout from "../../MemberIconPopout";
+import MemberIconPopOut from "../../MemberIconPopOut";
 
 export default function MessageSection({ message }) {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [messageContent, setMessageContent] = useState(message.content);
 
+  // sets up local time for the message
   const event = new Date(message.sent_date);
   const options = {
     weekday: "long",
@@ -18,6 +19,47 @@ export default function MessageSection({ message }) {
     minute: "numeric",
   };
   const converted = event.toLocaleDateString(undefined, options);
+
+  // TODO detect images and invite links
+  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
+  let found_link = message.content.match(regex);
+  if (found_link && found_link.length > 0) found_link = found_link[0];
+  let embed = '';
+  let link;
+  if (found_link) {
+    link = found_link;
+    if (found_link.includes('.jpg') || found_link.includes('.png') || found_link.includes('.gif')) {
+      embed = <a href={found_link} >
+        <img src={found_link} alt="image embed" className="message_image_embed"/>
+      </a>
+    } else if (found_link.includes('https://www.youtube.com/watch')) {
+      const youtube_code = found_link.split('=')[1]
+      embed = <iframe src={`https://www.youtube.com/embed/${youtube_code}`}
+        width="560" height="315"
+        frameborder='0'
+        allow='autoplay; encrypted-media'
+        allowfullscreen
+        title='video' />
+    } else if (found_link.includes('invite-link')) {
+      embed = <div className=''>
+        <p>Server Name</p>
+        <p>Fun server yay</p>
+
+      </div>
+    }
+  }
+
+  function addLinks(content) {
+    let message = ''
+    for (let word of content.split(' ')) {
+      if (message.includes('http')) {
+        message += <a href={word}>{word}</a>
+      } else {
+        message += `${word} `
+      }
+    }
+    return message
+  }
 
   function editMessage(e) {
     e.preventDefault();
@@ -39,7 +81,7 @@ export default function MessageSection({ message }) {
 
   return (
     <div className="message-section">
-      <MemberIconPopout member={message.user} />
+      <MemberIconPopOut member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">
           <p className="message-section-user">
@@ -57,7 +99,15 @@ export default function MessageSection({ message }) {
               ></input>
             </form>
           )}
-          {!isEditing && <p className="message-content">{message.content}</p>}
+          {!isEditing &&
+            <>
+              <div className="message-content">
+                {/* {addLinks(message.content)} */}
+                {message.content}
+              </div>
+              {embed && embed}
+            </>
+          }
         </div>
       </div>
       <div className="message-edit-delete">
@@ -66,7 +116,7 @@ export default function MessageSection({ message }) {
           onClick={() => setIsEditing(!isEditing)}
         >
           <svg
-            class="icon-3Gkjwa"
+            className="icon-3Gkjwa"
             aria-hidden="false"
             width="18"
             height="18"
@@ -82,7 +132,7 @@ export default function MessageSection({ message }) {
         </button>
         <button className="message-delete" onClick={deleteMessage}>
           <svg
-            class="icon-LYJorE"
+            className="icon-LYJorE"
             aria-hidden="false"
             width="18"
             height="18"

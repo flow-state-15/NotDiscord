@@ -39,6 +39,7 @@
 			"Let the Right One In",
 			"The Iron Giant",
 			"Scott pilgrim Vs. the world",
+			"Shrek",
 			"Old Boy"
 		],
 		"tv_show":[
@@ -235,12 +236,12 @@
 				"You had to ruin the joke, didn't you?"
 			],
 			[
-				"https://old.reddit.com/r/memes/comments/khiyao/uncanny_resemblance/",
+				"https://i.redd.it/cul580390k661.jpg",
 				"Ad makers will soon invent a bigger monitor just so they can have smaller and harder to click close ad buttons.",
 				"Please do not give them ideas!"
 			],
 			[
-				"https://old.reddit.com/r/memes/comments/ik0qu9/confusing/",
+				"https://i.redd.it/2v3ucovw2dk51.jpg",
 				"I don't get it, it is 16.",
 				"Ever heard of PEMDAS?",
 				"PEMDAS? Is that some sort of a drink?",
@@ -250,7 +251,9 @@
        "anime":[
 			[
 				"Is the new season of {anime} out yet?",
-				"Not yet, we don't even have a release date yet.",
+				[
+					"I WISH, the release is currently TBA."
+				],
 				"Why did you have to tell me that! Now I know it will be an even longer wait!",
 				"You basically asked."
 			],
@@ -262,7 +265,11 @@
 			],
 			[
 				"Has anyone seen {anime}?",
-				"I loved it!",
+				[
+					"I loved it!",
+					"I would re-watch it with you if I could. It is amazing!",
+					"I wish I could forget about it and watch it like it is new!"
+				],
 				"Really? I will start watching it tonight.",
 				"Let me know what you think once you finish it?"
 			]
@@ -285,6 +292,11 @@
 				"I must see it now! What is it about?",
 				"Will Ferrell's character is a super villain that never expects to win.",
 				"Awesome, I will watch it tomorrow!"
+			],
+			[
+				"I tried watching {movie} but I was so tired and fell asleep. Should I start over or skip it?",
+				"That is not even a question! finish it now!",
+				"Ok ok... I will finish it tomorrow."
 			]
 		],
        "music":[
@@ -298,6 +310,13 @@
 				"Ooh, do they sell CD's?",
 				"They sell vinyl....",
 				"Oh, I am not interested anymore."
+			],
+			[
+				"Is that singer with the lions, tigers and bears alive still?",
+				"I think you are confusing something.",
+				"Am I?",
+				"I think you are thinking of the wizard of oz.",
+				"OH!!! I am thinking of that for some reason. I need to get more sleep it seems."
 			]
 		],
        "spoilers":[
@@ -310,11 +329,31 @@
 				"Wait... who is a ghost?",
 				"Bruce Willis duh!!",
 				"That movie is so old! I don't think you need to talk about that in spoiler chat anymore."
+			],
+			[
+				"What is everyone's favorite spoiler?",
+				"I remember the time when people where spreading the Snape kills Dumbledore spoiler everywhere.",
+				"Snape did what???",
+				"Have you not seen the movie or read the book yet?",
+				"Noooo! I was about to watch them next week with my nephew.",
+				"Well you literally asked for this. This is not my fault.",
+				"I need to find a hammer fast so I can get this out of my head....",
+				"I highly recommend you to not do that."
+			],
+			[
+				"I can't find my keys!",
+				"Spoiler! They will be at the last place you looked.",
+				"??? Oh wait I am in the wrong channel. Sorry.",
+				"What is the right channel for this?",
+				"I don't know honestly."
 			]
 		],
        "tv-shows":[
 			[
-				"What should I start watching next?",
+				[
+					"What should I start watching next?",
+					"Any good shows that I should start watching?"
+				],
 				"Have you seen {tv_show}?",
 				"I was thinking about starting that but I don't know where I can watch it?",
 				"I wish I knew that."
@@ -361,7 +400,10 @@
 		],
 		"exercise":[
 			[
-				"I need a new workout, any ideas?",
+				[
+					"I need a new workout, any ideas?",
+					"I have no muscles! What do I do?"
+				],
 				"Have you tried cross fit?",
 				"I can't do that, I feel like I need to start smaller.",
 				"Pushups might be the easy start you need."
@@ -382,7 +424,10 @@
 		],
        "programming":[
 			[
-				"How do I exit VIM?",
+				[
+					"How do I exit VIM?",
+					"Help I am stuck in VIM!"
+				],
 				"What's VIM?",
 				"I have no clue! I am just stuck in it!"
 			],
@@ -411,6 +456,21 @@
 				"https://preview.redd.it/un44882dvyj21.jpg?width=576&auto=webp&s=d222c1a62c90af8990c4fa645a672bba573d5281",
 				"Where did you get the tiny bed?",
 				"I made it!"
+			],
+			[
+				"https://i.redd.it/2mt8fyb6d9w51.jpg This is not my pet but they are too adorable to not show. She is a came in to my friends vet.",
+				"This is not what this section is for but I think we have to let it slide!"
+			],
+			[
+				"https://i.redd.it/p5r6vm9r39751.jpg",
+				"SO CUTE!",
+				"They went missing for a year but we found them during a bike ride. It nearly broke my heart!"
+			],
+			[
+				"https://i.redd.it/4xmx8iuau1e61.jpg",
+				"Oh deer! They are adorable!",
+				".....",
+				"What? It is true."
 			]
 		]	
     }

@@ -45,7 +45,7 @@ export default function ServerChannelListing({ channel }) {
         }`}
       >
         <div>
-          <svg width="15" height="15" viewBox="0 0 24 24" class="icon-1DeIlz">
+          <svg width="15" height="15" viewBox="0 0 24 24" className="icon-1DeIlz">
             <path
               fill="currentColor"
               fill-rule="evenodd"
@@ -70,7 +70,7 @@ export default function ServerChannelListing({ channel }) {
         >
           <div>
             <svg
-              class="actionIcon-PgcMM2"
+              className="actionIcon-PgcMM2"
               aria-hidden="true"
               width="16"
               height="16"
