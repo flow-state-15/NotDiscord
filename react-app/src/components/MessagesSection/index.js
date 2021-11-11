@@ -10,11 +10,12 @@ let socket;
 export default function MessagesSection({ messages, channel }) {
   const { channelId } = useParams();
   const user = useSelector((state) => state.session.user);
+  const allChannels = useSelector((state) => state.channels);
 
   const [liveMessages, setLiveMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
   const [prevRoom, setPrevRoom] = useState(channelId);
-  const element = useRef(null)
+  const element = useRef(null);
 
   useEffect(() => {
     socket = io();
@@ -62,24 +63,32 @@ export default function MessagesSection({ messages, channel }) {
 
   // console.log(liveMessages);
 
-
-
-
   return (
-    <div className="messages-section" >
-      <div id='message-container-inner-hooblah' className="message-container-inner-hooblah" ref={element}>
+    <div className="messages-section">
+      <div
+        id="message-container-inner-hooblah"
+        className="message-container-inner-hooblah"
+        ref={element}
+      >
         <div className="welcome-to-server">
           <div className="welcome-hash-tag">
             <span>#</span>
           </div>
-          <h3 className="welcome-to-text">Welcome to {`#${channel}`}</h3>
+          <h3 className="welcome-to-text">
+            Welcome to {`#${allChannels[channelId]?.name || "Loading..."}`}
+          </h3>
         </div>
         {messageComponents}
         {liveMessages.map((message, ind) => (
           <MessageSection key={ind} message={message} />
         ))}
       </div>
-      <ChatBar sendChat={sendChat} value={chatInput} change={updateChatInput} element={element}/>
+      <ChatBar
+        sendChat={sendChat}
+        value={chatInput}
+        change={updateChatInput}
+        element={element}
+      />
     </div>
   );
 }
