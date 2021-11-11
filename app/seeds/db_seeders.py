@@ -126,7 +126,7 @@ def seed_server():
 
 def seed_user_server():
     '''
-    Return an iterator of random pairs from a list of numbers.
+    Seeds the user_server table.
     '''
     # sets the first server to be owned by demo user
     new_user_server = User_Server(
@@ -137,9 +137,9 @@ def seed_user_server():
     for server in range(1, total_servers+1):
         users = []
         for _ in range(1, 11):
-            user = randint(1, total_users)
+            user = randint(2, total_users)
             while user not in users:
-                user = randint(1, total_users)
+                user = randint(2, total_users)
                 new_user_server = User_Server(
                     server_id=server,
                     user_id=user
@@ -255,10 +255,10 @@ def seed_message():
         user_1 = randint(1, total_users+1)
         user_2 = user_1
         while user_1 == user_2:
-            user_2 = randint(1, total_users+1)
+            user_2 = randint(2, total_users+1)
         if channel_name == 'lounge':
             channel_key = 'general-chat'
-        current_user = randint(1, total_users+1)
+        current_user = randint(2, total_users+1)
         num = 2
         delta = dt.timedelta(
             days=randint(1,3),
