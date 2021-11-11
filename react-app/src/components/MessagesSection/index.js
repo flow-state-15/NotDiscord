@@ -3,28 +3,71 @@ import ChatBar from "./ChatBar";
 import "./MessageSection.css";
 import { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
+import { useParams } from "react-router";
+let socket;
 
 export default function MessagesSection({ messages, channel }) {
+  const { channelId } = useParams();
+  const user = useSelector((state) => state.session.user);
+
+  const [liveMessages, setLiveMessages] = useState([]);
+  const [chatInput, setChatInput] = useState("");
+  const [prevRoom, setPrevRoom] = useState(channelId);
+  const element = useRef(null)
+
+  useEffect(() => {
+    socket = io();
+    socket.on("message", (chat) => {
+      setLiveMessages((liveMessages) => [...liveMessages, chat]);
+    });
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    leaveRoom(prevRoom);
+    joinRoom(channelId);
+    setLiveMessages([]);
+    setPrevRoom(channelId);
+  }, [channelId]);
+
+  const leaveRoom = (oldRoom) => {
+    socket.emit("leave", { room: oldRoom });
+  };
+
+  const joinRoom = (newRoom) => {
+    socket.emit("join", { room: newRoom });
+  };
+
+  const sendChat = (id) => {
+    socket.send({
+      id,
+      content: chatInput,
+      user: user,
+      sent_date: Date.now(),
+      room: channelId,
+    });
+    setChatInput("");
+  };
+
+  const updateChatInput = (e) => {
+    setChatInput(e.target.value);
+  };
+
   const messageComponents = messages?.map((message) => {
     return <MessageSection message={message} />;
   });
 
-  channel = 'this-channel' // TODO remove me I am a placeholder
+  // console.log(liveMessages);
 
-  useEffect(() => {
-    window.scrollTo(
-      0,
-      document.querySelector(".message-container-inner-hooblah").scrollHeight
-    );
-    console.log(
-      "hi",
-      document.querySelector(".message-container-inner-hooblah")
-    );
-  }, []);
+
+
 
   return (
-    <div className="messages-section">
-      <div className="message-container-inner-hooblah">
+    <div className="messages-section" >
+      <div id='message-container-inner-hooblah' className="message-container-inner-hooblah" ref={element}>
         <div className="welcome-to-server">
           <div className="welcome-hash-tag">
             <span>#</span>
@@ -32,8 +75,11 @@ export default function MessagesSection({ messages, channel }) {
           <h3 className="welcome-to-text">Welcome to {`#${channel}`}</h3>
         </div>
         {messageComponents}
+        {liveMessages.map((message, ind) => (
+          <MessageSection key={ind} message={message} />
+        ))}
       </div>
-      <ChatBar />
+      <ChatBar sendChat={sendChat} value={chatInput} change={updateChatInput} element={element}/>
     </div>
   );
 }

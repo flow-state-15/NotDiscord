@@ -1,5 +1,6 @@
 .server-page {
-  width: 100%;
+  width: calc(100% - 6.8rem);
+  background-color: #36393f;
 }
 
 .server-page-content {

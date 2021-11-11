@@ -39,7 +39,13 @@ export default function MessageSection({ message }) {
 
   function editMessage(e) {
     e.preventDefault();
-    const editedMessage = {};
+    const editedMessage = {
+      ...message,
+      content: messageContent
+    };
+    delete editedMessage.user;
+    // console.log(editedMessage)
+    // console.log(message)
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);
@@ -51,13 +57,6 @@ export default function MessageSection({ message }) {
 
   return (
     <div className="message-section">
-      {/* <div className="user-avatar">
-        <img
-          className="user-avatar-single"
-          src={message.user.avatar}
-          alt="user avatar"
-        ></img>
-      </div> */}
       <MemberIconPopOut member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">
