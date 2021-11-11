@@ -8,6 +8,7 @@ export default function MessageSection({ message }) {
   const [isEditing, setIsEditing] = useState(false);
   const [messageContent, setMessageContent] = useState(message.content);
 
+  // sets up local time for the message
   const event = new Date(message.sent_date);
   const options = {
     weekday: "long",
@@ -20,14 +21,19 @@ export default function MessageSection({ message }) {
   const converted = event.toLocaleDateString(undefined, options);
 
   // TODO detect images and invite links
-  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/g;
-  const found = message.content.match(regex);
+  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
+  let found_link = message.content.match(regex);
+  if (found_link && found_link.length > 0) found_link = found_link[0]
   let embed = ''
-  if (found) {
-    if (!['.jpg', '.png', '.gif'].some(element => found.includes(element))) {
-      embed = <img src={found} alt="image embed" className="message_image_embed" />
-    } else if ('invite-link' in found) {
+  if (found_link) {
+    if (found_link.includes('.jpg') || found_link.includes('.png') || found_link.includes('.gif')) {
+      embed = <a href={found_link} >
+        <img src={found_link} alt="image embed" className="message_image_embed"/>
+      </a>
+    } else if (found_link.includes('invite-link')) {
+      embed = <>
       
+      </>
     }
   }
 

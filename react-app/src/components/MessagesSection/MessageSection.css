@@ -93,6 +93,10 @@
   color: rgb(220, 221, 222);
   font-size: 1.6rem;
 }
+.message_image_embed {
+  /* max-width: 40rem; */
+  max-height: 30rem;
+}
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
   border: 1px solid black;
