@@ -26,8 +26,8 @@ export default function MessageSection({ message }) {
       content: messageContent
     };
     delete editedMessage.user;
-    console.log(editedMessage)
-    console.log(message)
+    // console.log(editedMessage)
+    // console.log(message)
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);
