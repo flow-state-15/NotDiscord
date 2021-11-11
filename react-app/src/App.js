@@ -18,7 +18,6 @@ import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
-import ServerNameModal from "./components/ServerNameModal";
 import MemberPopoutProvider from "./context/MemberPopout";
 
 import "./reset.css";
@@ -89,7 +88,7 @@ function App() {
               <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
-                <DMGroupPage />
+              <DMGroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/:serverId/:channelId">
               <ServerSideBarNE />
