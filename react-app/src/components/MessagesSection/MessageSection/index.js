@@ -21,7 +21,13 @@ export default function MessageSection({ message }) {
 
   function editMessage(e) {
     e.preventDefault();
-    const editedMessage = {};
+    const editedMessage = {
+      ...message,
+      content: messageContent
+    };
+    delete editedMessage.user;
+    console.log(editedMessage)
+    console.log(message)
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);

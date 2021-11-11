@@ -80,18 +80,27 @@ def create_message():
 
 
 #PUT update message
-@message_routes.route('update/<int:message_id>', methods=['PUT'])
+@message_routes.route('/<int:message_id>', methods=['PUT'])
 @login_required
-def update_user(message_id):
+def update_message(message_id):
+    print('something')
     message = Message.query.get(message_id)
     data = request.json
+    print(data)
     message.content = data["content"]
     db.session.commit()
-    return message.to_dict()
+    the_message = message.to_dict()
+    the_users = User.query.get(data["user_id"])
+    # userdict = [user.to_dict() for user in the_users]
+    # current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
+
+    # the_message["user"] = current_obj_user
+    the_message["user"] = the_users.to_dict()
+    return the_message
 
 
 #DELETE message
-@message_routes.route('delete/<int:message_id>', methods=['DELETE'])
+@message_routes.route('/<int:message_id>', methods=['DELETE'])
 @login_required
 def delete_message(message_id):
     db.session.query(Message).filter(Message.id==message_id).delete()

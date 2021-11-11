@@ -15,32 +15,34 @@ def get_channel(channel_id):
     return "get one channel"
 
 
-#get dm channel by 2 users 
-@channel_routes.route('/dm/<int:user_id_1>-<int:user_id_2>')
+#get dm channel by 2 users
+@channel_routes.route('/DM/<int:user_id_1>/<int:user_id_2>')
 # @login_required
 def get_channel_by_users(user_id_1, user_id_2):
     # TODO finish get dm channel by 2 users
-    channel = ''
-    if channel == None:
+    DM_channel = Channel.query.filter(Channel.name == user_id_1 + " <-> " + user_id_2).all()
+    if DM_channel == None:
         # create
         channel = Channel(
-            name=''
+            name=user_id_1 + " <-> " + user_id_2
         )
         db.session.add(channel)
-        user_channel = User_Channel(
-            channel_id='',
+        user_channel_1 = User_Channel(
+            channel_id=channel.id,
             user_id=user_id_1
         )
-        db.session.add(user_channel)
-        user_channel = User_Channel(
-            channel_id='',
+        db.session.add(user_channel_1)
+        user_channel_2 = User_Channel(
+            channel_id=channel.id,
             user_id=user_id_2
         )
-        db.session.add(user_channel)
+        db.session.add(user_channel_2)
         db.session.commit()
+        print(channel)
+        return channel.to_dict()
     else:
-        pass
-    return "get one channel"
+        print(DM_channel)
+        return DM_channel.to_dict()
 
 
 #get channel members
