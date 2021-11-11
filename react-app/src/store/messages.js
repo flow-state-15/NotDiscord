@@ -41,6 +41,7 @@ export const addMessage = (formData) => async (dispatch) => {
     const message = await response.json();
     // console.log("**** IN ADD MSG THUNK, response: ", message)
     dispatch(add(message));
+    return message;
   }
 };
 
@@ -82,7 +83,8 @@ const messageReducer = (state = {}, action) => {
       }
       return newState;
     case ADD:
-      return { ...state, [action.message.id]: action.message };
+      // return { ...state, [action.message.id]: action.message };
+      return { ...state };
     case REMOVE:
       const newMessages = { ...state };
       delete newMessages[action.messageId];
