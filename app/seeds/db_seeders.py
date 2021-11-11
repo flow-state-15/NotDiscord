@@ -249,6 +249,7 @@ def seed_message():
     Seeds messages using json data designed to created realistic back and forth messages between users.
     '''
     # TODO use dict or to be sure repeated messages are not in the same channel
+    message_date = dt.datetime.now() - dt.timedelta(days=365*5)
     for _ in range(1, (5*total_channels+1)):
         channel_id = randint(1, total_channels+1)
         channel_name = Channel.query.get(channel_id).name
@@ -261,6 +262,14 @@ def seed_message():
             channel_key = 'general-chat'
         current_user = randint(1, total_users+1)
         num = 2
+        delta = dt.timedelta(
+            days=randint(1,3),
+            minutes=randint(6, 59),
+            hours=randint(1, 6),
+            seconds=randint(1, 59)
+            )
+        message_date = message_date + delta
+        print(message_date)
         for message in choice(messages[channel_key]):
             if isinstance(message, list):
                 message = choice(message)
@@ -277,7 +286,7 @@ def seed_message():
                 user_id=current_user,
                 channel_id=channel_id,
                 content=message,
-                sent_date=dt.datetime.now()
+                sent_date=message_date
             )
             num += 1
             db.session.add(new_message)
