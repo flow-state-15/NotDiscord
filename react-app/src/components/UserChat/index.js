@@ -9,16 +9,16 @@ export default function UserChat({ member }) {
   console.log(content)
 
   async function onSendMessage(e) {
-    console.log("DO I FUCKING SEE THIS")
     e.preventDefault();
-    const DMChannel = await fetch(`api/channels/DM/${sessionUser.id}/${member.id}`);
-    if (content) {
+    const response = await fetch(`/api/channels/DM/${sessionUser.id}/${member.id}`);
+    if (content && response.ok) {
+      const DMChannel = response.json();
       const message = {
         user_id: sessionUser?.id,
         channel_id: DMChannel.id,
         content,
       };
-      await csrfFetch("/api/messages/test", {
+      await fetch("/api/messages/test", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
