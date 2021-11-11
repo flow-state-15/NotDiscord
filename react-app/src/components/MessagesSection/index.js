@@ -9,6 +9,8 @@ export default function MessagesSection({ messages, channel }) {
     return <MessageSection message={message} />;
   });
 
+  channel = 'this-channel' // TODO remove me I am a placeholder
+
   useEffect(() => {
     window.scrollTo(
       0,
