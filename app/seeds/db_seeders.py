@@ -15,7 +15,7 @@ replacements = data['replacements']
 # default counts
 total_users = 30
 total_servers = 20
-channels_per_server = 6
+channels_per_server = 7
 total_channels = total_servers*channels_per_server
 
 
@@ -42,6 +42,7 @@ def seed_user():
     )
     db.session.add(demo_user)
     # rest of the users
+    # TODO add more avatars
     avatars = [
         'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/blue-discord-icon.png',
         'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/gray-discord-icon.png',
@@ -146,6 +147,7 @@ def seed_user_server():
             )
             db.session.add(new_user_server)
             users.append(user)
+        print('server list', server, users)
     db.session.commit()
 
 
@@ -216,7 +218,8 @@ def seed_channel():
         'pet-photos',
         'video-games',
     ]
-    for i in range(1, total_servers+1):
+    # gives channels only to servers with an id above 1 so demo server is untouched
+    for i in range(2, total_servers+1):
         current_channels = []
         if i%2==0:
             main_channel = 'general-chat'
@@ -266,7 +269,6 @@ def seed_message():
             seconds=randint(1, 59)
             )
         message_date = message_date + delta
-        print(message_date)
         for message in choice(messages[channel_key]):
             if isinstance(message, list):
                 message = choice(message)
