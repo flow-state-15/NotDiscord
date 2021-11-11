@@ -41,6 +41,7 @@ export const addMessage = (formData) => async (dispatch) => {
     const message = await response.json();
     // console.log("**** IN ADD MSG THUNK, response: ", message)
     dispatch(add(message));
+    return message
   }
 };
 
