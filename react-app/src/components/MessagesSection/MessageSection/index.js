@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
-import MemberIconPopout from "../../MemberIconPopout";
+import MemberIconPopOut from "../../MemberIconPopOut";
 
 export default function MessageSection({ message }) {
   const dispatch = useDispatch();
@@ -18,6 +18,18 @@ export default function MessageSection({ message }) {
     minute: "numeric",
   };
   const converted = event.toLocaleDateString(undefined, options);
+
+  // TODO detect images and invite links
+  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/g;
+  const found = message.content.match(regex);
+  let embed = ''
+  if (found) {
+    if (!['.jpg', '.png', '.gif'].some(element => found.includes(element))) {
+      embed = <img src={found} alt="image embed" className="message_image_embed" />
+    } else if ('invite-link' in found) {
+      
+    }
+  }
 
   function editMessage(e) {
     e.preventDefault();
@@ -40,7 +52,7 @@ export default function MessageSection({ message }) {
           alt="user avatar"
         ></img>
       </div> */}
-      <MemberIconPopout member={message.user} />
+      <MemberIconPopOut member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">
           <p className="message-section-user">
@@ -58,7 +70,11 @@ export default function MessageSection({ message }) {
               ></input>
             </form>
           )}
-          {!isEditing && <p className="message-content">{message.content}</p>}
+          {!isEditing && 
+            <p className="message-content">
+              {message.content}
+            </p>}
+            {embed && embed}
         </div>
       </div>
       <div className="message-edit-delete">
@@ -67,7 +83,7 @@ export default function MessageSection({ message }) {
           onClick={() => setIsEditing(!isEditing)}
         >
           <svg
-            class="icon-3Gkjwa"
+            className="icon-3Gkjwa"
             aria-hidden="false"
             width="18"
             height="18"
@@ -83,7 +99,7 @@ export default function MessageSection({ message }) {
         </button>
         <button className="message-delete" onClick={deleteMessage}>
           <svg
-            class="icon-LYJorE"
+            className="icon-LYJorE"
             aria-hidden="false"
             width="18"
             height="18"
