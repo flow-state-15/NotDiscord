@@ -7,10 +7,12 @@ import json
 
 fake = Faker()
 
+# loads json data
 with open('app/seeds/message_data.json') as json_file:
     data = json.load(json_file)
-    messages = data['messages']
-    replacements = data['replacements']
+messages = data['messages']
+replacements = data['replacements']
+# default counts
 total_users = 30
 total_servers = 20
 channels_per_server = 6
@@ -18,15 +20,18 @@ total_channels = total_servers*channels_per_server
 
 
 def seed_user():
-    # admin
-    demo_user = User(
+    '''
+    ph
+    '''
+    # admin setup
+    admin_user = User(
         email='admin@admin.com',
         hashed_password=generate_password_hash('tasty'),
         avatar='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
         tagged_name=f'Admin#4321',
         created_at=dt.datetime.now(),
     )
-    db.session.add(demo_user)
+    db.session.add(admin_user)
     # demo user
     demo_user = User(
         email='DougD@demo.dome',
@@ -46,6 +51,7 @@ def seed_user():
         'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/yellow-discord-icon.png'
     ]
     for _ in range(0, total_users+1):
+        # get random avatar
         avatar = choice(avatars)
         user = User(
             email=fake.email(),
@@ -59,6 +65,9 @@ def seed_user():
 
 
 def seed_server():
+    '''
+    ph
+    '''
     # demo server
     demo_server = Server(
         name='The DemoDome',
@@ -99,7 +108,9 @@ def seed_server():
     for _ in range(0, 30):
         user = fake.user_name()
         server_name = f'{user}\'s {server_adjectives[randint(0, len(server_adjectives)-1)]}'
+        # default icon to a blank string in case one is not given
         new_icon = ''
+        # 30% chance of no avatar given to make it more realistic
         icon_chance = randint(1, 101)
         if len(server_icons) > 0 and icon_chance > 30:
             new_icon = server_icons.pop()
@@ -114,9 +125,13 @@ def seed_server():
 
 
 def seed_user_server():
+    '''
+    Return an iterator of random pairs from a list of numbers.
+    '''
+    # sets the first server to be owned by demo user
     new_user_server = User_Server(
         server_id=1,
-        user_id=1
+        user_id=2
     )
     db.session.add(new_user_server)
     for server in range(1, total_servers+1):
@@ -151,6 +166,9 @@ def pair_generator(numbers):
 
 
 def seed_friends():
+    '''
+    ph
+    '''
     # A relatively long list 
     numbers = list(range(2, total_users-1))
     gen = pair_generator(numbers)
@@ -168,6 +186,9 @@ def seed_friends():
 
 
 def seed_channel():
+    '''
+    ph
+    '''
     # demo channels
     demo_channels = [
         'general-chat',
@@ -224,6 +245,9 @@ def seed_channel():
 
 
 def seed_message():
+    '''
+    Seeds messages using json data designed to created realistic back and forth messages between users.
+    '''
     # TODO use dict or to be sure repeated messages are not in the same channel
     for _ in range(1, (5*total_channels+1)//2):
         channel_id = randint(1, total_channels+1)
@@ -258,21 +282,6 @@ def seed_message():
             num += 1
             db.session.add(new_message)
     db.session.commit()
-
-
-# def seed_message():
-#     for i in range(1, 1201):
-#         message_content = f'This is a test message {i}.'
-#         if i == 69:
-#             message_content = f'This is a test message {i}, NICE!.'
-#         new_message = Message(
-#             user_id=randint(1, total_users+1),
-#             channel_id=randint(1, total_channels+1),
-#             content=message_content,
-#             sent_date=dt.datetime.now()
-#         )
-#         db.session.add(new_message)
-#     db.session.commit()
 
 
 def seed_all():
