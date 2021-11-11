@@ -172,8 +172,6 @@ def seed_friends():
     # A relatively long list 
     numbers = list(range(2, total_users-1))
     gen = pair_generator(numbers)
-
-    # TODO give each user 10 friends
     for _ in range(2, total_users-1):
         pair = next(gen) 
         new_user_server = Friend(
@@ -248,7 +246,7 @@ def seed_message():
     '''
     Seeds messages using json data designed to created realistic back and forth messages between users.
     '''
-    # TODO use dict or to be sure repeated messages are not in the same channel
+    # TODO use dict or something to be sure repeated messages are not in the same channel
     message_date = dt.datetime.now() - dt.timedelta(days=365*5)
     for _ in range(1, (5*total_channels+1)):
         channel_id = randint(1, total_channels+1)
