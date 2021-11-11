@@ -1,0 +1,30 @@
+.home-background-wrapper {
+    background-color: #404EED;
+    position: absolute;
+    height: 60rem;
+    z-index: -100;
+}
+
+#img-home-center {
+    width: 100%;
+    bottom: 0;
+}
+
+#img-home-right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#img-home-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.home-banner-wrapper * {
+    position: absolute;
+    margin-top: 15rem;
+    z-index: 1;
+    color: white;
+}
