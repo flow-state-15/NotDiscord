@@ -71,9 +71,9 @@ def seed_server():
     # demo server
     demo_server = Server(
         name='The DemoDome',
-        owner_id=1,
+        owner_id=2,
         icon='https://i1.sndcdn.com/artworks-000102510409-ifa0zk-t500x500.jpg',
-        invite_link=generate_password_hash(f'The DemoDome{randint(1, 21)}')[-8:]
+        invite_link=generate_password_hash(f'The DemoDome{randint(1, 20)}')[-8:]
     )
     db.session.add(demo_server)
     server_adjectives = [
