@@ -249,7 +249,7 @@ def seed_message():
     Seeds messages using json data designed to created realistic back and forth messages between users.
     '''
     # TODO use dict or to be sure repeated messages are not in the same channel
-    for _ in range(1, (5*total_channels+1)//2):
+    for _ in range(1, (5*total_channels+1)):
         channel_id = randint(1, total_channels+1)
         channel_name = Channel.query.get(channel_id).name
         channel_key = channel_name

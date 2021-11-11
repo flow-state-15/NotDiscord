@@ -39,6 +39,7 @@
 			"Let the Right One In",
 			"The Iron Giant",
 			"Scott pilgrim Vs. the world",
+			"Shrek",
 			"Old Boy"
 		],
 		"tv_show":[
@@ -250,7 +251,9 @@
        "anime":[
 			[
 				"Is the new season of {anime} out yet?",
-				"Not yet, we don't even have a release date yet.",
+				[
+					"I WISH, the release is currently TBA."
+				],
 				"Why did you have to tell me that! Now I know it will be an even longer wait!",
 				"You basically asked."
 			],
@@ -262,7 +265,11 @@
 			],
 			[
 				"Has anyone seen {anime}?",
-				"I loved it!",
+				[
+					"I loved it!",
+					"I would re-watch it with you if I could. It is amazing!",
+					"I wish I could forget about it and watch it like it is new!"
+				],
 				"Really? I will start watching it tonight.",
 				"Let me know what you think once you finish it?"
 			]
@@ -285,6 +292,11 @@
 				"I must see it now! What is it about?",
 				"Will Ferrell's character is a super villain that never expects to win.",
 				"Awesome, I will watch it tomorrow!"
+			],
+			[
+				"I tried watching {movie} but I was so tired and fell asleep. Should I start over or skip it?",
+				"That is not even a question! finish it now!",
+				"Ok ok... I will finish it tomorrow."
 			]
 		],
        "music":[
@@ -298,6 +310,13 @@
 				"Ooh, do they sell CD's?",
 				"They sell vinyl....",
 				"Oh, I am not interested anymore."
+			],
+			[
+				"Is that singer with the lions, tigers and bears alive still?",
+				"I think you are confusing something.",
+				"Am I?",
+				"I think you are thinking of the wizard of oz.",
+				"OH!!! I am thinking of that for some reason. I need to get more sleep it seems."
 			]
 		],
        "spoilers":[
@@ -310,6 +329,16 @@
 				"Wait... who is a ghost?",
 				"Bruce Willis duh!!",
 				"That movie is so old! I don't think you need to talk about that in spoiler chat anymore."
+			],
+			[
+				"What is everyone's favorite spoiler?",
+				"I remember the time when people where spreading the Snape kills Dumbledore spoiler everywhere.",
+				"Snape did what???",
+				"Have you not seen the movie or read the book yet?",
+				"Noooo! I was about to watch them next week with my nephew.",
+				"Well you literally asked for this. This is not my fault.",
+				"I need to find a hammer fast so I can get this out of my head....",
+				"I highly recommend you to not do that."
 			]
 		],
        "tv-shows":[
