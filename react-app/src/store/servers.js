@@ -56,12 +56,12 @@ export const addServer = (formData) => async dispatch => {
 
     if (response.ok) {
         const server = await response.json();
-        dispatch(add(server["server"]));
+        dispatch(add(server));
     }
 };
 
 export const updateServer = (formData) => async dispatch => {
-    const response = await fetch("/api/servers", {
+    const response = await fetch(`/api/servers/${formData.id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ export const updateServer = (formData) => async dispatch => {
 
     if (response.ok) {
         const server = await response.json();
-        dispatch(add(server["server"]));
+        dispatch(add(server));
     }
 }
 
@@ -85,7 +85,7 @@ export const removeServer = (serverId) => async dispatch => {
 
     if (response.ok) {
         const server = await response.json();
-        dispatch(remove(server.server))
+        dispatch(remove(serverId))
     }
 }
 
