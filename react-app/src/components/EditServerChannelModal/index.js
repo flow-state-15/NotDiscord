@@ -5,22 +5,23 @@ import { updateChannel, removeChannel } from "../../store/channels";
 import "./EditServerChannelModal.css";
 
 export default function EditServerChannelModal({ channel }) {
+    const dispatch = useDispatch();
     const [showModal, setShowModal] = useState(false);
     const [channelName, setChannelName] = useState(channel.name)
 
     function editChannelName(e) {
         e.preventDefault();
 
-        const channelUpdate = {
+        const channelNew = {
             ...channel,
             name: channelName
         }
-        dispatchEvent(updateChannel(channelUpdate));
+        dispatch(updateChannel(channelNew));
         setShowModal(false);
     }
 
     function deleteChannel() {
-        dispatchEvent(removeChannel(channel.id));
+        dispatch(removeChannel(channel.id));
         setShowModal(false);
     }
 

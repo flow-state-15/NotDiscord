@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { MemberPopOut } from "../../context/MemberPopOut";
-import ChatBar from "../MessagesSection/ChatBar";
+import UserChat from "../UserChat";
+
 
 function MemberIconPopOut({ member, position, sidebar }) {
   const dispatch = useDispatch();
@@ -79,9 +80,7 @@ function MemberIconPopOut({ member, position, sidebar }) {
                   <h3>About me</h3>
                   <p>{"member.tagged_name"}</p>
                 </div>
-                <div>
-                  <input />
-                </div>
+                <UserChat member={member} />
               </div>
             </div>
           </div>

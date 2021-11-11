@@ -20,7 +20,7 @@ def get_channel(channel_id):
 # @login_required
 def get_channel_by_users(user_id_1, user_id_2):
     # TODO finish get dm channel by 2 users
-    DM_channel = Channel.query.filter(Channel.name == user_id_1 + " <-> " + user_id_2).all()
+    DM_channel = Channel.query.filter(Channel.name == (user_id_1 + " <-> " + user_id_2)).one()
     if DM_channel == None:
         # create
         channel = Channel(
@@ -95,7 +95,7 @@ def create_channel():
 
 
 #PUT update channel
-@channel_routes.route('update/<int:channel_id>', methods=['PUT'])
+@channel_routes.route('/<int:channel_id>', methods=['PUT'])
 @login_required
 def update_channel(channel_id):
     channel = Channel.query.get(channel_id)
@@ -106,7 +106,7 @@ def update_channel(channel_id):
 
 
 #DELETE delete channel
-@channel_routes.route('delete/<int:channel_id>', methods=['DELETE'])
+@channel_routes.route('/<int:channel_id>', methods=['DELETE'])
 @login_required
 def delete_channel(channel_id):
     db.session.query(Channel).filter(Channel.id==channel_id).delete()

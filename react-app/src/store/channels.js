@@ -54,7 +54,7 @@ export const addChannel = (formData) => async dispatch => {
 };
 
 export const updateChannel = (formData) => async dispatch => {
-    const response = await fetch("/api/channels", {
+    const response = await fetch(`/api/channels/${formData.id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export const updateChannel = (formData) => async dispatch => {
 
     if (response.ok) {
         const channel = await response.json();
-        dispatch(add(channel["channel"]));
+        dispatch(add(channel));
     }
 }
 
@@ -78,7 +78,7 @@ export const removeChannel = (channelId) => async dispatch => {
 
     if (response.ok) {
         const channel = await response.json();
-        dispatch(remove(channel.channel))
+        dispatch(remove(channelId))
     }
 }
 

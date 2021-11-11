@@ -65,7 +65,7 @@ def post_all_servers():
 
 
 # PUT update server
-@server_routes.route('update/<int:server_id>', methods=['PUT'])
+@server_routes.route('/<int:server_id>', methods=['PUT'])
 @login_required
 def update_server(server_id):
     server = Server.query.get(server_id)
@@ -79,7 +79,7 @@ def update_server(server_id):
 
 
 # DELETE server
-@server_routes.route('delete/<int:server_id>', methods=['DELETE'])
+@server_routes.route('/<int:server_id>', methods=['DELETE'])
 @login_required
 def delete_server(server_id):
     db.session.query(Server).filter(Server.id==server_id).delete()
