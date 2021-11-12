@@ -108,7 +108,7 @@ export default function ServerSideBarNE() {
               to={"/channels/@me"}
             >
               <svg
-                class="homeIcon-AaowEC"
+                className="homeIcon-AaowEC"
                 aria-hidden="false"
                 width="28"
                 height="20"
@@ -133,7 +133,7 @@ export default function ServerSideBarNE() {
             onMouseLeave={(e) => testFunc1234(e)}
           >
             <svg
-              class="circleIcon-2_77lA"
+              className="circleIcon-2_77lA"
               aria-hidden="false"
               width="24"
               height="24"
@@ -154,7 +154,7 @@ export default function ServerSideBarNE() {
           >
             <svg
               aria-hidden="false"
-              class="circleIcon-2_77lA"
+              className="circleIcon-2_77lA"
               width="24"
               height="24"
               viewBox="0 0 24 24"

@@ -1,0 +1,64 @@
+.guild-discovery {
+  display: flex;
+  width: 100%;
+}
+.guild-left-categories {
+  margin-top: 1.6rem;
+}
+.guild-left-cat {
+  padding: 1rem;
+  background-color: #5865f2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.guild-left {
+  background-color: #2f3136;
+  width: 24rem;
+  padding: 1.2rem;
+  color: #fff;
+}
+.guild-left h2 {
+  font-size: 2.6rem;
+  font-family: "Whitney Bold";
+  margin-left: 0.5rem;
+}
+.cat-text {
+  font-size: 1.6rem;
+}
+.guild-right {
+  flex: 1;
+  background-color: #36393f;
+}
+.guild-banner {
+  width: 100%;
+  position: relative;
+}
+.guild-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+}
+.guild-content-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.guild-text-1 {
+  font-size: 2.6rem;
+  font-family: "Whitney Bold";
+}
+.guild-text-2 {
+  font-size: 1.6rem;
+}

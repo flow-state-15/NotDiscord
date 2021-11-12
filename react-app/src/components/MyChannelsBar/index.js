@@ -19,7 +19,7 @@ export default function MyChannelsBar({ channels }) {
         <div className="channels-bar-inner-content">
         <button className="channels-bar-friends-btn">
           <svg
-            class="linkButtonIcon-Mlm5d6"
+            className="linkButtonIcon-Mlm5d6"
             aria-hidden="false"
             width="24"
             height="24"
@@ -43,7 +43,7 @@ export default function MyChannelsBar({ channels }) {
             <svg
               x="0"
               y="0"
-              class="privateChannelRecipientsInviteButtonIcon-3A3uTc icon-22AiRD"
+              className="privateChannelRecipientsInviteButtonIcon-3A3uTc icon-22AiRD"
               aria-hidden="false"
               width="16"
               height="16"

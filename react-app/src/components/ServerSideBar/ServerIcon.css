@@ -34,11 +34,11 @@
   border-radius: 36%;
 }
 
-.server-icon:hover .name-popout {
+.server-icon:hover .name-PopOut {
   display: block;
 }
 
-.name-popout {
+.name-PopOut {
   position: absolute;
   z-index: 100;
   background-color: #1a191d;
@@ -48,19 +48,19 @@
   color: #dbdadc;
   display: none;
   transition: all 400ms;
-  animation: 200ms namepopout;
+  animation: 200ms namePopOut;
   padding: 1rem;
   border-radius: 0.4rem;
   width: max-content;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.14);
 }
 
-.name-popout p {
+.name-PopOut p {
   font-size: 1.44rem;
   font-weight: 700;
 }
 
-@keyframes namepopout {
+@keyframes namePopOut {
   from {
     opacity: 0;
   }
@@ -69,7 +69,7 @@
     opacity: 1;
   }
 }
-.name-popout-square {
+.name-PopOut-square {
   width: 1rem;
   height: 1rem;
   position: absolute;

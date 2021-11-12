@@ -58,14 +58,6 @@
   position: relative;
 }
 
-.avatar-wrapper-popout {
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50%;
-  margin-right: 1.2rem;
-  position: relative;
-}
-
 .avatar {
   width: inherit;
   border-radius: inherit;
@@ -80,7 +72,7 @@
   right: 0;
 }
 
-.status-icon-popout {
+.status-icon-PopOut {
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 5rem;
@@ -97,7 +89,7 @@
   bottom: -1px;
   right: -1px;
 }
-.status-holder-popout {
+.status-holder-PopOut {
   padding: 0.46rem;
   background-color: #18191c;
   position: absolute;
@@ -181,4 +173,12 @@
   left: 50%;
   transform: translate(-50%, -172%) rotate(45deg) scale(0.98);
   z-index: 1;
+}
+
+.avatar-wrapper-PopOut {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin-right: 1.2rem;
+  position: relative;
 }
