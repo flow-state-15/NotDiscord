@@ -1,11 +1,12 @@
 import LogoutButton from "../auth/LogoutButton";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import "./DiscordHome.css";
 
 export default function DiscordHome() {
+  const history = useHistory();
   const [demo, setDemo] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
@@ -14,6 +15,14 @@ export default function DiscordHome() {
     dispatch(login("DougD@demo.dome", "DemoDome"));
     setDemo(true);
   };
+
+  function loginClick () {
+    history.push('/login')
+  }
+
+  function signupClick () {
+    history.push('/sign-up')
+  }
 
   return (
     <div className="daClassName">
@@ -31,16 +40,16 @@ export default function DiscordHome() {
           {user ? (
             <LogoutButton />
           ) : (
-            <div>
-              <div className='nav-bar-buttons'>
-                <Link to="/login" exact={true} activeClassName="active">
+            <div className='nav-button-wrap'>
+              <div>
+                <button className='nav-bar-buttons' onClick={() => loginClick()} exact={true} activeClassName="active">
                   Login
-                </Link>
+                </button>
               </div>
               <div>
-                <Link to="/sign-up" exact={true} activeClassName="active">
+                <button className='nav-bar-buttons' onClick={() => signupClick()} exact={true} activeClassName="active">
                   Sign Up
-                </Link>
+                </button>
               </div>
             </div>
           )}
