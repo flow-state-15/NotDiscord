@@ -4,8 +4,8 @@ from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from random import randint, choice
 import datetime as dt
-import random
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -66,11 +66,19 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     # print(f"\n\n\n {form.data} \nERRORS: {form.errors} \n\n\n")
     if form.validate_on_submit():
+        avatars = [
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/blue-discord-icon.png',
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/gray-discord-icon.png',
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/green-discord-icon.png',
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/orange-discord-icon.png',
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/red-discord-icon.png',
+            'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/yellow-discord-icon.png'
+        ]
         user = User(
             email=form.data['email'],
             hashed_password=generate_password_hash(form.data['password']),
-            avatar='',
-            tagged_name=form.data['username']+'#'+str(random.randint(1000, 10000)),
+            avatar=choice(avatars),
+            tagged_name=form.data['username']+'#'+str(randint(1000, 10000)),
             created_at=dt.datetime.now()
         )
         db.session.add(user)
