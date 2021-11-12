@@ -34,7 +34,7 @@ export const loadUserServers = (userId) => async dispatch => {
 
     if (response.ok) {
         const servers = await response.json();
-        const userServers = servers["servers"]
+        const userServers = servers["servers"];
         for (let server of userServers) {
             const channelsResponse = await fetch(`/api/channels/byServer/${server.id}`)
             const serverChannels = await channelsResponse.json()
