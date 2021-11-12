@@ -142,7 +142,7 @@ export default function DiscordHome() {
             <div className="home-tile-last-button">
               <Link to='./channels/@me'>
                 <button className="home-buttons">
-                  Open Discord
+                  Open !Discord
                 </button>
               </Link>
             </div>
@@ -158,7 +158,7 @@ export default function DiscordHome() {
                   <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
                 </a>
                 <a href='https://github.com/flow-state-15' target='_blank' rel='noreferrer'>
-                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
                 </a>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function DiscordHome() {
                   <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
                 </a>
                 <a href='https://github.com/CroissantAhhh' target='_blank' rel='noreferrer'>
-                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
                 </a>
               </div>
             </div>
@@ -180,18 +180,18 @@ export default function DiscordHome() {
                   <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
                 </a>
                 <a href='https://github.com/Concrete18' target='_blank' rel='noreferrer'>
-                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
                 </a>
               </div>
             </div>
             <div className="footer-dev-container">
-              <span>Nebyou Ejigu</span>
+              <span>Nebbb</span>
               <div className="footer-logo-container">
                 <a href='' target='_blank' rel='noreferrer'>
                   <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
                 </a>
                 <a href='https://github.com/nebbb' target='_blank' rel='noreferrer'>
-                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
                 </a>
               </div>
             </div>
