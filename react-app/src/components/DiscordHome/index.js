@@ -55,17 +55,22 @@ export default function DiscordHome() {
           )}
         </div>
       </nav>
+      <div className="home-banner-wrapper">
+        {/* <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737023/discord_group_projo_assets/imgaine-a-place-h1_qulbqt.png' alt='imagine a place h1' /> */}
+        <h1>IMAGINE A PLACE...</h1>
+        <p>
+          ...where you can belong to a school club, a gaming group, or a
+          worldwide art community. Where just you and a handful of friends can
+          spend time together. A place that makes it easy to talk every day
+          and hang out more often.
+        </p>
+        <Link to='/channels/@me'>
+          <button className="button-open-discord-top">
+            Open !Discord in your browser
+          </button>
+        </Link>
+      </div>
       <div className="home-background-wrapper">
-        <div className="home-banner-wrapper">
-          {/* <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737023/discord_group_projo_assets/imgaine-a-place-h1_qulbqt.png' alt='imagine a place h1' /> */}
-          <h1>IMAGINE A PLACE...</h1>
-          <div>
-            ...where you can belong to a school club, a gaming group, or a
-            worldwide art community. Where just you and a handful of friends can
-            spend time together. A place that makes it easy to talk every day
-            and hang out more often.
-          </div>
-        </div>
         <img
           id="img-home-right"
           src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636669260/discord_group_projo_assets/home-right_gxykcx.svg"

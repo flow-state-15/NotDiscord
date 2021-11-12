@@ -1,7 +1,7 @@
 .home-background-wrapper {
     background-color: #404EED;
     position: relative;
-    height: 68vh;
+    /* height: 80vh; */
     z-index: -100;
     bottom: 0;
     overflow: hidden;
@@ -17,23 +17,23 @@
 
 #img-home-center img {
     /* position: absolute; */
-    object-fit: contain;
     /* min-height: 100%;
     min-width: 100%; */
     bottom: 10rem;
-    /* transform: scale(1.2); */
+    transform: scale(1.2);
+    object-fit: stretch;
 }
 
 #img-home-right {
     position: absolute;
-    right: 0;
+    right: -10rem;
     bottom: 0;
     z-index: 1;
 }
 
 #img-home-left {
     position: absolute;
-    left: 0;
+    left: -10rem;
     bottom: 0;
     z-index: 1;
 }
@@ -44,10 +44,11 @@
     height: 100vh;
     text-align: center;
     overflow-y: scroll;
+    /* z-index: -5; */
 }
 
 .home-banner-wrapper {
-    top: 5%;
+    top: 30%;
     left: 50%;
     display: flex;
     flex-direction: column;
@@ -56,17 +57,50 @@
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 50%;
+    align-items: center;
+}
+
+.home-banner-wrapper h1 {
+    font-family: "Whitney Bold";
+    padding-bottom: 5rem;
+    font-size: 6rem;
 }
 
 .home-banner-wrapper * {
-    z-index: 2;
     color: white;
 }
 
-.home-banner-wrapper div {
+.home-banner-wrapper p {
     /* text-align: center;
     width: 40rem; */
+    font-size: 2rem;
     width: 50rem;
+    letter-spacing: 0.18rem;
+}
+
+.button-open-discord-top {
+    background-color: #23272A;
+    color: white;
+    border: none;
+    height: 5rem;
+    /* padding-top: 5rem; */
+    padding: 0 3rem;
+    border-radius: 3rem;
+    font-size: 1.7rem;
+    font-weight: 550;
+    /* z-index: 100; */
+}
+
+.home-banner-wrapper a {
+    padding-top: 7rem;
+}
+
+.button-open-discord-top:hover {
+    background-color: #36393F;
+    box-shadow: 0 1.1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
+    transition-duration: 250ms;
 }
 
 .home-nav-bar {
@@ -87,6 +121,12 @@
     border-radius: 2rem;
     padding: 1.5rem;
     border: none;
+}
+
+.nav-bar-buttons:hover {
+    box-shadow: 0 1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
+    transition-duration: 250ms;
+    color: cornflowerblue;
 }
 
 .nav-button-wrap {
@@ -239,4 +279,9 @@ footer h1 {
 footer h3 {
     font-size: 2rem;
     letter-spacing: 0.12rem;
+}
+
+.footer-logo-container a:hover {
+    box-shadow: 0 0 1.8rem 0.2rem rgba(201, 197, 197, 0.219);
+    transition-duration: 250ms;
 }
