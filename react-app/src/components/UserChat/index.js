@@ -12,7 +12,8 @@ export default function UserChat({ member }) {
     e.preventDefault();
     const response = await fetch(`/api/channels/DM/${sessionUser.id}/${member.id}`);
     if (content && response.ok) {
-      const DMChannel = response.json();
+      const DMChannel = await response.json();
+      console.log(DMChannel)
       const message = {
         user_id: sessionUser?.id,
         channel_id: DMChannel.id,
