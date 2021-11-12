@@ -17,7 +17,8 @@ export default function DMGroupPage() {
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
-        dispatch(loadUserChannels(sessionUser.id));
+        console.log("hi :)")
+        dispatch(loadUserChannels(sessionUser?.id));
     }, [sessionUser?.id]);
 
     useEffect(() => {
