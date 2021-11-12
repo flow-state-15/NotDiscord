@@ -21,7 +21,7 @@ export default function MembersSection() {
   }
 
   const memberComponents = allMembers?.map((member) => {
-    return <MemberSection member={member} />;
+    return <MemberSection key={member.id} member={member} />;
   });
 
   return (

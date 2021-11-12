@@ -4,13 +4,14 @@ import EditServerModal from "../EditServerModal";
 import "./ServerChannelsBar.css";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router";
-import { useEffect, useState } from "react";
 
 export default function ServerChannelsBar({ channels }) {
   const { serverId, channelId } = useParams();
+  const user = useSelector((state) => state.session.user);
   const allServers = useSelector((state) => Object.values(state.servers));
   const currentServer = allServers?.find((obj) => obj.id == serverId);
+
+  // useEffect(() => {}, []);
 
   return (
     <div className="server-channels-bar-inner-content">
@@ -22,11 +23,13 @@ export default function ServerChannelsBar({ channels }) {
                 ? currentServer?.name.slice(0, 19) + "..."
                 : currentServer?.name
             }`}</h3>
-            <EditServerModal server={currentServer} />
-            <div className="mess-with-it-later">
+            {user?.id == currentServer?.owner_id && (
+              <EditServerModal server={currentServer} />
+            )}
+            {/* <div className="mess-with-it-later">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="#D5D5D6"
@@ -34,13 +37,13 @@ export default function ServerChannelsBar({ channels }) {
                 height="18px"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-            </div>
+            </div> */}
           </div>
           <h3 className="server-channels-title">TEXT CHANNELS</h3>
           <div className="server-channels-listings">

@@ -14,6 +14,9 @@
   padding-bottom: 0.4rem;
   position: relative;
 }
+.message-section:last-child {
+  margin-bottom: 2rem;
+}
 .message-section:hover {
   background-color: rgb(50, 53, 59);
 }
@@ -121,6 +124,9 @@
   display: flex;
   flex-direction: column;
 }
+.invite_box {
+  background-color: #2f3136;
+}
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
   border: 1px solid #292b2f;
@@ -199,4 +205,8 @@
   margin-bottom: 1rem;
   color: #b9bbbe;
   font-size: 1.3rem;
+}
+.message-section-content img {
+  display: block;
+  margin-top: 1rem;
 }

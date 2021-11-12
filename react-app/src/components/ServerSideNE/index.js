@@ -22,7 +22,7 @@ export default function ServerSideBarNE() {
     const testDivText = document.querySelector(".quicklildivtext");
     // testDivText.innerHTML = e.target.classList[1]?.split("-").join(" ");
     testDivText.innerHTML =
-      e.target.getAttribute("daAttribute") || "Loading...";
+      e.target.getAttribute("daattribute") || "Loading...";
 
     testDiv.style.display = "block";
     testDiv.style.position = "absolute";
@@ -40,7 +40,7 @@ export default function ServerSideBarNE() {
       <li
         onMouseEnter={(e) => testFunc123(e)}
         onMouseLeave={(e) => testFunc1234(e)}
-        daAttribute={server?.name}
+        daattribute={server?.name}
         className={
           server?.icon?.length
             ? `main-server-servers ${server?.name.split(" ").join("-")}`
@@ -51,13 +51,13 @@ export default function ServerSideBarNE() {
         key={server?.id}
       >
         <Link
-          daAttribute={server?.name}
+          daattribute={server?.name}
           className={`link-alias-to-li ${server?.name.split(" ").join("-")}`}
           to={`/channels/${server?.id}/${server?.firstChannelId}`}
         >
           {server?.icon?.length ? (
             <img
-              daAttribute={server?.name}
+              daattribute={server?.name}
               className={`main-server-servers-icon ${server?.name
                 .split(" ")
                 .join("-")}`}
@@ -103,7 +103,7 @@ export default function ServerSideBarNE() {
             onMouseLeave={(e) => testFunc1234(e)}
           >
             <Link
-              daAttribute={"Home"}
+              daattribute={"Home"}
               className={"link-alias-to-li"}
               to={"/channels/@me"}
             >
@@ -127,7 +127,7 @@ export default function ServerSideBarNE() {
           <li className="main-server-divider"></li>
           {serversComponents}
           <li
-            daAttribute={"Add Server"}
+            daattribute={"Add Server"}
             className="main-server-servers Add-Server green-hover"
             onMouseEnter={(e) => testFunc123(e)}
             onMouseLeave={(e) => testFunc1234(e)}
@@ -147,26 +147,32 @@ export default function ServerSideBarNE() {
             </div>
           </li>
           <li
-            daAttribute={"Explore Public Servers"}
+            daattribute={"Explore Public Servers"}
             className="main-server-servers Explore-Public-Servers green-hover"
             onMouseEnter={(e) => testFunc123(e)}
             onMouseLeave={(e) => testFunc1234(e)}
           >
-            <svg
-              aria-hidden="false"
-              className="circleIcon-2_77lA"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="#3BA55D"
+            <Link
+              daAttribute={"Home"}
+              className={"link-alias-to-li"}
+              to={"/guild-dicovery"}
             >
-              <path d="M12 10.9C11.39 10.9 10.9 11.39 10.9 12C10.9 12.61 11.39 13.1 12 13.1C12.61 13.1 13.1 12.61 13.1 12C13.1 11.39 12.61 10.9 12 10.9ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.19 14.19L6 18L9.81 9.81L18 6L14.19 14.19Z"></path>
-            </svg>
-            <div className="main-server-servers-name">
-              <h4 className="main-server-servers-name-text">
-                Explore Public Servers
-              </h4>
-            </div>
+              <svg
+                aria-hidden="false"
+                className="circleIcon-2_77lA"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="#3BA55D"
+              >
+                <path d="M12 10.9C11.39 10.9 10.9 11.39 10.9 12C10.9 12.61 11.39 13.1 12 13.1C12.61 13.1 13.1 12.61 13.1 12C13.1 11.39 12.61 10.9 12 10.9ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.19 14.19L6 18L9.81 9.81L18 6L14.19 14.19Z"></path>
+              </svg>
+              <div className="main-server-servers-name">
+                <h4 className="main-server-servers-name-text">
+                  Explore Public Servers
+                </h4>
+              </div>
+            </Link>
           </li>
         </ul>
       </nav>

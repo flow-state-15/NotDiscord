@@ -58,7 +58,7 @@ export default function MessagesSection({ messages, channel }) {
   };
 
   const messageComponents = messages?.map((message) => {
-    return <MessageSection message={message} />;
+    return <MessageSection key={message.id} message={message} />;
   });
 
   // console.log(liveMessages);

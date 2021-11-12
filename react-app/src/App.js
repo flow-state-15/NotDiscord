@@ -3,17 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
-import ServerSideBar from "./components/ServerSideBar";
 import ServerList from "./components/ServerList";
-import DMPage from "./components/DMPage";
-import GroupPage from "./components/GroupPage";
 import ServerPage from "./components/ServerPage";
 import DMGroupPage from "./components/DMGroupPage";
-import LoginPage from "./components/LoginPage/LoginPage";
+import FriendsPage from "./components/FriendsPage";
 import MyChannelsBar from "./components/MyChannelsBar";
 import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
@@ -76,17 +70,10 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/channels/@me">
               <ServerSideBarNE />
-              <MyChannelsBar />
-              <FriendsSection />
+              <FriendsPage />
             </ProtectedRoute>
             <ProtectedRoute path="/servers/">
               <ServerList />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/DM">
-              <DMPage />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/group">
-              <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
               <ServerSideBarNE />
