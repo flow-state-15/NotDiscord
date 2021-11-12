@@ -8,6 +8,11 @@ export default function MessageSection({ message }) {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [messageContent, setMessageContent] = useState(message.content);
+  
+  // async function getServerByLink(serverInviteLink) {
+  //   const server = await fetch(`/api/servers/invite/${serverInviteLink}`)
+  //   return await server.json()
+  // }
 
   // sets up local time for the message
   const event = new Date(message.sent_date);
@@ -29,13 +34,6 @@ export default function MessageSection({ message }) {
   // hides links if no other text is included
   let hideLink = false;
   if (foundLink) hideLink = (foundLink.length === message.content.length);
-  
-
-  async function getServerByLink(serverInviteLink) {
-    const server = await fetch(`/api/servers/invite/${serverInviteLink}`)
-    return await server.json()
-  }
-
 
   let embed = '';
   if (foundLink) {
@@ -74,38 +72,38 @@ export default function MessageSection({ message }) {
     } else if (foundLink.includes("/discord-invite/")) {
       // discord-invite
       // link example  https://www.discord.com/discord-invite/9b4ff5f3
-      const inviteLink = foundLink.split('/')
-      const inviteCode = inviteLink[inviteLink.length-1]
-      let serverDifferent
-      const server = getServerByLink(inviteCode).then(value => value).then(value => {
-        serverDifferent = value
-      })
-      console.log(server)
-      console.log(serverDifferent)
+      // const inviteLink = foundLink.split('/')
+      // const inviteCode = inviteLink[inviteLink.length-1]
+      // let serverDifferent
+      // const server = getServerByLink(inviteCode).then(value => value).then(value => {
+      //   serverDifferent = value
+      // })
+      // console.log(server)
+      // console.log(serverDifferent)
 
-      if (server) {
-        // working link
-        const serverName = 'Test Server'
-        const icon = ''
-        embed = (
-          <div className="invite_box embed">
-            <p>{serverName}</p>
-            <p>You've been invited to join a server</p>
-            <button></button>
-          </div>
-        )
-      } else {
-        // non existent link
-        embed = (
-          <div className="invite_box embed">
-            {<p>You sent an invite, but...</p>}
-            {/* icon */}
-            <p>Invalid Invite</p>
-            <p>Try sending a new invite!</p>
-            <button></button>
-          </div>
-        )
-      }
+      // if (server) {
+      //   // working link
+      //   const serverName = 'Test Server'
+      //   const icon = ''
+      //   embed = (
+      //     <div className="invite_box embed">
+      //       <p>{serverName}</p>
+      //       <p>You've been invited to join a server</p>
+      //       <button></button>
+      //     </div>
+      //   )
+      // } else {
+      //   // non existent link
+      //   embed = (
+      //     <div className="invite_box embed">
+      //       {<p>You sent an invite, but...</p>}
+      //       {/* icon */}
+      //       <p>Invalid Invite</p>
+      //       <p>Try sending a new invite!</p>
+      //       <button></button>
+      //     </div>
+      //   )
+      // }
     }
   }
 
