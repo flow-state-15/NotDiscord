@@ -1,4 +1,19 @@
+import { useHistory } from "react-router";
+import { useSelector } from "react-redux";
+
 export default function FriendSection({ friend }) {
+  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user)
+
+  async function onFriendMessage(e) {
+    e.preventDefault();
+    const response = await fetch(`/api/channels/DM/${sessionUser?.id}/${friend.id}`);
+    if (response.ok) {
+      const DMChannel = await response.json();
+      history.push(`/channels/@me/${DMChannel.id}`);
+    };
+  }
+
   return (
     <div className="friend-section">
       <div className="DM-icon DM-icon-alias-to-members">
@@ -19,7 +34,7 @@ export default function FriendSection({ friend }) {
               </h1>
               <h3 className="member-online-status">Online</h3>
             </div>
-            <div className="member-section-single-row">
+            <div className="member-section-single-row" onClick={onFriendMessage}>
               <div className="message-box-member">
                 <svg
                   className="icon-35-fSh"
