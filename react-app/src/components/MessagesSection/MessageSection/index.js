@@ -25,11 +25,12 @@ export default function MessageSection({ message }) {
   const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
   let foundLink = message.content.match(regex);
   if (foundLink && foundLink.length > 0) foundLink = foundLink[0];
-  let embed = '';
+  
   // hides links if no other text is included
   let hideLink = false;
   if (foundLink) hideLink = (foundLink.length === message.content.length);
-
+  
+  let embed = '';
   if (foundLink) {
     if (
       foundLink.includes(".jpg") ||
@@ -80,8 +81,6 @@ export default function MessageSection({ message }) {
       content: messageContent,
     };
     delete editedMessage.user;
-    // console.log(editedMessage)
-    // console.log(message)
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);
@@ -120,7 +119,6 @@ export default function MessageSection({ message }) {
             </>
           )}
           {!isEditing && (
-            // TODO make links disappear if only a link is sent
             <>
               {!hideLink && 
                 <Linkify className="message-content">
@@ -130,7 +128,6 @@ export default function MessageSection({ message }) {
               {embed && embed}
             </>
           )}
-          {embed && embed}
         </div>
       </div>
       <div className="message-edit-delete">
