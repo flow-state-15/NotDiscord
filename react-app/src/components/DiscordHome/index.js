@@ -57,7 +57,8 @@ export default function DiscordHome() {
       </nav>
       <div className="home-background-wrapper">
         <div className="home-banner-wrapper">
-          <h1>IMGINE A PLACE...</h1>
+          {/* <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737023/discord_group_projo_assets/imgaine-a-place-h1_qulbqt.png' alt='imagine a place h1' /> */}
+          <h1>IMAGINE A PLACE...</h1>
           <div>
             ...where you can belong to a school club, a gaming group, or a
             worldwide art community. Where just you and a handful of friends can
@@ -81,6 +82,116 @@ export default function DiscordHome() {
           src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636669251/discord_group_projo_assets/home-left_r87yul.svg"
           alt="discord home bottom right"
         />
+      </div>
+      <div className="home-tiles-wrapper">
+        <div className='home-tile'>
+          <div classname="home-tile-img-container">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636734889/discord_group_projo_assets/home-tile-img-1_ojbvsc.svg" alt="home-tile-img" />
+          </div>
+          <div className="home-tile-text-container">
+            <div className="home-tile-text">
+              <h1>
+              Create an<br />invite-only<br />place where you<br />belong
+              </h1>
+              <p>
+              Discord servers are organized into topic-based channels where youcan collaborate, share, and just talk about your day without clogging up a group chat.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='home-tile'>
+          <div className="home-tile-text-container home-text-container-v2">
+            <div className="home-tile-text">
+              <h1>
+              Where hanging out is easy
+              </h1>
+              <p>
+              Grab a seat in a voice channel when you’re free. Friends in your server can see you’re around and instantly pop in to talk without having to call.
+              </p>
+            </div>
+          </div>
+          <div classname="home-tile-img-container v2">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737350/discord_group_projo_assets/home-tile-img-2_pwfuon.svg" alt='home tile img 2'/>
+          </div>
+        </div>
+        <div className='home-tile'>
+          <div classname="home-tile-img-container v2">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737987/discord_group_projo_assets/home-tile-img-3_xvxtxb.svg" alt='home tile img 3'/>
+          </div>
+          <div className="home-tile-text-container">
+            <div className="home-tile-text">
+              <h1>
+              From few to a fandom
+              </h1>
+              <p>
+              Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="home-tile-last">
+            <div className="home-tile-last-sparkles">
+              <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636738671/discord_group_projo_assets/home-sparkles_xewoyf.svg' alt="home-sparkles"/>
+              <h1>Ready to start your journey?</h1>
+            </div>
+            <div className="home-tile-last-button">
+              <Link to='./channels/@me'>
+                <button className="home-buttons">
+                  Open Discord
+                </button>
+              </Link>
+            </div>
+        </div>
+        <footer>
+          <h1>!Discord</h1>
+          <h3>brought to you by...</h3>
+          <div className="footer-about-container">
+            <div className="footer-dev-container">
+              <span>Dan Purcell</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/dan-purcell-fifteen/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/flow-state-15' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Jason Zhou</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/jazon-zhou/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/CroissantAhhh' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Michael Ericsson</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/michaelericson1/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/Concrete18' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Nebyou Ejigu</span>
+              <div className="footer-logo-container">
+                <a href='' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/nebbb' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636744326/discord_group_projo_assets/128-1280162_github-logo-png-cat-transparent-png_ivzcm9.png' alt='github icon' />
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
