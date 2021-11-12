@@ -74,7 +74,7 @@ function App() {
             <Route path="/sign-up" exact={true}>
               <SignUpForm />
             </Route>
-            <ProtectedRoute path="/channels/@me">
+            <ProtectedRoute exact path="/channels/@me">
               <ServerSideBarNE />
               <MyChannelsBar />
               <FriendsSection />
@@ -89,6 +89,7 @@ function App() {
               <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
+              <ServerSideBarNE />
               <DMGroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/:serverId/:channelId">
