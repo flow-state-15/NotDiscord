@@ -5,8 +5,6 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import ServerList from "./components/ServerList";
-import DMPage from "./components/DMPage";
-import GroupPage from "./components/GroupPage";
 import ServerPage from "./components/ServerPage";
 import DMGroupPage from "./components/DMGroupPage";
 import FriendsPage from "./components/FriendsPage";
@@ -76,12 +74,6 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute path="/servers/">
               <ServerList />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/DM">
-              <DMPage />
-            </ProtectedRoute>
-            <ProtectedRoute path="/channels/group">
-              <GroupPage />
             </ProtectedRoute>
             <ProtectedRoute path="/channels/@me/:channelId">
               <ServerSideBarNE />
