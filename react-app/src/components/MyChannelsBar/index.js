@@ -9,11 +9,14 @@ import { useEffect } from "react";
 import "./MyChannelsBar.css";
 
 export default function MyChannelsBar({ channels }) {
+  console.log(channels)
   const dispatch = useDispatch()
-  const user = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
+
   return (
     <div className="my-channels-bar">
-      <div className="channels-bar-inner-content">
+      {channels && (
+        <div className="channels-bar-inner-content">
         <button className="channels-bar-friends-btn">
           <svg
             class="linkButtonIcon-Mlm5d6"
@@ -54,12 +57,23 @@ export default function MyChannelsBar({ channels }) {
             </svg>
           </h2>
           <div className="scrollable-my-channels">
-            <DMIcon />
-            <GroupIcon />
+            {channels.map((channel) => {
+              console.log(channel)
+              if (channel?.name.includes(" <-> ")) {
+                const members = channel.name.split(" <-> ");
+                for (let member of members) {
+                  console.log(member)
+                  const [memberId, memberName] = member.split("-");
+                  if (memberId !== sessionUser?.id) {
+                    channel.name = memberName.split("#")[0]
+                  }
+                }
+              }
+            })}
           </div>
         </div>
       </div>
-
+      )}
       <UserControls />
     </div>
   );

@@ -20,13 +20,18 @@ def get_channel(channel_id):
 # @login_required
 def get_channel_by_users(user_id_1, user_id_2):
     # TODO finish get dm channel by 2 users
-    DM_channel = Channel.query.filter(Channel.name == (user_id_1 + " <-> " + user_id_2)).one()
-    if DM_channel == None:
+    user_1 = User.query.get(user_id_1)
+    user_2 = User.query.get(user_id_2)
+    DM_name = f"{user_id_1}-{user_1.tagged_name} <-> {user_id_2}-{user_2.tagged_name}"
+    DM_channel = Channel.query.filter(Channel.name == DM_name).all()
+    if DM_channel == []:
         # create
         channel = Channel(
-            name=user_id_1 + " <-> " + user_id_2
+            name=f"{user_id_1}-{user_1.tagged_name} <-> {user_id_2}-{user_2.tagged_name}"
         )
         db.session.add(channel)
+        db.session.commit()
+
         user_channel_1 = User_Channel(
             channel_id=channel.id,
             user_id=user_id_1
@@ -59,17 +64,27 @@ def get_channel_members(channel_id):
 @login_required
 def get_channels_byuser(user_id):
     # TODO finish get all channels by user route
-    channels = Channel.query.filter(Channel.user_id == user_id).all()
-    users = User.query.all()
+    # channels = Channel.query.filter(Channel.user_id == user_id).all()
+    # users = User.query.all()
 
-    messagedict = [message.to_dict() for message in channels]
-    userdict = [user.to_dict() for user in users]
+    # messagedict = [message.to_dict() for message in channels]
+    # userdict = [user.to_dict() for user in users]
 
-    for obj in messagedict:
-        current_obj_user = next((user for user in userdict if user["id"] == obj["user_id"]), False)
-        obj['user'] = current_obj_user
+    # for obj in messagedict:
+    #     current_obj_user = next((user for user in userdict if user["id"] == obj["user_id"]), False)
+    #     obj['user'] = current_obj_user
 
-    return {"messages": messagedict}
+    # return {"messages": messagedict}
+    user_channels = []
+    user_channel_links = User_Channel.query.filter(User_Channel.user_id == user_id).all()
+    for UCL in user_channel_links:
+        UCL_obj = UCL.to_dict()
+        print(UCL_obj)
+        user_channel = Channel.query.get(UCL_obj["channel_id"])
+        user_channels.append(user_channel.to_dict())
+    print("\n\n\n", user_channels, "\n\n\n")
+    return {"channels": user_channels}
+
 
 
 #get all channels by server
