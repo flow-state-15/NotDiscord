@@ -22,7 +22,7 @@ export default function ServerSideBarNE() {
     const testDivText = document.querySelector(".quicklildivtext");
     // testDivText.innerHTML = e.target.classList[1]?.split("-").join(" ");
     testDivText.innerHTML =
-      e.target.getAttribute("daAttribute") || "Loading...";
+      e.target.getAttribute("daattribute") || "Loading...";
 
     testDiv.style.display = "block";
     testDiv.style.position = "absolute";
@@ -40,7 +40,7 @@ export default function ServerSideBarNE() {
       <li
         onMouseEnter={(e) => testFunc123(e)}
         onMouseLeave={(e) => testFunc1234(e)}
-        daAttribute={server?.name}
+        daattribute={server?.name}
         className={
           server?.icon?.length
             ? `main-server-servers ${server?.name.split(" ").join("-")}`
@@ -51,13 +51,13 @@ export default function ServerSideBarNE() {
         key={server?.id}
       >
         <Link
-          daAttribute={server?.name}
+          daattribute={server?.name}
           className={`link-alias-to-li ${server?.name.split(" ").join("-")}`}
           to={`/channels/${server?.id}/${server?.firstChannelId}`}
         >
           {server?.icon?.length ? (
             <img
-              daAttribute={server?.name}
+              daattribute={server?.name}
               className={`main-server-servers-icon ${server?.name
                 .split(" ")
                 .join("-")}`}
@@ -103,7 +103,7 @@ export default function ServerSideBarNE() {
             onMouseLeave={(e) => testFunc1234(e)}
           >
             <Link
-              daAttribute={"Home"}
+              daattribute={"Home"}
               className={"link-alias-to-li"}
               to={"/channels/@me"}
             >
@@ -127,7 +127,7 @@ export default function ServerSideBarNE() {
           <li className="main-server-divider"></li>
           {serversComponents}
           <li
-            daAttribute={"Add Server"}
+            daattribute={"Add Server"}
             className="main-server-servers Add-Server green-hover"
             onMouseEnter={(e) => testFunc123(e)}
             onMouseLeave={(e) => testFunc1234(e)}
@@ -147,7 +147,7 @@ export default function ServerSideBarNE() {
             </div>
           </li>
           <li
-            daAttribute={"Explore Public Servers"}
+            daattribute={"Explore Public Servers"}
             className="main-server-servers Explore-Public-Servers green-hover"
             onMouseEnter={(e) => testFunc123(e)}
             onMouseLeave={(e) => testFunc1234(e)}

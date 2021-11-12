@@ -17,14 +17,13 @@ export default function DMGroupPage() {
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
-        console.log("hi :)")
         dispatch(loadUserChannels(sessionUser?.id));
-    }, [sessionUser?.id]);
+    }, [dispatch, sessionUser?.id]);
 
     useEffect(() => {
         dispatch(loadChannelMessages(channelId));
         dispatch(loadChannelMembers(channelId));
-    }, [channelId])
+    }, [dispatch, channelId])
 
     const userChannels = useSelector(state => Object.values(state.channels));
     const channelMessages = useSelector(state => Object.values(state.messages));
@@ -32,7 +31,6 @@ export default function DMGroupPage() {
 
     return (
         <div className="DMgroup-page">
-            <h1>Group Page</h1>
             <NavBar/>
             <div className="DMgroup-page-content">
                 <MyChannelsBar channels={userChannels}/>

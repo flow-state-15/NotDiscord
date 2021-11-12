@@ -47,7 +47,7 @@ def get_channel_by_users(user_id_1, user_id_2):
         return channel.to_dict()
     else:
         print(DM_channel)
-        return DM_channel.to_dict()
+        return DM_channel[0].to_dict()
 
 
 #get channel members
