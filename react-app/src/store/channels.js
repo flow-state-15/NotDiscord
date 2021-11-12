@@ -39,7 +39,7 @@ export const loadServerChannels = (serverId) => async dispatch => {
 };
 
 export const addChannel = (formData) => async dispatch => {
-    const response  = await fetch("/api/channels", {
+    const response  = await fetch("/api/channels/", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -49,7 +49,8 @@ export const addChannel = (formData) => async dispatch => {
 
     if (response.ok) {
         const channel = await response.json();
-        dispatch(add(channel["channel"]));
+        dispatch(add(channel));
+        return channel
     }
 };
 
