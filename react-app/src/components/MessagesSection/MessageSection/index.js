@@ -36,13 +36,13 @@ export default function MessageSection({ message }) {
       found_link.includes(".gif")
     ) {
       embed = (
-        <a href={found_link}>
-          <img
-            src={found_link}
-            alt="image embed"
-            className="message_image_embed embed"
-          />
-        </a>
+        // <a href={found_link}>
+        <img
+          src={found_link}
+          alt="image embed"
+          className="message_image_embed embed"
+        />
+        // </a>
       );
     } else if (found_link.includes("https://www.youtube.com/watch")) {
       const youtube_code = found_link.split("=")[1];
@@ -132,13 +132,7 @@ export default function MessageSection({ message }) {
           )}
           {!isEditing && (
             <>
-              <Linkify
-                properties={{
-                  target: "_blank",
-                }}
-              >
-                {message.content}
-              </Linkify>
+              <Linkify>{message.content}</Linkify>
               {/* {embed && embed} */}
             </>
           )}

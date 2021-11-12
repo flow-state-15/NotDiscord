@@ -1,6 +1,6 @@
 .guild-discovery {
   display: flex;
-  width: 100%;
+  width: calc(100% - 6.8rem);
 }
 .guild-left-categories {
   margin-top: 1.6rem;
@@ -18,7 +18,7 @@
 
 .guild-left {
   background-color: #2f3136;
-  width: 24rem;
+  width: 24.4rem;
   padding: 1.2rem;
   color: #fff;
 }
