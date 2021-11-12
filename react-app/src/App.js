@@ -19,6 +19,7 @@ import { authenticate } from "./store/session";
 import ServerSideBarNE from "./components/ServerSideNE";
 import FriendsSection from "./components/FriendsSection";
 import MemberPopOutProvider from "./context/MemberPopOut";
+import DiscoveryPage from "./components/DiscoveryPage";
 
 import "./reset.css";
 import "./App.css";
@@ -107,6 +108,10 @@ function App() {
               <ServerSideBarNE />
               <MyChannelsBar />
               <FriendsSection />
+            </ProtectedRoute>
+            <ProtectedRoute path="/guild-dicovery">
+              <ServerSideBarNE />
+              <DiscoveryPage />
             </ProtectedRoute>
           </Switch>
         </MemberPopOutProvider>

@@ -1,6 +1,6 @@
 import ServerChannelListing from "./ServerChannelListing";
 import UserControls from "../UserControls";
-import EditServerModal from "../EditServerModal"
+import EditServerModal from "../EditServerModal";
 import "./ServerChannelsBar.css";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
