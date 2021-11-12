@@ -12,6 +12,7 @@
   gap: 1rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
+  position: relative;
 }
 .message-section:hover {
   background-color: rgb(50, 53, 59);
@@ -71,7 +72,6 @@
 }
 .user-avatar-single {
   height: 100%;
-  width: 100%;
   display: block;
   border-radius: 50%;
 }
@@ -95,17 +95,48 @@
   font-size: 1.2rem;
   user-select: none;
 }
-.message-content {
+.message-section-content {
   color: rgb(220, 221, 222);
   font-size: 1.6rem;
+  font-family: inherit;
+}
+.message-section:hover .message-edit-delete {
+  opacity: 1;
+}
+.message-section-content a {
+  color: #10afe9;
+  font-size: 1.6rem;
+  word-break: break-word;
+  text-decoration: none;
+  cursor: pointer;
 }
 .message_image_embed {
-  /* max-width: 40rem; */
   max-height: 30rem;
+}
+.youtube_embed {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.embed_link {
+  display: flex;
+  flex-direction: column;
 }
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
-  border: 1px solid black;
+  border: 1px solid #292b2f;
+  opacity: 0;
+  position: absolute;
+  top: -5%;
+  right: 0;
+  border-radius: 6px;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.message-edit-delete div {
+  height: 100%;
+  width: 100%;
 }
 .message-edit-delete button {
   border: none;
@@ -154,4 +185,18 @@
 .chat-bar-body {
   width: 100%;
   height: 100%;
+}
+.youtube-embed {
+  display: block;
+  background-color: #2f3136;
+  padding: 1rem;
+  border-left: 4px solid #ff0000;
+  width: max-content;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+.youtube-embed p {
+  margin-bottom: 1rem;
+  color: #b9bbbe;
+  font-size: 1.3rem;
 }
