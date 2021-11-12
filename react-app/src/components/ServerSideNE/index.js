@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { loadUserServers } from "../../store/servers";
+import AddServerModal from "../AddServerModal";
 import "./ServerSideBarNE.css";
 
 export default function ServerSideBarNE() {
@@ -145,6 +146,9 @@ export default function ServerSideBarNE() {
             <div className="main-server-servers-name">
               <h4 className="main-server-servers-name-text">Add Server</h4>
             </div>
+          </li>
+          <li>
+            <AddServerModal />
           </li>
           <li
             daattribute={"Explore Public Servers"}

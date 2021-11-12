@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import UserSettingsModal from "../UserSettingsModal";
 import "./UserControls.css";
 
 export default function UserControls() {
@@ -47,6 +48,7 @@ export default function UserControls() {
           </svg>
         </button>
       </div>
+      <UserSettingsModal />
     </div>
   );
 }
