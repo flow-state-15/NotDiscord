@@ -9,8 +9,6 @@ import { useEffect } from "react";
 import "./MyChannelsBar.css";
 
 export default function MyChannelsBar({ channels }) {
-  console.log(channels)
-  const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user)
 
   return (
@@ -58,16 +56,10 @@ export default function MyChannelsBar({ channels }) {
           </h2>
           <div className="scrollable-my-channels">
             {channels.map((channel) => {
-              console.log(channel)
               if (channel?.name.includes(" <-> ")) {
-                const members = channel.name.split(" <-> ");
-                for (let member of members) {
-                  console.log(member)
-                  const [memberId, memberName] = member.split("-");
-                  if (memberId !== sessionUser?.id) {
-                    channel.name = memberName.split("#")[0]
-                  }
-                }
+                return <DMIcon channel={channel}/>
+              } else {
+                return <GroupIcon channel={channel}/>
               }
             })}
           </div>

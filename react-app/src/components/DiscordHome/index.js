@@ -90,7 +90,7 @@ export default function DiscordHome() {
       </div>
       <div className="home-tiles-wrapper">
         <div className='home-tile'>
-          <div classname="home-tile-img-container">
+          <div className="home-tile-img-container">
               <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636734889/discord_group_projo_assets/home-tile-img-1_ojbvsc.svg" alt="home-tile-img" />
           </div>
           <div className="home-tile-text-container">
@@ -115,12 +115,12 @@ export default function DiscordHome() {
               </p>
             </div>
           </div>
-          <div classname="home-tile-img-container v2">
+          <div className="home-tile-img-container v2">
               <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737350/discord_group_projo_assets/home-tile-img-2_pwfuon.svg" alt='home tile img 2'/>
           </div>
         </div>
         <div className='home-tile'>
-          <div classname="home-tile-img-container v2">
+          <div className="home-tile-img-container v2">
               <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737987/discord_group_projo_assets/home-tile-img-3_xvxtxb.svg" alt='home tile img 3'/>
           </div>
           <div className="home-tile-text-container">
