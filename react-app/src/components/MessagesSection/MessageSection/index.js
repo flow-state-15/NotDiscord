@@ -21,51 +21,68 @@ export default function MessageSection({ message }) {
   const converted = event.toLocaleDateString(undefined, options);
 
   // TODO detect images and invite links
-  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
+  const regex =
+    /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
   let found_link = message.content.match(regex);
   if (found_link && found_link.length > 0) found_link = found_link[0];
-  let embed = '';
+  let embed = "";
   let link;
   if (found_link) {
     link = found_link;
-    if (found_link.includes('.jpg') || found_link.includes('.png') || found_link.includes('.gif')) {
-      embed = <a href={found_link} >
-        <img src={found_link} alt="image embed" className="message_image_embed"/>
-      </a>
-    } else if (found_link.includes('https://www.youtube.com/watch')) {
-      const youtube_code = found_link.split('=')[1]
-      embed = <iframe src={`https://www.youtube.com/embed/${youtube_code}`}
-        width="560" height="315"
-        frameborder='0'
-        allow='autoplay; encrypted-media'
-        allowfullscreen
-        title='video' />
-    } else if (found_link.includes('invite-link')) {
-      embed = <div className=''>
-        <p>Server Name</p>
-        <p>Fun server yay</p>
-
-      </div>
+    if (
+      found_link.includes(".jpg") ||
+      found_link.includes(".png") ||
+      found_link.includes(".gif")
+    ) {
+      embed = (
+        <a href={found_link}>
+          <img
+            src={found_link}
+            alt="image embed"
+            className="message_image_embed"
+          />
+        </a>
+      );
+    } else if (found_link.includes("https://www.youtube.com/watch")) {
+      const youtube_code = found_link.split("=")[1];
+      embed = (
+        <iframe
+          src={`https://www.youtube.com/embed/${youtube_code}`}
+          width="560"
+          height="315"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="video"
+        />
+      );
+    } else if (found_link.includes("invite-link")) {
+      embed = (
+        <div className="">
+          <p>Server Name</p>
+          <p>Fun server yay</p>
+        </div>
+      );
     }
   }
 
   function addLinks(content) {
-    let message = ''
-    for (let word of content.split(' ')) {
-      if (message.includes('http')) {
-        message += <a href={word}>{word}</a>
+    let message = "";
+    for (let word of content.split(" ")) {
+      if (message.includes("http")) {
+        message += <a href={word}>{word}</a>;
       } else {
-        message += `${word} `
+        message += `${word} `;
       }
     }
-    return message
+    return message;
   }
 
   function editMessage(e) {
     e.preventDefault();
     const editedMessage = {
       ...message,
-      content: messageContent
+      content: messageContent,
     };
     delete editedMessage.user;
     // console.log(editedMessage)
@@ -91,7 +108,12 @@ export default function MessageSection({ message }) {
         </div>
         <div className="message-section-content">
           {isEditing && (
-            <form className="edit-message" onSubmit={editMessage}>
+            <form
+              className="edit-message"
+              onSubmit={(e) => {
+                editMessage(e);
+              }}
+            >
               <input
                 type="text"
                 value={messageContent}
@@ -99,7 +121,7 @@ export default function MessageSection({ message }) {
               ></input>
             </form>
           )}
-          {!isEditing &&
+          {!isEditing && (
             <>
               <div className="message-content">
                 {/* {addLinks(message.content)} */}
@@ -107,7 +129,7 @@ export default function MessageSection({ message }) {
               </div>
               {embed && embed}
             </>
-          }
+          )}
         </div>
       </div>
       <div className="message-edit-delete">
