@@ -83,6 +83,14 @@ html {
     url("./fonts/whitneylightitalic.woff") format("woff");
 }
 
+@font-face {
+  font-family: "Ginto Nord";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Whitney Light Italic"),
+    url("./fonts/whitneylightitalic.woff") format("woff");
+}
+
 body {
   font-family: "Whitney Book Regular", "Open sans", sans-serif;
 }

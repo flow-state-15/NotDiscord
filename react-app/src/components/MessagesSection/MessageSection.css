@@ -51,6 +51,7 @@
   width: 100%;
   height: 8vh;
   padding: 0 1.6rem;
+  padding-bottom: 8rem;
   background-color: transparent;
 }
 .chat-bar input {
