@@ -14,6 +14,9 @@
   padding-bottom: 0.4rem;
   position: relative;
 }
+.message-section:last-child {
+  margin-bottom: 2rem;
+}
 .message-section:hover {
   background-color: rgb(50, 53, 59);
 }
@@ -48,6 +51,7 @@
   width: 100%;
   height: 8vh;
   padding: 0 1.6rem;
+  padding-bottom: 8rem;
   background-color: transparent;
 }
 .chat-bar input {
@@ -119,6 +123,9 @@
 .embed_link {
   display: flex;
   flex-direction: column;
+}
+.invite_box {
+  background-color: #2f3136;
 }
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
@@ -198,4 +205,8 @@
   margin-bottom: 1rem;
   color: #b9bbbe;
   font-size: 1.3rem;
+}
+.message-section-content img {
+  display: block;
+  margin-top: 1rem;
 }

@@ -8,8 +8,11 @@ import { useSelector } from "react-redux";
 
 export default function ServerChannelsBar({ channels }) {
   const { serverId, channelId } = useParams();
+  const user = useSelector((state) => state.session.user);
   const allServers = useSelector((state) => Object.values(state.servers));
   const currentServer = allServers?.find((obj) => obj.id == serverId);
+
+  // useEffect(() => {}, []);
 
   return (
     <div className="server-channels-bar-inner-content">
@@ -21,8 +24,10 @@ export default function ServerChannelsBar({ channels }) {
                 ? currentServer?.name.slice(0, 19) + "..."
                 : currentServer?.name
             }`}</h3>
-            <EditServerModal server={currentServer} />
-            <div className="mess-with-it-later">
+            {user?.id == currentServer?.owner_id && (
+              <EditServerModal server={currentServer} />
+            )}
+            {/* <div className="mess-with-it-later">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -39,7 +44,7 @@ export default function ServerChannelsBar({ channels }) {
                   d="M19 9l-7 7-7-7"
                 />
               </svg>
-            </div>
+            </div> */}
           </div>
           <h3 className="server-channels-title">TEXT CHANNELS</h3>
           <AddChannelModal />

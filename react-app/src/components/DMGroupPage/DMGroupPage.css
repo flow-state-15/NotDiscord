@@ -1,0 +1,9 @@
+.DMgroup-page {
+  height: 100%;
+  width: calc(100% - 6.8rem);
+}
+.DMgroup-page-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
