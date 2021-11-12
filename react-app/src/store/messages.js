@@ -56,7 +56,7 @@ export const updateMessage = (formData) => async (dispatch) => {
 
   if (response.ok) {
     const message = await response.json();
-    console.log(message)
+    console.log(message);
     dispatch(add(message));
   }
 };
@@ -71,7 +71,7 @@ export const removeMessage = (messageId) => async (dispatch) => {
 
   if (response.ok) {
     const messageId = await response.json();
-    console.log(messageId)
+    console.log(messageId);
     dispatch(remove(messageId.message_id));
   }
 };

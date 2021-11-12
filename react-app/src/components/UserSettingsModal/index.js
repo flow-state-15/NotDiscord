@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "../../context/Modal";
-import { updateServer, removeServer } from "../../store/servers";
-import "./EditServerModal.css";
+import "./UserSettingsModal.css";
 
-export default function EditServerModal({ server }) {
+export default function UserSettingsModal() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const sessionUser = useSelector(state => state.session.user)
   const [showModal, setShowModal] = useState(false);
-  const [serverName, setServerName] = useState(server.name);
-  const [serverIcon, setServerIcon] = useState(server.icon);
+  const [userName, setUserName] = useState(sessionUser?.tagged_name.split('#')[0]);
+  const [userHash, setUserHash] = useState(sessionUser?.tagged_name.split('#')[1]);
+  const [userAvatar, setUserAvatar] = useState(sessionUser?.avatar);
 
-  function editServer(e) {
+  function editUser(e) {
     e.preventDefault();
 
-    const serverUpdate = {
+    const userUpdate = {
       ...server,
-      name: serverName,
+      name: userName + "#" + userHash,
       icon: serverIcon,
     };
     dispatch(updateServer(serverUpdate));
@@ -33,24 +33,10 @@ export default function EditServerModal({ server }) {
 
   return (
     <>
-      <button className="server-settings" onClick={() => setShowModal(true)}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="#D5D5D6"
-          width="18px"
-          height="18px"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </button>
+      <button
+        className="server-settings"
+        onClick={() => setShowModal(true)}
+      ></button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="edit-server-modal">

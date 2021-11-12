@@ -14,6 +14,9 @@
   padding-bottom: 0.4rem;
   position: relative;
 }
+.message-section:last-child {
+  margin-bottom: 2rem;
+}
 .message-section:hover {
   background-color: rgb(50, 53, 59);
 }
@@ -201,4 +204,8 @@
   margin-bottom: 1rem;
   color: #b9bbbe;
   font-size: 1.3rem;
+}
+.message-section-content img {
+  display: block;
+  margin-top: 1rem;
 }

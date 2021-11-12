@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { MemberPopOut } from "../../context/MemberPopOut";
 import UserChat from "../UserChat";
 
 
 function MemberIconPopOut({ member, position, sidebar }) {
-  const dispatch = useDispatch();
   const [showPopOut, setShowPopOut] = useState(false);
   const [PopOutStyle, setPopOutStyle] = useState({});
-  const sessionUser = useSelector((state) => state.session.user);
 
   //   const topScroll = window.pageYOffset || document.documentElement.scrollTop;
   //   const leftScroll = window.pageXOffset || document.documentElement.scrollLeft;
