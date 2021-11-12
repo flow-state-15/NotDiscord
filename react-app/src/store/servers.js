@@ -55,7 +55,7 @@ export const loadUserServers = (userId) => async dispatch => {
 };
 
 export const addServer = (formData) => async dispatch => {
-    const response  = await fetch("/api/servers", {
+    const response  = await fetch("/api/servers/", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -66,6 +66,7 @@ export const addServer = (formData) => async dispatch => {
     if (response.ok) {
         const server = await response.json();
         dispatch(add(server));
+        return server;
     }
 };
 

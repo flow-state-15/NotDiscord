@@ -28,10 +28,35 @@ export default function DiscordHome() {
     <div className="daClassName">
       <nav className="home-nav-bar">
         <div className="logo-container">
-          <svg width={124} height={34} className="logo-svg">
-            <g fill="white">
-              <path d="M26.002 6.953c-2-.915-4.123-1.581-6.34-1.953-.279.48-.589 1.131-.806 1.643a24.233 24.233 0 00-7.022 0A20.16 20.16 0 0011.028 5a24.937 24.937 0 00-6.341 1.953C.673 12.873-.413 18.655.13 24.358c2.666 1.938 5.239 3.116 7.767 3.89a18.896 18.896 0 001.658-2.68 16.264 16.264 0 01-2.62-1.256c.218-.155.435-.325.636-.496 5.053 2.31 10.526 2.31 15.517 0 .217.17.418.341.635.496-.837.496-1.705.915-2.62 1.255.481.946 1.04 1.845 1.66 2.682a25.694 25.694 0 007.766-3.89c.666-6.603-1.056-12.338-4.527-17.406zM10.252 20.84c-1.518 0-2.758-1.38-2.758-3.069s1.209-3.069 2.759-3.069c1.534 0 2.79 1.38 2.758 3.07 0 1.689-1.224 3.068-2.758 3.068zm10.185 0c-1.519 0-2.76-1.38-2.76-3.069s1.21-3.069 2.76-3.069c1.535 0 2.79 1.38 2.76 3.07 0 1.689-1.21 3.068-2.76 3.068zM41.27 9.866h6.588c1.581 0 2.93.248 4.03.744s1.922 1.178 2.465 2.062c.542.883.821 1.89.821 3.037 0 1.116-.279 2.124-.852 3.038-.574.9-1.442 1.628-2.604 2.155-1.163.527-2.604.79-4.325.79H41.27V9.866zm6.046 8.82c1.07 0 1.89-.264 2.464-.807.574-.527.868-1.27.868-2.185 0-.853-.263-1.535-.775-2.046-.511-.511-1.286-.775-2.325-.775h-2.06v5.812h1.828zM65.436 21.677c-.914-.232-1.736-.573-2.464-1.038v-2.805c.558.433 1.286.774 2.216 1.053.93.28 1.83.419 2.697.419.403 0 .713-.047.914-.155.202-.108.31-.232.31-.387 0-.171-.061-.31-.17-.419-.108-.108-.325-.201-.651-.294l-2.03-.45c-1.163-.263-1.984-.65-2.48-1.116-.496-.465-.729-1.1-.729-1.875 0-.651.217-1.225.636-1.705.434-.48 1.038-.853 1.829-1.116.79-.264 1.705-.403 2.774-.403.946 0 1.813.093 2.604.31.79.201 1.441.465 1.953.775v2.65a7.522 7.522 0 00-1.83-.744 8.265 8.265 0 00-2.138-.279c-1.054 0-1.58.186-1.58.543 0 .17.077.294.247.387.17.093.465.17.899.264l1.69.31c1.1.186 1.921.527 2.464 1.007.542.48.806 1.178.806 2.123 0 1.024-.45 1.845-1.349 2.434-.899.604-2.17.899-3.813.899-.96-.031-1.89-.155-2.805-.388zM77.59 21.321c-.962-.48-1.706-1.116-2.186-1.922-.496-.806-.729-1.72-.729-2.743 0-1.007.248-1.922.76-2.712.511-.806 1.255-1.426 2.232-1.891.976-.45 2.154-.682 3.518-.682 1.69 0 3.084.356 4.2 1.07v3.084a4.941 4.941 0 00-1.38-.651 5.402 5.402 0 00-1.673-.248c-1.054 0-1.86.186-2.464.573-.59.388-.884.884-.884 1.504 0 .604.279 1.1.868 1.488.573.387 1.41.588 2.495.588.558 0 1.116-.077 1.659-.248.542-.17 1.023-.356 1.41-.604v2.991c-1.24.744-2.681 1.116-4.309 1.116-1.379 0-2.541-.248-3.518-.713zM89.804 21.321c-.976-.48-1.72-1.116-2.232-1.937a5.106 5.106 0 01-.775-2.759c0-1.007.264-1.922.775-2.712.512-.79 1.256-1.41 2.217-1.86.96-.45 2.123-.682 3.457-.682 1.333 0 2.496.217 3.457.682.96.45 1.705 1.07 2.216 1.86.512.79.76 1.69.76 2.712 0 1.008-.248 1.937-.76 2.759-.511.821-1.24 1.472-2.216 1.937-.977.465-2.124.713-3.457.713-1.319 0-2.465-.248-3.442-.713zm5.132-2.991c.403-.403.62-.961.62-1.627 0-.682-.202-1.21-.62-1.612-.419-.403-.977-.605-1.674-.605-.728 0-1.288.202-1.707.605-.403.403-.62.93-.62 1.612 0 .681.202 1.224.62 1.627.419.418.978.62 1.707.62.697-.016 1.27-.217 1.674-.62zM110.048 11.99v3.643c-.434-.28-.992-.419-1.674-.419-.899 0-1.597.279-2.077.821-.481.543-.729 1.395-.729 2.542v3.1h-4.138V11.82h4.061v3.146c.217-1.147.589-2 1.085-2.542.496-.542 1.147-.837 1.937-.837.589 0 1.101.14 1.535.403zM124 9.526v12.166h-4.138v-2.216c-.357.837-.884 1.473-1.597 1.907-.714.434-1.598.65-2.652.65-.93 0-1.751-.232-2.449-.681-.697-.45-1.239-1.085-1.611-1.876-.372-.806-.558-1.705-.558-2.697-.016-1.038.186-1.968.604-2.79a4.637 4.637 0 011.736-1.921c.744-.466 1.596-.698 2.557-.698 1.969 0 3.288.853 3.97 2.573V9.526H124zm-4.758 8.726c.418-.403.635-.946.635-1.597 0-.635-.201-1.147-.62-1.534-.418-.388-.976-.59-1.675-.59-.698 0-1.256.202-1.674.605-.419.403-.62.915-.62 1.566 0 .65.201 1.162.62 1.565.418.403.961.605 1.658.605.699 0 1.257-.202 1.676-.62zM58.989 12.41c1.188 0 2.154-.868 2.154-1.938 0-1.07-.966-1.938-2.154-1.938-1.19 0-2.155.868-2.155 1.938 0 1.07.964 1.937 2.154 1.937zM61.143 13.741c-1.318.573-2.96.589-4.309 0v7.951h4.309v-7.951z" />
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <g
+              fill="#fff"
+              transform="matrix(1.011062, 0, 0, 1.088504, 197.945145, 236.019455)"
+              style={{}}
+            >
+              <path d="M26.0015 6.9529C24.0021 6.03845 21.8787 5.37198 19.6623 5C19.3833 5.48048 19.0733 6.13144 18.8563 6.64292C16.4989 6.30193 14.1585 6.30193 11.8336 6.64292C11.6166 6.13144 11.2911 5.48048 11.0276 5C8.79575 5.37198 6.67235 6.03845 4.6869 6.9529C0.672601 12.8736 -0.41235 18.6548 0.130124 24.3585C2.79599 26.2959 5.36889 27.4739 7.89682 28.2489C8.51679 27.4119 9.07477 26.5129 9.55525 25.5675C8.64079 25.2265 7.77283 24.808 6.93587 24.312C7.15286 24.1571 7.36986 23.9866 7.57135 23.8161C12.6241 26.1255 18.0969 26.1255 23.0876 23.8161C23.3046 23.9866 23.5061 24.1571 23.7231 24.312C22.8861 24.808 22.0182 25.2265 21.1037 25.5675C21.5842 26.5129 22.1422 27.4119 22.7621 28.2489C25.2885 27.4739 27.8769 26.2959 30.5288 24.3585C31.1952 17.7559 29.4733 12.0212 26.0015 6.9529ZM10.2527 20.8402C8.73376 20.8402 7.49382 19.4608 7.49382 17.7714C7.49382 16.082 8.70276 14.7025 10.2527 14.7025C11.7871 14.7025 13.0425 16.082 13.0115 17.7714C13.0115 19.4608 11.7871 20.8402 10.2527 20.8402ZM20.4373 20.8402C18.9183 20.8402 17.6768 19.4608 17.6768 17.7714C17.6768 16.082 18.8873 14.7025 20.4373 14.7025C21.9717 14.7025 23.2271 16.082 23.1961 17.7714C23.1961 19.4608 21.9872 20.8402 20.4373 20.8402Z" />
+              <path d="M41.2697 9.86615H47.8585C49.4394 9.86615 50.7878 10.1141 51.8883 10.6101C52.9887 11.1061 53.8102 11.7881 54.3527 12.6715C54.8951 13.555 55.1741 14.5624 55.1741 15.7094C55.1741 16.8253 54.8952 17.8328 54.3217 18.7472C53.7482 19.6462 52.8803 20.3746 51.7178 20.9016C50.5554 21.4286 49.1139 21.6921 47.3935 21.6921H41.2697V9.86615ZM47.316 18.6852C48.3854 18.6852 49.2069 18.4217 49.7804 17.8793C50.3539 17.3523 50.6484 16.6083 50.6484 15.6939C50.6484 14.8414 50.3849 14.1594 49.8734 13.648C49.3619 13.1365 48.587 12.873 47.5485 12.873H45.4871V18.6852H47.316Z" />
+              <path d="M65.4362 21.6774C64.5217 21.4449 63.7003 21.1039 62.9718 20.6389V17.8335C63.5298 18.2675 64.2582 18.6085 65.1882 18.8875C66.1181 19.1665 67.0171 19.306 67.8851 19.306C68.288 19.306 68.598 19.2595 68.7995 19.151C69.001 19.0425 69.1095 18.9185 69.1095 18.7635C69.1095 18.593 69.0475 18.4535 68.939 18.345C68.8305 18.2365 68.6135 18.1435 68.288 18.0505L66.2576 17.6011C65.0952 17.3376 64.2737 16.9501 63.7777 16.4851C63.2818 16.0201 63.0493 15.3847 63.0493 14.6097C63.0493 13.9587 63.2663 13.3853 63.6847 12.9048C64.1187 12.4243 64.7232 12.0523 65.5137 11.7888C66.3041 11.5254 67.2186 11.3859 68.288 11.3859C69.2335 11.3859 70.1014 11.4789 70.8919 11.6959C71.6823 11.8973 72.3333 12.1608 72.8448 12.4708V15.1212C72.3178 14.8112 71.6979 14.5632 71.0159 14.3772C70.3184 14.1912 69.6055 14.0982 68.877 14.0982C67.823 14.0982 67.2961 14.2842 67.2961 14.6407C67.2961 14.8112 67.3736 14.9352 67.5441 15.0282C67.7146 15.1212 68.009 15.1987 68.443 15.2917L70.1324 15.6017C71.2329 15.7876 72.0543 16.1286 72.5968 16.6091C73.1393 17.0896 73.4028 17.787 73.4028 18.7325C73.4028 19.7555 72.9533 20.5769 72.0543 21.1659C71.1554 21.7704 69.8844 22.0648 68.2415 22.0648C67.2806 22.0338 66.3506 21.9098 65.4362 21.6774Z" />
+              <path d="M77.5891 21.3213C76.6281 20.8408 75.8842 20.2054 75.4037 19.3994C74.9077 18.5934 74.6752 17.679 74.6752 16.656C74.6752 15.6486 74.9232 14.7341 75.4347 13.9437C75.9462 13.1377 76.6901 12.5177 77.6666 12.0528C78.643 11.6033 79.821 11.3708 81.1849 11.3708C82.8743 11.3708 84.2693 11.7273 85.3852 12.4402V15.5246C84.9977 15.2611 84.5328 15.0286 84.0058 14.8736C83.4788 14.7031 82.9208 14.6256 82.3319 14.6256C81.2779 14.6256 80.472 14.8116 79.8675 15.1991C79.2785 15.5866 78.984 16.0826 78.984 16.7025C78.984 17.307 79.263 17.803 79.852 18.1905C80.4254 18.5779 81.2624 18.7794 82.3474 18.7794C82.9053 18.7794 83.4633 18.7019 84.0058 18.5314C84.5483 18.3609 85.0287 18.175 85.4162 17.927V20.9183C84.1762 21.6623 82.7348 22.0343 81.1074 22.0343C79.728 22.0343 78.5655 21.7863 77.5891 21.3213Z" />
+              <path d="M89.8041 21.3213C88.8276 20.8408 88.0837 20.2054 87.5722 19.3839C87.0607 18.5624 86.7972 17.648 86.7972 16.625C86.7972 15.6176 87.0607 14.7031 87.5722 13.9127C88.0837 13.1222 88.8276 12.5022 89.7886 12.0528C90.7495 11.6033 91.9119 11.3708 93.2464 11.3708C94.5794 11.3708 95.7418 11.5878 96.7028 12.0528C97.6637 12.5022 98.4077 13.1222 98.9192 13.9127C99.4306 14.7031 99.6786 15.6021 99.6786 16.625C99.6786 17.6325 99.4306 18.5624 98.9192 19.3839C98.4077 20.2054 97.6792 20.8563 96.7028 21.3213C95.7263 21.7863 94.5794 22.0343 93.2464 22.0343C91.9274 22.0343 90.7805 21.7863 89.8041 21.3213ZM94.9358 18.3299C95.3388 17.927 95.5558 17.369 95.5558 16.7025C95.5558 16.0206 95.3543 15.4936 94.9358 15.0906C94.5174 14.6876 93.9594 14.4861 93.2619 14.4861C92.5335 14.4861 91.9739 14.6876 91.5555 15.0906C91.1525 15.4936 90.9355 16.0206 90.9355 16.7025C90.9355 17.3845 91.137 17.927 91.5555 18.3299C91.9739 18.7484 92.5335 18.9499 93.2619 18.9499C93.9594 18.9344 94.5329 18.7329 94.9358 18.3299Z" />
+              <path d="M110.048 11.9901V15.6325C109.614 15.3535 109.056 15.214 108.374 15.214C107.475 15.214 106.777 15.493 106.297 16.0354C105.816 16.5779 105.568 17.4304 105.568 18.5773V21.6772H101.43V11.8196H105.491V14.966C105.708 13.819 106.08 12.9666 106.576 12.4241C107.072 11.8816 107.723 11.5872 108.513 11.5872C109.102 11.5872 109.614 11.7267 110.048 11.9901Z" />
+              <path d="M124 9.52563V21.6925H119.862V19.4761C119.505 20.3131 118.978 20.9486 118.265 21.3825C117.551 21.8165 116.667 22.0335 115.613 22.0335C114.683 22.0335 113.862 21.801 113.164 21.3515C112.467 20.9021 111.925 20.2666 111.553 19.4761C111.181 18.6702 110.995 17.7712 110.995 16.7793C110.979 15.7408 111.181 14.8109 111.599 13.9894C112.002 13.168 112.591 12.5325 113.335 12.0675C114.079 11.6025 114.931 11.37 115.892 11.37C117.861 11.37 119.18 12.2225 119.862 13.9429V9.52563H124ZM119.242 18.2517C119.66 17.8487 119.877 17.3062 119.877 16.6553C119.877 16.0198 119.676 15.5083 119.257 15.1209C118.839 14.7334 118.281 14.5319 117.582 14.5319C116.884 14.5319 116.326 14.7334 115.908 15.1364C115.489 15.5393 115.288 16.0508 115.288 16.7018C115.288 17.3527 115.489 17.8642 115.908 18.2672C116.326 18.6702 116.869 18.8717 117.566 18.8717C118.265 18.8717 118.823 18.6702 119.242 18.2517Z" />
+              <path d="M58.9885 12.4091C60.1772 12.4091 61.1429 11.5416 61.1429 10.4717C61.1429 9.40164 60.1772 8.5343 58.9885 8.5343C57.7981 8.5343 56.8341 9.40164 56.8341 10.4717C56.8341 11.5416 57.7981 12.4091 58.9885 12.4091Z" />
+              <path d="M61.1429 13.741C59.8254 14.3144 58.1825 14.3299 56.8341 13.741V21.6921H61.1429V13.741Z" />
             </g>
+            <text
+              style={{
+                fill: "rgb(255, 255, 255)",
+                fontFamily: "Arial, sans-serif",
+                fontSize: "19.2px",
+                whiteSpace: "pre",
+              }}
+              transform="matrix(2.668552, 0, 0, 1.223657, -174.951279, -19.559774)"
+              x={150.891}
+              y={227.709}
+            >
+              {"!"}
+            </text>
           </svg>
         </div>
         <div className='nav-button-wrap'>
@@ -55,16 +80,22 @@ export default function DiscordHome() {
           )}
         </div>
       </nav>
+      <div className="home-banner-wrapper">
+        {/* <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737023/discord_group_projo_assets/imgaine-a-place-h1_qulbqt.png' alt='imagine a place h1' /> */}
+        <h1>IMAGINE A PLACE...</h1>
+        <p>
+          ...where you can belong to a school club, a gaming group, or a
+          worldwide art community. Where just you and a handful of friends can
+          spend time together. A place that makes it easy to talk every day
+          and hang out more often.
+        </p>
+        <Link to='/channels/@me'>
+          <button className="button-open-discord-top">
+            Open !Discord in your browser
+          </button>
+        </Link>
+      </div>
       <div className="home-background-wrapper">
-        <div className="home-banner-wrapper">
-          <h1>IMGINE A PLACE...</h1>
-          <div>
-            ...where you can belong to a school club, a gaming group, or a
-            worldwide art community. Where just you and a handful of friends can
-            spend time together. A place that makes it easy to talk every day
-            and hang out more often.
-          </div>
-        </div>
         <img
           id="img-home-right"
           src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636669260/discord_group_projo_assets/home-right_gxykcx.svg"
@@ -81,6 +112,116 @@ export default function DiscordHome() {
           src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636669251/discord_group_projo_assets/home-left_r87yul.svg"
           alt="discord home bottom right"
         />
+      </div>
+      <div className="home-tiles-wrapper">
+        <div className='home-tile'>
+          <div classname="home-tile-img-container">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636734889/discord_group_projo_assets/home-tile-img-1_ojbvsc.svg" alt="home-tile-img" />
+          </div>
+          <div className="home-tile-text-container">
+            <div className="home-tile-text">
+              <h1>
+              Create an<br />invite-only<br />place where you<br />belong
+              </h1>
+              <p>
+              Discord servers are organized into topic-based channels where youcan collaborate, share, and just talk about your day without clogging up a group chat.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='home-tile'>
+          <div className="home-tile-text-container home-text-container-v2">
+            <div className="home-tile-text">
+              <h1>
+              Where hanging out is easy
+              </h1>
+              <p>
+              Grab a seat in a voice channel when you’re free. Friends in your server can see you’re around and instantly pop in to talk without having to call.
+              </p>
+            </div>
+          </div>
+          <div classname="home-tile-img-container v2">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737350/discord_group_projo_assets/home-tile-img-2_pwfuon.svg" alt='home tile img 2'/>
+          </div>
+        </div>
+        <div className='home-tile'>
+          <div classname="home-tile-img-container v2">
+              <img src="https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636737987/discord_group_projo_assets/home-tile-img-3_xvxtxb.svg" alt='home tile img 3'/>
+          </div>
+          <div className="home-tile-text-container">
+            <div className="home-tile-text">
+              <h1>
+              From few to a fandom
+              </h1>
+              <p>
+              Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="home-tile-last">
+            <div className="home-tile-last-sparkles">
+              <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636738671/discord_group_projo_assets/home-sparkles_xewoyf.svg' alt="home-sparkles"/>
+              <h1>Ready to start your journey?</h1>
+            </div>
+            <div className="home-tile-last-button">
+              <Link to='./channels/@me'>
+                <button className="home-buttons">
+                  Open !Discord
+                </button>
+              </Link>
+            </div>
+        </div>
+        <footer>
+          <h1>!Discord</h1>
+          <h3>brought to you by...</h3>
+          <div className="footer-about-container">
+            <div className="footer-dev-container">
+              <span>Dan Purcell</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/dan-purcell-fifteen/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/flow-state-15' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Jason Zhou</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/jazon-zhou/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/CroissantAhhh' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Michael Ericsson</span>
+              <div className="footer-logo-container">
+                <a href='https://www.linkedin.com/in/michaelericson1/' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/Concrete18' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
+                </a>
+              </div>
+            </div>
+            <div className="footer-dev-container">
+              <span>Nebbb</span>
+              <div className="footer-logo-container">
+                <a href='' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636743583/discord_group_projo_assets/linkedin-tile_xvsp19.svg' alt='linkedin icon' />
+                </a>
+                <a href='https://github.com/nebbb' target='_blank' rel='noreferrer'>
+                  <img src='https://res.cloudinary.com/dan-purcell-2021/image/upload/v1636755621/discord_group_projo_assets/github-icon-2_lhhfge.jpg' alt='github icon' />
+                </a>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "../../context/Modal";
+import { updateUser, deleteUser } from "../../store/session";
 import "./UserSettingsModal.css";
 
 export default function UserSettingsModal() {
@@ -16,51 +16,56 @@ export default function UserSettingsModal() {
     e.preventDefault();
 
     const userUpdate = {
-      ...server,
-      name: userName + "#" + userHash,
-      icon: serverIcon,
+      ...sessionUser,
+      tagged_name: userName + "#" + userHash,
+      avatar: userAvatar,
     };
-    dispatch(updateServer(serverUpdate));
+    dispatch(updateUser(userUpdate));
     setShowModal(false);
   }
 
-  function deleteServer() {
-    dispatch(removeServer(server?.id));
+  function removeUser() {
+    dispatch(deleteUser(sessionUser?.id));
     setShowModal(false);
-    history.push("/channels/@me");
   }
-  console.log(serverName, serverIcon);
 
   return (
     <>
       <button
-        className="server-settings"
+        className="user-settings"
         onClick={() => setShowModal(true)}
-      ></button>
+      >Gear</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <div className="edit-server-modal">
-            <form className="edit-server-form" onSubmit={editServer}>
-              <label htmlFor="edit-server-name">Server Name</label>
+          <div className="edit-user-modal">
+            <form className="edit-user-form" onSubmit={editUser}>
+              <label htmlFor="edit-user-name">User Name</label>
               <input
-                id="edit-server-name"
-                className="edit-server-name"
-                value={serverName}
-                onChange={(e) => setServerName(e.target.value)}
+                id="edit-user-name"
+                className="edit-user-name"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
               ></input>
-              <label htmlFor="edit-server-icon">Server Icon</label>
+              <label htmlFor="edit-user-hash">User Hash</label>
               <input
-                id="edit-server-icon"
-                className="edit-server-icon"
-                value={serverIcon}
-                onChange={(e) => setServerIcon(e.target.value)}
+                id="edit-user-hash"
+                className="edit-user-hash"
+                value={userHash}
+                onChange={(e) => setUserHash(e.target.value)}
               ></input>
-              <button className="submit-edit-server-modal" type="submit">
-                Edit Server
+              <label htmlFor="edit-user-avatar">User Avatar</label>
+              <input
+                id="edit-user-avatar"
+                className="edit-user-avatar"
+                value={userAvatar}
+                onChange={(e) => setUserAvatar(e.target.value)}
+              ></input>
+              <button className="submit-edit-user-modal" type="submit">
+                Edit User Info
               </button>
             </form>
-            <button className="delete-server" onClick={deleteServer}>
-              Delete Server
+            <button className="delete-account" onClick={removeUser}>
+              Delete Account
             </button>
           </div>
         </Modal>

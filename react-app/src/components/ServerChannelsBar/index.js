@@ -1,6 +1,7 @@
 import ServerChannelListing from "./ServerChannelListing";
 import UserControls from "../UserControls";
 import EditServerModal from "../EditServerModal";
+import AddChannelModal from "../AddChannelModal";
 import "./ServerChannelsBar.css";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
@@ -46,6 +47,7 @@ export default function ServerChannelsBar({ channels }) {
             </div> */}
           </div>
           <h3 className="server-channels-title">TEXT CHANNELS</h3>
+          <AddChannelModal />
           <div className="server-channels-listings">
             {channels.map((channel) => {
               return (

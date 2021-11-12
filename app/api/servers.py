@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, Server, User_Server, User
+from app.models import db, Server, User_Server, User, Channel
 from werkzeug.security import generate_password_hash
 from random import randint
 
@@ -68,7 +68,21 @@ def post_all_servers():
     )
     db.session.add(server)
     db.session.commit()
-    return server.to_dict()
+    default_channel = Channel(
+        name="general",
+        server_id=server.id
+    )
+    db.session.add(default_channel)
+    db.session.commit()
+    new_user_server = User_Server(
+        server_id=server.id,
+        user_id=data["owner_id"]
+    )
+    db.session.add(new_user_server)
+    db.session.commit()
+    result_server = server.to_dict()
+    result_server["firstChannelId"] = default_channel.id
+    return result_server
 
 
 # PUT update server

@@ -96,6 +96,34 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+export const updateUser = (formData) => async (dispatch) => {
+  const response = await fetch(`/api/users/${formData.id}`, {
+    method: "PUT",
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  });
+
+  if (response.ok) {
+    const userUpdate = await response.json();
+    dispatch(setUser(userUpdate))
+  }
+}
+
+export const deleteUser = (userId) => async dispatch => {
+  const response = await fetch(`/api/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
+
+  if (response.ok) {
+      const user = await response.json();
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
