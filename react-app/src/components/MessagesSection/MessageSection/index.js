@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
+import Linkify from 'react-linkify';
 import MemberIconPopOut from "../../MemberIconPopOut";
 
 export default function MessageSection({ message }) {
@@ -20,14 +21,14 @@ export default function MessageSection({ message }) {
   };
   const converted = event.toLocaleDateString(undefined, options);
 
-  // detects images, youtube and invite links
+  // TODO detect images and invite links
   const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
   let found_link = message.content.match(regex);
   if (found_link && found_link.length > 0) found_link = found_link[0];
   let embed = '';
-  let clickable_link = '';
-  
+  let link;
   if (found_link) {
+    link = found_link;
     if (found_link.includes('.jpg') || found_link.includes('.png') || found_link.includes('.gif')) {
       embed = <a href={found_link} >
         <img src={found_link} alt="image embed" className="message_image_embed embed"/>
@@ -48,7 +49,18 @@ export default function MessageSection({ message }) {
 
       </div>
     }
-    clickable_link = <a href={found_link} className='text_link'>{found_link}</a>
+  }
+
+  function addLinks(content) {
+    let message = ''
+    for (let word of content.split(' ')) {
+      if (message.includes('http')) {
+        message += <a href={word}>{word}</a>
+      } else {
+        message += `${word} `
+      }
+    }
+    return message
   }
 
   function editMessage(e) {
@@ -58,6 +70,8 @@ export default function MessageSection({ message }) {
       content: messageContent
     };
     delete editedMessage.user;
+    // console.log(editedMessage)
+    // console.log(message)
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);
@@ -89,13 +103,10 @@ export default function MessageSection({ message }) {
           )}
           {!isEditing &&
             <>
-              <div className="message-content">
-                {message.content.replace(found_link, '').trim()}
-              </div>
-              <div className='embed_link'>
-                {clickable_link && clickable_link}
-                {embed && embed}
-              </div>
+              <Linkify className="message-content">
+                {message.content}
+              </Linkify>
+              {embed && embed}
             </>
           }
         </div>
