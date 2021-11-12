@@ -29,6 +29,15 @@ export const loadAllServers = () => async dispatch => {
     };
 };
 
+export const loadSingleServer = (inviteLink) => async dispatch => {
+    const response = await fetch(`/api/servers/invite/${inviteLink}`);
+    if (response.ok) {
+        const server = await response.json();
+        console.log("load one thunk: ", server)
+        dispatch(add(server));
+    };
+};
+
 export const loadUserServers = (userId) => async dispatch => {
     const response = await fetch(`/api/servers/byUser/${userId}`);
 

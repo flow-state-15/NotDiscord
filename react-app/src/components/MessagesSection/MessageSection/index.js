@@ -30,6 +30,13 @@ export default function MessageSection({ message }) {
   let hideLink = false;
   if (foundLink) hideLink = (foundLink.length === message.content.length);
   
+
+  async function getServerByLink(serverInviteLink) {
+    const server = await fetch(`/api/servers/invite/${serverInviteLink}`)
+    return await server.json()
+  }
+
+
   let embed = '';
   if (foundLink) {
     if (
@@ -64,13 +71,41 @@ export default function MessageSection({ message }) {
           />
         </div>
       );
-    } else if (foundLink.includes("invite-link")) {
-      embed = (
-        <div className="embed">
-          <p>Server Name</p>
-          <p>Fun server yay</p>
-        </div>
-      );
+    } else if (foundLink.includes("/discord-invite/")) {
+      // discord-invite
+      // link example  https://www.discord.com/discord-invite/9b4ff5f3
+      const inviteLink = foundLink.split('/')
+      const inviteCode = inviteLink[inviteLink.length-1]
+      let serverDifferent
+      const server = getServerByLink(inviteCode).then(value => value).then(value => {
+        serverDifferent = value
+      })
+      console.log(server)
+      console.log(serverDifferent)
+
+      if (server) {
+        // working link
+        const serverName = 'Test Server'
+        const icon = ''
+        embed = (
+          <div className="invite_box embed">
+            <p>{serverName}</p>
+            <p>You've been invited to join a server</p>
+            <button></button>
+          </div>
+        )
+      } else {
+        // non existent link
+        embed = (
+          <div className="invite_box embed">
+            {<p>You sent an invite, but...</p>}
+            {/* icon */}
+            <p>Invalid Invite</p>
+            <p>Try sending a new invite!</p>
+            <button></button>
+          </div>
+        )
+      }
     }
   }
 
