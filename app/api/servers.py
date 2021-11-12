@@ -22,7 +22,14 @@ def get_all_servers():
 @login_required
 def get_one_server(server_id):
     server = Server.query.filter(Server.id == server_id).one()
-    print(server)
+    return {"server": server.to_dict()}
+
+
+#get server by invite link
+@server_routes.route('/invite/<server_invite_link>')
+@login_required
+def get_server_by_invite(server_invite_link):
+    server = Server.query.filter(Server.invite_link == server_invite_link).one()
     return {"server": server.to_dict()}
 
 
