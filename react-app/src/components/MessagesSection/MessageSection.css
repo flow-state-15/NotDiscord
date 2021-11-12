@@ -93,8 +93,22 @@
   font-size: 1.6rem;
 }
 .message_image_embed {
-  /* max-width: 40rem; */
   max-height: 30rem;
+}
+.youtube_embed {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.embed_link {
+  display: flex;
+  flex-direction: column;
+}
+.text_link {
+  color: #10afe9;
+  font-size: 1.6rem;
+  word-break: break-word;
+  text-decoration: none;
+  cursor: pointer;
 }
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
