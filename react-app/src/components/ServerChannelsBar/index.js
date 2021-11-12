@@ -11,7 +11,7 @@ export default function ServerChannelsBar({ channels }) {
   const allServers = useSelector((state) => Object.values(state.servers));
   const currentServer = allServers?.find((obj) => obj.id == serverId);
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
 
   return (
     <div className="server-channels-bar-inner-content">

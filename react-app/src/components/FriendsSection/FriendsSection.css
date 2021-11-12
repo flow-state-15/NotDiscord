@@ -2,6 +2,7 @@
   background: #36393f;
   padding: 3rem;
   flex: 1;
+  position: relative;
 }
 .friends-section-online {
   text-transform: uppercase;
@@ -9,6 +10,7 @@
   font-weight: 600;
   color: #b9bbbe;
   padding-left: 1rem;
+  margin-top: 5rem;
 }
 .friend-section {
   border-top: solid 1px rgba(255, 255, 255, 0.06);
