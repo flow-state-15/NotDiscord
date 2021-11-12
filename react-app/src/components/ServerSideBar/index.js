@@ -44,7 +44,7 @@ export default function ServerSideBar() {
       <ServerIcon />
       <div className="side-bar-add">
         <svg
-          class="circleIcon-2_77lA"
+          className="circleIcon-2_77lA"
           aria-hidden="false"
           width="24"
           height="24"
@@ -57,7 +57,7 @@ export default function ServerSideBar() {
       <div className="side-bar-discover">
         <svg
           aria-hidden="false"
-          class="circleIcon-2_77lA"
+          className="circleIcon-2_77lA"
           width="24"
           height="24"
           viewBox="0 0 24 24"

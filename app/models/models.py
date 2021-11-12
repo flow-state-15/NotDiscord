@@ -156,7 +156,7 @@ class Message(db.Model):
     channel_id = db.Column(db.Integer, db.ForeignKey(
         "channels.id", ondelete='CASCADE'), nullable=False, )
     content = db.Column(db.Text, nullable=False)
-    sent_date = db.Column(db.DateTime, nullable=False)
+    sent_date = db.Column(db.DateTime(timezone=False), nullable=False)
     # user = db.relationship('User', backref='messages')
 
     def to_dict(self):
