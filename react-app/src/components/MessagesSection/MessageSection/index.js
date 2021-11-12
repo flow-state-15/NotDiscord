@@ -36,13 +36,13 @@ export default function MessageSection({ message }) {
       found_link.includes(".gif")
     ) {
       embed = (
-        <a href={found_link}>
-          <img
-            src={found_link}
-            alt="discord image embed"
-            className="message_image_embed embed"
-          />
-        </a>
+        // <a href={found_link}>
+        <img
+          src={found_link}
+          alt="image embed"
+          className="message_image_embed embed"
+        />
+        // </a>
       );
     } else if (found_link.includes("https://www.youtube.com/watch")) {
       const youtube_code = found_link.split("=")[1];
@@ -132,13 +132,7 @@ export default function MessageSection({ message }) {
           )}
           {!isEditing && (
             <>
-              <Linkify
-                properties={{
-                  target: "_blank",
-                }}
-              >
-                {message.content}
-              </Linkify>
+              <Linkify>{message.content}</Linkify>
               {/* {embed && embed} */}
             </>
           )}
@@ -159,8 +153,8 @@ export default function MessageSection({ message }) {
               viewBox="0 0 24 24"
             >
               <path
-                fillRule="evenodd"
-                clipRule="evenodd"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
                 d="M19.2929 9.8299L19.9409 9.18278C21.353 7.77064 21.353 5.47197 19.9409 4.05892C18.5287 2.64678 16.2292 2.64678 14.817 4.05892L14.1699 4.70694L19.2929 9.8299ZM12.8962 5.97688L5.18469 13.6906L10.3085 18.813L18.0201 11.0992L12.8962 5.97688ZM4.11851 20.9704L8.75906 19.8112L4.18692 15.239L3.02678 19.8796C2.95028 20.1856 3.04028 20.5105 3.26349 20.7337C3.48669 20.9569 3.8116 21.046 4.11851 20.9704Z"
                 fill="rgb(220, 221, 222)"
               ></path>
