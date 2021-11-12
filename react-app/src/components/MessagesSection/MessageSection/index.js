@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
+import Linkify from 'react-linkify';
 import MemberIconPopOut from "../../MemberIconPopOut";
 
 export default function MessageSection({ message }) {
@@ -30,39 +31,29 @@ export default function MessageSection({ message }) {
   if (found_link) {
     link = found_link;
     if (
-      found_link.includes(".jpg") ||
-      found_link.includes(".png") ||
-      found_link.includes(".gif")
+      found_link.includes('.jpg') ||
+      found_link.includes('.png') ||
+      found_link.includes('.gif')
     ) {
-      embed = (
-        <a href={found_link}>
-          <img
-            src={found_link}
-            alt="image embed"
-            className="message_image_embed"
-          />
-        </a>
-      );
-    } else if (found_link.includes("https://www.youtube.com/watch")) {
-      const youtube_code = found_link.split("=")[1];
-      embed = (
-        <iframe
-          src={`https://www.youtube.com/embed/${youtube_code}`}
-          width="560"
-          height="315"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen
-          title="video"
-        />
-      );
-    } else if (found_link.includes("invite-link")) {
-      embed = (
-        <div className="">
-          <p>Server Name</p>
-          <p>Fun server yay</p>
-        </div>
-      );
+      embed = <a href={found_link} >
+        <img src={found_link} alt="image embed" className="message_image_embed embed"/>
+      </a>
+    } else if (found_link.includes('https://www.youtube.com/watch')) {
+      const youtube_code = found_link.split('=')[1]
+      embed = <iframe src={`https://www.youtube.com/embed/${youtube_code}`}
+        className='youtube_embed'
+        width="560"
+        height="315"
+        frameborder='0'
+        allow='autoplay; encrypted-media'
+        allowfullscreen
+        title='video' />
+    } else if (found_link.includes('invite-link')) {
+      embed = <div className='embed'>
+        <p>Server Name</p>
+        <p>Fun server yay</p>
+
+      </div>
     }
   }
 
@@ -123,10 +114,9 @@ export default function MessageSection({ message }) {
           )}
           {!isEditing && (
             <>
-              <div className="message-content">
-                {/* {addLinks(message.content)} */}
+              <Linkify className="message-content">
                 {message.content}
-              </div>
+              </Linkify>
               {embed && embed}
             </>
           )}

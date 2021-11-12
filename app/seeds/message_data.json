@@ -117,10 +117,8 @@
 			"Shadow Warrior",
 			"Shadow Tactics: Blades of the Shogun",
 			"Sekiro™: Shadows Die Twice",
-			"Returnal",
 			"Ori and the Blind Forest",
 			"METAL GEAR SOLID V: THE PHANTOM PAIN",
-			"METAL GEAR SOLID V: GROUND ZEROES",
 			"METAL GEAR RISING: REVENGEANCE",
 			"Marvel's Spider-Man",
 			"Mark of the Ninja",
@@ -131,13 +129,9 @@
 			"inFAMOUS Second Son™",
 			"inFAMOUS 2",
 			"Horizon Zero Dawn",
-			"HITMAN™ 2",
-			"HITMAN™",
-			"Hitman: Blood Money",
 			"Hellblade: Senua's Sacrifice",
 			"Half-Life 2",
 			"Hacknet",
-			"GRAVITY RUSH 2",
 			"Google Earth VR",
 			"Ghost of Tsushima",
 			"DOOM",
@@ -145,18 +139,14 @@
 			"DETROIT: BECOME HUMAN",
 			"DEATHLOOP",
 			"DEATH STRANDING",
-			"Counter-Strike: Global Offensive",
 			"Control",
 			"Chroma Lab",
 			"Borderlands 2",
 			"BioShock Infinite",
-			"Apex Legends",
-			"What Remains of Edith Finch",
 			"Watch_Dogs",
 			"Watch Dogs: Legion",
 			"Warframe",
 			"Viscera Cleanup Detail",
-			"Ultimate Chicken Horse",
 			"Tony Hawk's Pro Skater 1 + 2",
 			"Tomb Raider",
 			"Tom Clancy's Splinter Cell Blacklist",
@@ -178,6 +168,12 @@
 				"Does anyone here live in Jersey besides you?",
 				"Hmmm, I am not sure. I am gonna post on some local groups as well.",
 				"Good idea!"
+			],
+			[
+				"Do we even need this channel?",
+				"Of course we do, it covers everything that does not fit the other channels.",
+				"It does not seemed to be used that much though.",
+				"Any use is a good use for something like this."
 			]
 		],
        "demo-dome-praise-room":[
@@ -190,6 +186,14 @@
 				"Praise Doug! The owner of the DemoDome!",
 				"Is it Dimmadome or Demodome?",
 				"I have never heard of Dimmadome."
+			],
+			[
+				"When is our next day to praise Doug for 3 hours straight?",
+				"Only 3 hours?",
+				"Yeah, last time I was late to dinner so I really need it to be shorter.",
+				"I don't think that is your decision to make.",
+				"Can we vote on it?",
+				"I don't know maybe."
 			]
 		],
        "business":[
@@ -246,7 +250,14 @@
 				"Ever heard of PEMDAS?",
 				"PEMDAS? Is that some sort of a drink?",
 				"Forget it, it does not matter."
+			],
+			[
+				"This is so true! https://www.youtube.com/watch?v=iP468OEln4U",
+				"”obeying all the traffic laws at a comfortable distance? We gotta get outa here!”",
+				"I love that line!",
+				"I can't wait for his next video."
 			]
+
 		],
        "anime":[
 			[
@@ -317,6 +328,11 @@
 				"Am I?",
 				"I think you are thinking of the wizard of oz.",
 				"OH!!! I am thinking of that for some reason. I need to get more sleep it seems."
+			],
+			[
+				"This is a great new music video that I found. https://www.youtube.com/watch?v=iik25wqIuFo",
+				"The embed shows that that is a rick roll. We are not all idiots here....",
+				"What NO!!! Why did you ruin this for me embed? What did I do to you!"
 			]
 		],
        "spoilers":[
@@ -365,6 +381,13 @@
 				"No, I am talking about Avatar: The Last Airbender.",
 				"Oh I heard about that.",
 				"It is way better than you think."
+			],
+			[
+				"The Bachelor looks different then I remembered. https://www.youtube.com/watch?v=0fiKw07H9Og",
+				"What did I just watch?",
+				"It was an episode of the Bachelor but with monkeys!",
+				"But why?",
+				"Why not?"
 			]
 		],
        "politics":[
@@ -376,7 +399,22 @@
 			[
 				"When does the next election start?",
 				"Which one?",
-				"Wait... How many are there?"
+				"Wait... How many are there?",
+				"I have no idea, I just know there are many more then just one."
+			],
+			[
+				"Are all politics allowed here?",
+				"Yes but everything must remain civil.",
+				"Oh ok, thanks!"
+			],
+			[
+				"I can't find my voter ID.",
+				"Is a voter ID a physical thing?",
+				"Isn't it?",
+				"I thought you just had to sign up or something and show your drivers license when voting.",
+				"Did I get scammed behind the library?",
+				"behind the library? Yeah, sounds like you got scammed.",
+				"My day is ruined!"
 			]
 		],
        "video-games":[
@@ -396,6 +434,12 @@
 				"I don't like using guides?",
 				"Do you want help from someone here?",
 				"No, I am just really annoyed with this part of the game."
+			],
+			[
+				"Anyone have some tips for beating {game}?",
+				"Have you looked on youtube for some videos?",
+				"I have a little bit but most of them are 20 minutes long and the ads are so numerous!",
+				"I will see if I can find the video that I watched months ago. I will send it if I find it."
 			]
 		],
 		"exercise":[

@@ -70,7 +70,6 @@
 }
 .user-avatar-single {
   height: 100%;
-  width: 100%;
   display: block;
   border-radius: 50%;
 }
@@ -94,13 +93,28 @@
   font-size: 1.2rem;
   user-select: none;
 }
-.message-content {
+.message-section-content {
   color: rgb(220, 221, 222);
   font-size: 1.6rem;
+  font-family: inherit;
+}
+.message-section-content a{
+  color: #10afe9;
+  font-size: 1.6rem;
+  word-break: break-word;
+  text-decoration: none;
+  cursor: pointer;
 }
 .message_image_embed {
-  /* max-width: 40rem; */
   max-height: 30rem;
+}
+.youtube_embed {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.embed_link {
+  display: flex;
+  flex-direction: column;
 }
 .message-edit-delete {
   background-color: rgb(54, 57, 63);
