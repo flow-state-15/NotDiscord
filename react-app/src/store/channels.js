@@ -24,6 +24,7 @@ export const loadUserChannels = (userId) => async dispatch => {
 
     if (response.ok) {
         const channels = await response.json();
+        console.log(channels["channels"])
         dispatch(load(channels["channels"]));
     };
 };
