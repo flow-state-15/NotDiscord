@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: efd0a2e50650
+Revision ID: 0ab20521fbea
 Revises: 
-Create Date: 2021-11-11 14:11:16.980145
+Create Date: 2021-11-12 18:25:23.647458
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'efd0a2e50650'
+revision = '0ab20521fbea'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,8 +32,8 @@ def upgrade():
     sa.Column('accepted', sa.Boolean(), nullable=False),
     sa.Column('sender_user_id', sa.Integer(), nullable=False),
     sa.Column('rec_user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['rec_user_id'], ['users.id'], ),
-    sa.ForeignKeyConstraint(['sender_user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['rec_user_id'], ['users.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['sender_user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('servers',
@@ -42,22 +42,22 @@ def upgrade():
     sa.Column('owner_id', sa.Integer(), nullable=False),
     sa.Column('icon', sa.String(length=255), nullable=True),
     sa.Column('invite_link', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('channels',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=50), nullable=True),
     sa.Column('server_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ),
+    sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user_servers',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('server_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['server_id'], ['servers.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('last_visited',
@@ -76,16 +76,16 @@ def upgrade():
     sa.Column('channel_id', sa.Integer(), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
     sa.Column('sent_date', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user_channels',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('channel_id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['channel_id'], ['channels.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###

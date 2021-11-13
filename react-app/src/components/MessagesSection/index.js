@@ -7,16 +7,25 @@ import { io } from "socket.io-client";
 import { useParams } from "react-router";
 let socket;
 
-export default function MessagesSection({ messages, channel }) {
+export default function MessagesSection({ messages }) {
   const { channelId } = useParams();
-  const user = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const allChannels = useSelector((state) => state.channels);
-
+  const [sectionTitle, setSectionTitle] = useState("");
   const [liveMessages, setLiveMessages] = useState([]);
   const [chatInput, setChatInput] = useState("");
   const [prevRoom, setPrevRoom] = useState(channelId);
   const element = useRef(null);
 
+  useEffect(() => {
+    if (allChannels[channelId]?.name.includes(" <-> ")) {
+      const DMmembers = allChannels[channelId]?.name.split(" <-> ");
+      const otherUser = DMmembers.find(user => sessionUser?.id !== Number(user.split("-")[0]))
+      setSectionTitle(otherUser.split("-")[1].split("#")[0])
+    } else {
+      setSectionTitle(allChannels[channelId]?.name)
+    }
+  }, [allChannels[channelId]?.name])
   useEffect(() => {
     socket = io();
     socket.on("message", (chat) => {
@@ -46,7 +55,7 @@ export default function MessagesSection({ messages, channel }) {
     socket.send({
       id,
       content: chatInput,
-      user: user,
+      user: sessionUser,
       sent_date: Date.now(),
       room: channelId,
     });
@@ -75,7 +84,7 @@ export default function MessagesSection({ messages, channel }) {
             <span>#</span>
           </div>
           <h3 className="welcome-to-text">
-            Welcome to {`#${allChannels[channelId]?.name || "Loading..."}`}
+            Welcome to {`#${sectionTitle || "Loading..."}`}
           </h3>
         </div>
         {messageComponents}

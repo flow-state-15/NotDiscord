@@ -8,7 +8,7 @@ import "./AddServerModal.css";
 export default function AddServerModal() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
   const [serverName, setServerName] = useState("");
   const [serverIcon, setServerIcon] = useState("");
@@ -26,7 +26,7 @@ export default function AddServerModal() {
     const newServer = await dispatch(addServer(newServerData));
     setServerName("")
     setShowModal(false);
-    history.push(`/channels/${newServer.id}/${newServer.firstChannelId}`)
+    history.push(`/channels/${newServer.id}/${newServer.firstChannelId}`);
   }
 
   useEffect(() => {
@@ -40,10 +40,10 @@ export default function AddServerModal() {
 
   return (
     <>
-      <button
-        className="add-channel-button"
-        onClick={() => setShowModal(true)}
-      >Add Server</button>
+      <button className="add-channel-button" onClick={() => setShowModal(true)}>
+        Add Server
+      </button>
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="add-server-modal">
