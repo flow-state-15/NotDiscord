@@ -33,10 +33,9 @@ export default function MessageSection({ message }) {
   
   // hides links if no other text is included
   let hideLink = false;
-  if (foundLink) hideLink = (foundLink.length === message.content.length);
-
   let embed = '';
   if (foundLink) {
+    hideLink = true
     if (foundLink.includes(".gifv")) {
       embed = (
         <video>
@@ -59,6 +58,7 @@ export default function MessageSection({ message }) {
         </a>
       );
     } else if (foundLink.includes("https://www.youtube.com/watch")) {
+      hideLink = true
       const youtube_code = foundLink.split("=")[1];
       embed = (
         <div className="youtube-embed">
@@ -77,6 +77,7 @@ export default function MessageSection({ message }) {
         </div>
       );
     } else if (foundLink.includes("giphy.com/clips/")) {
+      hideLink = true
       const split = foundLink.split("-");
       const giphy_code = split[split.length-1];
       embed = (
@@ -95,6 +96,7 @@ export default function MessageSection({ message }) {
       );
     } else if (foundLink.includes("gfycat.com/")) {
       // https://gfycat.com/miserableflippantchital
+      hideLink = true
       const split = foundLink.split("/");
       const gfyId = split[split.length-1];
       embed = (
@@ -118,6 +120,7 @@ export default function MessageSection({ message }) {
         </div>
       );
     } else if (foundLink.includes(".mp4")) {
+      hideLink = true
       embed = (
         <div className="embed">
           <video
@@ -165,12 +168,12 @@ export default function MessageSection({ message }) {
       //     </div>
       //   )
       // }
-    }
-  } else {
+    } else {
     // TODO show link with title and description
     hideLink = false
-    const request = new Request(foundLink);
-    console.log(request.body)
+    // const request = new Request(foundLink);
+    // console.log(request.body)
+    }
   }
 
   function editMessage(e) {
