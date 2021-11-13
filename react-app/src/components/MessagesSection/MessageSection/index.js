@@ -168,7 +168,9 @@ export default function MessageSection({ message }) {
     }
   } else {
     // TODO show link with title and description
-
+    hideLink = false
+    const request = new Request(foundLink);
+    console.log(request.body)
   }
 
   function editMessage(e) {
