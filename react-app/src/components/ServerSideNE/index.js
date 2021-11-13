@@ -127,7 +127,7 @@ export default function ServerSideBarNE() {
           </li>
           <li className="main-server-divider"></li>
           {serversComponents}
-          <li
+          {/* <li
             daattribute={"Add Server"}
             className="main-server-servers Add-Server green-hover"
             onMouseEnter={(e) => testFunc123(e)}
@@ -146,8 +146,11 @@ export default function ServerSideBarNE() {
             <div className="main-server-servers-name">
               <h4 className="main-server-servers-name-text">Add Server</h4>
             </div>
-          </li>
-          <li>
+          </li> */}
+          <li
+            daattribute={"Add Server"}
+            className="main-server-servers Add-Server green-hover"
+          >
             <AddServerModal />
           </li>
           <li

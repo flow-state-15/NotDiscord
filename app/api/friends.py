@@ -15,6 +15,15 @@ friend_routes = Blueprint("friends", __name__)
 #     # TODO finish get one channel route
 #     return "get one channel"
 
+#DELETE delete friend
+@friend_routes.route('delete/<int:friend_id>', methods=['DELETE'])
+@login_required
+def delete_channel(channel_id):
+    db.session.query(Channel).filter(Channel.id==channel_id).delete()
+    db.session.commit()
+    return {'server_id': channel_id}
+
+
 
 #get user friends
 @friend_routes.route('/<int:user_id>')
@@ -31,7 +40,9 @@ def get_friends(user_id):
 
     for row in id_list:
         user = User.query.get(row.rec_user_id)
-        loop.append(user.to_dict())
+        user_dict = user.to_dict()
+        user_dict['friend_data'] = row.to_dict()
+        loop.append(user_dict)
 
     # print(f"\n\n\n ***** get user FRIENDS route: id_list: {loop}\n\n\n")
 
@@ -77,12 +88,3 @@ def get_friends(user_id):
 #     db.session.add(channel)
 #     db.session.commit()
 #     return channel.to_dict()
-
-
-# #DELETE delete channel
-# @friend_routes.route('delete/<int:channel_id>', methods=['DELETE'])
-# @login_required
-# def delete_channel(channel_id):
-#     db.session.query(Channel).filter(Channel.id==channel_id).delete()
-#     db.session.commit()
-#     return {'server_id': channel_id}

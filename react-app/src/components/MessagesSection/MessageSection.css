@@ -15,7 +15,7 @@
   position: relative;
 }
 .message-section:last-child {
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 .message-section:hover {
   background-color: rgb(50, 53, 59);
@@ -31,6 +31,7 @@
 .message-container-inner-hooblah {
   scrollbar-width: thin;
   scrollbar-color: #202225 #2e3338;
+  padding-bottom: 2rem;
 }
 
 /* Works on Chrome, Edge, and Safari */

@@ -8,7 +8,7 @@ export default function MessageSection({ message }) {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
   const [messageContent, setMessageContent] = useState(message.content);
-  
+
   // async function getServerByLink(serverInviteLink) {
   //   const server = await fetch(`/api/servers/invite/${serverInviteLink}`)
   //   return await server.json()
@@ -27,10 +27,11 @@ export default function MessageSection({ message }) {
   const converted = event.toLocaleDateString(undefined, options);
 
   // detect images and invite links
-  const regex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
+  const regex =
+    /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
   let foundLink = message.content.match(regex);
   if (foundLink && foundLink.length > 0) foundLink = foundLink[0];
-  
+
   // hides links if no other text is included
   let hideLink = false;
   let embed = '';
@@ -79,10 +80,10 @@ export default function MessageSection({ message }) {
     } else if (foundLink.includes("giphy.com/clips/")) {
       hideLink = true
       const split = foundLink.split("-");
-      const giphy_code = split[split.length-1];
+      const giphy_code = split[split.length - 1];
       embed = (
         <div className="embed">
-          <embed  
+          <embed
             // allow="fullscreen"
             src={`https://giphy.com/embed/${giphy_code}/video`}
             // className="giphy_embed"
@@ -101,7 +102,7 @@ export default function MessageSection({ message }) {
       const gfyId = split[split.length-1];
       embed = (
         <div className="embed">
-          {/* <iframe  
+          {/* <iframe
             allow="fullscreen"
             src={`https://gfycat.com/${gfyId}`}
             // width="480"
@@ -144,7 +145,6 @@ export default function MessageSection({ message }) {
       // })
       // console.log(server)
       // console.log(serverDifferent)
-
       // if (server) {
       //   // working link
       //   const serverName = 'Test Server'
@@ -186,14 +186,27 @@ export default function MessageSection({ message }) {
 
     dispatch(updateMessage(editedMessage));
     setIsEditing(false);
+
+    const element = document.createElement("div");
+    element.classList.add("message-section-content");
+    const element2 = document.createElement("div");
+    const textnode = document.createTextNode(editedMessage.content);
+    element2.appendChild(textnode);
+    element.appendChild(element2);
+
+    document
+      .querySelector(`.message-section-content-${message.id}`)
+      .replaceWith(element);
   }
 
   function deleteMessage() {
     dispatch(removeMessage(message.id));
+    document.querySelector(`.message-section-${message.id}`).style.display =
+      "none";
   }
 
   return (
-    <div className="message-section">
+    <div className={`message-section message-section-${message.id}`}>
       <MemberIconPopOut member={message.user} />
       <div className="message-section-body">
         <div className="message-section-user-time">
@@ -202,7 +215,9 @@ export default function MessageSection({ message }) {
           </p>
           <p className="message-section-time">{converted}</p>
         </div>
-        <div className="message-section-content">
+        <div
+          className={`message-section-content message-section-content-${message.id}`}
+        >
           {isEditing && (
             <>
               <form
@@ -222,11 +237,9 @@ export default function MessageSection({ message }) {
           )}
           {!isEditing && (
             <>
-              {!hideLink && 
-                <Linkify className="message-content">
-                  {message.content}
-                </Linkify>
-              }
+              {!hideLink && (
+                <Linkify className="message-content">{message.content}</Linkify>
+              )}
               {embed && embed}
             </>
           )}
@@ -246,8 +259,8 @@ export default function MessageSection({ message }) {
               viewBox="0 0 24 24"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M19.2929 9.8299L19.9409 9.18278C21.353 7.77064 21.353 5.47197 19.9409 4.05892C18.5287 2.64678 16.2292 2.64678 14.817 4.05892L14.1699 4.70694L19.2929 9.8299ZM12.8962 5.97688L5.18469 13.6906L10.3085 18.813L18.0201 11.0992L12.8962 5.97688ZM4.11851 20.9704L8.75906 19.8112L4.18692 15.239L3.02678 19.8796C2.95028 20.1856 3.04028 20.5105 3.26349 20.7337C3.48669 20.9569 3.8116 21.046 4.11851 20.9704Z"
                 fill="rgb(220, 221, 222)"
               ></path>
