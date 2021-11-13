@@ -20,12 +20,15 @@ export default function MessagesSection({ messages }) {
   useEffect(() => {
     if (allChannels[channelId]?.name.includes(" <-> ")) {
       const DMmembers = allChannels[channelId]?.name.split(" <-> ");
-      const otherUser = DMmembers.find(user => sessionUser?.id !== Number(user.split("-")[0]))
-      setSectionTitle(otherUser.split("-")[1].split("#")[0])
+      const otherUser = DMmembers.find(
+        (user) => sessionUser?.id !== Number(user.split("-")[0])
+      );
+      setSectionTitle(otherUser.split("-")[1].split("#")[0]);
     } else {
-      setSectionTitle(allChannels[channelId]?.name)
+      setSectionTitle(allChannels[channelId]?.name);
     }
-  }, [allChannels[channelId]?.name])
+  }, [allChannels[channelId]?.name]);
+
   useEffect(() => {
     socket = io();
     socket.on("message", (chat) => {
@@ -69,8 +72,6 @@ export default function MessagesSection({ messages }) {
   const messageComponents = messages?.map((message) => {
     return <MessageSection key={message.id} message={message} />;
   });
-
-  // console.log(liveMessages);
 
   return (
     <div className="messages-section">

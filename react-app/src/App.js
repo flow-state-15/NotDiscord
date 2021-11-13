@@ -94,8 +94,7 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute path="/invite/:inviteId">
               <ServerSideBarNE />
-              <MyChannelsBar />
-              <FriendsSection />
+              <DiscoveryPage />
             </ProtectedRoute>
             <ProtectedRoute path="/guild-dicovery">
               <ServerSideBarNE />

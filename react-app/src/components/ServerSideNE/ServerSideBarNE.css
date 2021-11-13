@@ -34,6 +34,7 @@
 
 .main-server-servers-icon {
   width: inherit;
+  height: inherit;
   border-radius: inherit;
   transition: border-radius 128ms;
   cursor: pointer;

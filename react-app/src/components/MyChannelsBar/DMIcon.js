@@ -1,44 +1,41 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 export default function DMIcon({ channel }) {
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user)
-  const [otherUser, setOtherUser] = useState('');
+  const sessionUser = useSelector((state) => state.session.user);
+  const [otherUser, setOtherUser] = useState("");
 
   useEffect(() => {
     (async () => {
       const response = await fetch(`/api/channels/members/${channel?.id}`);
 
       if (response.ok) {
-          const members = await response.json();
-          setOtherUser(members["members"][0]);
-      };
-    })()
+        const members = await response.json();
+        setOtherUser(members["members"][0]);
+      }
+    })();
   }, [channel]);
 
   function goToDM() {
-    history.push(`/channels/@me/${channel.id}`)
+    history.push(`/channels/@me/${channel.id}`);
   }
 
   return (
     <div className="DM-icon" onClick={goToDM}>
       <div className="user-info">
         <div className="avatar-wrapper">
-          <img
-            src={otherUser.avatar}
-            alt="Avatar"
-            className="avatar"
-          />
+          <img src={otherUser.avatar} alt="Avatar" className="avatar" />
           <div className="status-holder status-holder-bg-color">
             <div className="status-icon"></div>
           </div>
         </div>
         <div className="name-tag name-tag-custom">
           <div>
-            <h1 className="username username-color">{otherUser?.tagged_name?.split("#")[0]}</h1>
+            <h1 className="username username-color">
+              {otherUser?.tagged_name?.split("#")[0]}
+            </h1>
           </div>
           <div className="name-tag-close">
             <svg
@@ -57,5 +54,5 @@ export default function DMIcon({ channel }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
