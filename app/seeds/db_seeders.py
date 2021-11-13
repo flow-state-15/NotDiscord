@@ -267,7 +267,7 @@ def seed_message():
             minutes=randint(6, 59),
             hours=randint(1, 6),
             seconds=randint(1, 59)
-            )
+        )
         message_date = message_date + delta
         for message in choice(messages[channel_key]):
             if isinstance(message, list):

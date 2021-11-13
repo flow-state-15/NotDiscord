@@ -262,11 +262,16 @@
 				"Happy Birthday! How old are you?",
 				"23!"
 			],
+			[
+				"https://i.imgur.com/zBGhkaY.gif",
+				"LOL grabbed the wrong person!"
+			],
 			["https://media.giphy.com/media/7frSUXgbGqQPKNnJRS/giphy.gif"],
 			["https://media.giphy.com/media/qdjfoR5RMNPgOL9FZc/giphy.gif"],
-			["https://media.giphy.com/media/qdjfoR5RMNPgOL9FZc/giphy.gif"],
-			["https://media.giphy.com/media/qdjfoR5RMNPgOL9FZc/giphy.gif"],
-			["https://media.giphy.com/media/qdjfoR5RMNPgOL9FZc/giphy.gif"]
+			["https://giphy.com/clips/bestfriends-Z3e2HuMMqqSLmN5Qqu"],
+			["https://giphy.com/clips/tlceurope-KsiZMQ99JT5nxt3bld"],
+			["https://giphy.com/clips/tlceurope-KsiZMQ99JT5nxt3bld"],
+			["https://giphy.com/clips/tlceurope-KsiZMQ99JT5nxt3bld"]
 
 		],
        "anime":[
@@ -525,7 +530,14 @@
 				"Oh deer! They are adorable!",
 				".....",
 				"What? It is true."
-			]
+			],
+			["https://giphy.com/clips/viralhog-GbQxQ7QSeL71NtXAs1"],
+			["https://giphy.com/clips/viralhog-viral-hog-pet-bird-spins-toy-cell-phone-RgdAXdgm5qSSZwnM41"],
+			["https://media.giphy.com/media/f4HpCDvF84oh2/giphy.gif"],
+			["https://media.giphy.com/media/jS6sVMK2fu4Uw/giphy.gif"],
+			["https://media.giphy.com/media/auxDaJxhVa2By/giphy.gif"],
+			["https://media.giphy.com/media/4Iw2OzgiiTc4M/giphy.gif"],
+			["https://media.giphy.com/media/g99MDPavNBLC8/giphy.gif"]
 		]	
     }
  }
