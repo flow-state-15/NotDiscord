@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, Channel, User, User_Channel
+from app.models import db, Channel, User, User_Channel, Message
 
 
 channel_routes = Blueprint("channels", __name__)
@@ -124,6 +124,17 @@ def update_channel(channel_id):
 @channel_routes.route('/<int:channel_id>', methods=['DELETE'])
 @login_required
 def delete_channel(channel_id):
+    all_associated_messages = db.session.query(Message).filter(Message.channel_id == channel_id).delete()
+    all_associated_user_channels = db.session.query(User_Channel).filter(User_Channel.channel_id == channel_id).delete()
+
+    # for message in all_associated_messages:
+    #     message.delete()
+
+    # for channel in all_associated_user_channels:
+    #     channel.delete()
+
+    # print(f"\n\n\n{all_associated_messages, all_associated_user_channels}\n\n\n")
+
     db.session.query(Channel).filter(Channel.id==channel_id).delete()
     db.session.commit()
     return {'server_id': channel_id}

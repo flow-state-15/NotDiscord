@@ -46,6 +46,8 @@ export const addMessage = (formData) => async (dispatch) => {
 };
 
 export const updateMessage = (formData) => async (dispatch) => {
+  console.log(formData);
+
   const response = await fetch(`/api/messages/${formData.id}`, {
     method: "PUT",
     headers: {
@@ -56,7 +58,6 @@ export const updateMessage = (formData) => async (dispatch) => {
 
   if (response.ok) {
     const message = await response.json();
-    console.log(message);
     dispatch(add(message));
   }
 };
