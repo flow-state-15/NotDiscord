@@ -37,9 +37,16 @@ export default function MessageSection({ message }) {
 
   let embed = '';
   if (foundLink) {
-    if (
+    if (foundLink.includes(".gifv")) {
+      embed = (
+        <video>
+          <video src="https://i.imgur.com/RIFxB4N.gifv"/>
+        </video>
+      )
+    } else if (
       foundLink.includes(".jpg") ||
       foundLink.includes(".png") ||
+      foundLink.includes("-gif-") ||
       foundLink.includes(".gif")
     ) {
       embed = (
@@ -74,19 +81,56 @@ export default function MessageSection({ message }) {
       const giphy_code = split[split.length-1];
       embed = (
         <div className="embed">
-          <iframe
-            allow="fullscreen"
+          <embed  
+            // allow="fullscreen"
             src={`https://giphy.com/embed/${giphy_code}/video`}
-            className="giphy_embed"
-            width="480"
-            height="569"
-            frameBorder="0"
+            // className="giphy_embed"
+            // width="480"
+            // height="569"
+            // frameBorder="0"
+            // controls="0"
+            mute="1"
+          />
+        </div>
+      );
+    } else if (foundLink.includes("gfycat.com/")) {
+      // https://gfycat.com/miserableflippantchital
+      const split = foundLink.split("/");
+      const gfyId = split[split.length-1];
+      embed = (
+        <div className="embed">
+          {/* <iframe  
+            allow="fullscreen"
+            src={`https://gfycat.com/${gfyId}`}
+            // width="480"
+            // height="569"
+            controls="0"
+          /> */}
+
+          <iframe
+          src={`https://www.gfycat.com/ifr/${gfyId}`}
+          frameborder='0'
+          scrolling='no'
+          width='640'
+          height='346'
+          allowfullscreen
+          />
+        </div>
+      );
+    } else if (foundLink.includes(".mp4")) {
+      embed = (
+        <div className="embed">
+          <video
+            allow="fullscreen"
+            src={foundLink}
+            // width="480"
+            // height="569"
             controls="0"
           />
         </div>
       );
-      
-    } else if (foundLink.includes("/discord-invite/")) {
+      // https://thumbs.gfycat.com/AccomplishedGrossIsabellinewheatear-mobile.mp4
+    // } else if (foundLink.includes("/discord-invite/")) {
       // discord-invite
       // link example  https://www.discord.com/discord-invite/9b4ff5f3
       // const inviteLink = foundLink.split('/')
@@ -122,6 +166,9 @@ export default function MessageSection({ message }) {
       //   )
       // }
     }
+  } else {
+    // TODO show link with title and description
+
   }
 
   function editMessage(e) {
