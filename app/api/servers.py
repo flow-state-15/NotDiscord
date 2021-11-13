@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, Server, User_Server, User, Channel
+from app.models import db, Server, User_Server, User, Channel, User_Channel, Message
 from werkzeug.security import generate_password_hash
 from random import randint
 
@@ -103,6 +103,9 @@ def update_server(server_id):
 @server_routes.route('/<int:server_id>', methods=['DELETE'])
 @login_required
 def delete_server(server_id):
+    db.session.query(User_Server).filter(User_Server.server_id == server_id).delete()
+    db.session.query(Channel).filter(Channel.server_id == server_id).delete()
+
     db.session.query(Server).filter(Server.id==server_id).delete()
     db.session.commit()
     return {'server_id': server_id}

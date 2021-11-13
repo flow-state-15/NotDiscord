@@ -86,16 +86,20 @@ def update_message(message_id):
     print('something')
     message = Message.query.get(message_id)
     data = request.json
-    print(data)
+    print(f"\n\n\n{data}\n\n\n")
     message.content = data["content"]
     db.session.commit()
     the_message = message.to_dict()
-    the_users = User.query.get(data["user_id"])
+    # the_users = User.query.get(data["user_id"])
+    # if not the_users:
+    #     the_new_users = User.query.get(data["user"]["id"])
+    #     the_message["user"] = the_new_users.to_dict()
+    #     return the_message
     # userdict = [user.to_dict() for user in the_users]
     # current_obj_user = next((user for user in userdict if user["id"] == the_message["user_id"]), False)
 
     # the_message["user"] = current_obj_user
-    the_message["user"] = the_users.to_dict()
+    # the_message["user"] = the_users.to_dict()
     return the_message
 
 
