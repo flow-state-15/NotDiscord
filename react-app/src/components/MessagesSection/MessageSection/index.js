@@ -69,6 +69,23 @@ export default function MessageSection({ message }) {
           />
         </div>
       );
+    } else if (foundLink.includes("giphy.com/clips/")) {
+      const split = foundLink.split("-");
+      const giphy_code = split[split.length-1];
+      embed = (
+        <div className="embed">
+          <iframe
+            allow="fullscreen"
+            src={`https://giphy.com/embed/${giphy_code}/video`}
+            className="giphy_embed"
+            width="480"
+            height="569"
+            frameBorder="0"
+            controls="0"
+          />
+        </div>
+      );
+      
     } else if (foundLink.includes("/discord-invite/")) {
       // discord-invite
       // link example  https://www.discord.com/discord-invite/9b4ff5f3
