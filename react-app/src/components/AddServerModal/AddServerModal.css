@@ -119,6 +119,7 @@
     padding: 1.5rem 3rem;
     font-family: "Whitney Semibold Regular";
     letter-spacing: .03rem;
+    cursor: pointer;
 }
 
 .add-server-circle-container {
