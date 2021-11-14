@@ -35,3 +35,12 @@
     letter-spacing: .03rem;
     margin-left: 1rem;
 }
+
+.add-channel-form input {
+    margin: 1rem;
+    font-size: 1.6rem;
+}
+
+.add-channel-form label {
+    font-size: 1.6rem;
+}
