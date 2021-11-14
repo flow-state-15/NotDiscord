@@ -36,6 +36,7 @@ export default function AddChannelModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="add-channel-modal">
+            <p className='add-channel-title'>Create Channel</p>
             <form className="add-channel-form" onSubmit={postChannel}>
               <label htmlFor="add-channel-name">Channel Name</label>
               <input
