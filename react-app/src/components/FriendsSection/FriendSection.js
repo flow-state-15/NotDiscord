@@ -3,15 +3,17 @@ import { useSelector } from "react-redux";
 
 export default function FriendSection({ friend }) {
   const history = useHistory();
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector((state) => state.session.user);
 
   async function onFriendMessage(e) {
     e.preventDefault();
-    const response = await fetch(`/api/channels/DM/${sessionUser?.id}/${friend.id}`);
+    const response = await fetch(
+      `/api/channels/DM/${sessionUser?.id}/${friend.id}`
+    );
     if (response.ok) {
       const DMChannel = await response.json();
       history.push(`/channels/@me/${DMChannel.id}`);
-    };
+    }
   }
 
   return (
@@ -34,8 +36,8 @@ export default function FriendSection({ friend }) {
               </h1>
               <h3 className="member-online-status">Online</h3>
             </div>
-            <div className="member-section-single-row" onClick={onFriendMessage}>
-              <div className="message-box-member">
+            <div className="member-section-single-row">
+              <div className="message-box-member" onClick={onFriendMessage}>
                 <svg
                   className="icon-35-fSh"
                   aria-hidden="false"
@@ -55,22 +57,23 @@ export default function FriendSection({ friend }) {
               </div>
               <div className="message-box-member">
                 <svg
-                  className="icon-35-fSh"
-                  aria-hidden="false"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="#36393F"
+                  viewBox="0 0 24 24"
                   width="21"
                   height="21"
-                  viewBox="0 0 24 24"
+                  stroke="#B9BBBE"
                 >
-                  <g fill="none" fill-rule="evenodd">
-                    <path d="M24 0v24H0V0z"></path>
-                    <path
-                      fill="#B9BBBE"
-                      d="M12 16c1.1045695 0 2 .8954305 2 2s-.8954305 2-2 2-2-.8954305-2-2 .8954305-2 2-2zm0-6c1.1045695 0 2 .8954305 2 2s-.8954305 2-2 2-2-.8954305-2-2 .8954305-2 2-2zm0-6c1.1045695 0 2 .8954305 2 2s-.8954305 2-2 2-2-.8954305-2-2 .8954305-2 2-2z"
-                    ></path>
-                  </g>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
                 </svg>
                 <div className="member-section-PopOut member-section-PopOut-less">
-                  <p className="member-section-PopOut-text">More</p>
+                  <p className="member-section-PopOut-text">Remove</p>
                 </div>
               </div>
             </div>

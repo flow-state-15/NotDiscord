@@ -9,11 +9,11 @@ export default function DMIcon({ channel }) {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`/api/channels/members/${channel?.id}`);
+      const response = await fetch(`/api/channels/members/${channel.id}`);
 
       if (response.ok) {
         const members = await response.json();
-        setOtherUser(members["members"][0]);
+        setOtherUser(members["members"][1]);
       }
     })();
   }, [channel]);
@@ -23,7 +23,7 @@ export default function DMIcon({ channel }) {
   }
 
   return (
-    <div className="DM-icon" onClick={goToDM}>
+    <div className={`DM-icon DM-icon-${channel.id}`} onClick={goToDM}>
       <div className="user-info">
         <div className="avatar-wrapper">
           <img src={otherUser.avatar} alt="Avatar" className="avatar" />
@@ -37,7 +37,13 @@ export default function DMIcon({ channel }) {
               {otherUser?.tagged_name?.split("#")[0]}
             </h1>
           </div>
-          <div className="name-tag-close">
+          <div
+            className="name-tag-close"
+            onClick={() => {
+              document.querySelector(`.DM-icon-${channel.id}`).style.display =
+                "none";
+            }}
+          >
             <svg
               className="closeIcon-rycxaQ"
               aria-hidden="false"

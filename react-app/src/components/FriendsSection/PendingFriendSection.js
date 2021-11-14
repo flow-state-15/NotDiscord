@@ -1,9 +1,12 @@
 import { useHistory } from "react-router";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { removeFriend, acceptFriendRequest } from "../../store/friends";
 
 export default function PendingFriendSection({ friend }) {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
 
   async function onFriendMessage(e) {
     e.preventDefault();
@@ -16,8 +19,12 @@ export default function PendingFriendSection({ friend }) {
     }
   }
 
-  function ingoreFriendRequest(e) {
-    e.preventDefault();
+  function ingoreFriendRequest(friendId, dataId) {
+    dispatch(removeFriend(friendId, dataId));
+  }
+
+  function acceptFriendRequestFunc(friendId, dataId) {
+    dispatch(acceptFriendRequest(friendId, dataId));
   }
 
   return (
@@ -41,11 +48,13 @@ export default function PendingFriendSection({ friend }) {
               <h3 className="member-online-status">Online</h3>
             </div>
             {sessionUser?.id == friend.friend_data.rec_user_id && (
-              <div
-                className="member-section-single-row"
-                onClick={onFriendMessage}
-              >
-                <div className="message-box-member">
+              <div className="member-section-single-row">
+                <div
+                  className="message-box-member"
+                  onClick={() =>
+                    acceptFriendRequestFunc(friend.id, friend.friend_data.id)
+                  }
+                >
                   <svg
                     class="icon-35-fSh"
                     aria-hidden="false"
@@ -64,7 +73,12 @@ export default function PendingFriendSection({ friend }) {
                     <p className="member-section-PopOut-text">Accept</p>
                   </div>
                 </div>
-                <div className="message-box-member">
+                <div
+                  className="message-box-member"
+                  onClick={() =>
+                    ingoreFriendRequest(friend.id, friend.friend_data.id)
+                  }
+                >
                   <svg
                     class="icon-35-fSh"
                     aria-hidden="false"
