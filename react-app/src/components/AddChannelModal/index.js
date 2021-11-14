@@ -42,7 +42,7 @@ export default function AddChannelModal() {
               <input
                 id="add-channel-name"
                 className="add-channel-name"
-                value={channelName}
+                value={channelName.replace(' ', '-')}
                 onChange={(e) => setChannelName(e.target.value)}
               ></input>
               <button className="submit-add-channel-modal" type="submit">
