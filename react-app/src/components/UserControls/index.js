@@ -36,7 +36,7 @@ export default function UserControls() {
           </div>
         </div>
       </div>
-      <div className="buttons-container">
+      {/* <div className="buttons-container">
         <button className="switcher tipper" data-tip="User Settings">
           <svg aria-hidden="false" width="20" height="20" viewBox="0 0 24 24">
             <path
@@ -47,7 +47,7 @@ export default function UserControls() {
             ></path>
           </svg>
         </button>
-      </div>
+      </div> */}
       <UserSettingsModal />
     </div>
   );
