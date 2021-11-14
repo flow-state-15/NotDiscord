@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import db, User, Friend
+from app.models import db, User, Friend, Channel
 
 
 friend_routes = Blueprint("friends", __name__)
@@ -16,13 +16,33 @@ friend_routes = Blueprint("friends", __name__)
 #     return "get one channel"
 
 #DELETE delete friend
-@friend_routes.route('delete/<int:friend_id>', methods=['DELETE'])
+@friend_routes.route('/delete/<int:friend_id>', methods=['DELETE'])
 @login_required
-def delete_channel(channel_id):
-    db.session.query(Channel).filter(Channel.id==channel_id).delete()
+def delete_channel(friend_id):
+    Friend.query.filter(Friend.id == friend_id).delete()
     db.session.commit()
-    return {'server_id': channel_id}
+    print(f"\n\n\n{'DELETED', friend_id}\n\n\n\n")
+    return {'friend_id': friend_id}
 
+
+# #POST add friend
+# @friend_routes.route('/add/<int:friend_id>', methods=['DELETE'])
+# @login_required
+# def delete_channel(friend_id):
+#     db.session.commit()
+#     db.session.add()
+#     return {'friend_id': friend_id}
+
+#PUT accept friend request
+@friend_routes.route('/accept/<int:friend_id>', methods=['PUT'])
+@login_required
+def accept_friend(friend_id):
+    friend = Friend.query.get(friend_id)
+    friend.accepted = True
+    db.session.commit()
+
+    friend_dict = friend.to_dict()
+    return {'friend': friend_dict}
 
 
 #get user friends
@@ -34,12 +54,19 @@ def get_friends(user_id):
     # friends = db.session.select(User).join_from(Friend, Friend.rec_user_id).filter(Friend.sender_user_id == user_id and Friend.accepted == True).all()
 
     id_list = Friend.query.filter(Friend.sender_user_id == user_id).all()
+    id_list2 = Friend.query.filter(Friend.rec_user_id == user_id).all()
     # test = id_list.to_dict()
 
     loop = []
 
     for row in id_list:
         user = User.query.get(row.rec_user_id)
+        user_dict = user.to_dict()
+        user_dict['friend_data'] = row.to_dict()
+        loop.append(user_dict)
+
+    for row in id_list2:
+        user = User.query.get(row.sender_user_id)
         user_dict = user.to_dict()
         user_dict['friend_data'] = row.to_dict()
         loop.append(user_dict)

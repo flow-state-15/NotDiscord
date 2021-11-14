@@ -34,15 +34,15 @@ export default function MessageSection({ message }) {
 
   // hides links if no other text is included
   let hideLink = false;
-  let embed = '';
+  let embed = "";
   if (foundLink) {
-    hideLink = true
+    hideLink = true;
     if (foundLink.includes(".gifv")) {
       embed = (
         <video>
-          <video src="https://i.imgur.com/RIFxB4N.gifv"/>
+          <video src="https://i.imgur.com/RIFxB4N.gifv" />
         </video>
-      )
+      );
     } else if (
       foundLink.includes(".jpg") ||
       foundLink.includes(".png") ||
@@ -59,7 +59,7 @@ export default function MessageSection({ message }) {
         </a>
       );
     } else if (foundLink.includes("https://www.youtube.com/watch")) {
-      hideLink = true
+      hideLink = true;
       const youtube_code = foundLink.split("=")[1];
       embed = (
         <div className="youtube-embed">
@@ -78,7 +78,7 @@ export default function MessageSection({ message }) {
         </div>
       );
     } else if (foundLink.includes("giphy.com/clips/")) {
-      hideLink = true
+      hideLink = true;
       const split = foundLink.split("-");
       const giphy_code = split[split.length - 1];
       embed = (
@@ -97,9 +97,9 @@ export default function MessageSection({ message }) {
       );
     } else if (foundLink.includes("gfycat.com/")) {
       // https://gfycat.com/miserableflippantchital
-      hideLink = true
+      hideLink = true;
       const split = foundLink.split("/");
-      const gfyId = split[split.length-1];
+      const gfyId = split[split.length - 1];
       embed = (
         <div className="embed">
           {/* <iframe
@@ -111,17 +111,17 @@ export default function MessageSection({ message }) {
           /> */}
 
           <iframe
-          src={`https://www.gfycat.com/ifr/${gfyId}`}
-          frameborder='0'
-          scrolling='no'
-          width='640'
-          height='346'
-          allowfullscreen
+            src={`https://www.gfycat.com/ifr/${gfyId}`}
+            frameborder="0"
+            scrolling="no"
+            width="640"
+            height="346"
+            allowfullscreen
           />
         </div>
       );
     } else if (foundLink.includes(".mp4")) {
-      hideLink = true
+      hideLink = true;
       embed = (
         <div className="embed">
           <video
@@ -134,7 +134,7 @@ export default function MessageSection({ message }) {
         </div>
       );
       // https://thumbs.gfycat.com/AccomplishedGrossIsabellinewheatear-mobile.mp4
-    // } else if (foundLink.includes("/discord-invite/")) {
+      // } else if (foundLink.includes("/discord-invite/")) {
       // discord-invite
       // link example  https://www.discord.com/discord-invite/9b4ff5f3
       // const inviteLink = foundLink.split('/')
@@ -169,10 +169,10 @@ export default function MessageSection({ message }) {
       //   )
       // }
     } else {
-    // TODO show link with title and description
-    hideLink = false
-    // const request = new Request(foundLink);
-    // console.log(request.body)
+      // TODO show link with title and description
+      hideLink = false;
+      // const request = new Request(foundLink);
+      // console.log(request.body)
     }
   }
 
@@ -184,10 +184,21 @@ export default function MessageSection({ message }) {
     };
     delete editedMessage.user;
 
-    dispatch(updateMessage(editedMessage));
-    setIsEditing(false);
+    dispatch(updateMessage(editedMessage)).then(() => setIsEditing(false));
+
+    // const replace = document.querySelector(
+    //   `.changeable-text-${String(message.id)}`
+    // );
+    // const element = document.createElement("p");
+    // element.classList.add(`changeable-text-${String(message.id)}`);
+    // const textnode = document.createTextNode(editedMessage.content);
+    // element.appendChild(textnode);
+    // replace.replaceWith(element);
+
+    // console.log(replace);
 
     const element = document.createElement("div");
+
     element.classList.add("message-section-content");
     const element2 = document.createElement("div");
     const textnode = document.createTextNode(editedMessage.content);
@@ -238,7 +249,9 @@ export default function MessageSection({ message }) {
           {!isEditing && (
             <>
               {!hideLink && (
-                <Linkify className="message-content">{message.content}</Linkify>
+                <p className={`changeable-text changeable-text-${message.id}`}>
+                  {<Linkify>{message.content}</Linkify>}
+                </p>
               )}
               {embed && embed}
             </>
