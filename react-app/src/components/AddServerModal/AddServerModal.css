@@ -53,6 +53,11 @@
     border-color: #02AAEC;
 }
 
+.add-server-form input:focus {
+    outline: none;
+    border-color: #02AAEC;
+}
+
 .add-server-modal-button-container {
     display: flex;
     background-color: #F6F6F7;
@@ -72,6 +77,11 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.back-add-server-modal:hover {
+    color: #4752C4;
+    transition-duration: 250ms;
 }
 
 .submit-add-server-modal {
