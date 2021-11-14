@@ -45,20 +45,9 @@ export default function AddChannelModal() {
                 value={channelName}
                 onChange={(e) => setChannelName(e.target.value)}
               ></input>
-              <dir >
-                {/* <button
-                  className="cancel-add-channel-modal"
-                  onClick={() => setShowModal(false)}
-                  type="cancel">
-                  Cancel
-                </button> */}
-                <button
-                  className="submit-add-channel-modal"
-                  onClick={() => setShowModal(false)}
-                  type="submit">
-                  Create Channel
-                </button>
-              </dir>
+              <button className="submit-add-channel-modal" type="submit">
+                Add Channel
+              </button>
             </form>
           </div>
         </Modal>

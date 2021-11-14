@@ -1,6 +1,6 @@
 .add-channel-modal {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 5rem;
