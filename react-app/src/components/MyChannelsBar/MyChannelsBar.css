@@ -67,6 +67,7 @@
   padding: 0.6rem;
   cursor: pointer;
   border-radius: 0.4rem;
+  user-select: none;
 }
 .DM-icon:hover {
   background-color: rgb(51, 54, 60);
@@ -75,6 +76,9 @@
   padding: 0.6rem;
   cursor: pointer;
   border-radius: 0.4rem;
+}
+.name-tag-close {
+  cursor: pointer !important;
 }
 .group-icon:hover .name-tag-close {
   display: block;
