@@ -36,6 +36,7 @@ export default function AddChannelModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="add-channel-modal">
+            <p className='add-channel-title'>Create Channel</p>
             <form className="add-channel-form" onSubmit={postChannel}>
               <label htmlFor="add-channel-name">Channel Name</label>
               <input
@@ -44,9 +45,20 @@ export default function AddChannelModal() {
                 value={channelName}
                 onChange={(e) => setChannelName(e.target.value)}
               ></input>
-              <button className="submit-add-channel-modal" type="submit">
-                Add Channel
-              </button>
+              <dir >
+                {/* <button
+                  className="cancel-add-channel-modal"
+                  onClick={() => setShowModal(false)}
+                  type="cancel">
+                  Cancel
+                </button> */}
+                <button
+                  className="submit-add-channel-modal"
+                  onClick={() => setShowModal(false)}
+                  type="submit">
+                  Create Channel
+                </button>
+              </dir>
             </form>
           </div>
         </Modal>
