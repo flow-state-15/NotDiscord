@@ -67,9 +67,9 @@ We are going for an accurate clone of [discord.com](http://discord.com). Our fea
 
 ## How to Use !Discord
 
-### **Join Server
+<!-- ### Join Server
 
-ph
+You can join any server from the discovery page. -->
 
 ### Create Server
 
