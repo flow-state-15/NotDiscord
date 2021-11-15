@@ -43,36 +43,40 @@ We are going for an accurate clone of [discord.com](http://discord.com). Our fea
 
 * User Sign up
     - username -- append a random number (#1234)
+    ![Signup Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Signup.png)
 
 * Create Servers
     - Servers are full CRUD
+    ![Create Servers Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Server.png)
 
 * Join Server Discovery 
     - Shows all servers that can be joined
+    ![Join Server Discovery Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Discover-Servers.png)
 
 * Create Channels Within Servers
     - Channels are full CRUD
+    ![Create Channels Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Channel.png)
 
-* Server Messaging
-    - Server messaging with sockets and embedding
-
-    ![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png
+* Channel Messaging
+    - Server messaging with sockets
+    - Multiple format embedding
+    ![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png)
 
 * Private Messaging
     - between 2 users
+    ![Private Messaging Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Private-Message.png)
 
 * Friends List
     - invite to add friends
     - accept invite to add friends
     - view friends list
-
-    ![Friends List](http://url/to/img.png)
+    ![Friends List Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Friends-List.png)
 
 ## How to Use !Discord
 
-<!-- ### Join Server
+### Join Server
 
-You can join any server from the discovery page. -->
+You can join any server from the discovery page.
 
 ### Create Server
 
@@ -88,21 +92,13 @@ Any user can send a message with the message box at the bottom of any channel me
 
 ### Message Embed
 
-Messages allow many types of embedding when sending links
-
----
-
-## To Do
-
-* remove invite button from channels if it does not work
-* remove direct message plus icon if it does not work at the top of the dm list
-* Add channel appears in all servers instead of just owned servers
+Messages automatically embed many types of links
 
 ---
 
 ## Authors and acknowledgment
 
-[Dan Purcell's Github](https://pages.github.com/)
+[Dan Purcell's Github](https://github.com/flow-state-15)
 
 [Jason Zhou's Github](https://github.com/CroissantAhhh)
 
