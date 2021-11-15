@@ -33,6 +33,13 @@
     height: 4rem;
     width: 40rem;
 }
+
+.add-channel-input-hash-container input:focus {
+  border-color: #02aaec;
+  outline: none;
+  caret-color: white;
+}
+
 .submit-add-channel-modal {
     border: none;
     background-color: #5865f2;
