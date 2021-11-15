@@ -104,6 +104,7 @@ export default function AddServerModal() {
                       top: "0.5rem",
                       left: "0.52rem",
                     }}
+                    alt=''
                     src={
                       regex.test(serverIcon) &&
                       serverIcon.endsWith(".jpg" || ".png" || ".gif")

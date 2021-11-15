@@ -147,7 +147,6 @@ def seed_user_server():
             )
             db.session.add(new_user_server)
             users.append(user)
-        print('server list', server, users)
     db.session.commit()
 
 

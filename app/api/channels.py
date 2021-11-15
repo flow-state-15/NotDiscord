@@ -43,10 +43,8 @@ def get_channel_by_users(user_id_1, user_id_2):
         )
         db.session.add(user_channel_2)
         db.session.commit()
-        print(channel)
         return channel.to_dict()
     else:
-        print(DM_channel)
         return DM_channel[0].to_dict()
 
 
@@ -55,7 +53,6 @@ def get_channel_by_users(user_id_1, user_id_2):
 @login_required
 def get_channel_members(channel_id):
     members = User.query.join(User_Channel).filter(User_Channel.channel_id == channel_id).all()
-    print("\n\n\n ***** get CHANNEL members route", members, "\n\n\n")
     return {"members": [member.to_dict() for member in members]}
 
 
@@ -79,10 +76,8 @@ def get_channels_byuser(user_id):
     user_channel_links = User_Channel.query.filter(User_Channel.user_id == user_id).all()
     for UCL in user_channel_links:
         UCL_obj = UCL.to_dict()
-        print(UCL_obj)
         user_channel = Channel.query.get(UCL_obj["channel_id"])
         user_channels.append(user_channel.to_dict())
-    print("\n\n\n", user_channels, "\n\n\n")
     return {"channels": user_channels}
 
 

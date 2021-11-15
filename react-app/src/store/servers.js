@@ -21,10 +21,8 @@ const remove = (serverId) => ({
 
 export const loadAllServers = () => async (dispatch) => {
   const response = await fetch(`/api/servers/`);
-  // console.log("TESTING THUNK")
   if (response.ok) {
     const servers = await response.json();
-    console.log("load all thunk: ", servers);
     dispatch(load(servers.servers));
   }
 };
@@ -33,7 +31,6 @@ export const loadSingleServer = (inviteLink) => async (dispatch) => {
   const response = await fetch(`/api/servers/invite/${inviteLink}`);
   if (response.ok) {
     const server = await response.json();
-    console.log("load one thunk: ", server);
     dispatch(add(server));
   }
 };

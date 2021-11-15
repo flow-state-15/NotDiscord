@@ -23,6 +23,7 @@
   color: #fff;
   font-family: inherit;
   font-size: 1.44rem;
+  pointer-events: none;
 }
 .channels-bar-friends-btn p {
   font-size: 1.5rem;

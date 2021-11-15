@@ -64,7 +64,6 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print(f"\n\n\n {form.data} \nERRORS: {form.errors} \n\n\n")
     if form.validate_on_submit():
         avatars = [
             'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/blue-discord-icon.png',
