@@ -1,0 +1,53 @@
+/* .edit-user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.submit-edit-user-modal {
+    padding: 0.8rem 3.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0.6rem;
+    border: 1px solid lightgrey;
+    font-family: "Whitney Semibold Regular";
+    cursor: pointer;
+}
+
+.submit-edit-user-modal:hover {
+    background-color: rgb(204, 209, 212);
+    color: #454fbd;
+    transition-duration: 250ms;
+}
+
+.user-settings-logout {
+    border: none;
+    background-color: #ED4245;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 1.5rem 3rem;
+    font-family: "Whitney Semibold Regular";
+    letter-spacing: .03rem;
+    cursor: pointer;
+}
+
+.user-settings-delete {
+    border: none;
+    /* background-color: #ED4245; */
+    border: 1px solid #ED4245;
+    border-radius: 0.5rem;
+    color: #ED4245;
+    padding: 1.5rem 3rem;
+    font-family: "Whitney Semibold Regular";
+    letter-spacing: .03rem;
+}
+
+.user-settings-logout:hover {
+    background-color: #C03537;
+    transition-duration: 250ms;
+}
+
+.add-server-form h1 {
+    font-family: "Whitney Semibold Regular";
+    font-size: 3rem;
+    color: #565a5f;
+}
