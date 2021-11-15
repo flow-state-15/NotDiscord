@@ -10,6 +10,8 @@
   font-weight: 600;
   color: #b9bbbe;
   padding-left: 1rem;
+}
+.friends-section-online-2 {
   margin-top: 5rem;
 }
 .friend-section {
@@ -116,4 +118,23 @@
 }
 .status-holder-bg-color-2 {
   background-color: #36393f;
+}
+.jst-plz-scroll {
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100%;
+  margin-top: 3rem;
+}
+.jst-plz-scroll::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.jst-plz-scroll::-webkit-scrollbar-track {
+  background: #2e3338;
+  border-radius: 10rem;
+}
+
+.jst-plz-scroll::-webkit-scrollbar-thumb {
+  background-color: #202225;
+  border-radius: 20px;
 }

@@ -29,17 +29,19 @@ export default function FriendsSection() {
   return (
     <div className="friends-section">
       <NavBar />
-      <h2 className="friends-section-online">{`Online - ${
-        friendList.filter((friend) => friend.friend_data.accepted).length
-      }`}</h2>
-      <div className="friends-section-friends-container">
-        {friendsComponents}
-      </div>
-      <h2 className="friends-section-online">{`Pending - ${
-        friendList.filter((friend) => !friend.friend_data.accepted).length
-      }`}</h2>
-      <div className="friends-section-friends-container">
-        {notFriendsComponents}
+      <div className="jst-plz-scroll">
+        <h2 className="friends-section-online">{`Online - ${
+          friendList.filter((friend) => friend.friend_data.accepted).length
+        }`}</h2>
+        <div className="friends-section-friends-container">
+          {friendsComponents}
+        </div>
+        <h2 className="friends-section-online friends-section-online-2">{`Pending - ${
+          friendList.filter((friend) => !friend.friend_data.accepted).length
+        }`}</h2>
+        <div className="friends-section-friends-container">
+          {notFriendsComponents}
+        </div>
       </div>
     </div>
   );
