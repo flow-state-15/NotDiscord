@@ -60,7 +60,7 @@ export default function EditServerChannelModal({ channel }) {
           <div className="edit-server-channel-modal">
             <form
               className="edit-server-channel-form"
-              onSubmit={editChannelName}
+              // onSubmit={editChannelName}
             >
               <h2>Rename channel</h2>
               {/* <input
@@ -93,7 +93,7 @@ export default function EditServerChannelModal({ channel }) {
                     setDisabled(false);
                   }}
                   required
-                  autoComplete={false}
+                  // autoComplete={false}
                 ></input>
               </div>
               <button

@@ -12,8 +12,6 @@ export default function MessageEdit({ message }) {
       ...message,
       content: messageContent,
     };
-    console.log(editedMessage);
-    console.log(message);
     dispatch(updateMessage(editedMessage));
   }
 

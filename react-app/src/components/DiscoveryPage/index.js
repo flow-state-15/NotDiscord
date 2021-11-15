@@ -2231,7 +2231,7 @@ export default function DiscoveryPage() {
           <div className="guild-content-all">
             {servers &&
               servers.map((server) => (
-                <div className="guild-content-card">
+                <div className="guild-content-card" key={server.id}>
                   <div
                     style={{
                       backgroundImage: `url(${

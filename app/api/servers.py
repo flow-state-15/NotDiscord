@@ -39,7 +39,6 @@ def get_server_by_invite(server_invite_link):
 @login_required
 def get_server_members(server_id):
     members = User.query.join(User_Server).filter(User_Server.server_id == server_id).all()
-    # print("\n\n\n ***** get server members route", members, "\n\n\n")
     return {"members": [member.to_dict() for member in members]}
 
 
@@ -48,7 +47,6 @@ def get_server_members(server_id):
 @login_required
 def logged_in_start(user_id):
     server_list = Server.query.join(User_Server).filter(User_Server.user_id == user_id).all()
-    # print('******** TESTING PRINT ******** ::', {"servers": [server.to_dict() for server in server_list]})
     return {"servers": [server.to_dict() for server in server_list]}
 
 

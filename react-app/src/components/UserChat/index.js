@@ -6,14 +6,12 @@ export default function UserChat({ member }) {
   const history = useHistory();
   const [content, setContent] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
-  console.log(content)
 
   async function onSendMessage(e) {
     e.preventDefault();
     const response = await fetch(`/api/channels/DM/${sessionUser.id}/${member.id}`);
     if (content && response.ok) {
       const DMChannel = await response.json();
-      console.log(DMChannel)
       const message = {
         user_id: sessionUser?.id,
         channel_id: DMChannel.id,

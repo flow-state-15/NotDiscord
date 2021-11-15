@@ -17,7 +17,6 @@ export default function ServerSideBarNE() {
 
   const testFunc123 = (e) => {
     const rectangle = e.target.getBoundingClientRect();
-    // console.log(e.target.classList);
 
     const testDiv = document.querySelector(".quicklildiv");
     const testDivText = document.querySelector(".quicklildivtext");

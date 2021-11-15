@@ -24,13 +24,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   /* width: 30rem;
     height: 15rem; */
   background-color: #36393f;
   border-radius: 0.7rem;
   color: white;
-  padding-top: 3rem;
+  padding-top: 1rem;
 }
 
 .add-channel-form-inputs {

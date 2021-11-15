@@ -10,7 +10,6 @@ export default function AddChannelModal() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { serverId } = useParams();
-  const sessionUser = useSelector((state) => state.session.user);
   const [showModal, setShowModal] = useState(false);
   const [channelName, setChannelName] = useState("");
   const [disabled, setDisabled] = useState(true);

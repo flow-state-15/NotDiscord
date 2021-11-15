@@ -21,7 +21,6 @@ friend_routes = Blueprint("friends", __name__)
 def delete_channel(friend_id):
     Friend.query.filter(Friend.id == friend_id).delete()
     db.session.commit()
-    print(f"\n\n\n{'DELETED', friend_id}\n\n\n\n")
     return {'friend_id': friend_id}
 
 
@@ -85,10 +84,7 @@ def get_friends(user_id):
         user_dict['friend_data'] = row.to_dict()
         loop.append(user_dict)
 
-    # print(f"\n\n\n ***** get user FRIENDS route: id_list: {loop}\n\n\n")
-
     return { "friends": loop}
-    # return {"friends": [friend.to_dict() for friend in friends]}
 
 
 # #get all channels by user

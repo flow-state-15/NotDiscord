@@ -73,7 +73,7 @@ export default function ServerChannelListing({ channel }) {
             isCurrentChannel ? " current-active-channel" : ""
           }`}
         >
-          <div>
+          {/* <div>
             <svg
               className="actionIcon-PgcMM2"
               aria-hidden="true"
@@ -94,7 +94,7 @@ export default function ServerChannelListing({ channel }) {
                 d="M6.5 8.34C3.26 8.34 1 9.98666 1 12.34V13.0067H12V12.34C12 9.98 9.74 8.34 6.5 8.34Z"
               ></path>
             </svg>
-          </div>
+          </div> */}
           {currentServer?.owner_id == currentUserId && (
             <div
               className={`server-channel-link-icons ${

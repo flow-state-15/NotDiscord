@@ -53,7 +53,7 @@ export default function MessageSection({ message }) {
         <a href={foundLink}>
           <img
             src={foundLink}
-            alt="image embed"
+            alt="embed"
             className="message_image_embed embed"
           />
         </a>
@@ -69,7 +69,7 @@ export default function MessageSection({ message }) {
             className="youtube_embed"
             width="400"
             height="225"
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen
             title="video"
@@ -112,7 +112,7 @@ export default function MessageSection({ message }) {
 
           <iframe
             src={`https://www.gfycat.com/ifr/${gfyId}`}
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
             width="640"
             height="346"

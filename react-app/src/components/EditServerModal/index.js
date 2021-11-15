@@ -17,9 +17,11 @@ export default function EditServerModal({ server }) {
   );
 
   useEffect(() => {
-    if (serverName !== "") setdynamicClassName("validated-submit-className");
-    else setdynamicClassName("not-validated-submit-className");
-  }, [serverName]);
+    if (serverName !== "") {
+      setdynamicClassName("validated-submit-className");
+      setDisabled(false);
+    } else setdynamicClassName("not-validated-submit-className");
+  }, [serverName, serverIcon]);
 
   function editServer(e) {
     e.preventDefault();
@@ -62,7 +64,10 @@ export default function EditServerModal({ server }) {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="edit-server-modal">
-            <form className="edit-server-form" onSubmit={editServer}>
+            <form
+              className="edit-server-form"
+              // onSubmit={editServer}
+              >
             <h1>Edit server details</h1>
               {/* <label htmlFor="edit-server-name">Server Name</label>
               <input
@@ -148,6 +153,7 @@ export default function EditServerModal({ server }) {
                 className={dynamicClassName}
                 type="submit"
                 disabled={disabled}
+                onClick={editServer}
                 >
                 Edit Server
               </button>

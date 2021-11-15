@@ -1274,7 +1274,6 @@ const LoginForm = () => {
               />
               <button
                 type="submit"
-                onClick={() => console.log("LOGIN CLICKED")}
               >
                 Login
               </button>
