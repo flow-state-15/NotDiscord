@@ -83,8 +83,11 @@ export default function AddChannelModal() {
                   <input
                     id="add-channel-name"
                     className="add-channel-name"
-                    value={channelName}
-                    onChange={(e) => {setChannelName(e.target.value); setDisabled(false)}}
+                    value={channelName.replace(" ", "-")}
+                    onChange={(e) => {
+                      setChannelName(e.target.value);
+                      setDisabled(false);
+                    }}
                     placeholder="new-channel"
                     required
                   ></input>
@@ -94,7 +97,9 @@ export default function AddChannelModal() {
                 <button
                   className="cancel-add-channel-modal"
                   onClick={() => setShowModal(false)}
-                >Cancel</button>
+                >
+                  Cancel
+                </button>
                 <button
                   // className="submit-add-channel-modal"
                   className={dynamicClassName}
@@ -104,16 +109,16 @@ export default function AddChannelModal() {
                   Add Channel
                 </button>
               </div>
-              <label htmlFor="add-channel-name">Channel Name</label>
+              {/* <label htmlFor="add-channel-name">Channel Name</label>
               <input
                 id="add-channel-name"
                 className="add-channel-name"
-                value={channelName.replace(' ', '-')}
+                value={channelName.replace(" ", "-")}
                 onChange={(e) => setChannelName(e.target.value)}
               ></input>
               <button className="submit-add-channel-modal" type="submit">
                 Add Channel
-              </button>
+              </button> */}
             </form>
           </div>
         </Modal>

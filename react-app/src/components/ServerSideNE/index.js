@@ -160,7 +160,7 @@ export default function ServerSideBarNE() {
             onMouseLeave={(e) => testFunc1234(e)}
           >
             <Link
-              daAttribute={"Explore Public Servers"}
+              daattribute={"Explore Public Servers"}
               className={"link-alias-to-li"}
               to={"/guild-dicovery"}
             >

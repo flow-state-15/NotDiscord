@@ -13,7 +13,10 @@ export default function DMIcon({ channel }) {
 
       if (response.ok) {
         const members = await response.json();
-        setOtherUser(members["members"][1]);
+
+        setOtherUser(
+          members["members"].find((obj) => obj.id != sessionUser?.id)
+        );
       }
     })();
   }, [channel]);

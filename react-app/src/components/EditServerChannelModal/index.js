@@ -93,12 +93,14 @@ export default function EditServerChannelModal({ channel }) {
                     setDisabled(false);
                   }}
                   required
+                  autoComplete={false}
                 ></input>
               </div>
               <button
                 className={dynamicClassName}
                 type="submit"
                 disabled={disabled}
+                onClick={editChannelName}
               >
                 Submit channel name
               </button>
