@@ -98,15 +98,15 @@
     padding: 2rem;
     border-bottom-left-radius: 0.7rem;
     border-bottom-right-radius: 0.7rem;
-    cursor: pointer;
+    letter-spacing: 0.08rem;
+    font-size: 1.5rem;
 }
 
 .cancel-add-channel-modal {
     font-family: "Whitney Semibold Regular";
     color: white;
-    border: none;
     background-color: #313339;
-    letter-spacing: 0.08rem;
-    font-size: 1.5rem;
+    border: none;
+    letter-spacing: .06rem;
     cursor: pointer;
 }
