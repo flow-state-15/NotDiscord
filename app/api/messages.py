@@ -39,8 +39,6 @@ def get_channel_messages(channel_id):
         obj["user"] = user.to_dict()
         test.append(obj)
 
-    print(f"\n\n\n{test}\n\n\n")
-
 
     return {"messages": [message for message in test]}
 
@@ -73,9 +71,6 @@ def create_message():
     #     obj["user"] = user.to_dict()
     #     test = {**obj}
 
-    print(f"\n\n\n{the_message}\n\n\n")
-
-
     return the_message
 
 
@@ -83,10 +78,8 @@ def create_message():
 @message_routes.route('/<int:message_id>', methods=['PUT'])
 @login_required
 def update_message(message_id):
-    print('something')
     message = Message.query.get(message_id)
     data = request.json
-    print(f"\n\n\n{data}\n\n\n")
     message.content = data["content"]
     db.session.commit()
     the_message = message.to_dict()

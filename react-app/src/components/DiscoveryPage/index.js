@@ -1,6 +1,70 @@
 import "./DiscoveryPage.css";
+import { useHistory } from "react-router";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { joinServer, loadUserServers } from "../../store/servers";
 
 export default function DiscoveryPage() {
+  const [servers, setServers] = useState([]);
+  const history = useHistory();
+  const user = useSelector((state) => state.session.user);
+  const theservers = useSelector((state) => state.servers);
+  const dispatch = useDispatch();
+
+  const bannerArray = [
+    "https://cdn.discordapp.com/discovery-splashes/522681957373575168/c73d6929db8fc3362b51f0f08cfd5cff.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/679875946597056683/6549bad8775714227ff86cbd97b75a6a.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/302094807046684672/579507dff86d89cd5decd8e016a54706.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/541484311354933258/9597e9d7fb8ef32a53fdd100d0c67093.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/707230275175841915/1a9a0420a14795c608007f6c5ab41d1a.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/706661525439512597/1da7b334b9c3398fd2571ec37fa8e21d.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/152517096104919042/dac466b39f8468bc9ce9b292ed822ff1.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/150074202727251969/cfcd3bf9ac806b31c47fd796be733828.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/417825368062558219/f14b51791507ad698cfb4090b9045d78.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/446658603873730611/376be5fcba0ef172a19a30fa1215572b.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/376400768225378320/18ef698d26e0077c6667059974bd2609.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/303835144073248770/09ee3dd6d4f45bb81afedc799dd1a9b3.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/699699744825540639/56f982d91d38a959f307ae5986b8d207.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/537887361292304385/ea8db406026802665423b905ed1cc4e8.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/153919886471593984/fa54d33125fced850a6c3f7e539e5fc6.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/465415696818372609/dda9f5733e313ae31e86c3e8818d85ee.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/187450744427773963/72432d13c1e7e94263cc20361596b1bb.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/652539917666353170/e671d40e4ad576a4a8a54196d9c05941.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/448924362154835988/e6fcd4da1e2a2bff7b5d064fe0f86ee6.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/707230275175841915/1a9a0420a14795c608007f6c5ab41d1a.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/807034866256052275/9a655173fc5dbbcf91edb2a48103205f.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/669895631757639682/388fa5083adc026eab7df9a0c33e19b0.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/669895631757639682/388fa5083adc026eab7df9a0c33e19b0.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/185647255028629505/b8968c5b28c7b052cf40e80243f472f4.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/560127830160048128/d909fb1eccb3f332d0c1feb8209a34a8.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/125440014904590336/665ca01a75fb2666f37ca97084d09a6a.jpg?size=480",
+    "https://cdn.discordapp.com/discovery-splashes/251072485095636994/76aa6106af13a7316d5b040cfe4f27ad.jpg?size=480",
+  ];
+
+  async function joinServerClick(id) {
+    const data = {
+      server_id: id,
+      user_id: user.id,
+    };
+    const server = await dispatch(joinServer(data));
+    if (server)
+      history.push(`/channels/${server["id"]}/${server["firstChannelId"]}`);
+  }
+
+  useEffect(() => {
+    fetch("/api/servers/")
+      .then((res) => res.json())
+      .then((data) => setServers(data["servers"]));
+    // (async () => {
+    //   const response = await fetch("/api/servers/");
+    //   if (response.ok) {
+    //     const servers = await response.json();
+    //     setServers(servers["servers"]);
+    //   }
+    // })();
+    dispatch(loadUserServers(user?.id));
+  }, []);
+
   return (
     <div className="guild-discovery">
       <div className="guild-left">
@@ -2162,33 +2226,86 @@ export default function DiscoveryPage() {
         </div>
         <div className="guild-content-mapped">
           <div>
-            <p>Featured communities</p>
+            <h3 className="featured-com">Featured communities</h3>
           </div>
           <div className="guild-content-all">
-            <div className="guild-content-card">
-              <div className="guild-content-card-top"></div>
-              <div className="guild-content-card-bottom">
-                <div>
-                  <div>
-                    <svg
-                      aria-label="Verified &amp; Partnered"
-                      class="flowerStar-1GeTsn"
-                      aria-hidden="false"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 15.2"
-                    >
-                      <path
-                        fill="#3BA55D"
-                        fill-rule="evenodd"
-                        d="m16 7.6c0 .79-1.28 1.38-1.52 2.09s.44 2 0 2.59-1.84.35-2.46.8-.79 1.84-1.54 2.09-1.67-.8-2.47-.8-1.75 1-2.47.8-.92-1.64-1.54-2.09-2-.18-2.46-.8.23-1.84 0-2.59-1.54-1.3-1.54-2.09 1.28-1.38 1.52-2.09-.44-2 0-2.59 1.85-.35 2.48-.8.78-1.84 1.53-2.12 1.67.83 2.47.83 1.75-1 2.47-.8.91 1.64 1.53 2.09 2 .18 2.46.8-.23 1.84 0 2.59 1.54 1.3 1.54 2.09z"
-                      ></path>
-                    </svg>
+            {servers &&
+              servers.map((server) => (
+                <div className="guild-content-card" key={server.id}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${
+                        bannerArray[
+                          Math.floor(Math.random() * bannerArray.length)
+                        ]
+                      })`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                    className="guild-content-card-top"
+                  ></div>
+                  <div className="guild-content-card-bottom">
+                    <div className="guild-inner-flex">
+                      <div className="display-flex-guild">
+                        <div className="position-absolite">
+                          <div className="position-absolite-1">
+                            <svg
+                              class="flowerStar-1GeTsn"
+                              aria-hidden="false"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 15.2"
+                            >
+                              <path
+                                fill="#3ba55d"
+                                fill-rule="evenodd"
+                                d="m16 7.6c0 .79-1.28 1.38-1.52 2.09s.44 2 0 2.59-1.84.35-2.46.8-.79 1.84-1.54 2.09-1.67-.8-2.47-.8-1.75 1-2.47.8-.92-1.64-1.54-2.09-2-.18-2.46-.8.23-1.84 0-2.59-1.54-1.3-1.54-2.09 1.28-1.38 1.52-2.09-.44-2 0-2.59 1.85-.35 2.48-.8.78-1.84 1.53-2.12 1.67.83 2.47.83 1.75-1 2.47-.8.91 1.64 1.53 2.09 2 .18 2.46.8-.23 1.84 0 2.59 1.54 1.3 1.54 2.09z"
+                              ></path>
+                            </svg>
+                            <div className="position-absolite-2">
+                              <svg
+                                class="icon-1ihkOt"
+                                aria-hidden="false"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 15.2"
+                              >
+                                <path
+                                  d="M7.4,11.17,4,8.62,5,7.26l2,1.53L10.64,4l1.36,1Z"
+                                  fill="#fff"
+                                ></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="server-name-single">
+                          {server.name.length > 15
+                            ? server.name.slice(0, 15) + "..."
+                            : server.name}
+                        </p>
+                      </div>
+                      <div>
+                        {theservers[server.id] ? (
+                          <button
+                            onClick={() => joinServerClick(server.id)}
+                            className="join-server-btn join-server-btn-delete"
+                          >
+                            Already In
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => joinServerClick(server.id)}
+                            className="join-server-btn"
+                          >
+                            Join
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div>Genshin Impact Official</div>
                 </div>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>

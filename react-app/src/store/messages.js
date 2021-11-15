@@ -39,15 +39,12 @@ export const addMessage = (formData) => async (dispatch) => {
 
   if (response.ok) {
     const message = await response.json();
-    // console.log("**** IN ADD MSG THUNK, response: ", message)
     dispatch(add(message));
     return message;
   }
 };
 
 export const updateMessage = (formData) => async (dispatch) => {
-  console.log(formData);
-
   const response = await fetch(`/api/messages/${formData.id}`, {
     method: "PUT",
     headers: {
@@ -72,7 +69,6 @@ export const removeMessage = (messageId) => async (dispatch) => {
 
   if (response.ok) {
     const messageId = await response.json();
-    console.log(messageId);
     dispatch(remove(messageId.message_id));
   }
 };

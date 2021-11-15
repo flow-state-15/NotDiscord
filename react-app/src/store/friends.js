@@ -27,8 +27,6 @@ const update = (friendId) => ({
 
 export const loadUserFriends = (userId) => async (dispatch) => {
   const response = await fetch(`/api/friends/${userId}`);
-
-  console.log("**** IN LOAD FRIENDS THUNK ****, userId: ", userId);
   if (response.ok) {
     const friends = await response.json();
     dispatch(load(friends["friends"]));
@@ -36,7 +34,7 @@ export const loadUserFriends = (userId) => async (dispatch) => {
 };
 
 export const addFriend = (formData) => async (dispatch) => {
-  const response = await fetch("/api/channels", {
+  const response = await fetch("/api/friends/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,8 +43,8 @@ export const addFriend = (formData) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const channel = await response.json();
-    dispatch(add(channel["channel"]));
+    const friend = await response.json();
+    dispatch(add(friend["friend"]));
   }
 };
 
@@ -71,8 +69,6 @@ export const removeFriend = (friendId, dataId) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   });
-
-  console.log("IN REMOVE FRIEND");
 
   if (response.ok) {
     const friend = await response.json();

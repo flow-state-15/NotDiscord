@@ -17,7 +17,6 @@ export default function ServerSideBarNE() {
 
   const testFunc123 = (e) => {
     const rectangle = e.target.getBoundingClientRect();
-    // console.log(e.target.classList);
 
     const testDiv = document.querySelector(".quicklildiv");
     const testDivText = document.querySelector(".quicklildivtext");
@@ -160,7 +159,7 @@ export default function ServerSideBarNE() {
             onMouseLeave={(e) => testFunc1234(e)}
           >
             <Link
-              daAttribute={"Explore Public Servers"}
+              daattribute={"Explore Public Servers"}
               className={"link-alias-to-li"}
               to={"/guild-dicovery"}
             >

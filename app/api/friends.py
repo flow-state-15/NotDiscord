@@ -21,17 +21,30 @@ friend_routes = Blueprint("friends", __name__)
 def delete_channel(friend_id):
     Friend.query.filter(Friend.id == friend_id).delete()
     db.session.commit()
-    print(f"\n\n\n{'DELETED', friend_id}\n\n\n\n")
     return {'friend_id': friend_id}
 
 
-# #POST add friend
-# @friend_routes.route('/add/<int:friend_id>', methods=['DELETE'])
-# @login_required
-# def delete_channel(friend_id):
-#     db.session.commit()
-#     db.session.add()
-#     return {'friend_id': friend_id}
+#POST add friend
+@friend_routes.route('/add', methods=['POST'])
+@login_required
+def add_a_friend():
+    data = request.json
+    friend = Friend(
+        accepted = False,
+        sender_user_id = data["user_id"],
+        rec_user_id = data["friend_id"],
+    )
+
+    db.session.add(friend)
+    db.session.commit()
+
+    friend_dict = friend.to_dict()
+    the_user = User.query.get(data["friend_id"])
+    the_user_dict = the_user.to_dict()
+    the_user_dict['friend_data'] = friend_dict
+
+
+    return {'friend': the_user_dict}
 
 #PUT accept friend request
 @friend_routes.route('/accept/<int:friend_id>', methods=['PUT'])
@@ -71,10 +84,7 @@ def get_friends(user_id):
         user_dict['friend_data'] = row.to_dict()
         loop.append(user_dict)
 
-    # print(f"\n\n\n ***** get user FRIENDS route: id_list: {loop}\n\n\n")
-
     return { "friends": loop}
-    # return {"friends": [friend.to_dict() for friend in friends]}
 
 
 # #get all channels by user
