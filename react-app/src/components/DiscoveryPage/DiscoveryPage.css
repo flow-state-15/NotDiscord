@@ -151,5 +151,5 @@
 .join-server-btn-delete {
   background-color: #ed4245 !important;
   pointer-events: none !important;
-  cursor: no-drop !important;
+  cursor: not-allowed !important;
 }
