@@ -1,292 +1,309 @@
 .home-background-wrapper {
-    background-color: #404EED;
-    position: relative;
-    /* height: 80vh; */
-    z-index: -100;
-    bottom: 0;
-    overflow: hidden;
+  background-color: #404eed;
+  position: relative;
+  /* height: 80vh; */
+  z-index: -100;
+  bottom: 0;
+  overflow: hidden;
 }
 
 #img-home-center {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    z-index: -1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: -1;
 }
 
 #img-home-center img {
-    /* position: absolute; */
-    /* min-height: 100%;
+  /* position: absolute; */
+  /* min-height: 100%;
     min-width: 100%; */
-    bottom: 10rem;
-    transform: scale(1.2);
-    object-fit: stretch;
+  bottom: 10rem;
+  transform: scale(1.2);
+  object-fit: stretch;
 }
 
 #img-home-right {
-    position: absolute;
-    right: -10rem;
-    bottom: 0;
-    z-index: 1;
+  position: absolute;
+  right: -10rem;
+  bottom: 0;
+  z-index: 1;
 }
 
 #img-home-left {
-    position: absolute;
-    left: -10rem;
-    bottom: 0;
-    z-index: 1;
+  position: absolute;
+  left: -10rem;
+  bottom: 0;
+  z-index: 1;
 }
 
 .daClassName {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    overflow-y: scroll;
-    /* z-index: -5; */
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow-y: scroll;
+  /* z-index: -5; */
 }
 
 .home-banner-wrapper {
-    top: 30%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    /* width: 100%; */
-    margin-top: 15rem;
-    position: absolute;
-    text-align: center;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 50%;
-    align-items: center;
+  top: 30%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  margin-top: 15rem;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 50%;
+  align-items: center;
 }
 
 .home-banner-wrapper h1 {
-    font-family: "Whitney Bold";
-    padding-bottom: 5rem;
-    font-size: 6rem;
+  font-family: "Whitney Bold";
+  padding-bottom: 5rem;
+  font-size: 6rem;
 }
 
 .home-banner-wrapper * {
-    color: white;
+  color: white;
 }
 
 .home-banner-wrapper p {
-    /* text-align: center;
+  /* text-align: center;
     width: 40rem; */
-    font-size: 2rem;
-    width: 50rem;
-    letter-spacing: 0.18rem;
+  font-size: 2rem;
+  width: 50rem;
+  letter-spacing: 0.18rem;
 }
 
 .button-open-discord-top {
-    background-color: #23272A;
-    color: white;
-    border: none;
-    height: 5rem;
-    /* padding-top: 5rem; */
-    padding: 0 3rem;
-    border-radius: 3rem;
-    font-size: 1.7rem;
-    font-weight: 550;
-    /* z-index: 100; */
-    cursor: pointer;
+  background-color: #23272a;
+  color: white;
+  border: none;
+  height: 5rem;
+  /* padding-top: 5rem; */
+  padding: 0 3rem;
+  border-radius: 3rem;
+  font-size: 1.7rem;
+  font-weight: 550;
+  /* z-index: 100; */
+  cursor: pointer;
 }
 
 .home-banner-wrapper a {
-    padding-top: 7rem;
+  padding-top: 7rem;
 }
 
 .button-open-discord-top:hover {
-    background-color: #36393F;
-    box-shadow: 0 1.1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
-    transition-duration: 250ms;
+  background-color: #36393f;
+  box-shadow: 0 1.1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
+  transition-duration: 250ms;
 }
 
 .home-nav-bar {
-    display: flex;
-    flex-direction: row;
-    background-color: #404EED;
-    height: 8rem;
-    gap: 2rem;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #404eed;
+  height: 8rem;
+  gap: 2rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .nav-bar-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    border-radius: 2rem;
-    padding: 1.5rem;
-    border: none;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  border: none;
+  cursor: pointer;
 }
 
 .nav-bar-buttons:hover {
-    box-shadow: 0 1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
-    transition-duration: 250ms;
-    color: cornflowerblue;
+  box-shadow: 0 1rem 1.8rem 0.2rem rgba(34, 34, 34, 0.26);
+  transition-duration: 250ms;
+  color: cornflowerblue;
 }
 
 .nav-button-wrap {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }
 
 .home-tile {
-    display: flex;
-    flex-direction: row;
-    margin: 0 auto;
-    width: 100%;
-    padding: 8rem 0;
-    text-align: left;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 100%;
+  padding: 8rem 0;
+  text-align: left;
+  justify-content: center;
 }
 
 .home-tile-text-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 2.3rem;
-    color: #23272A;
-    align-items: center;
-    justify-content: center;
-    max-width: 49.4rem;
-    padding-left: 13rem;
-    margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 2.3rem;
+  color: #23272a;
+  align-items: center;
+  justify-content: center;
+  max-width: 49.4rem;
+  padding-left: 13rem;
+  margin: 3rem 0;
 }
 
 .home-tile-text-container h1 {
-    font-family: "Whitney Bold";
+  font-family: "Whitney Bold";
 }
 
 .home-tile-text-container p {
-    font-family: "Whitney Light Regular";
-    padding-top: 2.5rem;
-    font-size: 2.1rem;
-    line-height: 3rem;
+  font-family: "Whitney Light Regular";
+  padding-top: 2.5rem;
+  font-size: 2.1rem;
+  line-height: 3rem;
 }
 
 .home-text-container-v2 {
-    padding-right: 13rem;
-    padding-left: 0;
+  padding-right: 13rem;
+  padding-left: 0;
 }
 
 .home-tile:nth-child(even) {
-    background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .home-tiles-wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .home-tile-last {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 2rem;
-    padding: 5rem 0;
-    position: relative;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 5rem 0;
+  position: relative;
+  margin-bottom: 3rem;
 }
 
 .home-tile-last-sparkles {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 5rem;
 }
 
 .home-tile-last-sparkles img {
-    width: 56rem;
+  width: 56rem;
 }
 
 .home-tile-last-sparkles h1 {
-    position: absolute;
-    top: 7.8rem;
+  position: absolute;
+  top: 7.8rem;
 }
 
 .home-buttons {
-    position: relative;
-    color: white;
-    border: none;
-    height: 5rem;
-    padding: 0 3rem;
-    border-radius: 3rem;
-    background-color: #5865F2;
-    font-size: 1.7rem;
-    font-weight: 550;
-    cursor: pointer;
+  position: relative;
+  color: white;
+  border: none;
+  height: 5rem;
+  padding: 0 3rem;
+  border-radius: 3rem;
+  background-color: #5865f2;
+  font-size: 1.7rem;
+  font-weight: 550;
+  cursor: pointer;
 }
 
 .home-buttons:hover {
-    background-color: #7983F5;
-    box-shadow: 0 1.3rem 2.7rem lightgrey;
-    transition-duration: 250ms;
+  background-color: #7983f5;
+  box-shadow: 0 1.3rem 2.7rem lightgrey;
+  transition-duration: 250ms;
 }
 
 footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    background-color: #23272A;
-    padding-bottom: 8rem;
-    padding-top: 4rem;
-    gap: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  background-color: #23272a;
+  padding-bottom: 8rem;
+  padding-top: 4rem;
+  gap: 1.3rem;
 }
 
 .footer-about-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 2rem;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+  justify-content: space-around;
 }
 
 .footer-dev-container {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
 }
 
 .footer-logo-container {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 .footer-logo-container img {
-    height: 7rem;
-    width: 7rem;
-    object-fit: contain;
-    border-radius: 1rem;
+  height: 7rem;
+  width: 7rem;
+  object-fit: contain;
+  border-radius: 1rem;
 }
 
 .footer-dev-container span {
-    font-size: 2.4rem;
-    padding-bottom: 1.5rem;
+  font-size: 2.4rem;
+  padding-bottom: 1.5rem;
 }
 
 footer h1 {
-    font-size: 3rem;
-    letter-spacing: 0.12rem;
+  font-size: 3rem;
+  letter-spacing: 0.12rem;
 }
 
 footer h3 {
-    font-size: 2rem;
-    letter-spacing: 0.12rem;
+  font-size: 2rem;
+  letter-spacing: 0.12rem;
 }
 
 .footer-logo-container a:hover {
-    box-shadow: 0 0 1.8rem 0.2rem rgba(201, 197, 197, 0.219);
-    transition-duration: 250ms;
-    border-radius: 1rem;
+  box-shadow: 0 0 1.8rem 0.2rem rgba(201, 197, 197, 0.219);
+  transition-duration: 250ms;
+  border-radius: 1rem;
+}
+.logo-container {
+  position: relative;
+}
+.logo-svg {
+  width: 16px;
+  height: 16px;
+}
+.logo-container span {
+  position: absolute;
+  top: -0.5rem;
+  left: 3.1rem;
+  font-size: 3rem;
+  font-family: "Whitney Bold";
+  font-weight: 600;
+  user-select: none;
+  color: #fff;
 }

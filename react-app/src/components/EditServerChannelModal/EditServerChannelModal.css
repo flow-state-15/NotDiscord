@@ -30,17 +30,15 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   gap: 1rem;
-  background-color: #36393F;
+  background-color: #36393f;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .edit-server-channel-form h2 {
   padding: 1rem;
   color: white;
   font-size: 1.8rem;
-}
-
-.edit-server-channel-form input {
-  padding-bottom: 1rem;
 }
 
 .btn-box-channel-settings {
@@ -54,10 +52,10 @@
 }
 
 .btn-delete-server-channel {
-  background-color: #36393F;
+  background-color: #36393f;
   border: none;
   font-size: 1.5rem;
-  letter-spacing: .015rem;
+  letter-spacing: 0.015rem;
   color: red;
   cursor: pointer;
   font-family: "Whitney Semibold Regular";
