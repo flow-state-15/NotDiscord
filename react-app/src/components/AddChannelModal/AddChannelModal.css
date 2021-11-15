@@ -3,13 +3,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5rem;
     /* width: 30rem;
     height: 15rem; */
     background-color: #36393f;
-    border-radius: .5rem;
+    border-radius: 0.7rem;
     color: white;
+    padding-top: 3rem;
 }
+
+.add-channel-form-inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    gap: 1rem;
+}
+
 .add-channel-form label{
     font: inherit;
     font-size: 12px;
@@ -25,7 +33,7 @@
     height: 4rem;
     width: 40rem;
 }
-.add-channel-form button {
+.submit-add-channel-modal {
     border: none;
     background-color: #5865f2;
     border-radius: 0.5rem;
@@ -33,14 +41,72 @@
     padding: 1.1rem 3rem;
     font-family: "Whitney Semibold Regular";
     letter-spacing: .03rem;
-    margin-left: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.08rem;
 }
 
-.add-channel-form input {
-    margin: 1rem;
+.add-channel-input-hash-container input {
     font-size: 1.6rem;
+    border: none;
+    background-color: #313339;
+    padding-left: 0.5rem;
+    color: white;
+}
+
+.add-channel-input-hash-container input:focus {
+    border-color: #02AAEC;
+    outline: none;
+    caret-color: white;
 }
 
 .add-channel-form label {
     font-size: 1.6rem;
+}
+
+.add-channel-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #36393F;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+
+.add-channel-input-hash-container {
+    display: flex;
+    align-items: center;
+    background-color: #313339;
+    border: 1px solid #222428;
+    border-radius: 0.5rem;
+}
+
+.add-channel-input-hash-container svg {
+    padding-left: 0.5rem;
+}
+
+.add-channel-input-hash-container:focus-within {
+    border-color: #02AAEC;
+}
+
+.add-channel-button-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-end;
+    font-family: "Whitney Semibold Regular";
+    font-size: 1.5rem;
+    background-color: #313339;
+    padding: 2rem;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+    letter-spacing: 0.08rem;
+    font-size: 1.5rem;
+}
+
+.cancel-add-channel-modal {
+    font-family: "Whitney Semibold Regular";
+    color: white;
+    background-color: #313339;
+    border: none;
+    letter-spacing: .06rem;
+    cursor: pointer;
 }
