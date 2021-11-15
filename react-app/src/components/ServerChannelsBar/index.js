@@ -46,8 +46,11 @@ export default function ServerChannelsBar({ channels }) {
               </svg>
             </div> */}
           </div>
-          <h3 className="server-channels-title">TEXT CHANNELS</h3>
-          <AddChannelModal />
+          <div className="server-channel-div">
+            <h3 className="server-channels-title">TEXT CHANNELS</h3>
+            <AddChannelModal />
+          </div>
+
           <div className="server-channels-listings">
             {channels.map((channel) => {
               return (

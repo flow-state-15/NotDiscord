@@ -14,7 +14,7 @@ messages = data['messages']
 replacements = data['replacements']
 # default counts
 total_users = 30
-total_servers = 20
+total_servers = 31
 channels_per_server = 7
 total_channels = total_servers*channels_per_server
 
@@ -151,30 +151,30 @@ def seed_user_server():
     db.session.commit()
 
 
-def pair_generator(numbers): 
+def pair_generator(numbers):
   '''
   Return an iterator of random pairs from a list of numbers.
   '''
-  # Keep track of already generated pairs 
-  used_pairs = set() 
-  while True: 
-    pair = sample(numbers, 2) 
-    # Avoid generating both (1, 2) and (2, 1) 
-    pair = tuple(sorted(pair)) 
-    if pair not in used_pairs: 
-      used_pairs.add(pair) 
-      yield pair 
+  # Keep track of already generated pairs
+  used_pairs = set()
+  while True:
+    pair = sample(numbers, 2)
+    # Avoid generating both (1, 2) and (2, 1)
+    pair = tuple(sorted(pair))
+    if pair not in used_pairs:
+      used_pairs.add(pair)
+      yield pair
 
 
 def seed_friends():
     '''
     Seeds the friends table.
     '''
-    # A relatively long list 
+    # A relatively long list
     numbers = list(range(2, total_users-1))
     gen = pair_generator(numbers)
     for _ in range(2, total_users-1):
-        pair = next(gen) 
+        pair = next(gen)
         new_user_server = Friend(
             sender_user_id=pair[0],
             rec_user_id=pair[1],

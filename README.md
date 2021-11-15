@@ -4,6 +4,14 @@ Initially, this project was bootstrapped with [Create React App](https://github.
 
 View our wiki for the project [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki).
 
+![Splash Page](http://url/to/img.png)
+
+![Main Page](http://url/to/img.png)
+
+![Friends List](http://url/to/img.png)
+
+---
+
 ## Run App
 
 In the frontend directory, you can run:
@@ -30,43 +38,38 @@ Enter following into terminal while within project root
 pipenv run flask run
 ```
 
+---
+
 ## Feature List
 
 We are going for an accurate clone of [discord.com](http://discord.com). Our feature list is subject to change but MVP's for this project are:
 
-### User Sign up
+* User Sign up
+    - username -- append a random number (#1234)
 
-- username -- append a random number (#1234)
-- Avatars/profile picture
+* Create Servers
+    - server is full CRUD
 
-### Create Servers
+* Create Channels Within Servers
+    - Channel is full CRUD
 
-- server is full CRUD
 
-### Create Channels Within Servers
+* Server Messaging
+    - very hopeful to finish via web socket
 
-- Channel is full CRUD
+* Private Messaging
+    - between 2 users
 
-### Server Messaging
-
-- very hopeful to finish via web socket
-
-### Private Messaging
-
-- 2 users
-- groups as possible bonus
-
-## BONUS MVP's
-
-### Friends List
-
-### Private Messaging in a group
+* Friends List
+    - invite to add friends
+    - accept invite to add friends
+    - view friends list
 
 ## How to Use !Discord
 
-### Join Server
+<!-- ### Join Server
 
-ph
+You can join any server from the discovery page. -->
 
 ### Create Server
 
@@ -74,7 +77,7 @@ Any user can create a new server with the + button at the bottom of their server
 
 ### Create Channel
 
-If you own the server, you can create a channel with Create Channel button above all current channels list.
+If you own the server, you can create a channel with the + button to the right of the Text Channel text.
 
 ### Send Message
 
@@ -84,9 +87,22 @@ Any user can send a message with the message box at the bottom of any channel me
 
 Messages allow many types of embedding when sending links
 
-## ToDo
+---
 
-* invite button from channels if it does not work
-* Move gear button to actual gear image
+## To Do
+
+* remove invite button from channels if it does not work
 * remove direct message plus icon if it does not work at the top of the dm list
 * Add channel appears in all servers instead of just owned servers
+
+---
+
+## Authors and acknowledgment
+
+[Dan Purcell's Github](https://pages.github.com/)
+
+[Jason Zhou's Github](https://github.com/CroissantAhhh)
+
+[Michael Ericson's Github](https://github.com/Concrete18)
+
+[Nebyou Ejigu's Github](https://github.com/nebbb)

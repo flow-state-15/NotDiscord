@@ -25,13 +25,27 @@ def delete_channel(friend_id):
     return {'friend_id': friend_id}
 
 
-# #POST add friend
-# @friend_routes.route('/add/<int:friend_id>', methods=['DELETE'])
-# @login_required
-# def delete_channel(friend_id):
-#     db.session.commit()
-#     db.session.add()
-#     return {'friend_id': friend_id}
+#POST add friend
+@friend_routes.route('/add', methods=['POST'])
+@login_required
+def add_a_friend():
+    data = request.json
+    friend = Friend(
+        accepted = False,
+        sender_user_id = data["user_id"],
+        rec_user_id = data["friend_id"],
+    )
+
+    db.session.add(friend)
+    db.session.commit()
+
+    friend_dict = friend.to_dict()
+    the_user = User.query.get(data["friend_id"])
+    the_user_dict = the_user.to_dict()
+    the_user_dict['friend_data'] = friend_dict
+
+
+    return {'friend': the_user_dict}
 
 #PUT accept friend request
 @friend_routes.route('/accept/<int:friend_id>', methods=['PUT'])

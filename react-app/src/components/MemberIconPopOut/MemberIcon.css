@@ -1,0 +1,67 @@
+.add-friend-btn {
+}
+.tagged-name-first {
+  color: #fff;
+}
+.tagged-name-second {
+  color: #b9bbbe;
+}
+.tagged-name-full {
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Whitney Semibold Regular";
+}
+.avatar-wrapper-PopOut {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+}
+.member-PopOut-content-top {
+  position: relative;
+}
+.member-PopOut-content-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 1rem;
+  height: 20rem;
+}
+.member-content-top-bots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+.member-PopOut {
+}
+.about-me-pop {
+  font-size: 1.26rem;
+  text-transform: uppercase;
+  color: #b9bbbe;
+  font-family: "Whitney Semibold Regular";
+  margin-bottom: 0.5rem;
+}
+.about-me-sec {
+  font-size: 1.6rem;
+}
+.user-chat-bar-text-field {
+  background-color: #292b2f;
+  outline: none;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-family: "Whitney Medium";
+  color: #fff;
+  width: 100%;
+}
+.add-friend-btn {
+  outline: none;
+  border: none;
+  background-color: #3ba55d;
+  color: #fff;
+  padding: 0.6rem 1.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  font-family: "Whitney Semibold Regular";
+}
