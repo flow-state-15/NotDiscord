@@ -6,9 +6,7 @@ View our wiki for the project [Wiki](https://github.com/flow-state-15/discord_cl
 
 ![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
 
-![Main Page](http://url/to/img.png)
-
-![Friends List](http://url/to/img.png)
+![Main Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Main-View.png)
 
 ---
 
@@ -37,7 +35,6 @@ Enter following into terminal while within project root
 ```bash
 pipenv run flask run
 ```
-
 ---
 
 ## Feature List
@@ -68,6 +65,8 @@ We are going for an accurate clone of [discord.com](http://discord.com). Our fea
     - invite to add friends
     - accept invite to add friends
     - view friends list
+
+    ![Friends List](http://url/to/img.png)
 
 ## How to Use !Discord
 
