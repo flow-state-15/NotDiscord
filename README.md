@@ -79,7 +79,7 @@ We are going for an accurate clone of [Discord](http://discord.com).
 
 ![Friends List Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Friends-List.png)
 
-## How to Use !Discord
+## How to use !Discord
 
 ### Join Server
 
