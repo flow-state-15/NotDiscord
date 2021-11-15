@@ -1,14 +1,12 @@
-# Python Discord Clone
+# !Discord - *Clone of Discord*
 
 Initially, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is coded in Python and frontend is coded in JavaScript and CSS, using React/Redux. This project also features Docker implementation.
 
 View our wiki for the project [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki).
 
-![Splash Page](http://url/to/img.png)
+![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
 
-![Main Page](http://url/to/img.png)
-
-![Friends List](http://url/to/img.png)
+![Main Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Main-View.png)
 
 ---
 
@@ -37,7 +35,6 @@ Enter following into terminal while within project root
 ```bash
 pipenv run flask run
 ```
-
 ---
 
 ## Feature List
@@ -48,14 +45,18 @@ We are going for an accurate clone of [discord.com](http://discord.com). Our fea
     - username -- append a random number (#1234)
 
 * Create Servers
-    - server is full CRUD
+    - Servers are full CRUD
+
+* Join Server Discovery 
+    - Shows all servers that can be joined
 
 * Create Channels Within Servers
-    - Channel is full CRUD
-
+    - Channels are full CRUD
 
 * Server Messaging
-    - very hopeful to finish via web socket
+    - Server messaging with sockets and embedding
+
+    ![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png
 
 * Private Messaging
     - between 2 users
@@ -64,6 +65,8 @@ We are going for an accurate clone of [discord.com](http://discord.com). Our fea
     - invite to add friends
     - accept invite to add friends
     - view friends list
+
+    ![Friends List](http://url/to/img.png)
 
 ## How to Use !Discord
 
