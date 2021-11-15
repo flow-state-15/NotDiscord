@@ -17,8 +17,6 @@ function MemberIconPopOut({ member, position, sidebar }) {
     dispatch(loadUserFriends(user.id));
   }, []);
 
-  console.log(friends);
-
   //   const topScroll = window.pageYOffset || document.documentElement.scrollTop;
   //   const leftScroll = window.pageXOffset || document.documentElement.scrollLeft;
 

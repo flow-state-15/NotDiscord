@@ -43,12 +43,12 @@ export default function AddServerModal() {
   }
 
   return (
-    <div daAttribute={"Explore Public Servers"}>
+    <div daattribute={"Explore Public Servers"}>
       {/* <button className="add-channel-button" onClick={() => setShowModal(true)}>
         Add Server
       </button> */}
       <div
-        daAttribute={"Explore Public Servers"}
+        daattribute={"Explore Public Servers"}
         onClick={() => {
           setShowModal(true);
         }}
