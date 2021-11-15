@@ -2,7 +2,9 @@
 
 Initially, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is coded in Python and frontend is coded in JavaScript and CSS, using React/Redux. This project also features Docker implementation.
 
-View our wiki for the project [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki).
+View our [Live Website Via Heroku](aa-not-discord.herokuapp.com).
+
+View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project.
 
 ![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
 
@@ -11,8 +13,6 @@ View our wiki for the project [Wiki](https://github.com/flow-state-15/discord_cl
 ---
 
 ## Run App
-
-In the frontend directory, you can run:
 
 ### Frontend Startup
 
@@ -39,7 +39,7 @@ pipenv run flask run
 
 ## Feature List
 
-We are going for an accurate clone of [discord.com](http://discord.com).
+We are going for an accurate clone of [Discord](http://discord.com).
 
 * User Sign up
     - username -- append a random number (#1234)
@@ -103,7 +103,7 @@ Messages automatically embed many types of links when sent.
 
 ### Add Friends
 
-Click on a users avatar so you can see the Add Friend button.
+Click on a user’s avatar so you can see the Add Friend button.
 They will be given the choice to accept from their friends list.
 
 ---
