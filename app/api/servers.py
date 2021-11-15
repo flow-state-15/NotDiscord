@@ -110,3 +110,24 @@ def delete_server(server_id):
     db.session.query(Server).filter(Server.id==server_id).delete()
     db.session.commit()
     return {'server_id': server_id}
+
+# POST join server
+@server_routes.route('/join', methods=['POST'])
+@login_required
+def join_a_server():
+    data = request.json
+    server = User_Server(
+        server_id = data["server_id"],
+        user_id = data["user_id"],
+    )
+
+    db.session.add(server)
+    db.session.commit()
+
+    joined_server = Server.query.get(data["server_id"])
+    server_dict = joined_server.to_dict()
+
+    first_channel = Channel.query.filter(Channel.server_id == server_dict["id"]).first()
+    first_channel_dict = first_channel.to_dict()
+    server_dict["firstChannelId"] = first_channel_dict["id"]
+    return {'server': server_dict}

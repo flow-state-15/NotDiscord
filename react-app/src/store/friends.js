@@ -36,7 +36,7 @@ export const loadUserFriends = (userId) => async (dispatch) => {
 };
 
 export const addFriend = (formData) => async (dispatch) => {
-  const response = await fetch("/api/channels", {
+  const response = await fetch("/api/friends/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -45,8 +45,8 @@ export const addFriend = (formData) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const channel = await response.json();
-    dispatch(add(channel["channel"]));
+    const friend = await response.json();
+    dispatch(add(friend["friend"]));
   }
 };
 
