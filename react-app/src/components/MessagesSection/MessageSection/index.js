@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { updateMessage, removeMessage } from "../../../store/messages";
 import { useDispatch } from "react-redux";
+import Linkify from "react-linkify";
 import MemberIconPopOut from "../../MemberIconPopOut";
 
 export default function MessageSection({ message }) {
@@ -49,7 +50,7 @@ export default function MessageSection({ message }) {
       foundLink.includes(".gif")
     ) {
       embed = (
-        <a href={foundLink} target="_blank">
+        <a href={foundLink}>
           <img
             src={foundLink}
             alt="embed"
@@ -249,10 +250,7 @@ export default function MessageSection({ message }) {
             <>
               {!hideLink && (
                 <p className={`changeable-text changeable-text-${message.id}`}>
-                  <div>{message.content.replace(foundLink, '')}</div>
-                  {foundLink && (
-                    <a href={foundLink} target="_blank">{foundLink}</a>
-                  )}
+                  {<Linkify>{message.content}</Linkify>}
                 </p>
               )}
               {embed && embed}
