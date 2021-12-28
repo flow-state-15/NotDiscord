@@ -43,6 +43,7 @@ def seed_user():
     db.session.add(demo_user)
     # rest of the users
     # TODO add more avatars
+    # s3
     avatars = [
         'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/blue-discord-icon.png',
         'https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/react-app/public/assets/discord-icons/gray-discord-icon.png',
