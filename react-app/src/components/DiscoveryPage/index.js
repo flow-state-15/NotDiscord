@@ -10,6 +10,8 @@ export default function DiscoveryPage() {
   const user = useSelector((state) => state.session.user);
   const theservers = useSelector((state) => state.servers);
   const dispatch = useDispatch();
+  
+  // upload to s3
 
   const bannerArray = [
     "https://cdn.discordapp.com/discovery-splashes/522681957373575168/c73d6929db8fc3362b51f0f08cfd5cff.jpg?size=480",
