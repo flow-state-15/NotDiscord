@@ -1,14 +1,14 @@
-# !Discord - *Clone of Discord*
+# Twitta - *Clone of Twitter*
 
 Initially, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is coded in Python and frontend is coded in JavaScript and CSS, using React/Redux. This project also features Docker implementation.
 
 View our [Live Website Via Heroku](https://aa-not-discord.herokuapp.com/).
 
-View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project.
+View the [Wiki](https://github.com/nebbb/dasecondproject/wiki) for more project info.
 
-![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
+![Splash Page](https://i.imgur.com/nM5Z1lE.png)
 
-![Main Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Main-View.png)
+![Main Page](https://i.imgur.com/pghl4sX.png)
 
 ---
 
@@ -39,81 +39,52 @@ pipenv run flask run
 
 ## Feature List
 
-We are going for an accurate clone of [Discord](http://discord.com).
+Pixel perfect clone of [Twiiter](http://twitter.com).
 
 * User Sign up
-    - username -- append a random number (#1234)
+    - username
 
-![Signup Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Signup.png)
+![Signup Example Image](https://i.imgur.com/ZtJytKs.png)
 
-* Create Servers
-    - Servers are full CRUD
+* Tweet
+    - Tweets are full CRUD
 
-![Create Servers Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Server.png)
+![Tweet Example](https://i.imgur.com/o0edfjL.png)
 
-* Join Server Discovery 
-    - Shows all servers that can be joined
+* DM Users 
+    - Create DMs, and send messages between users!
 
-![Join Server Discovery Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Discover-Servers.png)
+![User DMs](https://i.imgur.com/tyAgqL9.png)
 
-* Create Channels Within Servers
+* Suggested Follows
     - Channels are full CRUD
 
-![Create Channels Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Channel.png)
+![Suggested Follows](https://i.imgur.com/tegyWwW.png)
 
-* Channel Messaging
-    - Server messaging with sockets
-    - Multiple format embedding
-    
-![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png)
 
-* Private Messaging
-    - between 2 users
 
-![Private Messaging Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Private-Message.png)
+## How to use Twiita
 
-* Friends List
-    - invite to add friends
-    - accept invite to add friends
-    - view friends list
+### Tweet
 
-![Friends List Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Friends-List.png)
+You can make a tweet from any page on the website. 
 
-## How to use !Discord
+### Comment
 
-### Join Server
+Comment on any public tweet.
 
-You can join any server from the discovery page.
+### DM Users
 
-### Create Server
+If you are following a user, you can create a DM channel with them, this uses WebSockets to enable live chatting between client and server.
 
-Any user can create a new server with the + button at the bottom of their server list.
+### Like and Bookmarks
 
-### Create Channel
+Tweet interactivity isn't only restricting to comments, you can like and bookmark a tweet aswell!
 
-If you own the server, you can create a channel with the + button to the right of the Text Channel text.
+### Follow Users
 
-### Send Message
+You can follow users, check follow count, and see who's following who.
 
-Any user can send a message with the message box at the bottom of any channel message list.
+### Reccomended Follows
 
-### Message Embed
-
-Messages automatically embed many types of links when sent.
-
-### Add Friends
-
-Click on a user’s avatar so you can see the Add Friend button.
-They will be given the choice to accept from their friends list.
-
----
-
-## Authors and acknowledgment
-
-[Dan Purcell's Github](https://github.com/flow-state-15)
-
-[Jason Zhou's Github](https://github.com/CroissantAhhh)
-
-[Michael Ericson's Github](https://github.com/Concrete18)
-
-[Nebyou Ejigu's Github](https://github.com/nebbb)
+Aren't sure who to follow? Don't worry. The reccomended follows section will give you suggestions on who to follow based off of who you are already currently following.
