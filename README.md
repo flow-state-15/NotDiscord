@@ -1,90 +1,96 @@
-# Twitta - *Clone of Twitter*
+# !Discord - *Clone of Discord*
 
 Initially, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is coded in Python and frontend is coded in JavaScript and CSS, using React/Redux. This project also features Docker implementation.
 
 View our [Live Website Via Heroku](https://aa-not-discord.herokuapp.com/).
 
-View the [Wiki](https://github.com/nebbb/dasecondproject/wiki) for more project info.
+View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project.
 
-![Splash Page](https://i.imgur.com/nM5Z1lE.png)
+![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
 
-![Main Page](https://i.imgur.com/pghl4sX.png)
+![Main Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Main-View.png)
 
 ---
 
-## Run App
-
-### Frontend Startup
-
-Enter the following into terminal while within react-app dir
-
-```bash
-npm start
-```
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### Backend Startup
-
-Enter following into terminal while within project root
-
-```bash
-pipenv run flask run
-```
----
+	@@ -39,81 +39,52 @@ pipenv run flask run
 
 ## Feature List
 
-Pixel perfect clone of [Twiiter](http://twitter.com).
+We are going for an accurate clone of [Discord](http://discord.com).
 
 * User Sign up
-    - username
+    - username -- append a random number (#1234)
 
-![Signup Example Image](https://i.imgur.com/ZtJytKs.png)
+![Signup Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Signup.png)
 
-* Tweet
-    - Tweets are full CRUD
+* Create Servers
+    - Servers are full CRUD
 
-![Tweet Example](https://i.imgur.com/o0edfjL.png)
+![Create Servers Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Server.png)
 
-* DM Users 
-    - Create DMs, and send messages between users!
+* Join Server Discovery 
+    - Shows all servers that can be joined
 
-![User DMs](https://i.imgur.com/tyAgqL9.png)
+![Join Server Discovery Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Discover-Servers.png)
 
-* Suggested Follows
+* Create Channels Within Servers
     - Channels are full CRUD
 
-![Suggested Follows](https://i.imgur.com/tegyWwW.png)
+![Create Channels Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Channel.png)
 
+* Channel Messaging
+    - Server messaging with sockets
+    - Multiple format embedding
 
+![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png)
 
-## How to use Twiita
+* Private Messaging
+    - between 2 users
 
-### Tweet
+![Private Messaging Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Private-Message.png)
 
-You can make a tweet from any page on the website. 
+* Friends List
+    - invite to add friends
+    - accept invite to add friends
+    - view friends list
 
-### Comment
+![Friends List Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Friends-List.png)
 
-Comment on any public tweet.
+## How to use !Discord
 
-### DM Users
+### Join Server
 
-If you are following a user, you can create a DM channel with them, this uses WebSockets to enable live chatting between client and server.
+You can join any server from the discovery page.
 
-### Like and Bookmarks
+### Create Server
 
-Tweet interactivity isn't only restricting to comments, you can like and bookmark a tweet aswell!
+Any user can create a new server with the + button at the bottom of their server list.
 
-### Follow Users
+### Create Channel
 
-You can follow users, check follow count, and see who's following who.
+If you own the server, you can create a channel with the + button to the right of the Text Channel text.
 
-### Reccomended Follows
+### Send Message
 
-Aren't sure who to follow? Don't worry. The reccomended follows section will give you suggestions on who to follow based off of who you are already currently following.
+Any user can send a message with the message box at the bottom of any channel message list.
+
+### Message Embed
+
+Messages automatically embed many types of links when sent.
+
+### Add Friends
+
+Click on a user’s avatar so you can see the Add Friend button.
+They will be given the choice to accept from their friends list.
+
+---
+
+## Authors and acknowledgment
+
+[Dan Purcell's Github](https://github.com/flow-state-15)
+
+[Jason Zhou's Github](https://github.com/CroissantAhhh)
+
+[Michael Ericson's Github](https://github.com/Concrete18)
+
+[Nebyou Ejigu's Github](https://github.com/nebbb)
