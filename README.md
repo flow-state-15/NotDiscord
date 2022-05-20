@@ -1,8 +1,8 @@
-# !Discord - *Clone of Discord*
+# Concord - _Clone of Discord_
 
 Initially, this project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Backend is coded in Python and frontend is coded in JavaScript and CSS, using React/Redux. This project also features Docker implementation.
 
-View our [Live Website Via Heroku](https://aa-not-discord.herokuapp.com/).
+View our [Live Website Via Heroku](https://aa-concord.herokuapp.com/).
 
 View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project.
 
@@ -35,51 +35,52 @@ Enter following into terminal while within project root
 ```bash
 pipenv run flask run
 ```
+
 ---
 
 ## Feature List
 
 We are going for an accurate clone of [Discord](http://discord.com).
 
-* User Sign up
-    - username -- append a random number (#1234)
+- User Sign up
+  - username -- append a random number (#1234)
 
 ![Signup Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Signup.png)
 
-* Create Servers
-    - Servers are full CRUD
+- Create Servers
+  - Servers are full CRUD
 
 ![Create Servers Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Server.png)
 
-* Join Server Discovery 
-    - Shows all servers that can be joined
+- Join Server Discovery
+  - Shows all servers that can be joined
 
 ![Join Server Discovery Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Discover-Servers.png)
 
-* Create Channels Within Servers
-    - Channels are full CRUD
+- Create Channels Within Servers
+  - Channels are full CRUD
 
 ![Create Channels Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Create-Channel.png)
 
-* Channel Messaging
-    - Server messaging with sockets
-    - Multiple format embedding
-    
+- Channel Messaging
+  - Server messaging with sockets
+  - Multiple format embedding
+
 ![Embed Example Image](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Embed.png)
 
-* Private Messaging
-    - between 2 users
+- Private Messaging
+  - between 2 users
 
 ![Private Messaging Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Private-Message.png)
 
-* Friends List
-    - invite to add friends
-    - accept invite to add friends
-    - view friends list
+- Friends List
+  - invite to add friends
+  - accept invite to add friends
+  - view friends list
 
 ![Friends List Example Image](https://github.com/flow-state-15/discord_clone_2/blob/master/Screenshots/Friends-List.png)
 
-## How to use !Discord
+## How to use Concord
 
 ### Join Server
 

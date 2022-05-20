@@ -37,6 +37,10 @@ eventlet = "==0.30.2"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
