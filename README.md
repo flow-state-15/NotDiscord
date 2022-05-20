@@ -4,7 +4,7 @@ Initially, this project was bootstrapped with [Create React App](https://github.
 
 View our [Live Website Via Heroku](https://aa-concord.herokuapp.com/).
 
-View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project.
+View our [Wiki](https://github.com/flow-state-15/discord_clone_group_projo/wiki) for the project
 
 ![Splash Page](https://raw.githubusercontent.com/flow-state-15/discord_clone_2/master/Screenshots/Splash-Page.png)
 
