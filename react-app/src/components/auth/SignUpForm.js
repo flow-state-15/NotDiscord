@@ -1262,11 +1262,13 @@ const SignUpForm = () => {
 
       <div className="login-form-wrapper">
         {demo && user ? <Redirect to="/channels/@me" /> : null}
-        <h2 style={{color: "white"}}>Create an account</h2>
+        <h2 style={{ color: "white" }}>Create an account</h2>
         <form className="login-form-form" onSubmit={onSignUp}>
           <div>
             {errors.map((error, ind) => (
-              <div style={{color: "red"}} key={ind}>{error}</div>
+              <div style={{ color: "red" }} key={ind}>
+                {error}
+              </div>
             ))}
           </div>
           <div className="login-form-components">
@@ -1309,8 +1311,12 @@ const SignUpForm = () => {
             <button onClick={() => dispatchDemoLogin()}>Demo User</button>
           </div>
         </form>
-        <Link className='login-links' to='/login'>Already have an account?</Link>
-        <Link className='login-links' to="/">Return to Discord</Link>
+        <Link className="login-links" to="/login">
+          Already have an account?
+        </Link>
+        <Link className="login-links" to="/">
+          Return to Concord
+        </Link>
       </div>
     </>
   );

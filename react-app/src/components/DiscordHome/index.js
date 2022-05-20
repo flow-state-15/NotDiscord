@@ -87,7 +87,7 @@ export default function DiscordHome() {
         </p>
         <Link to="/channels/@me">
           <button className="button-open-discord-top">
-            Open !Discord in your browser
+            Open Concord in your browser
           </button>
         </Link>
       </div>
@@ -129,7 +129,7 @@ export default function DiscordHome() {
                 belong
               </h1>
               <p>
-                Discord servers are organized into topic-based channels where
+                Concord servers are organized into topic-based channels where
                 youcan collaborate, share, and just talk about your day without
                 clogging up a group chat.
               </p>
@@ -182,12 +182,12 @@ export default function DiscordHome() {
           </div>
           <div className="home-tile-last-button">
             <Link to="./channels/@me">
-              <button className="home-buttons">Open !Discord</button>
+              <button className="home-buttons">Open Concord</button>
             </Link>
           </div>
         </div>
         <footer>
-          <h1>!Discord</h1>
+          <h1>Concord</h1>
           <h3>brought to you by...</h3>
           <div className="footer-about-container">
             <div className="footer-dev-container">

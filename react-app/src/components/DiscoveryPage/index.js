@@ -2218,7 +2218,7 @@ export default function DiscoveryPage() {
             </g>
           </svg>
           <div className="guild-content-box">
-            <p className="guild-text-1">Find your community on Discord</p>
+            <p className="guild-text-1">Find your community on Concord</p>
             <p className="guild-text-2">
               From gaming, to music, to learning, there's a place for you.
             </p>

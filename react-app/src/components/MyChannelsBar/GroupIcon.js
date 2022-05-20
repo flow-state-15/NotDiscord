@@ -11,7 +11,7 @@ export default function GroupIcon() {
         </div>
         <div className="name-tag name-tag-custom">
           <div>
-            <h1 className="username username-color">Discord Group</h1>
+            <h1 className="username username-color">Concord Group</h1>
             <h1 className="username username-color username-alias-to-group">
               4 Members
             </h1>

@@ -1252,7 +1252,9 @@ const LoginForm = () => {
             <span>We're so excited to see you again!</span>
             <div>
               {errors.map((error, ind) => (
-                <div style={{color: "red"}} key={ind}>{error}</div>
+                <div style={{ color: "red" }} key={ind}>
+                  {error}
+                </div>
               ))}
             </div>
             <div className="login-form-components">
@@ -1272,11 +1274,7 @@ const LoginForm = () => {
                 value={password}
                 onChange={updatePassword}
               />
-              <button
-                type="submit"
-              >
-                Login
-              </button>
+              <button type="submit">Login</button>
               <button onClick={() => dispatchDemoLogin()}>Demo User</button>
             </div>
           </form>
@@ -1287,7 +1285,7 @@ const LoginForm = () => {
             </Link>
           </div>
           <Link className="login-links" to="/">
-            Return to Discord
+            Return to Concord
           </Link>
         </div>
       </div>

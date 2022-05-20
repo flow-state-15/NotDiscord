@@ -12,7 +12,7 @@ export default function LoginPage() {
             <p>We're so excited to see you again!</p>
           </div>
           <div>
-            <LoginForm/>
+            <LoginForm />
             <Link>Forgot your password?</Link>
           </div>
           <div>
@@ -29,7 +29,7 @@ export default function LoginPage() {
           </div>
           <div>
             <h3>Log in with QR Code</h3>
-            <p>Scan this with the Discord mobile app to login instantly.</p>
+            <p>Scan this with the Concord mobile app to login instantly.</p>
           </div>
         </div>
       </div>
